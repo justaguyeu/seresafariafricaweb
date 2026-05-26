@@ -483,7 +483,7 @@ body.cursor-lg #cursor-ring {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1800&q=90') center/cover no-repeat;
+  background: url('../images/1.webp') center/cover no-repeat;
   animation: heroZoom 20s ease-in-out infinite alternate;
   will-change: transform;
 }
