@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="description"
+    content="Explore Tanzania's most iconic destinations – Serengeti, Ngorongoro Crater, Tarangire, Lake Manyara, Kilimanjaro and Zanzibar with Sere Safari Africa." />
+  <title>Destinations – Sere Safari Africa</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+  <button id="back-top"><i class="fa-solid fa-chevron-up"></i></button>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="../index.html" class="logo">
+      <img src="../logo.png" alt="">
+    </a>
+    <ul class="nav-links">
+      <li><a href="../about.html">About</a></li>
+      <li><a href="destinations.html" class="active">Destinations</a></li>
+      <li><a href="tours.html">Tours</a></li>
+      <li><a href="kilimanjaro.html">Kilimanjaro</a></li>
+      <li><a href="zanzibar.html">Zanzibar</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html" class="nav-book">Book Now</a></li>
+    </ul>
+    <button class="ham" id="ham"><span></span><span></span><span></span></button>
+  </nav>
+  <nav class="mob-menu" id="mob-menu">
+    <a href="../index.html">Home</a><a href="../about.html">About</a>
+    <a href="destinations.html">Destinations</a><a href="tours.html">Tours</a>
+    <a href="kilimanjaro.html">Kilimanjaro</a><a href="zanzibar.html">Zanzibar</a>
+    <a href="gallery.html">Gallery</a><a href="contact.html" style="color:var(--gold)">Book Now</a>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header"
+    style="background-image:url('../images/Great\ Exploration\ 2_210.JPG');">
+    <div class="breadcrumb"><a href="../index.html">Home</a><i class="fa-solid fa-chevron-right"></i>Destinations</div>
+    <div class="section-tag">Where We Take You</div>
+    <h1 class="section-title" style="font-size:clamp(2.5rem,6vw,4.5rem);">Iconic <em>Destinations</em></h1>
+    <p class="section-sub" style="max-width:600px;margin:.8rem auto 0;">Five legendary national parks and conservation
+      areas, one extraordinary island — each a world entirely unto itself, waiting to be explored.</p>
+  </header>
+
+  <!-- DESTINATIONS GRID OVERVIEW -->
+  <section class="dest-section" style="background:var(--dark2);">
+    <div class="dest-header reveal">
+      <div>
+        <div class="section-tag">Tanzania's Crown Jewels</div>
+        <h2 class="section-title">All <em>Destinations</em></h2>
+      </div>
+      <p class="section-sub" style="max-width:400px;">Every park. Every landscape. Every story — explored in-depth
+        below.</p>
+    </div>
+    <div class="dest-grid reveal">
+      <div class="dest-card">
+        <img src="../images/Great Exploration 2_68.JPG" alt="Serengeti"
+          loading="lazy" />
+        <div class="dest-info">
+          <div class="dest-name">Serengeti National Park</div>
+          <div class="dest-region"><i class="fa-solid fa-location-dot"></i> Northern Tanzania · UNESCO World Heritage
+          </div>
+          <div class="dest-desc">Endless plains teeming with wildlife. Witness the Great Migration — over 1.5 million
+            wildebeest, zebras and gazelles in Earth's greatest natural spectacle, year after remarkable year.</div>
+        </div>
+        <div class="dest-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+      <div class="dest-card">
+        <img src="../images/Great Exploration 2_2.JPG" alt="Ngorongoro"
+          loading="lazy" />
+        <div class="dest-info">
+          <div class="dest-name">Ngorongoro Crater</div>
+          <div class="dest-region"><i class="fa-solid fa-location-dot"></i> Conservation Area · UNESCO Heritage</div>
+          <div class="dest-desc">Africa's largest intact caldera housing over 25,000 mammals. Spot all of the Big Five
+            in a single extraordinary day on the crater floor.</div>
+        </div>
+        <div class="dest-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+      <div class="dest-card">
+        <img src="../images/tarangire.JPG" alt="Tarangire"
+          loading="lazy" />
+        <div class="dest-info">
+          <div class="dest-name">Tarangire National Park</div>
+          <div class="dest-region"><i class="fa-solid fa-location-dot"></i> Northern Tanzania</div>
+          <div class="dest-desc">Ancient baobabs and Africa's largest elephant herds roam alongside the life-giving
+            Tarangire River in this spectacular and often under-visited park.</div>
+        </div>
+        <div class="dest-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+      <div class="dest-card">
+        <img src="../images/Kishapui Safaris_16.JPG" alt="Lake Manyara"
+          loading="lazy" />
+        <div class="dest-info">
+          <div class="dest-name">Lake Manyara</div>
+          <div class="dest-region"><i class="fa-solid fa-location-dot"></i> Rift Valley · Northern Tanzania</div>
+          <div class="dest-desc">Famous for tree-climbing lions and vast flocks of pink flamingos. Over 400 bird species
+            thrive in this compact yet extraordinarily diverse park.</div>
+        </div>
+        <div class="dest-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+      <div class="dest-card">
+        <img src="../images/cropMount-Kilimanjaro.jpg" alt="Kilimanjaro"
+          loading="lazy" />
+        <div class="dest-info">
+          <div class="dest-name">Kilimanjaro National Park</div>
+          <div class="dest-region"><i class="fa-solid fa-location-dot"></i> Roof of Africa · 5,895 m</div>
+          <div class="dest-desc">Africa's highest peak, crowned in glaciers — a bucket-list climb through five
+            ecological zones to the legendary Uhuru Peak at dawn.</div>
+        </div>
+        <div class="dest-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETAILED DESTINATION CARDS -->
+  <section style="background:var(--dark);padding:7rem 8%;">
+    <div style="text-align:center;max-width:600px;margin:0 auto 3.5rem;" class="reveal">
+      <div class="section-tag">In-Depth Profiles</div>
+      <h2 class="section-title">Know Your <em>Destination</em></h2>
+      <p class="section-sub">Everything you need to know before you go — wildlife, best times, what to expect.</p>
+    </div>
+    <div class="dest-cards-grid">
+
+      <!-- SERENGETI -->
+      <div class="dest-full-card reveal">
+        <div class="card-img"><img src="../images/Great Exploration 2_208.JPG"
+            alt="Serengeti National Park" loading="lazy" /></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span><i class="fa-solid fa-location-dot"></i> Northern Tanzania</span>
+            <span><i class="fa-solid fa-star"></i> UNESCO Heritage</span>
+          </div>
+          <a href="../tour-packages/classic-safari.html" style="text-decoration:none;color:var(--white);">
+            <h3 style="transition:color .3s;" onmouseover="this.style.color='var(--gold)'"
+              onmouseout="this.style.color='var(--white)'">Serengeti National Park <i
+                class="fa-solid fa-arrow-up-right-from-square" style="font-size:.7rem;opacity:.6;"></i></h3>
+          </a>
+          <p>Tanzania's most celebrated park covers 14,763 km² of endless golden savannah, acacia woodland and rocky
+            kopjes. It is home to the world-famous Great Migration — the annual movement of over 1.5 million wildebeest,
+            200,000 zebras and 500,000 gazelles in a continuous cycle driven by rainfall and fresh grass. The Serengeti
+            hosts all of the Big Five and over 500 bird species.</p>
+          <div class="card-facts">
+            <div class="card-fact"><i class="fa-solid fa-calendar-days"></i> Best time: June–October (dry season) &amp;
+              Jan–Feb (calving)</div>
+            <div class="card-fact"><i class="fa-solid fa-paw"></i> Wildlife: Wildebeest, lion, leopard, cheetah,
+              elephant, buffalo, rhino</div>
+            <div class="card-fact"><i class="fa-solid fa-binoculars"></i> Experience: Great Migration, balloon safaris,
+              game drives</div>
+            <div class="card-fact"><i class="fa-solid fa-bed"></i> Stay: Tented camps inside the park for best wildlife
+              access</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NGORONGORO -->
+      <div class="dest-full-card reveal delay-1">
+        <div class="card-img"><img src="../images/Great Exploration 2_2.JPG"
+            alt="Ngorongoro Crater" loading="lazy" /></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span><i class="fa-solid fa-location-dot"></i> Conservation Area</span>
+            <span><i class="fa-solid fa-star"></i> UNESCO Heritage</span>
+          </div>
+          <a href="../tour-packages/serengeti-ngorongoro-3day.html" style="text-decoration:none;color:var(--white);">
+            <h3 style="transition:color .3s;" onmouseover="this.style.color='var(--gold)'"
+              onmouseout="this.style.color='var(--white)'">Ngorongoro Crater <i
+                class="fa-solid fa-arrow-up-right-from-square" style="font-size:.7rem;opacity:.6;"></i></h3>
+          </a>
+          <p>The world's largest intact volcanic caldera, Ngorongoro is a self-contained natural world 19 km across and
+            600 m deep. The crater floor supports over 25,000 mammals, including one of Africa's densest lion
+            populations and a significant black rhino population. Its unique geography means wildlife rarely leaves,
+            giving guests extraordinary wildlife concentration in a single dramatic landscape.</p>
+          <div class="card-facts">
+            <div class="card-fact"><i class="fa-solid fa-calendar-days"></i> Best time: Year-round — wildlife density is
+              consistently exceptional</div>
+            <div class="card-fact"><i class="fa-solid fa-paw"></i> Wildlife: All Big Five including rare black rhino,
+              flamingos</div>
+            <div class="card-fact"><i class="fa-solid fa-binoculars"></i> Experience: Full-day crater floor game drive,
+              Maasai visits</div>
+            <div class="card-fact"><i class="fa-solid fa-bed"></i> Stay: Crater rim lodges with spectacular sunrise
+              views</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TARANGIRE -->
+      <div class="dest-full-card reveal delay-2">
+        <div class="card-img"><img src="../images/Great Exploration 2_81.JPG"
+            alt="Tarangire National Park" loading="lazy" /></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span><i class="fa-solid fa-location-dot"></i> Northern Tanzania</span>
+            <span><i class="fa-solid fa-elephant"></i> Elephant Capital</span>
+          </div>
+          <a href="../tour-packages/tarangire-ngorongoro-manyara.html" style="text-decoration:none;color:var(--white);">
+            <h3 style="transition:color .3s;" onmouseover="this.style.color='var(--gold)'"
+              onmouseout="this.style.color='var(--white)'">Tarangire National Park <i
+                class="fa-solid fa-arrow-up-right-from-square" style="font-size:.7rem;opacity:.6;"></i></h3>
+          </a>
+          <p>Tarangire is Tanzania's hidden gem — an extraordinary landscape of ancient baobab trees, seasonal swamps,
+            and the permanent Tarangire River that acts as a magnet for wildlife during the dry season. Home to Africa's
+            largest elephant herds (often 300+ in a single group), Tarangire also supports oryx, eland, and the striking
+            fringe-eared oryx. The park sees far fewer tourists than Serengeti, offering an intimate safari experience.
+          </p>
+          <div class="card-facts">
+            <div class="card-fact"><i class="fa-solid fa-calendar-days"></i> Best time: June–October (dry season, peak
+              wildlife concentration)</div>
+            <div class="card-fact"><i class="fa-solid fa-paw"></i> Wildlife: Elephants, lions, leopards, oryx,
+              wildebeest, zebra</div>
+            <div class="card-fact"><i class="fa-solid fa-binoculars"></i> Experience: Baobab landscapes, walking
+              safaris, night drives</div>
+            <div class="card-fact"><i class="fa-solid fa-bed"></i> Stay: Tented camps near the river for best elephant
+              sightings</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LAKE MANYARA -->
+      <div class="dest-full-card reveal">
+        <div class="card-img"><img src="../images/side_9.JPG"
+            alt="Lake Manyara" loading="lazy" /></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span><i class="fa-solid fa-location-dot"></i> Rift Valley</span>
+            <span><i class="fa-solid fa-feather"></i> 400+ Bird Species</span>
+          </div>
+          <a href="../tour-packages/tarangire-ngorongoro-manyara.html" style="text-decoration:none;color:var(--white);">
+            <h3 style="transition:color .3s;" onmouseover="this.style.color='var(--gold)'"
+              onmouseout="this.style.color='var(--white)'">Lake Manyara <i
+                class="fa-solid fa-arrow-up-right-from-square" style="font-size:.7rem;opacity:.6;"></i></h3>
+          </a>
+          <p>Compact but incredibly diverse, Lake Manyara National Park stretches along the base of the dramatic Rift
+            Valley escarpment. The alkaline lake draws flamingos in flamboyant pink flocks, pelicans, storks, and over
+            400 other bird species. Manyara is also famous for its legendary tree-climbing lions — a behaviour unique to
+            this park — as well as large herds of elephants, hippos in the lake shallows, and a dense forest canopy
+            alive with monkeys and baboons.</p>
+          <div class="card-facts">
+            <div class="card-fact"><i class="fa-solid fa-calendar-days"></i> Best time: June–October; flamingos best
+              Nov–June</div>
+            <div class="card-fact"><i class="fa-solid fa-paw"></i> Wildlife: Tree-climbing lions, flamingos, elephants,
+              hippos</div>
+            <div class="card-fact"><i class="fa-solid fa-binoculars"></i> Experience: Birdwatching, forest drives,
+              tree-climbing lion search</div>
+            <div class="card-fact"><i class="fa-solid fa-bed"></i> Stay: Lodges on the escarpment with panoramic lake
+              views</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ZANZIBAR -->
+      <div class="dest-full-card reveal delay-1">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=700&q=80"
+            alt="Zanzibar" loading="lazy" /></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span><i class="fa-solid fa-location-dot"></i> Indian Ocean Island</span>
+            <span><i class="fa-solid fa-umbrella-beach"></i> Beach Paradise</span>
+          </div>
+          <a href="../zanzibar.html" style="text-decoration:none;color:var(--white);">
+            <h3 style="transition:color .3s;" onmouseover="this.style.color='var(--gold)'"
+              onmouseout="this.style.color='var(--white)'">Zanzibar Archipelago <i
+                class="fa-solid fa-arrow-up-right-from-square" style="font-size:.7rem;opacity:.6;"></i></h3>
+          </a>
+          <p>Just 35 minutes by flight from Dar es Salaam, the island of Zanzibar combines turquoise Indian Ocean
+            waters, powder-white beaches, rich Swahili culture, and a fascinating Arab trading history. Stone Town — a
+            UNESCO World Heritage Site — is a labyrinth of narrow alleys, carved doorways, and spice-scented markets.
+            The island's coral reefs shelter sea turtles, whale sharks, and abundant tropical fish, making it a
+            world-class diving and snorkelling destination.</p>
+          <div class="card-facts">
+            <div class="card-fact"><i class="fa-solid fa-calendar-days"></i> Best time: June–October &amp;
+              December–February (dry seasons)</div>
+            <div class="card-fact"><i class="fa-solid fa-fish"></i> Activities: Diving, snorkelling, spice tours, Stone
+              Town walks</div>
+            <div class="card-fact"><i class="fa-solid fa-binoculars"></i> Highlights: Sea turtles, whale sharks, coral
+              reefs, sunsets</div>
+            <div class="card-fact"><i class="fa-solid fa-bed"></i> Stay: Boutique beach resorts from Nungwi to Paje
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KILIMANJARO -->
+      <div class="dest-full-card reveal delay-2">
+        <div class="card-img"><img src="../images/cropMount-Kilimanjaro.jpg"
+            alt="Mount Kilimanjaro" loading="lazy" /></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span><i class="fa-solid fa-location-dot"></i> Northern Tanzania</span>
+            <span><i class="fa-solid fa-mountain"></i> 5,895 m Summit</span>
+          </div>
+          <a href="../kili-routes/machame-route.html" style="text-decoration:none;color:var(--white);">
+            <h3 style="transition:color .3s;" onmouseover="this.style.color='var(--gold)'"
+              onmouseout="this.style.color='var(--white)'">Mount Kilimanjaro <i
+                class="fa-solid fa-arrow-up-right-from-square" style="font-size:.7rem;opacity:.6;"></i></h3>
+          </a>
+          <p>Africa's highest point and the world's tallest free-standing mountain, Kilimanjaro is a dormant
+            stratovolcano rising dramatically from the surrounding plains to 5,895 metres. The mountain is accessible to
+            non-technical climbers via several established routes, each passing through five distinct ecological zones —
+            from tropical rainforest through heath and moorland to the barren alpine desert and finally the glaciated
+            summit. No ropes or technical climbing skills required, but strong fitness and acclimatisation are
+            essential.</p>
+          <div class="card-facts">
+            <div class="card-fact"><i class="fa-solid fa-calendar-days"></i> Best time: January–March &amp; June–October
+              (dry, clear skies)</div>
+            <div class="card-fact"><i class="fa-solid fa-person-hiking"></i> Routes: Machame, Lemosho, Rongai, Marangu,
+              Umbwe</div>
+            <div class="card-fact"><i class="fa-solid fa-trophy"></i> Duration: 5–9 days depending on route and
+              acclimatisation</div>
+            <div class="card-fact"><i class="fa-solid fa-shield-halved"></i> Success rate: 95% with Seresafari's expert
+              guides</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BEST TIME TO VISIT -->
+  <section style="background:var(--earth);padding:7rem 8%;">
+    <div style="text-align:center;max-width:600px;margin:0 auto 3.5rem;" class="reveal">
+      <div class="section-tag">Plan Smarter</div>
+      <h2 class="section-title">Best Time to <em>Visit Tanzania</em></h2>
+      <p class="section-sub">Tanzania is a year-round destination. Each season offers unique wildlife experiences —
+        here's how to choose your perfect timing.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;" class="reveal">
+      <div style="background:var(--dark2);padding:2rem;border:1px solid rgba(201,150,58,.15);">
+        <div style="color:var(--gold);font-size:1.8rem;margin-bottom:1rem;"><i class="fa-solid fa-sun"></i></div>
+        <div
+          style="font-family:var(--ff-head);font-size:1rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--white);margin-bottom:.5rem;">
+          June – October</div>
+        <div
+          style="font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;">
+          Dry Season · Peak Safari</div>
+        <p style="font-size:.83rem;line-height:1.7;color:var(--text);">The best time for wildlife viewing. Animals
+          congregate around water sources, vegetation is low (easier spotting), and the Great Migration river crossings
+          happen in the Mara River (July–September). Minimal rain, comfortable temperatures, and excellent road
+          conditions throughout the parks.</p>
+      </div>
+      <div style="background:var(--dark2);padding:2rem;border:1px solid rgba(201,150,58,.15);">
+        <div style="color:var(--gold);font-size:1.8rem;margin-bottom:1rem;"><i class="fa-solid fa-cloud-sun-rain"></i>
+        </div>
+        <div
+          style="font-family:var(--ff-head);font-size:1rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--white);margin-bottom:.5rem;">
+          November – December</div>
+        <div
+          style="font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;">
+          Short Rains · Green Season</div>
+        <p style="font-size:.83rem;line-height:1.7;color:var(--text);">Short rains bring lush green landscapes and fewer
+          crowds. Excellent birdwatching as migratory species arrive. Prices are lower and lodges less busy, giving you
+          a more intimate experience. Wildebeest begin their southward migration toward the Serengeti's southern plains
+          for calving season.</p>
+      </div>
+      <div style="background:var(--dark2);padding:2rem;border:1px solid rgba(201,150,58,.15);">
+        <div style="color:var(--gold);font-size:1.8rem;margin-bottom:1rem;"><i class="fa-solid fa-baby"></i></div>
+        <div
+          style="font-family:var(--ff-head);font-size:1rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--white);margin-bottom:.5rem;">
+          January – February</div>
+        <div
+          style="font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;">
+          Calving Season · Predator Action</div>
+        <p style="font-size:.83rem;line-height:1.7;color:var(--text);">The Great Wildebeest Calving season unfolds on
+          the Southern Serengeti plains. Up to 8,000 calves are born each day, attracting an extraordinary concentration
+          of predators — cheetahs, lions, leopards, hyenas and wild dogs. It's an incredible, raw wildlife spectacle
+          unlike anything else on Earth.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="book-section" style="padding:7rem 8%;text-align:center;">
+    <div class="book-bg"></div>
+    <div class="book-inner reveal">
+      <div class="section-tag" style="justify-content:center;">Ready to Go?</div>
+      <h2
+        style="font-family:var(--ff-head);font-size:clamp(2rem,5vw,3.5rem);font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--white);margin-bottom:.8rem;">
+        Plan Your <em style="color:var(--gold);font-style:normal;">Tanzania Adventure</em></h2>
+      <p style="color:var(--text);max-width:520px;margin:0 auto 2rem;">Our expert team will craft a personalised
+        itinerary combining your favourite destinations — completely tailored to your timeline, budget and travel style.
+      </p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Send an Enquiry</a>
+        <a href="tours.html" class="btn btn-outline"><i class="fa-solid fa-compass"></i> Browse All Tours</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">SERE<span>SAFARI</span></a>
+        <p class="footer-tagline">Creating unforgettable safari experiences in the heart of Africa. Expert guides.
+          Hand-picked lodges. Hakuna Matata.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/Seresafari/" target="_blank" rel="noopener" class="soc-btn"><i
+              class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="soc-btn"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="soc-btn"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="soc-btn"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Destinations</h4>
+        <ul class="footer-links">
+          <li><a href="destinations.html"><i class="fa-solid fa-chevron-right"></i>Serengeti National Park</a></li>
+          <li><a href="destinations.html"><i class="fa-solid fa-chevron-right"></i>Ngorongoro Crater</a></li>
+          <li><a href="destinations.html"><i class="fa-solid fa-chevron-right"></i>Tarangire National Park</a></li>
+          <li><a href="destinations.html"><i class="fa-solid fa-chevron-right"></i>Lake Manyara</a></li>
+          <li><a href="kilimanjaro.html"><i class="fa-solid fa-chevron-right"></i>Mount Kilimanjaro</a></li>
+          <li><a href="zanzibar.html"><i class="fa-solid fa-chevron-right"></i>Zanzibar Island</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Our Tours</h4>
+        <ul class="footer-links">
+          <li><a href="tours.html"><i class="fa-solid fa-chevron-right"></i>Tanzania Classic Safari</a></li>
+          <li><a href="tours.html"><i class="fa-solid fa-chevron-right"></i>Serengeti &amp; Ngorongoro</a></li>
+          <li><a href="tours.html"><i class="fa-solid fa-chevron-right"></i>Fly-In Luxury Safari</a></li>
+          <li><a href="kilimanjaro.html"><i class="fa-solid fa-chevron-right"></i>Kilimanjaro Climbs</a></li>
+          <li><a href="zanzibar.html"><i class="fa-solid fa-chevron-right"></i>Zanzibar Beach Holidays</a></li>
+          <li><a href="tours.html"><i class="fa-solid fa-chevron-right"></i>Bespoke Private Safari</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <ul class="footer-contact">
+          <li><span class="fc-ico"><i class="fa-solid fa-location-dot"></i></span>Arusha, Tanzania 23100<br />Safari
+            Capital of East Africa</li>
+          <li><span class="fc-ico"><i class="fa-solid fa-phone"></i></span><a href="tel:+255690318461"
+              style="color:var(--text);">+255 690 318 461</a></li>
+          <li><span class="fc-ico"><i class="fa-solid fa-envelope"></i></span><a href="mailto:info@seresafariafrica.com"
+              style="color:var(--text);">info@seresafariafrica.com</a></li>
+          <li><span class="fc-ico"><i class="fa-solid fa-globe"></i></span>seresafariafrica.com</li>
+          <li><span class="fc-ico"><i class="fa-solid fa-clock"></i></span>Mon–Sat: 8:00 AM – 6:00 PM EAT</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <p>© 2025 Seresafari Africa Tours. All Rights Reserved.</p>
+      <div class="hakuna">Hakuna Matata <i class="fa-solid fa-earth-africa"></i></div>
+      <p><a href="#" style="color:rgba(200,186,160,.4);">Privacy</a> · <a href="#"
+          style="color:rgba(200,186,160,.4);">Terms</a></p>
+    </div>
+  </footer>
+  <a class="wa-btn" href="https://wa.me/255690318461" target="_blank" rel="noopener" aria-label="WhatsApp"><i
+      class="fa-brands fa-whatsapp"></i></a>
+  <div id="lightbox" class="lightbox"><button id="lb-close" class="lb-close"><i
+        class="fa-solid fa-xmark"></i></button><img id="lb-img" src="" alt="" /></div>
+  <script src="../js/main.js"></script>
+</body>
+
+</html>
