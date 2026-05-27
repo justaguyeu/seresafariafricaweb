@@ -4017,3 +4017,77 @@ footer {
     word-break: break-word;
   }
 }
+
+/* ── FOOTER BADGES ──────────────────────────────────────────── */
+.footer-badges {
+  grid-column: 1 / -1;
+  border-top: 1px solid rgba(201, 150, 58, .08);
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;    /* stack rows vertically */
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.footer-badge-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badge-label {
+  font-size: .68rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(200, 186, 160, .5);
+  margin-bottom: .6rem;
+}
+
+.badge-items {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.payment-badge {
+  height: 50px;
+  opacity: .8;
+  filter: brightness(1.1);
+}
+
+.review-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: .4rem .9rem;
+  border: 1px solid rgba(201, 150, 58, .28);
+  color: var(--text);
+  font-size: .72rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: border-color var(--trans), color var(--trans), background var(--trans);
+  cursor: none;
+}
+
+.review-badge:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: var(--gold-dim);
+}
+
+.platform-logo {
+  height: 18px;
+  width: auto;
+  object-fit: contain;
+  opacity: .75;
+  filter: brightness(1.2) grayscale(.3);
+  transition: opacity var(--trans), filter var(--trans);
+}
+
+.review-badge:hover .platform-logo {
+  opacity: 1;
+  filter: brightness(1.3) grayscale(0);
+}
