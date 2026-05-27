@@ -1,0 +1,35 @@
+<!-- ============================================================
+     nav.html — Reusable Navigation Include
+     Save this file at the ROOT of your project (same level as index.html)
+     It is injected by includes.js — do not link it directly.
+     ============================================================ -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<button id="back-top"><i class="fa-solid fa-chevron-up"></i></button>
+
+<nav id="nav">
+  <a href="{ROOT}index.html" class="logo">
+    <img src="{ROOT}logo.png" alt="Seresafari Africa" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="{ROOT}about.html" data-navkey="about">About</a></li>
+    <li><a href="{ROOT}pages/destinations.html" data-navkey="destinations">Destinations</a></li>
+    <li><a href="{ROOT}pages/tours.html" data-navkey="tours">Tours</a></li>
+    <li><a href="{ROOT}pages/kilimanjaro.html" data-navkey="kilimanjaro">Kilimanjaro</a></li>
+    <li><a href="{ROOT}pages/zanzibar.html" data-navkey="zanzibar">Zanzibar</a></li>
+    <li><a href="{ROOT}pages/gallery.html" data-navkey="gallery">Gallery</a></li>
+    <li><a href="{ROOT}pages/contact.html" class="nav-book" data-navkey="contact">Book Now</a></li>
+  </ul>
+  <button class="ham" id="ham"><span></span><span></span><span></span></button>
+</nav>
+
+<nav class="mob-menu" id="mob-menu">
+  <a href="{ROOT}index.html">Home</a>
+  <a href="{ROOT}about.html" data-navkey="about">About</a>
+  <a href="{ROOT}pages/destinations.html" data-navkey="destinations">Destinations</a>
+  <a href="{ROOT}pages/tours.html" data-navkey="tours">Tours</a>
+  <a href="{ROOT}pages/kilimanjaro.html" data-navkey="kilimanjaro">Kilimanjaro</a>
+  <a href="{ROOT}pages/zanzibar.html" data-navkey="zanzibar">Zanzibar</a>
+  <a href="{ROOT}pages/gallery.html" data-navkey="gallery">Gallery</a>
+  <a href="{ROOT}pages/contact.html" style="color:var(--gold)" data-navkey="contact">Book Now</a>
+</nav>
