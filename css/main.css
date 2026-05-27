@@ -3814,6 +3814,7 @@ footer {
 
 /* ── HIGHLIGHT GRID (tour highlights 2-col) ──────────────────── */
 @media (max-width: 480px) {
+
   .detail-block [style*="grid-template-columns:1fr 1fr"],
   .detail-block [style*="grid-template-columns: 1fr 1fr"] {
     display: flex !important;
@@ -3890,6 +3891,7 @@ footer {
 
 /* ── CTA SECTION: buttons stack ─────────────────────────────── */
 @media (max-width: 600px) {
+
   .book-section [style*="display:flex"],
   .book-section [style*="display: flex"] {
     flex-direction: column !important;
@@ -3914,6 +3916,7 @@ footer {
 
 /* ── SIDEBAR CONTACT / OTHER-TOURS LINKS ─────────────────────── */
 @media (max-width: 480px) {
+
   .detail-sidebar a[style*="font-size:.83rem"],
   .detail-sidebar a[style*="font-size:.8rem"] {
     font-size: .78rem !important;
@@ -4009,6 +4012,7 @@ footer {
 
 /* ── PREVENT HORIZONTAL SCROLL FROM INLINE GRIDS ────────────── */
 @media (max-width: 480px) {
+
   .detail-main,
   .detail-sidebar,
   .detail-block {
@@ -4019,14 +4023,67 @@ footer {
 }
 
 /* ── FOOTER BADGES ──────────────────────────────────────────── */
-.footer-badges {
+/* .footer-badges {
   grid-column: 1 / -1;
   border-top: 1px solid rgba(201, 150, 58, .08);
   padding-top: 1.5rem;
   display: flex;
   flex-direction: column;    /* stack rows vertically */
+/* align-items: center;
+  gap: 1.2rem;
+}  */
+
+/* ── FOOTER BADGES ──────────────────────────────────────────── */
+/* ── FOOTER BADGES ──────────────────────────────────────────── */
+.footer-badges {
+  grid-column: 1 / -1;
+  border-top: 1px solid rgba(201, 150, 58, .08);
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 1.2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-plane-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .18;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.footer-badge-row {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@keyframes planeFly {
+  0% {
+    left: -100px;
+    opacity: .06;
+  }
+
+  20% {
+    opacity: .18;
+  }
+
+  80% {
+    opacity: .18;
+  }
+
+  100% {
+    left: calc(100% + 100px);
+    opacity: .06;
+  }
 }
 
 .footer-badge-row {
