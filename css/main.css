@@ -3687,3 +3687,333 @@ footer {
 }
 
 /* All detail-page responsive rules consolidated in the main responsive block above. */
+
+/* ============================================================
+   SAFARI DETAIL PAGES — MOBILE RESPONSIVENESS PATCH
+   Append this block at the end of main.css
+   ============================================================ */
+
+/* ── DETAIL HERO: meta strip wraps gracefully ─────────────── */
+@media (max-width: 768px) {
+  .detail-hero {
+    height: auto;
+    min-height: 56vh;
+    align-items: flex-end;
+  }
+
+  .detail-hero-content {
+    padding: 2rem 5% 1.8rem;
+  }
+
+  .detail-badge {
+    font-size: .68rem;
+    padding: .28rem .8rem;
+  }
+
+  .detail-title {
+    font-size: clamp(1.7rem, 7vw, 2.6rem);
+    margin-bottom: .7rem;
+  }
+
+  .detail-meta-strip {
+    gap: .6rem .9rem;
+  }
+
+  .detail-meta-item {
+    font-size: .76rem;
+  }
+}
+
+/* ── DETAIL LAYOUT: stack sidebar under main content ────────── */
+@media (max-width: 900px) {
+  .detail-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 3rem 5%;
+  }
+
+  .detail-sidebar {
+    position: static;
+    top: auto;
+  }
+}
+
+/* ── ITINERARY: tighten up on mobile ────────────────────────── */
+@media (max-width: 600px) {
+  .itin-day {
+    grid-template-columns: 52px 1fr;
+  }
+
+  .itin-num {
+    padding: 1.2rem .5rem;
+  }
+
+  .day-number {
+    font-size: 1.6rem;
+  }
+
+  .itin-body {
+    padding: 1.2rem .9rem;
+  }
+
+  .itin-title {
+    font-size: .92rem;
+  }
+
+  .itin-route {
+    font-size: .68rem;
+    letter-spacing: .8px;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .itin-desc {
+    font-size: .82rem;
+  }
+
+  .itin-activities {
+    gap: .4rem;
+  }
+
+  .itin-tag {
+    font-size: .68rem;
+    padding: .2rem .55rem;
+  }
+
+  .itin-sleep {
+    font-size: .76rem;
+    flex-wrap: wrap;
+    gap: .4rem;
+  }
+}
+
+/* ── INCLUSIONS GRID: collapse to 1 col sooner ───────────────── */
+@media (max-width: 640px) {
+  .inc-exc-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── ACCOMMODATION TABLE: always scrollable ─────────────────── */
+.accom-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+  .accom-table {
+    min-width: 520px;
+  }
+
+  .accom-table th,
+  .accom-table td {
+    padding: .65rem .7rem;
+    font-size: .78rem;
+  }
+}
+
+/* ── HIGHLIGHT GRID (tour highlights 2-col) ──────────────────── */
+@media (max-width: 480px) {
+  .detail-block [style*="grid-template-columns:1fr 1fr"],
+  .detail-block [style*="grid-template-columns: 1fr 1fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: .6rem !important;
+  }
+}
+
+/* ── PRICE BOX: sidebar cards ────────────────────────────────── */
+@media (max-width: 480px) {
+  .price-box {
+    padding: 1.4rem 1rem;
+  }
+
+  .price-box-title {
+    font-size: .7rem;
+  }
+
+  .price-tier {
+    flex-wrap: wrap;
+    gap: .3rem;
+    padding: .65rem .8rem;
+  }
+
+  .tier-label {
+    font-size: .74rem;
+  }
+
+  .tier-price {
+    font-size: 1.05rem;
+  }
+
+  .sidebar-note {
+    font-size: .74rem;
+  }
+}
+
+/* ── NOTES GRID ──────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .note-item {
+    padding: .85rem .9rem;
+    gap: .7rem;
+  }
+
+  .note-item p {
+    font-size: .8rem;
+  }
+}
+
+/* ── ROUTE BANNER: 2 col on mobile ──────────────────────────── */
+@media (max-width: 640px) {
+  .route-banner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 360px) {
+  .route-banner {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── DETAIL BLOCK TITLE: smaller on mobile ───────────────────── */
+@media (max-width: 600px) {
+  .detail-block-title {
+    font-size: 1.05rem;
+    letter-spacing: 1px;
+  }
+
+  .detail-block p {
+    font-size: .85rem;
+  }
+}
+
+/* ── CTA SECTION: buttons stack ─────────────────────────────── */
+@media (max-width: 600px) {
+  .book-section [style*="display:flex"],
+  .book-section [style*="display: flex"] {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .book-section .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ── BREADCRUMB: wraps cleanly ───────────────────────────────── */
+@media (max-width: 480px) {
+  .breadcrumb {
+    font-size: .68rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: .3rem;
+  }
+}
+
+/* ── SIDEBAR CONTACT / OTHER-TOURS LINKS ─────────────────────── */
+@media (max-width: 480px) {
+  .detail-sidebar a[style*="font-size:.83rem"],
+  .detail-sidebar a[style*="font-size:.8rem"] {
+    font-size: .78rem !important;
+  }
+}
+
+/* ── INC/EXC LIST: readable at small sizes ───────────────────── */
+@media (max-width: 480px) {
+  .inc-exc-list li {
+    font-size: .79rem;
+  }
+
+  .inc-exc-box {
+    padding: 1.2rem 1rem;
+  }
+
+  .inc-exc-box h4 {
+    font-size: .78rem;
+  }
+}
+
+/* ── ACCOM LEVEL BADGES: don't break layout ─────────────────── */
+@media (max-width: 480px) {
+  .accom-level {
+    font-size: .62rem;
+    padding: .15rem .45rem;
+    letter-spacing: .5px;
+  }
+}
+
+/* ── DETAIL HERO: very small screens ────────────────────────── */
+@media (max-width: 360px) {
+  .detail-hero {
+    min-height: 48vh;
+  }
+
+  .detail-hero-content {
+    padding: 1.5rem 4.5% 1.5rem;
+  }
+
+  .detail-title {
+    font-size: 1.5rem;
+  }
+
+  .detail-meta-item {
+    font-size: .7rem;
+  }
+
+  .detail-badge {
+    font-size: .62rem;
+  }
+
+  .itin-day {
+    grid-template-columns: 44px 1fr;
+  }
+
+  .itin-num {
+    padding: 1rem .4rem;
+  }
+
+  .day-number {
+    font-size: 1.4rem;
+  }
+
+  .itin-body {
+    padding: 1rem .75rem;
+  }
+
+  .detail-layout {
+    padding: 2rem 4%;
+  }
+}
+
+/* ── ENSURE DETAIL LAYOUT BACKGROUND EXTENDS FULL WIDTH ─────── */
+@media (max-width: 900px) {
+  .detail-layout {
+    background: var(--dark2);
+  }
+}
+
+/* ── TOUR CARD FOOTER: prevent overflow on tiny screens ─────── */
+@media (max-width: 360px) {
+  .tour-footer {
+    flex-direction: column;
+    gap: .6rem;
+    align-items: flex-start;
+  }
+
+  .tour-price {
+    font-size: 1.15rem;
+  }
+}
+
+/* ── PREVENT HORIZONTAL SCROLL FROM INLINE GRIDS ────────────── */
+@media (max-width: 480px) {
+  .detail-main,
+  .detail-sidebar,
+  .detail-block {
+    min-width: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+}
