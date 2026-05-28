@@ -511,6 +511,8 @@ body.cursor-lg #cursor-ring {
   padding: calc(var(--nav-h) + 2rem) 8% 5rem;
   max-width: 740px;
   min-width: 0;
+  margin: 0 auto;
+  text-align: center
 }
 
 .hero-eyebrow {
@@ -525,6 +527,7 @@ body.cursor-lg #cursor-ring {
   margin-bottom: 1.5rem;
   opacity: 0;
   animation: fadeUp .8s .2s forwards;
+  justify-content: center;
 }
 
 .hero-eyebrow::before {
@@ -563,6 +566,8 @@ body.cursor-lg #cursor-ring {
   margin-bottom: 2.5rem;
   opacity: 0;
   animation: fadeUp .9s .6s forwards;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-actions {
@@ -571,6 +576,7 @@ body.cursor-lg #cursor-ring {
   flex-wrap: wrap;
   opacity: 0;
   animation: fadeUp .9s .8s forwards;
+  justify-content: center;
 }
 
 .hero-stats {
@@ -608,7 +614,7 @@ body.cursor-lg #cursor-ring {
 /* Hero-stats mobile override is in the main responsive block below */
 
 .scroll-cue {
-  position: absolute;
+  /* position: absolute; */
   bottom: 2.5rem;
   left: 50%;
   z-index: 2;
@@ -2578,29 +2584,34 @@ footer {
   }
 
   /* ── HERO: stack vertically so stats go below content ── */
-  .hero {
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-    min-height: 100svh;
-  }
+/* Replace the existing hero mobile rules with these */
+.hero-content {
+  padding: calc(var(--nav-h) + 1.5rem) 5% 1.5rem;
+  max-width: 100%;
+  width: 100%;
+  text-align: center;        /* ADD THIS */
+  margin: 0 auto;            /* ADD THIS */
+}
 
-  .hero-content {
-    padding: calc(var(--nav-h) + 1.5rem) 5% 1.5rem;
-    max-width: 100%;
-    width: 100%;
-  }
+.hero-eyebrow {
+  justify-content: center;   /* ADD THIS */
+}
 
-  .hero h1 {
-    font-size: clamp(2.2rem, 9vw, 3rem);
-    line-height: 1;
-    letter-spacing: 1px;
-  }
+.hero-actions {
+  flex-direction: column;
+  gap: .7rem;
+  align-items: center;       /* ADD THIS */
+}
 
-  .hero-desc {
-    font-size: .88rem;
-    max-width: 100%;
-  }
+.hero-actions .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.hero-desc {
+  margin-left: auto;
+  margin-right: auto;
+}
 
   .hero-stats {
     position: static !important;
@@ -2806,10 +2817,11 @@ footer {
     font-size: .87rem;
   }
 
-  .hero-actions {
-    flex-direction: column;
-    gap: .7rem;
-  }
+ .hero-actions {
+  flex-direction: column;
+  gap: .7rem;
+  align-items: center;       /* ADD THIS */
+}
 
   .hero-actions .btn {
     width: 100%;
