@@ -484,7 +484,7 @@ body.cursor-lg #cursor-ring {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url('../images/1.webp') center/cover no-repeat;
+  background: url('../images/rhino.png') center/cover no-repeat;
   animation: heroZoom 20s ease-in-out infinite alternate;
   will-change: transform;
 }
@@ -2591,7 +2591,10 @@ footer {
 }
 
 .hero-eyebrow {
-  justify-content: center;   /* ADD THIS */
+  justify-content: center;
+  display: flex;
+  align-content: flex-start;
+  flex-direction: column;   /* ADD THIS */
 }
 
 .hero-actions {
