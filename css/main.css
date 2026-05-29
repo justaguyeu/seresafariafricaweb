@@ -510,7 +510,7 @@ body.cursor-lg #cursor-ring {
   position: relative;
   z-index: 2;
   padding: calc(var(--nav-h) + 2rem) 8% 5rem;
-  max-width: 740px;
+  /* max-width: 740px; */
 }
 
 .hero-eyebrow {
@@ -630,7 +630,7 @@ body.cursor-lg #cursor-ring {
 .scroll-line {
   width: 1px;
   height: 48px;
-  background: linear-gradient(var(--gold), transparent);
+  background: linear-gradient(var(--dark), transparent);
 }
 
 @keyframes scrollBounce {
