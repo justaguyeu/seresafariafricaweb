@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="description" content="Tanzania safari tour packages – Classic Safari, Fly-In Serengeti, Zanzibar Beach & Bush, Kilimanjaro climbs and bespoke private safaris from Sere Safari Africa." />
+  <title>Tour Packages – Sere Safari Africa</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ═══════════════════════════════════════════════
+       LAYOUT: LEFT SIDEBAR + RIGHT GRID
+    ═══════════════════════════════════════════════ */
+
+    .tours-layout-wrap {
+      background: var(--dark2);
+      padding: 4rem 8%;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    /* ═══════════════════════════════════════════════
+       LEFT SIDEBAR — FILTER PANEL
+    ═══════════════════════════════════════════════ */
+
+    .filter-sidebar {
+      position: sticky;
+      top: calc(var(--nav-h) + 1.5rem);
+      background: var(--dark3);
+      border: 1px solid rgba(87,69,53,.15);
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .filter-sidebar-header {
+      background: var(--gold);
+      padding: 1.1rem 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .filter-sidebar-header span {
+      font-family: var(--ff-head);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .filter-sidebar-header .reset-link {
+      font-family: var(--ff-head);
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--dark);
+      opacity: .65;
+      cursor: pointer;
+      transition: opacity .2s;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      border: none;
+      background: none;
+    }
+
+    .filter-sidebar-header .reset-link:hover {
+      opacity: 1;
+    }
+
+    .filter-sidebar-body {
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+
+    /* ── Filter Group ── */
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: .7rem;
+    }
+
+    .filter-group-label {
+      font-family: var(--ff-head);
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding-bottom: .5rem;
+      border-bottom: 1px solid rgba(87,69,53,.15);
+    }
+
+    .filter-group-label i { font-size: .65rem; }
+
+    /* ── Checkbox Rows ── */
+    .filter-check-list {
+      display: flex;
+      flex-direction: column;
+      gap: .3rem;
+    }
+
+    .filter-check {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      cursor: pointer;
+      padding: .4rem .5rem;
+      border-radius: 2px;
+      transition: background .15s;
+    }
+
+    .filter-check:hover {
+      background: rgba(87,69,53,.07);
+    }
+
+    .filter-check input[type="checkbox"] {
+      display: none;
+    }
+
+    .check-box {
+      width: 16px;
+      height: 16px;
+      border: 1.5px solid rgba(87,69,53,.35);
+      background: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all .2s;
+    }
+
+    .check-box i {
+      font-size: .6rem;
+      color: var(--dark);
+      opacity: 0;
+      transition: opacity .15s;
+    }
+
+    .filter-check input:checked + .check-box {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .filter-check input:checked + .check-box i {
+      opacity: 1;
+    }
+
+    .check-label {
+      font-family: var(--ff-head);
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text);
+      transition: color .2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .check-label i {
+      font-size: .65rem;
+      color: var(--gold);
+    }
+
+    .filter-check input:checked ~ .check-label {
+      color: var(--white);
+    }
+
+    /* ── Price Range ── */
+    .price-range-group { display: flex; flex-direction: column; gap: .7rem; }
+
+    .price-display {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .price-vals {
+      font-family: var(--ff-head);
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .price-per {
+      font-size: .65rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .range-wrap {
+      position: relative;
+      height: 28px;
+      display: flex;
+      align-items: center;
+    }
+
+    .range-track {
+      position: absolute;
+      top: 50%; left: 0; right: 0;
+      height: 3px;
+      background: rgba(87,69,53,.18);
+      border-radius: 2px;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .range-fill {
+      position: absolute;
+      top: 50%;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+      transform: translateY(-50%);
+      pointer-events: none;
+      transition: left .04s, width .04s;
+    }
+
+    .range-input {
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background: none;
+      -webkit-appearance: none;
+      appearance: none;
+      pointer-events: none;
+      outline: none;
+    }
+
+    .range-input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 3px solid var(--dark3);
+      cursor: pointer;
+      pointer-events: all;
+      box-shadow: 0 2px 8px rgba(87,69,53,.3);
+      transition: transform .15s;
+    }
+
+    .range-input::-webkit-slider-thumb:hover { transform: scale(1.2); }
+    .range-input::-moz-range-thumb {
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 3px solid var(--dark3);
+      cursor: pointer;
+      pointer-events: all;
+    }
+
+    /* ── Apply Button ── */
+    .filter-apply-btn {
+      width: 100%;
+      padding: .75rem 1rem;
+      background: var(--gold);
+      color: var(--dark);
+      font-family: var(--ff-head);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .filter-apply-btn:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    /* ── Divider ── */
+    .filter-divider {
+      height: 1px;
+      background: rgba(87,69,53,.12);
+      margin: 0 -.1rem;
+    }
+
+    /* ═══════════════════════════════════════════════
+       RIGHT SIDE — RESULTS BAR + GRID
+    ═══════════════════════════════════════════════ */
+
+    .packages-side {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      min-width: 0;
+    }
+
+    /* Results bar */
+    .results-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: .9rem 1.2rem;
+      background: var(--dark3);
+      border: 1px solid rgba(87,69,53,.12);
+    }
+
+    .results-count {
+      font-family: var(--ff-head);
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .results-count strong { color: var(--gold); font-size: .9rem; }
+
+    .active-filters {
+      display: flex;
+      gap: .4rem;
+      flex-wrap: wrap;
+    }
+
+    .active-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: .22rem .65rem;
+      background: rgba(87,69,53,.08);
+      border: 1px solid rgba(87,69,53,.18);
+      font-family: var(--ff-head);
+      font-size: .64rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .active-tag i {
+      font-size: .55rem;
+      cursor: pointer;
+      opacity: .7;
+      transition: opacity .2s;
+    }
+
+    .active-tag i:hover { opacity: 1; }
+
+    /* ── Tours Grid ── */
+    .tours-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.8rem;
+    }
+
+    /* ── No results ── */
+    .no-results {
+      display: none;
+      text-align: center;
+      padding: 4rem 2rem;
+      grid-column: 1 / -1;
+    }
+
+    .no-results i {
+      font-size: 2.5rem;
+      color: var(--gold);
+      opacity: .4;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .no-results h3 {
+      font-family: var(--ff-head);
+      font-size: 1.3rem;
+      color: var(--white);
+      margin-bottom: .5rem;
+      letter-spacing: 2px;
+    }
+
+    .no-results p { font-size: .85rem; color: var(--text); }
+
+    /* ── Hidden/filtered cards ── */
+    .tour-card.hidden-card    { display: none !important; }
+    .tour-card.filtered-out   { display: none !important; }
+
+    .tour-card.card-entering {
+      opacity: 0;
+      transform: translateY(25px);
+      animation: cardIn .4s forwards;
+    }
+
+    @keyframes cardIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Pagination ── */
+    .pagination-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 1.5rem 0 .5rem;
+    }
+
+    .progress-bar-wrap {
+      width: 100%;
+      max-width: 380px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .progress-label {
+      font-family: var(--ff-head);
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .progress-label strong { color: var(--gold); }
+
+    .progress-track {
+      width: 100%;
+      height: 3px;
+      background: rgba(87,69,53,.12);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: width .5s ease;
+    }
+
+    .show-more-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: .85rem 2.2rem;
+      background: none;
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      font-family: var(--ff-head);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background .25s, color .25s, transform .2s;
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    }
+
+    .show-more-btn:hover {
+      background: var(--gold);
+      color: var(--dark);
+      transform: translateY(-2px);
+    }
+
+    .show-more-btn.loading .btn-text { display: none; }
+    .show-more-btn .btn-loader {
+      display: none;
+      width: 16px; height: 16px;
+      border: 2px solid currentColor;
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+    }
+    .show-more-btn.loading .btn-loader { display: block; }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .all-shown-msg {
+      display: none;
+      font-family: var(--ff-head);
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text);
+      opacity: .55;
+      text-align: center;
+    }
+
+    /* ── Mobile filter toggle ── */
+    .filter-mobile-toggle {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      padding: .9rem 1.2rem;
+      background: var(--dark3);
+      border: 1px solid rgba(87,69,53,.12);
+      cursor: pointer;
+      margin-bottom: -.5rem;
+    }
+
+    .filter-mobile-toggle span {
+      font-family: var(--ff-head);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .filter-mobile-toggle span i { color: var(--gold); }
+    .filter-mobile-toggle .toggle-arrow { color: var(--gold); transition: transform .3s; font-size: .78rem; }
+    .filter-mobile-toggle.collapsed .toggle-arrow { transform: rotate(-90deg); }
+
+    /* ══════════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════════ */
+    @media (max-width: 1100px) {
+      .tours-layout-wrap {
+        grid-template-columns: 250px 1fr;
+        gap: 2rem;
+        padding: 3.5rem 5%;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .tours-layout-wrap {
+        grid-template-columns: 1fr;
+        padding: 2.5rem 5%;
+      }
+
+      .filter-sidebar {
+        position: static;
+      }
+
+      .filter-mobile-toggle { display: flex; }
+
+      .filter-sidebar-collapsible {
+        overflow: hidden;
+        max-height: 1000px;
+        transition: max-height .4s ease;
+      }
+
+      .filter-sidebar-collapsible.collapsed {
+        max-height: 0;
+      }
+
+      .tours-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .tours-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tours-layout-wrap { padding: 2rem 4%; }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+  <button id="back-top"><i class="fa-solid fa-chevron-up"></i></button>
+
+  <nav id="nav">
+    <a href="../index.html" class="logo"><img src="../logo2.png" alt="Sere Safari Africa" /></a>
+    <ul class="nav-links">
+      <li><a href="../about.html">About</a></li>
+      <li><a href="destinations.html">Destinations</a></li>
+      <li><a href="tours.html" class="active">Tours</a></li>
+      <li><a href="kilimanjaro.html">Kilimanjaro</a></li>
+      <li><a href="zanzibar.html">Zanzibar</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html" class="nav-book">Book Now</a></li>
+    </ul>
+    <button class="ham" id="ham"><span></span><span></span><span></span></button>
+  </nav>
+  <nav class="mob-menu" id="mob-menu">
+    <a href="../index.html">Home</a><a href="../about.html">About</a><a href="destinations.html">Destinations</a>
+    <a href="tours.html">Tours</a><a href="kilimanjaro.html">Kilimanjaro</a><a href="zanzibar.html">Zanzibar</a>
+    <a href="gallery.html">Gallery</a><a href="contact.html" style="color:var(--gold)">Book Now</a>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header"
+    style="background-image:url('https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=1600&q=85');">
+    <div class="breadcrumb"><a href="../index.html">Home</a><i class="fa-solid fa-chevron-right"></i>Tours</div>
+    <div class="section-tag">Our Itineraries</div>
+    <h1 class="section-title" style="font-size:clamp(2.5rem,6vw,4.5rem);">Safari <em>Packages</em></h1>
+    <p class="section-sub" style="max-width:620px;margin:.8rem auto 0;">Expertly crafted itineraries — from short 2-day
+      fly-in adventures to grand 7-day odysseys. Every safari is fully customisable to your dates, budget and travel
+      style.</p>
+  </header>
+
+  <!-- ══ MAIN LAYOUT: SIDEBAR + PACKAGES ══ -->
+  <div class="tours-layout-wrap">
+
+    <!-- ═══ LEFT SIDEBAR FILTER ═══ -->
+    <aside>
+      <!-- Mobile toggle -->
+      <div class="filter-mobile-toggle collapsed" id="filterMobileToggle">
+        <span><i class="fa-solid fa-sliders"></i> Filter Packages</span>
+        <i class="fa-solid fa-chevron-down toggle-arrow"></i>
+      </div>
+
+      <!-- Collapsible on mobile -->
+      <div class="filter-sidebar-collapsible collapsed" id="filterCollapsible">
+        <div class="filter-sidebar">
+          <div class="filter-sidebar-header">
+            <span><i class="fa-solid fa-sliders"></i> Filters</span>
+            <button class="reset-link" id="resetFilters"><i class="fa-solid fa-rotate-left"></i> Reset</button>
+          </div>
+
+          <div class="filter-sidebar-body">
+
+            <!-- Destination -->
+            <div class="filter-group">
+              <div class="filter-group-label"><i class="fa-solid fa-map-pin"></i> Destination</div>
+              <div class="filter-check-list">
+                <label class="filter-check">
+                  <input type="checkbox" name="dest" value="serengeti" />
+                  <span class="check-box"><i class="fa-solid fa-check"></i></span>
+                  <span class="check-label"><i class="fa-solid fa-paw"></i> Serengeti</span>
+                </label>
+                <label class="filter-check">
+                  <input type="checkbox" name="dest" value="ngorongoro" />
+                  <span class="check-box"><i class="fa-solid fa-check"></i></span>
+                  <span class="check-label"><i class="fa-solid fa-circle-dot"></i> Ngorongoro</span>
+                </label>
+                <label class="filter-check">
+                  <input type="checkbox" name="dest" value="tarangire" />
+                  <span class="check-box"><i class="fa-solid fa-check"></i></span>
+                  <span class="check-label"><i class="fa-solid fa-tree"></i> Tarangire</span>
+                </label>
+                <label class="filter-check">
+                  <input type="checkbox" name="dest" value="zanzibar" />
+                  <span class="check-box"><i class="fa-solid fa-check"></i></span>
+                  <span class="check-label"><i class="fa-solid fa-umbrella-beach"></i> Zanzibar</span>
+                </label>
+                <label class="filter-check">
+                  <input type="checkbox" name="dest" value="kilimanjaro" />
+                  <span class="check-box"><i class="fa-solid fa-check"></i></span>
+                  <span class="check-label"><i class="fa-solid fa-mountain"></i> Kilimanjaro</span>
+                </label>
+                <label class="filter-check">
+                  <input type="checkbox" name="dest" value="manyara" />
+                  <span class="check-box"><i class="fa-solid fa-check"></i></span>
+                  <span class="check-label"><i class="fa-solid fa-water"></i> Lake Manyara</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="filter-divider"></div>
+
+            <!-- Duration -->
+            <div class="filter-group">
+              <div class="filter-group-label"><i class="fa-regular fa-calendar"></i> Duration</div>
+              <div class="filter-check-list">
+                <label class="filter-check">
+                  <input type="checkbox" name="dur" value="2" />
+                  <span class="check-box"><i class="fa-solid fa-check"></i></span>
+                  <span class="check-label">2 Days</span>
+                </label>
+                <label class="filter-check">
+                  <input type="checkbox" name="dur" value="3" />
+                  <span class="check-box"><i class="fa-solid fa-check"></i></span>
+                  <span class="check-label">3 Days</span>
+                </label>
+                <label class="filter-check">
+                  <input type="checkbox" name="dur" value="4" />
+                  <span class="check-box"><i class="fa-solid fa-check"></i></span>
+                  <span class="check-label">4 Days</span>
+                </label>
+                <label class="filter-check">
+                  <input type="checkbox" name="dur" value="6" />
+                  <span class="check-box"><i class="fa-solid fa-check"></i></span>
+                  <span class="check-label">6 Days</span>
+                </label>
+                <label class="filter-check">
+                  <input type="checkbox" name="dur" value="7" />
+                  <span class="check-box"><i class="fa-solid fa-check"></i></span>
+                  <span class="check-label">7 Days</span>
+                </label>
+                <label class="filter-check">
+                  <input type="checkbox" name="dur" value="custom" />
+                  <span class="check-box"><i class="fa-solid fa-check"></i></span>
+                  <span class="check-label">Custom</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="filter-divider"></div>
+
+            <!-- Type -->
+            <div class="filter-group">
+              <div class="filter-group-label"><i class="fa-solid fa-tag"></i> Type</div>
+              <div class="filter-check-list">
+                <label class="filter-check">
+                  <input type="checkbox" name="type" value="game-drive" />
+                  <span class="check-box"><i class="fa-solid fa-check"></i></span>
+                  <span class="check-label"><i class="fa-solid fa-car-side"></i> Game Drive</span>
+                </label>
+                <label class="filter-check">
+                  <input type="checkbox" name="type" value="fly-in" />
+                  <span class="check-box"><i class="fa-solid fa-check"></i></span>
+                  <span class="check-label"><i class="fa-solid fa-plane"></i> Fly-In</span>
+                </label>
+                <label class="filter-check">
+                  <input type="checkbox" name="type" value="beach-bush" />
+                  <span class="check-box"><i class="fa-solid fa-check"></i></span>
+                  <span class="check-label"><i class="fa-solid fa-water"></i> Beach+Bush</span>
+                </label>
+                <label class="filter-check">
+                  <input type="checkbox" name="type" value="trekking" />
+                  <span class="check-box"><i class="fa-solid fa-check"></i></span>
+                  <span class="check-label"><i class="fa-solid fa-person-hiking"></i> Trekking</span>
+                </label>
+                <label class="filter-check">
+                  <input type="checkbox" name="type" value="honeymoon" />
+                  <span class="check-box"><i class="fa-solid fa-check"></i></span>
+                  <span class="check-label"><i class="fa-solid fa-heart"></i> Honeymoon</span>
+                </label>
+                <label class="filter-check">
+                  <input type="checkbox" name="type" value="bespoke" />
+                  <span class="check-box"><i class="fa-solid fa-check"></i></span>
+                  <span class="check-label"><i class="fa-solid fa-crown"></i> Bespoke</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="filter-divider"></div>
+
+            <!-- Price Range -->
+            <div class="filter-group price-range-group">
+              <div class="filter-group-label"><i class="fa-solid fa-dollar-sign"></i> Price / Person</div>
+              <div class="price-display">
+                <div class="price-vals">$<span id="priceMin">870</span> – $<span id="priceMax">5000</span></div>
+                <span class="price-per">per person</span>
+              </div>
+              <div class="range-wrap">
+                <div class="range-track"></div>
+                <div class="range-fill" id="rangeFill"></div>
+                <input type="range" class="range-input" id="rangeMin" min="870" max="5000" step="50" value="870" />
+                <input type="range" class="range-input" id="rangeMax" min="870" max="5000" step="50" value="5000" />
+              </div>
+            </div>
+
+            <div class="filter-divider"></div>
+
+            <!-- <button class="filter-apply-btn" id="applyFilters">
+              <i class="fa-solid fa-filter"></i> Apply Filters
+            </button> -->
+
+          </div><!-- /filter-sidebar-body -->
+        </div><!-- /filter-sidebar -->
+      </div><!-- /collapsible -->
+    </aside>
+
+    <!-- ═══ RIGHT SIDE: RESULTS + GRID ═══ -->
+    <div class="packages-side">
+
+      <!-- Results bar -->
+      <div class="results-bar" id="resultsBar">
+        <div class="results-count">
+          Showing <strong id="visibleCount">6</strong> of <strong id="totalCount">9</strong> packages
+        </div>
+        <div class="active-filters" id="activeFilters"></div>
+      </div>
+
+      <!-- Intro text -->
+      <div style="max-width:100%;" class="reveal">
+        <div class="section-tag">All Tour Packages</div>
+        <h2 class="section-title">Choose Your <em>Adventure</em></h2>
+        <p class="section-sub">All packages include a professional driver-guide, park fees, accommodation and meals as specified. Prices are per person based on shared occupancy.</p>
+      </div>
+
+      <!-- ── Tours Grid ── -->
+      <div class="tours-grid" id="toursGrid">
+
+        <!-- Card 1: Tanzania Classic Safari -->
+        <div class="tour-card reveal"
+          data-dest="serengeti ngorongoro tarangire manyara"
+          data-dur="6"
+          data-type="game-drive"
+          data-price="1899"
+          data-index="0">
+          <div class="tour-img">
+            <img src="../images/20.webp" alt="Tanzania Classic Safari" loading="lazy" />
+            <div class="tour-badge"><i class="fa-solid fa-fire"></i> Best Seller</div>
+          </div>
+          <div class="tour-body">
+            <div class="tour-meta">
+              <span><i class="fa-regular fa-calendar"></i> 6 Days</span>
+              <span><i class="fa-solid fa-users"></i> 2–8 pax</span>
+              <span><i class="fa-solid fa-car-side"></i> Game Drives</span>
+            </div>
+            <a href="tour-packages/classic-safari.html" style="text-decoration:none;">
+              <div class="tour-title" style="transition:color .3s;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--white)'">
+                Tanzania Classic Safari <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:.7rem;opacity:.6;"></i>
+              </div>
+            </a>
+            <div class="tour-desc">Tarangire, Serengeti, Ngorongoro Crater and Lake Manyara. Two nights in the legendary Serengeti, elephant-rich Tarangire and the magical Ngorongoro Crater. The ultimate Tanzania safari experience.</div>
+            <ul class="inc-list">
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>Luxury lodge &amp; tented camp accommodation</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>All meals during safari</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>Professional English-speaking driver-guide</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>4WD safari vehicle with pop-up roof</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>All national park &amp; conservation fees</li>
+              <li><span class="cross"><i class="fa-solid fa-xmark"></i></span>International flights &amp; gratuities</li>
+            </ul>
+            <div class="tour-footer">
+              <div class="tour-price">From $1,899 <small>/ person</small></div>
+              <a href="tour-packages/classic-safari.html" class="tour-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Serengeti & Ngorongoro 3 Day -->
+        <div class="tour-card reveal delay-1"
+          data-dest="serengeti ngorongoro"
+          data-dur="3"
+          data-type="game-drive"
+          data-price="1716"
+          data-index="1">
+          <div class="tour-img">
+            <img src="../images/21.webp" alt="Serengeti Ngorongoro 3 Day" loading="lazy" />
+            <div class="tour-badge"><i class="fa-solid fa-paw"></i> Wildlife</div>
+          </div>
+          <div class="tour-body">
+            <div class="tour-meta">
+              <span><i class="fa-regular fa-calendar"></i> 3 Days</span>
+              <span><i class="fa-solid fa-users"></i> 2–6 pax</span>
+              <span><i class="fa-solid fa-binoculars"></i> Big Five</span>
+            </div>
+            <a href="tour-packages/serengeti-ngorongoro-3day.html" style="text-decoration:none;">
+              <div class="tour-title" style="transition:color .3s;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--white)'">
+                Serengeti &amp; Ngorongoro Crater Safari <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:.7rem;opacity:.6;"></i>
+              </div>
+            </a>
+            <div class="tour-desc">A three-day thriller combining authentic wildlife encounters — big cats, the Maasai tribesmen, and more animals than you ever thought possible. Mid-range tented camp inside Central Serengeti.</div>
+            <ul class="inc-list">
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>Mid-range tented camp in Central Serengeti</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>All meals included</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>Expert local driver-guide</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>Park &amp; conservation fees</li>
+              <li><span class="cross"><i class="fa-solid fa-xmark"></i></span>Tips &amp; personal expenses</li>
+            </ul>
+            <div class="tour-footer">
+              <div class="tour-price">From $1,716 <small>/ person</small></div>
+              <a href="tour-packages/serengeti-ngorongoro-3day.html" class="tour-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Zanzibar Fly-In -->
+        <div class="tour-card reveal"
+          data-dest="zanzibar serengeti ngorongoro"
+          data-dur="4"
+          data-type="fly-in beach-bush"
+          data-price="2200"
+          data-index="2">
+          <div class="tour-img">
+            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80" alt="Zanzibar Serengeti Fly-In" loading="lazy" />
+            <div class="tour-badge"><i class="fa-solid fa-umbrella-beach"></i> Beach + Bush</div>
+          </div>
+          <div class="tour-body">
+            <div class="tour-meta">
+              <span><i class="fa-regular fa-calendar"></i> 4 Days</span>
+              <span><i class="fa-solid fa-users"></i> Private</span>
+              <span><i class="fa-solid fa-plane"></i> Fly-In</span>
+            </div>
+            <a href="tour-packages/zanzibar-serengeti-flyin.html" style="text-decoration:none;">
+              <div class="tour-title" style="transition:color .3s;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--white)'">
+                Fly-In: Zanzibar → Serengeti &amp; Ngorongoro <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:.7rem;opacity:.6;"></i>
+              </div>
+            </a>
+            <div class="tour-desc">A 4-day safari combining Zanzibar's tropical charm with iconic wildlife of the Serengeti and Ngorongoro Crater. Game drives across vast savannahs, Big Five encounters, and rich landscapes.</div>
+            <ul class="inc-list">
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>Scenic flight Zanzibar → Serengeti (return)</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>Mid-range tented camp accommodation</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>All meals included</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>All park &amp; conservation fees</li>
+              <li><span class="cross"><i class="fa-solid fa-xmark"></i></span>International flights &amp; tips</li>
+            </ul>
+            <div class="tour-footer">
+              <div class="tour-price">From $2,200 <small>/ person</small></div>
+              <a href="tour-packages/zanzibar-serengeti-flyin.html" class="tour-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Serengeti Fly-In 2 Day -->
+        <div class="tour-card reveal delay-1"
+          data-dest="serengeti"
+          data-dur="2"
+          data-type="fly-in"
+          data-price="1200"
+          data-index="3">
+          <div class="tour-img">
+            <img src="../images/22.webp" alt="Serengeti Fly-In Safari" loading="lazy" />
+            <div class="tour-badge"><i class="fa-solid fa-plane"></i> Fly-In</div>
+          </div>
+          <div class="tour-body">
+            <div class="tour-meta">
+              <span><i class="fa-regular fa-calendar"></i> 2 Days</span>
+              <span><i class="fa-solid fa-users"></i> 2–4 pax</span>
+              <span><i class="fa-solid fa-star"></i> Scenic Flight</span>
+            </div>
+            <a href="tour-packages/serengeti-flyin-2day.html" style="text-decoration:none;">
+              <div class="tour-title" style="transition:color .3s;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--white)'">
+                Mid-Range Serengeti Fly-In Safari <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:.7rem;opacity:.6;"></i>
+              </div>
+            </a>
+            <div class="tour-desc">Scenic flight directly into the heart of the Serengeti, saving precious travel time. Full-day guided game drives with expert naturalists. Comfortable mid-range tented camp in Central Serengeti.</div>
+            <ul class="inc-list">
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>Return scenic flight into Serengeti</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>Mid-range tented camp inside the NP</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>All meals included</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>All park fees included</li>
+              <li><span class="cross"><i class="fa-solid fa-xmark"></i></span>Tips &amp; personal expenses</li>
+            </ul>
+            <div class="tour-footer">
+              <div class="tour-price">From $1,200 <small>/ person</small></div>
+              <a href="tour-packages/serengeti-flyin-2day.html" class="tour-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: Tarangire Ngorongoro Manyara -->
+        <div class="tour-card reveal"
+          data-dest="tarangire ngorongoro manyara"
+          data-dur="4"
+          data-type="game-drive"
+          data-price="1350"
+          data-index="4">
+          <div class="tour-img">
+            <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=600&q=80" alt="Tarangire Ngorongoro Manyara" loading="lazy" />
+            <div class="tour-badge"><i class="fa-solid fa-thumbs-up"></i> Popular</div>
+          </div>
+          <div class="tour-body">
+            <div class="tour-meta">
+              <span><i class="fa-regular fa-calendar"></i> 4 Days</span>
+              <span><i class="fa-solid fa-users"></i> 2–8 pax</span>
+              <span><i class="fa-solid fa-car-side"></i> Game Drives</span>
+            </div>
+            <a href="tour-packages/tarangire-ngorongoro-manyara.html" style="text-decoration:none;">
+              <div class="tour-title" style="transition:color .3s;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--white)'">
+                Best of Tarangire, Ngorongoro &amp; Lake Manyara <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:.7rem;opacity:.6;"></i>
+              </div>
+            </a>
+            <div class="tour-desc">A 4-day adventure from Arusha exploring the diverse ecosystems of Tarangire and Lake Manyara National Parks, finishing with a magical descent into the Ngorongoro Crater.</div>
+            <ul class="inc-list">
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>Ngorongoro Marera Mountain View Lodge</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>All meals during safari</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>Professional driver-guide</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>All park &amp; conservation fees</li>
+              <li><span class="cross"><i class="fa-solid fa-xmark"></i></span>Tips &amp; personal items</li>
+            </ul>
+            <div class="tour-footer">
+              <div class="tour-price">From $1,350 <small>/ person</small></div>
+              <a href="tour-packages/tarangire-ngorongoro-manyara.html" class="tour-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6: Kilimanjaro Summit -->
+        <div class="tour-card reveal delay-1"
+          data-dest="kilimanjaro"
+          data-dur="6"
+          data-type="trekking"
+          data-price="1800"
+          data-index="5">
+          <div class="tour-img">
+            <img src="https://images.unsplash.com/photo-1521150932951-303a95503ed3?w=600&q=80" alt="Kilimanjaro Climb" loading="lazy" />
+            <div class="tour-badge"><i class="fa-solid fa-mountain"></i> Summit</div>
+          </div>
+          <div class="tour-body">
+            <div class="tour-meta">
+              <span><i class="fa-regular fa-calendar"></i> 6–8 Days</span>
+              <span><i class="fa-solid fa-users"></i> All Levels</span>
+              <span><i class="fa-solid fa-person-hiking"></i> Trekking</span>
+            </div>
+            <a href="kili-routes/machame-route.html" style="text-decoration:none;">
+              <div class="tour-title" style="transition:color .3s;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--white)'">
+                Kilimanjaro Summit Package <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:.7rem;opacity:.6;"></i>
+              </div>
+            </a>
+            <div class="tour-desc">Conquer Africa's highest peak with our experienced mountain guides and dedicated porter team. Choose from all major routes — Machame, Lemosho, Rongai, Marangu or Umbwe. 95% summit success rate.</div>
+            <ul class="inc-list">
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>TANAPA-licensed lead guide + assistant guide</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>Licensed porters (ethical load limits)</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>All meals on the mountain</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>Camping equipment &amp; park fees</li>
+              <li><span class="cross"><i class="fa-solid fa-xmark"></i></span>Personal trekking gear &amp; insurance</li>
+            </ul>
+            <div class="tour-footer">
+              <div class="tour-price">From $1,800 <small>/ person</small></div>
+              <a href="kili-routes/machame-route.html" class="tour-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 7: Ultimate Bush to Beach -->
+        <div class="tour-card reveal"
+          data-dest="serengeti ngorongoro tarangire zanzibar"
+          data-dur="7"
+          data-type="beach-bush game-drive"
+          data-price="2850"
+          data-index="6">
+          <div class="tour-img">
+            <img src="../images/23.webp" alt="Bush to Beach" loading="lazy" />
+            <div class="tour-badge"><i class="fa-solid fa-water"></i> Bush to Beach</div>
+          </div>
+          <div class="tour-body">
+            <div class="tour-meta">
+              <span><i class="fa-regular fa-calendar"></i> 7 Days</span>
+              <span><i class="fa-solid fa-users"></i> 2–8 pax</span>
+              <span><i class="fa-solid fa-plane"></i> + Zanzibar</span>
+            </div>
+            <a href="tour-packages/bush-to-beach.html" style="text-decoration:none;">
+              <div class="tour-title" style="transition:color .3s;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--white)'">
+                Ultimate Bush to Beach — Safari &amp; Zanzibar <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:.7rem;opacity:.6;"></i>
+              </div>
+            </a>
+            <div class="tour-desc">The complete Tanzania experience — combine iconic wildlife of the Northern Circuit with a luxurious beach extension in Zanzibar. Fly directly from the Serengeti airstrip to Zanzibar.</div>
+            <ul class="inc-list">
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>4 nights Northern Circuit Safari</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>Scenic flight to Zanzibar included</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>3 nights Zanzibar beach hotel</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>All meals on safari; B&amp;B in Zanzibar</li>
+              <li><span class="cross"><i class="fa-solid fa-xmark"></i></span>International flights &amp; tips</li>
+            </ul>
+            <div class="tour-footer">
+              <div class="tour-price">From $2,850 <small>/ person</small></div>
+              <a href="tour-packages/bush-to-beach.html" class="tour-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 8: Bespoke Private Safari -->
+        <div class="tour-card reveal delay-1"
+          data-dest="serengeti ngorongoro tarangire zanzibar kilimanjaro manyara"
+          data-dur="custom"
+          data-type="bespoke game-drive"
+          data-price="999"
+          data-index="7">
+          <div class="tour-img">
+            <img src="../images/24.webp" alt="Bespoke Private Safari" loading="lazy" />
+            <div class="tour-badge"><i class="fa-solid fa-crown"></i> Bespoke</div>
+          </div>
+          <div class="tour-body">
+            <div class="tour-meta">
+              <span><i class="fa-regular fa-calendar"></i> Custom</span>
+              <span><i class="fa-solid fa-lock"></i> Private</span>
+              <span><i class="fa-solid fa-star"></i> Tailor-Made</span>
+            </div>
+            <a href="contact.html" style="text-decoration:none;">
+              <div class="tour-title" style="transition:color .3s;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--white)'">
+                Your Private Bespoke Safari Journey <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:.7rem;opacity:.6;"></i>
+              </div>
+            </a>
+            <div class="tour-desc">Tell us your dream and we'll design every detail from scratch. Honeymoon escapes, multi-generation family adventures, solo expeditions, photography safaris — your Tanzania journey, entirely your rules.</div>
+            <ul class="inc-list">
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>Fully customised itinerary</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>Budget, mid-range or luxury options</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>Private vehicle &amp; dedicated guide</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>Flexible start dates year-round</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>24/7 support before &amp; during your trip</li>
+            </ul>
+            <div class="tour-footer">
+              <div class="tour-price">Custom Quote</div>
+              <a href="contact.html" class="tour-link">Tell Us Your Dream <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 9: Honeymoon Safari -->
+        <div class="tour-card reveal"
+          data-dest="serengeti ngorongoro zanzibar"
+          data-dur="custom"
+          data-type="honeymoon beach-bush"
+          data-price="3500"
+          data-index="8">
+          <div class="tour-img">
+            <img src="../images/25.webp" alt="Honeymoon Safari" loading="lazy" />
+            <div class="tour-badge"><i class="fa-solid fa-heart"></i> Honeymoon</div>
+          </div>
+          <div class="tour-body">
+            <div class="tour-meta">
+              <span><i class="fa-regular fa-calendar"></i> Custom</span>
+              <span><i class="fa-solid fa-heart"></i> Couples</span>
+              <span><i class="fa-solid fa-champagne-glasses"></i> Romantic</span>
+            </div>
+            <a href="contact.html" style="text-decoration:none;">
+              <div class="tour-title" style="transition:color .3s;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--white)'">
+                Romantic Honeymoon Safari Package <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:.7rem;opacity:.6;"></i>
+              </div>
+            </a>
+            <div class="tour-desc">Begin your life together in the most extraordinary setting on Earth. Luxury lodges, private dining under the stars, balloon safaris at dawn, and a Zanzibar beach extension.</div>
+            <ul class="inc-list">
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>Luxury lodge rooms with romantic extras</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>Private vehicle &amp; guide throughout</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>Candlelit bush dinner arrangement</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span>Optional balloon safari &amp; Zanzibar extension</li>
+              <li><span class="cross"><i class="fa-solid fa-xmark"></i></span>International flights &amp; personal expenses</li>
+            </ul>
+            <div class="tour-footer">
+              <div class="tour-price">From $3,500 <small>/ couple</small></div>
+              <a href="contact.html" class="tour-link">Plan Romance <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- No results -->
+        <div class="no-results" id="noResults">
+          <i class="fa-solid fa-binoculars"></i>
+          <h3>No Packages Found</h3>
+          <p>Try adjusting your filters or <button onclick="resetAllFilters()" style="background:none;border:none;color:var(--gold);font-family:var(--ff-head);font-size:.88rem;font-weight:600;cursor:pointer;letter-spacing:1px;text-decoration:underline;">reset all filters</button> to see all packages.</p>
+        </div>
+
+      </div><!-- /tours-grid -->
+
+      <!-- Pagination -->
+      <div class="pagination-wrap" id="paginationWrap">
+        <div class="progress-bar-wrap" id="progressWrap">
+          <div class="progress-label">Showing <strong id="shownLabel">6</strong> of <strong id="totalLabel">9</strong> packages</div>
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill" style="width:66%"></div>
+          </div>
+        </div>
+        <button class="show-more-btn" id="showMoreBtn">
+          <span class="btn-text"><i class="fa-solid fa-chevron-down"></i> Show More Packages</span>
+          <span class="btn-loader"></span>
+        </button>
+        <p class="all-shown-msg" id="allShownMsg"><i class="fa-solid fa-check"></i> &nbsp; All packages displayed</p>
+      </div>
+
+    </div><!-- /packages-side -->
+  </div><!-- /tours-layout-wrap -->
+
+  <!-- WHAT'S INCLUDED -->
+  <section style="background:var(--dark3);padding:7rem 8%;">
+    <div style="text-align:center;max-width:600px;margin:0 auto 3.5rem;" class="reveal">
+      <div class="section-tag">Standard Inclusions</div>
+      <h2 class="section-title">What's Always <em>Included</em></h2>
+      <p class="section-sub">Every Seresafari tour package — regardless of budget level — includes these core standards of service and quality.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;" class="reveal">
+      <div class="team-card"><i class="fa-solid fa-car-side"></i>
+        <div class="team-title">4WD Safari Vehicle</div>
+        <div class="team-desc">Custom-built Land Cruiser with pop-up roof, charging ports, cooler box, and first aid kit.</div>
+      </div>
+      <div class="team-card"><i class="fa-solid fa-user-tie"></i>
+        <div class="team-title">Expert Driver-Guide</div>
+        <div class="team-desc">Licensed, experienced, English-speaking naturalist guide with minimum 7 years' field experience.</div>
+      </div>
+      <div class="team-card"><i class="fa-solid fa-utensils"></i>
+        <div class="team-title">All Meals on Safari</div>
+        <div class="team-desc">Freshly prepared breakfast, lunch boxes and dinner. Special dietary requirements catered for.</div>
+      </div>
+      <div class="team-card"><i class="fa-solid fa-ticket"></i>
+        <div class="team-title">All Park Fees</div>
+        <div class="team-desc">All national park entry fees, conservation area fees and crater descent fees fully covered.</div>
+      </div>
+      <div class="team-card"><i class="fa-solid fa-plane-arrival"></i>
+        <div class="team-title">Airport Transfers</div>
+        <div class="team-desc">Complimentary pick-up and drop-off at Kilimanjaro International Airport or Arusha Airport.</div>
+      </div>
+      <div class="team-card"><i class="fa-solid fa-wifi"></i>
+        <div class="team-title">In-Vehicle WiFi</div>
+        <div class="team-desc">Stay connected during transfers. Share your safari moments in real-time.</div>
+      </div>
+      <div class="team-card"><i class="fa-solid fa-headset"></i>
+        <div class="team-title">24/7 Support</div>
+        <div class="team-desc">Our operations team is available around the clock before and during your safari.</div>
+      </div>
+      <div class="team-card"><i class="fa-solid fa-shield-halved"></i>
+        <div class="team-title">Safety First</div>
+        <div class="team-desc">First aid kits, emergency contacts and comprehensive safety protocols on every tour.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section" style="background:var(--dark2);">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
+      <div class="reveal-l">
+        <div class="section-tag">Common Questions</div>
+        <h2 class="section-title">Tour <em>FAQ</em></h2>
+        <p class="section-sub">Everything you need to know before booking your Tanzania safari with Seresafari Africa Tours.</p>
+        <div style="margin-top:2.5rem;display:flex;flex-direction:column;gap:1.5rem;">
+          <div style="display:flex;align-items:flex-start;gap:1rem;padding:1.2rem;background:var(--dark3);border-left:2px solid var(--gold);">
+            <i class="fa-solid fa-phone" style="color:var(--gold);margin-top:3px;flex-shrink:0;"></i>
+            <div>
+              <div style="font-family:var(--ff-head);font-size:.9rem;font-weight:600;color:var(--white);letter-spacing:1px;margin-bottom:.3rem;">CALL / WHATSAPP</div>
+              <a href="tel:+255690318461" style="color:var(--gold);font-size:.9rem;">+255 690 318 461</a>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:1rem;padding:1.2rem;background:var(--dark3);border-left:2px solid var(--gold);">
+            <i class="fa-solid fa-envelope" style="color:var(--gold);margin-top:3px;flex-shrink:0;"></i>
+            <div>
+              <div style="font-family:var(--ff-head);font-size:.9rem;font-weight:600;color:var(--white);letter-spacing:1px;margin-bottom:.3rem;">EMAIL US</div>
+              <a href="mailto:info@seresafariafrica.com" style="color:var(--gold);font-size:.9rem;">info@seresafariafrica.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="faq-list reveal-r">
+        <div class="faq-item">
+          <button class="faq-q">What is the best time to go on safari in Tanzania? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><div class="faq-a-inner">Tanzania is a year-round destination. The dry season (June–October) offers the best wildlife viewing as animals gather around water sources. January–February is magical for the Great Migration calving season.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How many people will be in my safari vehicle? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><div class="faq-a-inner">Our standard safari vehicles accommodate a maximum of 6 guests, ensuring everyone has a window seat with unobstructed wildlife views. Private safaris can be arranged for couples, families or small groups.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Do I need a visa to visit Tanzania? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><div class="faq-a-inner">Most nationalities require a visa to enter Tanzania. You can apply for an e-Visa online before travel at immigration.go.tz, or obtain a visa on arrival at Kilimanjaro International Airport. The current fee is approximately $50 USD.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What vaccinations do I need for Tanzania? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><div class="faq-a-inner">Yellow Fever vaccination is required if arriving from certain countries. Malaria prophylaxis is strongly advised. Other recommended vaccines include Hepatitis A &amp; B, Typhoid and Tetanus. Consult your doctor at least 6–8 weeks before travel.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What currency should I bring to Tanzania? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><div class="faq-a-inner">The Tanzanian Shilling (TZS) is the local currency, but US Dollars are widely accepted. Bring clean, un-torn USD bills dated after 2009 for the best exchange rates. ATMs are available in Arusha and major towns.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="book-section">
+    <div class="book-bg"></div>
+    <div class="book-inner reveal">
+      <div class="section-tag" style="justify-content:center;">Start Planning</div>
+      <h2>Book Your <em>Safari</em></h2>
+      <p>Ready to experience Tanzania? Send us your enquiry and our team will design your perfect itinerary within 24 hours — completely free.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Send Enquiry</a>
+        <a href="kilimanjaro.html" class="btn btn-outline"><i class="fa-solid fa-mountain"></i> Kilimanjaro Packages</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">SERE<span>SAFARI</span></a>
+        <p class="footer-tagline">Creating unforgettable safari experiences in the heart of Africa. Expert guides. Hand-picked lodges. Hakuna Matata.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/Seresafari/" target="_blank" rel="noopener" class="soc-btn"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="soc-btn"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="soc-btn"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="soc-btn"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Destinations</h4>
+        <ul class="footer-links">
+          <li><a href="destinations.html"><i class="fa-solid fa-chevron-right"></i>Serengeti</a></li>
+          <li><a href="destinations.html"><i class="fa-solid fa-chevron-right"></i>Ngorongoro Crater</a></li>
+          <li><a href="destinations.html"><i class="fa-solid fa-chevron-right"></i>Tarangire</a></li>
+          <li><a href="destinations.html"><i class="fa-solid fa-chevron-right"></i>Lake Manyara</a></li>
+          <li><a href="kilimanjaro.html"><i class="fa-solid fa-chevron-right"></i>Kilimanjaro</a></li>
+          <li><a href="zanzibar.html"><i class="fa-solid fa-chevron-right"></i>Zanzibar</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Tours</h4>
+        <ul class="footer-links">
+          <li><a href="tours.html"><i class="fa-solid fa-chevron-right"></i>Classic Safari</a></li>
+          <li><a href="tours.html"><i class="fa-solid fa-chevron-right"></i>Fly-In Safari</a></li>
+          <li><a href="tours.html"><i class="fa-solid fa-chevron-right"></i>Bush to Beach</a></li>
+          <li><a href="kilimanjaro.html"><i class="fa-solid fa-chevron-right"></i>Kilimanjaro Climbs</a></li>
+          <li><a href="tours.html"><i class="fa-solid fa-chevron-right"></i>Honeymoon Safari</a></li>
+          <li><a href="tours.html"><i class="fa-solid fa-chevron-right"></i>Bespoke Private</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul class="footer-contact">
+          <li><span class="fc-ico"><i class="fa-solid fa-location-dot"></i></span>Arusha, Tanzania 23100</li>
+          <li><span class="fc-ico"><i class="fa-solid fa-phone"></i></span><a href="tel:+255690318461" style="color:var(--text);">+255 690 318 461</a></li>
+          <li><span class="fc-ico"><i class="fa-solid fa-envelope"></i></span><a href="mailto:info@seresafariafrica.com" style="color:var(--text);">info@seresafariafrica.com</a></li>
+          <li><span class="fc-ico"><i class="fa-solid fa-clock"></i></span>Mon–Sat: 8AM–6PM EAT</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <p>© 2026 Seresafari Africa Tours. All Rights Reserved. · Web by Pamtech</p>
+      <div class="hakuna">Hakuna Matata <i class="fa-solid fa-earth-africa"></i></div>
+      <p>
+        <a href="privacy-policy.html">Privacy Policy</a> ·
+        <a href="terms-of-service.html">Terms of Service</a> ·
+        <a href="travel-insights.html">Travel Insights</a>
+      </p>
+    </div>
+  </footer>
+
+  <a class="wa-btn" href="https://wa.me/255690318461" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
+
+  <script src="../js/main.js"></script>
+
+  <script>
+    /* ════════════════════════════════════════════════
+       FILTER + PAGINATION LOGIC
+    ════════════════════════════════════════════════ */
+
+    const CARDS_PER_PAGE = 2;
+    let currentPage = 1;
+    let filteredCards = [];
+
+    const allCards = Array.from(document.querySelectorAll('.tour-card[data-index]'));
+
+    /* ── Price Slider ── */
+    const rangeMin = document.getElementById('rangeMin');
+    const rangeMax = document.getElementById('rangeMax');
+    const priceMinEl = document.getElementById('priceMin');
+    const priceMaxEl = document.getElementById('priceMax');
+    const rangeFill = document.getElementById('rangeFill');
+
+    function updateRangeFill() {
+      const min = parseInt(rangeMin.value);
+      const max = parseInt(rangeMax.value);
+      const total = 5000 - 870;
+      const leftPct = ((min - 870) / total) * 100;
+      const widthPct = ((max - min) / total) * 100;
+      rangeFill.style.left = leftPct + '%';
+      rangeFill.style.width = Math.max(0, widthPct) + '%';
+      priceMinEl.textContent = min.toLocaleString();
+      priceMaxEl.textContent = max.toLocaleString();
+    }
+
+    rangeMin.addEventListener('input', function () {
+      if (parseInt(this.value) > parseInt(rangeMax.value) - 50) this.value = parseInt(rangeMax.value) - 50;
+      updateRangeFill();
+    });
+
+    rangeMax.addEventListener('input', function () {
+      if (parseInt(this.value) < parseInt(rangeMin.value) + 50) this.value = parseInt(rangeMin.value) + 50;
+      updateRangeFill();
+    });
+
+    updateRangeFill();
+
+    /* ── Get active filter values ── */
+    function getActiveFilters() {
+      const dests = Array.from(document.querySelectorAll('input[name="dest"]:checked')).map(el => el.value);
+      const durs  = Array.from(document.querySelectorAll('input[name="dur"]:checked')).map(el => el.value);
+      const types = Array.from(document.querySelectorAll('input[name="type"]:checked')).map(el => el.value);
+      const priceMinVal = parseInt(rangeMin.value);
+      const priceMaxVal = parseInt(rangeMax.value);
+      return { dests, durs, types, priceMinVal, priceMaxVal };
+    }
+
+    /* ── Apply filters ── */
+    function applyFilters() {
+      const { dests, durs, types, priceMinVal, priceMaxVal } = getActiveFilters();
+      currentPage = 1;
+
+      filteredCards = allCards.filter(card => {
+        const cardDests  = card.dataset.dest.split(' ');
+        const cardDur    = card.dataset.dur;
+        const cardTypes  = card.dataset.type.split(' ');
+        const cardPrice  = parseInt(card.dataset.price);
+
+        if (dests.length > 0 && !dests.some(d => cardDests.includes(d))) return false;
+        if (durs.length > 0 && !durs.includes(cardDur)) return false;
+        if (types.length > 0 && !types.some(t => cardTypes.includes(t))) return false;
+        if (cardPrice < priceMinVal || cardPrice > priceMaxVal) return false;
+        return true;
+      });
+
+      allCards.forEach(c => {
+        c.classList.add('filtered-out');
+        c.classList.add('hidden-card');
+      });
+
+      renderPage();
+      updateResultsBar();
+      updateActiveTagsBar();
+      updatePagination();
+    }
+
+    /* ── Render page ── */
+    function renderPage(animate) {
+      const toShow = filteredCards.slice(0, currentPage * CARDS_PER_PAGE);
+      const noResults = document.getElementById('noResults');
+
+      filteredCards.forEach(c => c.classList.remove('filtered-out'));
+
+      allCards.forEach(c => {
+        const inFiltered = filteredCards.includes(c);
+        const inPage = toShow.includes(c);
+        c.classList.toggle('hidden-card', !inPage);
+        if (!inFiltered) c.classList.add('filtered-out');
+      });
+
+      if (filteredCards.length === 0) {
+        noResults.style.display = 'block';
+        document.getElementById('paginationWrap').style.display = 'none';
+      } else {
+        noResults.style.display = 'none';
+        document.getElementById('paginationWrap').style.display = 'flex';
+      }
+
+      if (animate) {
+        const prevCount = (currentPage - 1) * CARDS_PER_PAGE;
+        filteredCards.slice(prevCount, currentPage * CARDS_PER_PAGE).forEach((card, i) => {
+          card.classList.remove('card-entering');
+          void card.offsetWidth;
+          card.style.animationDelay = (i * 0.08) + 's';
+          card.classList.add('card-entering');
+          setTimeout(() => card.classList.remove('card-entering'), 600 + i * 80);
+        });
+      }
+
+      updateVisibleCount();
+    }
+
+    function updateVisibleCount() {
+      const shown = Math.min(currentPage * CARDS_PER_PAGE, filteredCards.length);
+      document.getElementById('visibleCount').textContent = shown;
+      document.getElementById('totalCount').textContent = filteredCards.length;
+    }
+
+    function updatePagination() {
+      const total = filteredCards.length;
+      const shown = Math.min(currentPage * CARDS_PER_PAGE, total);
+      const pct = total > 0 ? (shown / total) * 100 : 0;
+
+      document.getElementById('shownLabel').textContent = shown;
+      document.getElementById('totalLabel').textContent = total;
+      document.getElementById('progressFill').style.width = pct + '%';
+
+      const btn = document.getElementById('showMoreBtn');
+      const allMsg = document.getElementById('allShownMsg');
+
+      if (shown >= total) {
+        btn.style.display = 'none';
+        allMsg.style.display = 'block';
+        document.getElementById('progressWrap').style.display = total > CARDS_PER_PAGE ? 'flex' : 'none';
+      } else {
+        btn.style.display = 'inline-flex';
+        allMsg.style.display = 'none';
+        document.getElementById('progressWrap').style.display = 'flex';
+      }
+    }
+
+    document.getElementById('showMoreBtn').addEventListener('click', function () {
+      this.classList.add('loading');
+      setTimeout(() => {
+        currentPage++;
+        renderPage(true);
+        updatePagination();
+        this.classList.remove('loading');
+      }, 600);
+    });
+
+    function updateResultsBar() {
+      document.getElementById('visibleCount').textContent = Math.min(currentPage * CARDS_PER_PAGE, filteredCards.length);
+      document.getElementById('totalCount').textContent = filteredCards.length;
+    }
+
+    const tagLabels = {
+      serengeti: 'Serengeti', ngorongoro: 'Ngorongoro', tarangire: 'Tarangire',
+      zanzibar: 'Zanzibar', kilimanjaro: 'Kilimanjaro', manyara: 'Lake Manyara',
+      '2': '2 Days', '3': '3 Days', '4': '4 Days', '6': '6 Days', '7': '7 Days', custom: 'Custom',
+      'game-drive': 'Game Drive', 'fly-in': 'Fly-In', 'beach-bush': 'Beach+Bush',
+      trekking: 'Trekking', honeymoon: 'Honeymoon', bespoke: 'Bespoke'
+    };
+
+    function updateActiveTagsBar() {
+      const { dests, durs, types, priceMinVal, priceMaxVal } = getActiveFilters();
+      const container = document.getElementById('activeFilters');
+      container.innerHTML = '';
+
+      [...dests, ...durs, ...types].forEach(val => {
+        const tag = document.createElement('span');
+        tag.className = 'active-tag';
+        tag.innerHTML = `${tagLabels[val] || val} <i class="fa-solid fa-xmark" data-val="${val}"></i>`;
+        tag.querySelector('i').addEventListener('click', () => removeFilter(val));
+        container.appendChild(tag);
+      });
+
+      if (priceMinVal > 870 || priceMaxVal < 5000) {
+        const tag = document.createElement('span');
+        tag.className = 'active-tag';
+        tag.innerHTML = `$${priceMinVal.toLocaleString()}–$${priceMaxVal.toLocaleString()} <i class="fa-solid fa-xmark"></i>`;
+        tag.querySelector('i').addEventListener('click', () => {
+          rangeMin.value = 870;
+          rangeMax.value = 5000;
+          updateRangeFill();
+          applyFilters();
+        });
+        container.appendChild(tag);
+      }
+    }
+
+    function removeFilter(val) {
+      const cb = document.querySelector(`input[value="${val}"]`);
+      if (cb) cb.checked = false;
+      applyFilters();
+    }
+
+    function resetAllFilters() {
+      document.querySelectorAll('.filter-check input[type="checkbox"]').forEach(cb => cb.checked = false);
+      rangeMin.value = 870;
+      rangeMax.value = 5000;
+      updateRangeFill();
+      applyFilters();
+    }
+
+    document.getElementById('resetFilters').addEventListener('click', resetAllFilters);
+
+document.querySelectorAll('.filter-check input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener('change', applyFilters);
+});
+
+rangeMin.addEventListener('change', applyFilters);
+rangeMax.addEventListener('change', applyFilters);
+
+    /* ── Mobile toggle ── */
+    const filterMobileToggle = document.getElementById('filterMobileToggle');
+    const filterCollapsible  = document.getElementById('filterCollapsible');
+
+    filterMobileToggle.addEventListener('click', function () {
+      const isCollapsed = filterCollapsible.classList.toggle('collapsed');
+      filterMobileToggle.classList.toggle('collapsed', isCollapsed);
+    });
+
+    function handleResponsive() {
+      if (window.innerWidth <= 900) {
+        filterCollapsible.classList.add('collapsed');
+        filterMobileToggle.classList.add('collapsed');
+      } else {
+        filterCollapsible.classList.remove('collapsed');
+      }
+    }
+
+    handleResponsive();
+    window.addEventListener('resize', handleResponsive);
+
+    /* ── Initial render ── */
+    filteredCards = [...allCards];
+    renderPage(false);
+    updatePagination();
+    updateActiveTagsBar();
+  </script>
+</body>
+</html>
