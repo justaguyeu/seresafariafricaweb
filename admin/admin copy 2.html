@@ -1,0 +1,1947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Admin Dashboard – Sere Safari Africa</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+  :root {
+    --gold:       #574535;
+    --gold-light: #7A6045;
+    --gold-dim:   rgba(87,69,53,.10);
+    --dark:       #FFFFFF;
+    --dark2:      #F5EDD0;
+    --dark3:      #EDE0C8;
+    --cream:      #574535;
+    --cream2:     #3D2B1A;
+    --text:       #6B5240;
+    --white:      #1A0F07;
+    --ff-head:    'Oswald', sans-serif;
+    --ff-body:    'Poppins', sans-serif;
+    --nav-h:      64px;
+    --surface:    #FAF6EF;
+    --border:     rgba(87,69,53,.15);
+    --border2:    rgba(87,69,53,.10);
+    --red:        #c0392b;
+    --green:      #27ae60;
+    --blue:       #2980b9;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{font-size:15px;scroll-behavior:smooth}
+  body{font-family:var(--ff-body);background:var(--dark2);color:var(--text);min-height:100vh;display:flex;flex-direction:column}
+  a{text-decoration:none;color:inherit}
+  img{display:block;max-width:100%}
+  button{font-family:inherit;cursor:pointer}
+  input,select,textarea{font-family:inherit}
+
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--nav-h);background:var(--gold);display:flex;align-items:center;justify-content:space-between;padding:0 1.8rem;box-shadow:0 2px 16px rgba(87,69,53,.25);}
+  .topbar-brand{display:flex;align-items:center;gap:12px}
+  .topbar-brand img{
+    width: auto;
+    height: 90px;
+    padding: 3px;
+  }
+  .topbar-logo{font-family:var(--ff-head);font-size:1.35rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--dark);}
+  .topbar-logo span{color:var(--dark3);}
+  .topbar-badge{background:var(--dark2);color:var(--gold);font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:.2rem .6rem;}
+  .topbar-right{display:flex;align-items:center;gap:1rem}
+  .topbar-user{font-size:.78rem;color:rgba(255,255,255,.8);display:flex;align-items:center;gap:7px;}
+  .topbar-user i{color:var(--dark2);}
+  .topbar-btn{padding:.5rem 1rem;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:var(--dark);font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;display:flex;align-items:center;gap:6px;transition:background .2s;}
+  .topbar-btn:hover{background:rgba(255,255,255,.25);}
+
+  .layout{display:flex;padding-top:var(--nav-h);min-height:100vh}
+
+  .sidebar{width:240px;flex-shrink:0;background:var(--cream2);min-height:calc(100vh - var(--nav-h));padding:1.4rem 0;position:sticky;top:var(--nav-h);height:calc(100vh - var(--nav-h));overflow-y:auto;}
+  .nav-section{font-size:.62rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(245,237,208,.35);padding:.5rem 1.4rem;margin-top:1rem;}
+  .nav-item{display:flex;align-items:center;gap:10px;padding:.75rem 1.4rem;color:rgba(245,237,208,.65);font-size:.82rem;font-weight:500;cursor:pointer;border-left:3px solid transparent;transition:all .2s;text-decoration:none;}
+  .nav-item i{width:18px;text-align:center;color:rgba(87,69,53,.6);font-size:.9rem;}
+  .nav-item:hover{background:rgba(255,255,255,.06);color:#F5EDD0;}
+  .nav-item.active{background:rgba(87,69,53,.2);color:#F5EDD0;border-left-color:var(--dark2);}
+  .nav-item.active i{color:var(--dark2);}
+  .nav-badge{margin-left:auto;background:var(--dark2);color:var(--gold);font-size:.58rem;font-weight:700;padding:.15rem .5rem;border-radius:100px;}
+
+  .main{flex:1;padding:2rem;overflow-x:hidden}
+  .page-section{display:none}
+  .page-section.active{display:block}
+
+  .page-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.8rem;flex-wrap:wrap;gap:1rem;}
+  .page-hdr h1{font-family:var(--ff-head);font-size:1.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--cream2);}
+  .page-hdr p{font-size:.82rem;color:var(--text);margin-top:.2rem}
+
+  .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.8rem;}
+  .stat-box{background:var(--dark);border:1px solid var(--border);padding:1.2rem 1.4rem;border-left:3px solid var(--gold);}
+  .stat-label{font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text);margin-bottom:.5rem}
+  .stat-value{font-family:var(--ff-head);font-size:2.2rem;font-weight:700;color:var(--cream2);line-height:1}
+  .stat-sub{font-size:.72rem;color:var(--gold);margin-top:.3rem;font-weight:500}
+
+  .card{background:var(--dark);border:1px solid var(--border);padding:1.4rem;margin-bottom:1.4rem}
+  .card-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;flex-wrap:wrap;gap:.6rem}
+  .card-title{font-family:var(--ff-head);font-size:1rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--cream2);display:flex;align-items:center;gap:8px}
+  .card-title i{color:var(--gold);}
+
+  .tbl-wrap{overflow-x:auto}
+  table{width:100%;border-collapse:collapse}
+  th{text-align:left;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text);padding:.7rem 1rem;border-bottom:2px solid var(--border);white-space:nowrap;}
+  td{padding:.85rem 1rem;border-bottom:1px solid var(--border2);font-size:.82rem;color:var(--text);vertical-align:middle}
+  tr:hover td{background:rgba(87,69,53,.025)}
+  .tbl-img{width:54px;height:40px;object-fit:cover;border:1px solid var(--border)}
+  .tbl-title{font-weight:600;color:var(--cream2)}
+  .tbl-sub{font-size:.72rem;color:var(--text);margin-top:2px}
+
+  .badge{display:inline-flex;align-items:center;gap:4px;padding:.2rem .65rem;font-size:.63rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;border-radius:2px}
+  .badge-green{background:#d4edda;color:#155724}
+  .badge-red{background:#f8d7da;color:#721c24}
+  .badge-yellow{background:#fff3cd;color:#856404}
+  .badge-gold{background:var(--dark2);color:var(--cream2)}
+
+  .btn{display:inline-flex;align-items:center;gap:7px;padding:.55rem 1.1rem;font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;border:none;transition:all .2s;white-space:nowrap;cursor:pointer;}
+  .btn-primary{background:var(--cream2);color:var(--dark2)}
+  .btn-primary:hover{background:var(--gold);transform:translateY(-1px)}
+  .btn-gold{background:var(--gold);color:var(--dark2)}
+  .btn-gold:hover{background:var(--gold-light)}
+  .btn-outline{background:transparent;border:1.5px solid var(--gold);color:var(--gold)}
+  .btn-outline:hover{background:var(--gold-dim)}
+  .btn-danger{background:var(--red);color:#fff}
+  .btn-danger:hover{background:#a93226}
+  .btn-sm{padding:.35rem .75rem;font-size:.65rem}
+  .btn-icon{width:32px;height:32px;padding:0;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:1px solid var(--border);color:var(--text);transition:all .2s}
+  .btn-icon:hover{border-color:var(--gold);color:var(--gold)}
+  .btn-icon.edit:hover{border-color:var(--blue);color:var(--blue)}
+  .btn-icon.del:hover{border-color:var(--red);color:var(--red)}
+  .btn-icon.view:hover{border-color:var(--green);color:var(--green)}
+
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .form-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
+  .form-full{grid-column:1/-1}
+  .field{margin-bottom:1rem}
+  .field label{display:block;font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cream2);margin-bottom:.4rem}
+  .field label .req{color:var(--gold)}
+  .f-input,.f-select,.f-textarea{width:100%;padding:.7rem .9rem;border:1.5px solid var(--border);background:var(--surface);color:var(--cream2);font-size:.85rem;font-family:inherit;transition:border-color .2s,box-shadow .2s;}
+  .f-input:focus,.f-select:focus,.f-textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-dim);}
+  .f-textarea{resize:vertical;min-height:90px}
+  .field-hint{font-size:.7rem;color:var(--text);margin-top:.3rem}
+  .form-section{border-left:3px solid var(--gold);padding-left:1rem;margin-bottom:1.6rem;}
+  .form-section-title{font-family:var(--ff-head);font-size:.95rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--cream2);margin-bottom:1rem;}
+
+  .smart-input-group{display:flex;align-items:center;border:1.5px solid var(--border);background:var(--surface);overflow:hidden;transition:border-color .2s,box-shadow .2s;}
+  .smart-input-group:focus-within{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-dim);}
+  .smart-input-group .sfix{padding:0 .7rem;font-size:.82rem;color:var(--text);background:var(--dark2);border-right:1px solid var(--border);height:40px;display:flex;align-items:center;white-space:nowrap;flex-shrink:0;}
+  .smart-input-group .sfix.right{border-right:none;border-left:1px solid var(--border);}
+  .smart-input-group input[type=number]{width:60px;padding:.7rem .5rem;border:none;background:transparent;font-size:.92rem;font-weight:600;color:var(--cream2);text-align:center;-moz-appearance:textfield;}
+  .smart-input-group input[type=number]::-webkit-inner-spin-button,.smart-input-group input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;}
+  .smart-input-group input[type=number]:focus{outline:none;}
+  .smart-input-group .sep{padding:0 .4rem;color:var(--border);font-size:1rem;}
+
+  .live-preview-tag{display:inline-flex;align-items:center;gap:6px;padding:.3rem .8rem;background:var(--dark2);border:1px solid var(--border);font-size:.75rem;font-weight:600;color:var(--cream2);margin-top:.5rem;font-family:var(--ff-head);letter-spacing:.5px;}
+  .live-preview-tag i{color:var(--gold);font-size:.7rem;}
+
+  .price-input-group{display:flex;align-items:center;border:1.5px solid var(--border);background:var(--surface);overflow:hidden;transition:border-color .2s,box-shadow .2s;}
+  .price-input-group:focus-within{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-dim);}
+  .price-input-group .price-prefix{padding:0 .9rem;font-size:.85rem;font-weight:700;color:var(--cream2);background:var(--dark2);border-right:1px solid var(--border);height:40px;display:flex;align-items:center;white-space:nowrap;flex-shrink:0;font-family:var(--ff-head);letter-spacing:1px;}
+  .price-input-group input[type=number]{flex:1;padding:.7rem .9rem;border:none;background:transparent;font-size:.92rem;font-weight:600;color:var(--cream2);-moz-appearance:textfield;}
+  .price-input-group input[type=number]::-webkit-inner-spin-button,.price-input-group input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;}
+  .price-input-group input[type=number]:focus{outline:none;}
+
+  .icon-picker-wrap{position:relative}
+  .icon-preview-btn{width:100%;padding:.7rem .9rem;border:1.5px solid var(--border);background:var(--surface);color:var(--cream2);font-size:.85rem;display:flex;align-items:center;gap:10px;cursor:pointer;text-align:left;transition:border-color .2s;}
+  .icon-preview-btn:hover{border-color:var(--gold)}
+  .icon-preview-btn .prev-ico{font-size:1.1rem;color:var(--gold);width:22px;text-align:center}
+  .icon-preview-btn .arrow{margin-left:auto;font-size:.75rem;color:var(--text);transition:transform .2s}
+  .icon-preview-btn.open .arrow{transform:rotate(180deg)}
+  .icon-dropdown{display:none;position:absolute;top:calc(100% + 4px);left:0;right:0;background:var(--dark);border:1.5px solid var(--border);padding:.6rem;z-index:500;box-shadow:0 8px 24px rgba(87,69,53,.15);max-height:300px;overflow:hidden;}
+  .icon-dropdown.open{display:block}
+  .icon-search-inp{width:100%;padding:.45rem .7rem;border:1.5px solid var(--border);background:var(--surface);font-size:.78rem;margin-bottom:.5rem;font-family:inherit;color:var(--cream2);}
+  .icon-search-inp:focus{outline:none;border-color:var(--gold)}
+  .icon-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;max-height:200px;overflow-y:auto}
+  .icon-opt{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.45rem .2rem;border:1px solid transparent;cursor:pointer;font-size:1rem;color:var(--text);transition:all .15s;gap:2px;}
+  .icon-opt span{font-size:.5rem;letter-spacing:.5px;text-transform:uppercase;color:var(--text);text-align:center;line-height:1.2}
+  .icon-opt:hover{background:var(--dark2);border-color:var(--gold);color:var(--gold)}
+  .icon-opt:hover span{color:var(--gold)}
+  .icon-opt.selected{background:var(--gold);border-color:var(--gold);color:var(--dark)}
+  .icon-opt.selected span{color:var(--dark)}
+
+  .visual-pick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:.5rem}
+  .visual-pick-grid-2{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:.5rem}
+  .vpick-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:.6rem .3rem;border:1.5px solid var(--border);cursor:pointer;background:var(--surface);transition:all .15s;font-size:.62rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text);text-align:center;line-height:1.3;}
+  .vpick-btn i{font-size:1.1rem;color:var(--text);transition:color .15s}
+  .vpick-btn:hover{border-color:var(--gold);background:var(--dark2);color:var(--gold)}
+  .vpick-btn:hover i{color:var(--gold)}
+  .vpick-btn.selected{background:var(--gold);border-color:var(--gold);color:var(--dark)}
+  .vpick-btn.selected i{color:var(--dark)}
+  .tags-out{background:var(--dark2);border:1px solid var(--border);padding:.4rem .8rem;font-size:.72rem;color:var(--text);font-family:monospace;min-height:28px;margin-top:.3rem;}
+
+  .dur-pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:.4rem}
+  .dur-pill{padding:.35rem .9rem;border:1.5px solid var(--border);cursor:pointer;font-size:.72rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text);background:var(--surface);transition:all .15s;}
+  .dur-pill:hover{border-color:var(--gold);color:var(--gold)}
+  .dur-pill.selected{background:var(--gold);border-color:var(--gold);color:var(--dark)}
+
+  .custom-dur-row{display:none;align-items:center;gap:.6rem;margin-top:.5rem;padding:.6rem .8rem;background:var(--dark2);border:1.5px solid var(--gold);}
+  .custom-dur-row.show{display:flex;}
+  .custom-dur-row label{font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);white-space:nowrap;}
+  .custom-dur-row input[type=number]{width:70px;padding:.4rem .6rem;border:1.5px solid var(--border);background:var(--surface);font-size:.9rem;font-weight:600;color:var(--cream2);text-align:center;-moz-appearance:textfield;}
+  .custom-dur-row input[type=number]::-webkit-inner-spin-button,.custom-dur-row input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;}
+  .custom-dur-row input[type=number]:focus{outline:none;border-color:var(--gold);}
+  .custom-dur-row .dur-unit{font-size:.78rem;color:var(--text);font-weight:600;}
+
+  .img-upload-zone{border:2px dashed var(--border);background:var(--surface);position:relative;transition:all .2s;overflow:hidden;}
+  .img-upload-zone.dragover{border-color:var(--gold);background:var(--dark2);}
+  .upload-trigger{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1.5rem;cursor:pointer;gap:.6rem;position:relative;z-index:1;}
+  .upload-trigger input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;z-index:2;}
+  .upload-trigger i.upload-icon{font-size:2.2rem;color:var(--gold);display:block;transition:transform .2s;}
+  .img-upload-zone:hover .upload-icon{transform:translateY(-3px);}
+  .upload-trigger p{font-size:.85rem;font-weight:600;color:var(--cream2);margin:0;}
+  .upload-trigger small{font-size:.72rem;color:var(--text);opacity:.75;}
+  .upload-trigger .upload-actions{display:flex;gap:.5rem;margin-top:.4rem;flex-wrap:wrap;justify-content:center;}
+  .upload-chip{display:inline-flex;align-items:center;gap:5px;padding:.35rem .8rem;background:var(--gold);color:var(--dark2);font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s;pointer-events:none;}
+  .upload-progress-bar{display:none;height:4px;background:var(--border);position:relative;overflow:hidden;}
+  .upload-progress-bar.show{display:block;}
+  .upload-progress-fill{height:100%;background:var(--gold);width:0%;transition:width .3s ease;}
+  .upload-progress-fill.indeterminate{width:40%;animation:indeterminate 1.2s ease-in-out infinite;}
+  @keyframes indeterminate{0%{margin-left:-40%;}100%{margin-left:100%;}}
+  .upload-status{display:none;padding:.5rem 1rem;font-size:.75rem;font-weight:600;align-items:center;gap:.5rem;}
+  .upload-status.show{display:flex;}
+  .upload-status.uploading{color:var(--gold);}
+  .upload-status.success{color:var(--green);}
+  .upload-status.error{color:var(--red);}
+  .img-preview-panel{display:none;position:relative;}
+  .img-preview-panel.show{display:block;}
+  .img-preview-panel img{width:100%;max-height:220px;object-fit:cover;display:block;}
+  .img-preview-overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(26,15,7,.45);display:flex;align-items:flex-end;padding:.75rem 1rem;gap:.5rem;}
+  .img-preview-name{flex:1;font-size:.72rem;color:#fff;font-weight:500;text-shadow:0 1px 3px rgba(0,0,0,.5);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .img-preview-actions{display:flex;gap:.4rem;}
+  .img-preview-btn-small{display:inline-flex;align-items:center;gap:5px;padding:.3rem .7rem;font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;border:none;cursor:pointer;transition:all .15s;}
+  .img-preview-btn-small.replace{background:rgba(255,255,255,.85);color:var(--cream2);}
+  .img-preview-btn-small.remove{background:rgba(192,57,43,.85);color:#fff;}
+  .img-preview-btn-small:hover{opacity:.9;transform:translateY(-1px);}
+  .img-url-row{display:flex;align-items:center;border-top:1px solid var(--border);background:var(--dark2);}
+  .img-url-row .url-label{padding:0 .8rem;font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text);white-space:nowrap;border-right:1px solid var(--border);height:36px;display:flex;align-items:center;}
+  .img-url-row input{flex:1;padding:.5rem .8rem;background:transparent;border:none;font-size:.75rem;color:var(--cream2);font-family:monospace;}
+  .img-url-row input:focus{outline:none;}
+  .img-url-row .url-check{padding:0 .8rem;font-size:.8rem;color:var(--green);display:none;}
+  .img-url-row .url-check.show{display:flex;align-items:center;}
+  .or-line{display:flex;align-items:center;gap:.6rem;margin:.5rem 0;font-size:.72rem;color:var(--text)}
+  .or-line::before,.or-line::after{content:'';flex:1;height:1px;background:var(--border)}
+  .paste-url-row{display:flex;gap:.5rem;padding:.6rem;background:var(--surface);border-top:1px dashed var(--border);}
+  .paste-url-row .f-input{flex:1;font-size:.8rem;}
+
+  .badge-live-preview{display:inline-flex;align-items:center;gap:6px;padding:.3rem .9rem;background:var(--gold);font-family:var(--ff-head);font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--dark);margin-top:.6rem;}
+
+  /* ── OVERVIEW EDITOR ── */
+  .overview-editor-wrap{border:1.5px solid var(--border);background:var(--surface);overflow:hidden;transition:border-color .2s,box-shadow .2s;}
+  .overview-editor-wrap:focus-within{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-dim);}
+  .overview-editor{min-height:130px;padding:.7rem .9rem;font-size:.85rem;color:var(--cream2);line-height:1.8;outline:none;font-family:var(--ff-body);}
+  .overview-editor:empty:before{content:attr(data-placeholder);color:var(--text);opacity:.6;pointer-events:none;}
+  .overview-editor p{margin:0 0 .8rem 0;}
+  .overview-editor p:last-child{margin-bottom:0;}
+  .overview-editor-footer{border-top:1px solid var(--border2);padding:.35rem .7rem;font-size:.65rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text);display:flex;gap:1rem;align-items:center;background:var(--dark2);}
+  .overview-editor-footer kbd{background:var(--dark);border:1px solid var(--border);padding:.05rem .35rem;border-radius:2px;font-family:monospace;font-size:.75rem;}
+  .overview-para-count{margin-left:auto;color:var(--gold);}
+
+  .modal-overlay{position:fixed;inset:0;background:rgba(26,15,7,.6);z-index:500;display:flex;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .3s;}
+  .modal-overlay.open{opacity:1;pointer-events:all}
+  .modal{background:var(--dark);width:100%;max-width:920px;position:relative;margin-bottom:2rem;animation:modalIn .3s ease}
+  @keyframes modalIn{from{transform:translateY(-30px);opacity:0}to{transform:none;opacity:1}}
+  .modal-hdr{background:var(--cream2);padding:1.2rem 1.6rem;display:flex;align-items:center;justify-content:space-between;}
+  .modal-hdr h2{font-family:var(--ff-head);font-size:1.1rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dark2);display:flex;align-items:center;gap:10px;}
+  .modal-hdr h2 i{color:var(--dark3)}
+  .modal-close{background:none;border:none;color:rgba(245,237,208,.6);font-size:1.3rem;cursor:pointer;padding:.2rem;transition:color .2s;}
+  .modal-close:hover{color:var(--dark2)}
+  .modal-body{padding:2rem 1.6rem}
+  .modal-footer{padding:1rem 1.6rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:flex-end;gap:.8rem;flex-wrap:wrap;}
+
+  .tabs{display:flex;border-bottom:2px solid var(--border);margin-bottom:1.8rem;overflow-x:auto;gap:0}
+  .tab-btn{padding:.7rem 1.1rem;font-family:var(--ff-head);font-size:.75rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text);border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:color .2s,border-color .2s;}
+  .tab-btn:hover{color:var(--cream2)}
+  .tab-btn.active{color:var(--cream2);border-bottom-color:var(--gold)}
+  .tab-panel{display:none}
+  .tab-panel.active{display:block}
+
+  .dyn-list{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.8rem}
+  .dyn-item{display:flex;align-items:center;gap:.6rem}
+  .dyn-item input{flex:1;padding:.55rem .8rem;border:1.5px solid var(--border);background:var(--surface);font-size:.82rem;font-family:inherit;color:var(--cream2)}
+  .dyn-item input:focus{outline:none;border-color:var(--gold)}
+  .dyn-remove{width:30px;height:30px;background:none;border:1px solid rgba(192,57,43,.3);color:var(--red);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.7rem;cursor:pointer;transition:all .2s}
+  .dyn-remove:hover{background:var(--red);color:#fff;border-color:var(--red)}
+  .dyn-add-btn{display:inline-flex;align-items:center;gap:6px;padding:.4rem .9rem;background:transparent;border:1.5px dashed var(--border);color:var(--text);font-size:.72rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .2s;}
+  .dyn-add-btn:hover{border-color:var(--gold);color:var(--gold)}
+
+  .day-card{border:1px solid var(--border);background:var(--surface);margin-bottom:1rem;}
+  .day-card-hdr{display:flex;align-items:center;gap:.8rem;padding:.7rem 1rem;background:var(--dark2);border-bottom:1px solid var(--border);}
+  .day-num{width:30px;height:30px;background:var(--gold);color:var(--dark);display:flex;align-items:center;justify-content:center;font-family:var(--ff-head);font-size:.9rem;font-weight:700;flex-shrink:0;}
+  .day-card-title{font-size:.8rem;font-weight:600;color:var(--cream2);flex:1}
+  .day-card-body{padding:1rem;display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+  .day-card-body .full{grid-column:1/-1}
+
+  .tier-row{display:grid;grid-template-columns:1fr 1fr auto;gap:.5rem;align-items:center;margin-bottom:.5rem}
+  .tier-row input{padding:.55rem .8rem;border:1.5px solid var(--border);background:var(--surface);font-size:.82rem;font-family:inherit;color:var(--cream2)}
+
+  .toast-stack{position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999;display:flex;flex-direction:column;gap:.5rem}
+  .toast{padding:.8rem 1.2rem;font-size:.8rem;font-weight:500;color:#fff;max-width:320px;display:flex;align-items:center;gap:.7rem;box-shadow:0 8px 24px rgba(0,0,0,.2);animation:toastIn .3s ease;}
+  .toast-success{background:var(--green)}
+  .toast-error{background:var(--red)}
+  .toast-info{background:var(--blue)}
+  @keyframes toastIn{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:none}}
+
+  .confirm-overlay{position:fixed;inset:0;background:rgba(26,15,7,.65);z-index:600;display:none;align-items:center;justify-content:center;}
+  .confirm-overlay.open{display:flex}
+  .confirm-box{background:var(--dark);padding:2rem;max-width:420px;width:90%;}
+  .confirm-box h3{font-family:var(--ff-head);font-size:1.1rem;font-weight:700;color:var(--cream2);margin-bottom:.7rem}
+  .confirm-box p{font-size:.85rem;color:var(--text);margin-bottom:1.4rem;line-height:1.6}
+  .confirm-btns{display:flex;gap:.7rem;justify-content:flex-end}
+
+  .search-bar{display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem;flex-wrap:wrap;}
+  .search-input-wrap{position:relative;flex:1;min-width:200px}
+  .search-input-wrap i{position:absolute;left:.8rem;top:50%;transform:translateY(-50%);color:var(--text);font-size:.8rem}
+  .search-input{width:100%;padding:.65rem .8rem .65rem 2.2rem;border:1.5px solid var(--border);background:var(--surface);font-size:.82rem;color:var(--cream2);}
+  .search-input:focus{outline:none;border-color:var(--gold)}
+
+  .loading-row td{text-align:center;padding:3rem;color:var(--text)}
+  .spin{display:inline-block;width:24px;height:24px;border:2px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin .7s linear infinite;margin-bottom:.5rem}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .empty-state{text-align:center;padding:4rem 2rem;color:var(--text)}
+  .empty-state i{font-size:2.5rem;color:var(--gold);opacity:.35;display:block;margin-bottom:1rem}
+  .empty-state h3{font-family:var(--ff-head);font-size:1.1rem;letter-spacing:1px;color:var(--cream2);margin-bottom:.4rem}
+
+  .toggle{position:relative;width:40px;height:22px;flex-shrink:0}
+  .toggle input{opacity:0;width:0;height:0}
+  .toggle-slider{position:absolute;inset:0;background:#ccc;border-radius:22px;cursor:pointer;transition:.3s;}
+  .toggle-slider::before{content:'';position:absolute;height:16px;width:16px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.3s;}
+  .toggle input:checked + .toggle-slider{background:var(--gold)}
+  .toggle input:checked + .toggle-slider::before{transform:translateX(18px)}
+
+  .role-badge{display:inline-flex;align-items:center;gap:4px;padding:.18rem .6rem;font-size:.62rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;border-radius:100px;}
+  .role-super{background:#3d1a6e;color:#d5aaff}
+  .role-editor{background:#1a3d6e;color:#aac5ff}
+  .invite-note{background:var(--dark2);border:1px solid var(--border);border-left:3px solid var(--gold);padding:1rem 1.2rem;font-size:.8rem;color:var(--cream2);margin-bottom:1.4rem;display:flex;gap:.8rem;align-items:flex-start;line-height:1.5}
+  .invite-note i{color:var(--gold);margin-top:2px;flex-shrink:0}
+
+  .storage-note{background:var(--dark2);border:1px solid var(--border);border-left:3px solid var(--blue);padding:.85rem 1rem;font-size:.78rem;color:var(--cream2);margin-bottom:1.2rem;display:flex;gap:.7rem;align-items:flex-start;line-height:1.6;}
+  .storage-note i{color:var(--blue);margin-top:2px;flex-shrink:0;}
+  .storage-note code{background:rgba(87,69,53,.12);padding:.1rem .35rem;font-size:.75rem;}
+
+  @media(max-width:900px){
+    .sidebar{display:none}
+    .stats-row{grid-template-columns:1fr 1fr}
+    .form-grid,.form-grid-3{grid-template-columns:1fr}
+    .form-full{grid-column:auto}
+    .day-card-body{grid-template-columns:1fr}
+    .day-card-body .full{grid-column:auto}
+    .tier-row{grid-template-columns:1fr auto}
+    .tier-row input:first-child{grid-column:1/-1}
+    .visual-pick-grid-2{grid-template-columns:repeat(3,1fr)}
+  }
+  @media(max-width:600px){
+    .stats-row{grid-template-columns:1fr}
+    .main{padding:1rem}
+    .modal-body{padding:1.2rem}
+    .visual-pick-grid{grid-template-columns:1fr 1fr}
+  }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-brand">
+    <img src="../logo.png" alt="">
+    <!-- <div class="topbar-logo">SERE<span>SAFARI</span></div> -->
+    <span class="topbar-badge">Admin</span>
+  </div>
+  <div class="topbar-right">
+    <div class="topbar-user"><i class="fa-solid fa-circle-user"></i><span id="adminEmail">—</span></div>
+    <button class="topbar-btn" onclick="window.open('../pages/tours.html','_blank')"><i class="fa-solid fa-globe"></i> View Site</button>
+    <button class="topbar-btn" onclick="signOut()"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</button>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar">
+    <div class="nav-section">Main</div>
+    <a class="nav-item active" onclick="showSection('dashboard')"><i class="fa-solid fa-chart-pie"></i> Dashboard</a>
+    <div class="nav-section">Content</div>
+    <a class="nav-item" onclick="showSection('packages')"><i class="fa-solid fa-suitcase"></i> Tour Packages <span class="nav-badge" id="pkgCount">0</span></a>
+    <div class="nav-section" id="usersNavSection" style="display:none">Users</div>
+    <a class="nav-item" id="usersNavItem" onclick="showSection('users')" style="display:none"><i class="fa-solid fa-users-gear"></i> Manage Users</a>
+    <div class="nav-section">Account</div>
+    <a class="nav-item" onclick="signOut()"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+  </nav>
+
+  <main class="main">
+
+    <!-- DASHBOARD -->
+    <section class="page-section active" id="sec-dashboard">
+      <div class="page-hdr">
+        <div>
+          <h1><i class="fa-solid fa-chart-pie" style="color:var(--gold);margin-right:.5rem"></i>Dashboard</h1>
+          <p>Welcome back — your Sere Safari Africa content overview.</p>
+        </div>
+        <button class="btn btn-gold" onclick="showSection('packages');openPackageModal()">
+          <i class="fa-solid fa-plus"></i> New Package
+        </button>
+      </div>
+      <div class="stats-row">
+        <div class="stat-box"><div class="stat-label">Total Packages</div><div class="stat-value" id="dashTotal">—</div><div class="stat-sub">All tours in system</div></div>
+        <div class="stat-box"><div class="stat-label">Active Packages</div><div class="stat-value" id="dashActive">—</div><div class="stat-sub">Shown on website</div></div>
+        <div class="stat-box"><div class="stat-label">Featured</div><div class="stat-value" id="dashFeatured">—</div><div class="stat-sub">Highlighted packages</div></div>
+        <div class="stat-box"><div class="stat-label">Lowest Price</div><div class="stat-value" id="dashLowest">—</div><div class="stat-sub">Base price / person</div></div>
+      </div>
+      <div class="card">
+        <div class="card-hdr">
+          <div class="card-title"><i class="fa-solid fa-suitcase"></i> Recent Packages</div>
+          <button class="btn btn-outline btn-sm" onclick="showSection('packages')">View All</button>
+        </div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Package</th><th>Duration</th><th>Price</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody id="dashRecentTbody"><tr class="loading-row"><td colspan="5"><div class="spin"></div><br>Loading…</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- PACKAGES -->
+    <section class="page-section" id="sec-packages">
+      <div class="page-hdr">
+        <div>
+          <h1><i class="fa-solid fa-suitcase" style="color:var(--gold);margin-right:.5rem"></i>Tour Packages</h1>
+          <p>Create, edit and manage all safari tour packages.</p>
+        </div>
+        <button class="btn btn-gold" onclick="openPackageModal()"><i class="fa-solid fa-plus"></i> Add New Package</button>
+      </div>
+      <div class="search-bar">
+        <div class="search-input-wrap">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input class="search-input" type="text" placeholder="Search packages…" id="pkgSearch" oninput="filterPackages()"/>
+        </div>
+        <select class="f-select" style="width:160px;padding:.65rem .9rem" id="pkgStatusFilter" onchange="filterPackages()">
+          <option value="">All Status</option><option value="true">Active</option><option value="false">Inactive</option>
+        </select>
+        <select class="f-select" style="width:160px;padding:.65rem .9rem" id="pkgTypeFilter" onchange="filterPackages()">
+          <option value="">All Types</option>
+          <option value="game-drive">Game Drive</option><option value="fly-in">Fly-In</option>
+          <option value="beach-bush">Beach+Bush</option><option value="trekking">Trekking</option>
+          <option value="honeymoon">Honeymoon</option><option value="bespoke">Bespoke</option>
+        </select>
+      </div>
+      <div class="card" style="padding:0">
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr><th>Image</th><th>Package</th><th>Duration</th><th>Base Price</th><th>Type</th><th>Active</th><th>Featured</th><th>Actions</th></tr>
+            </thead>
+            <tbody id="pkgTbody"><tr class="loading-row"><td colspan="8"><div class="spin"></div><br>Loading packages…</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- USERS -->
+    <section class="page-section" id="sec-users">
+      <div class="page-hdr">
+        <div>
+          <h1><i class="fa-solid fa-users-gear" style="color:var(--gold);margin-right:.5rem"></i>Manage Users</h1>
+          <p>Invite editors and manage admin access to the dashboard.</p>
+        </div>
+        <button class="btn btn-gold" onclick="openUserModal()"><i class="fa-solid fa-user-plus"></i> Invite User</button>
+      </div>
+      <div class="invite-note">
+        <i class="fa-solid fa-circle-info"></i>
+        <div><strong>How invitations work:</strong> Enter the user's email address. Supabase will send them a magic-link invitation email. Once they click it and set a password, their profile will appear in this table. Only <strong>Super Admins</strong> can manage users.</div>
+      </div>
+      <div class="card" style="padding:0">
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>User</th><th>Email</th><th>Role</th><th>Status</th><th>Joined</th><th>Actions</th></tr></thead>
+            <tbody id="usersTbody"><tr class="loading-row"><td colspan="6"><div class="spin"></div><br>Loading users…</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- PACKAGE MODAL -->
+<div class="modal-overlay" id="pkgModal">
+  <div class="modal">
+    <div class="modal-hdr">
+      <h2><i class="fa-solid fa-suitcase"></i> <span id="modalTitle">New Package</span></h2>
+      <button class="modal-close" onclick="closeModal('pkgModal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="tabs" id="modalTabs">
+        <button class="tab-btn active" onclick="switchTab(0)">Basic Info</button>
+        <button class="tab-btn" onclick="switchTab(1)">Images</button>
+        <button class="tab-btn" onclick="switchTab(2)">Destinations</button>
+        <button class="tab-btn" onclick="switchTab(3)">Inclusions</button>
+        <button class="tab-btn" onclick="switchTab(4)">Itinerary</button>
+        <button class="tab-btn" onclick="switchTab(5)">Accommodation</button>
+        <button class="tab-btn" onclick="switchTab(6)">Pricing</button>
+        <button class="tab-btn" onclick="switchTab(7)">SEO</button>
+      </div>
+
+      <!-- TAB 0: BASIC INFO -->
+      <div class="tab-panel active" id="tab0">
+        <div class="form-section">
+          <div class="form-section-title">Core Details</div>
+          <div class="form-grid">
+            <div class="field form-full">
+              <label>Package Title <span class="req">*</span></label>
+              <input class="f-input" type="text" id="f_title" placeholder="e.g. Tanzania Classic Safari" oninput="autoSlug()"/>
+            </div>
+            <div class="field">
+              <label>URL Slug <span class="req">*</span></label>
+              <input class="f-input" type="text" id="f_slug" placeholder="e.g. classic-safari"/>
+              <div class="field-hint">Auto-generated from title. Used in the page URL.</div>
+            </div>
+            <div class="field">
+              <label>Detail Page URL <span class="req">*</span></label>
+              <input class="f-input" type="text" id="f_detail_url" placeholder="tour-packages/tour-detail.html?slug="/>
+              <div class="field-hint">Use: <code>tour-packages/tour-detail.html?slug=YOUR-SLUG</code></div>
+            </div>
+            <div class="field">
+              <label>Sort Order</label>
+              <input class="f-input" type="number" id="f_sort_order" value="0" min="0"/>
+              <div class="field-hint">Lower number = appears first on tours page.</div>
+            </div>
+            <div class="field" style="display:flex;align-items:center;gap:1.5rem;padding-top:1.4rem">
+              <label style="margin:0;display:flex;align-items:center;gap:.7rem">
+                <label class="toggle"><input type="checkbox" id="f_is_active" checked/><span class="toggle-slider"></span></label>
+                Active (shown on site)
+              </label>
+              <label style="margin:0;display:flex;align-items:center;gap:.7rem">
+                <label class="toggle"><input type="checkbox" id="f_is_featured"/><span class="toggle-slider"></span></label>
+                Featured
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-title">Badge — shown on tour card</div>
+          <div class="form-grid">
+            <div class="field">
+              <label>Badge Icon <span class="req">*</span></label>
+              <div class="icon-picker-wrap" id="badgePicker">
+                <button type="button" class="icon-preview-btn" id="badgePickerBtn" onclick="togglePicker('badge')">
+                  <i class="fa-solid fa-star prev-ico" id="badgeIconEl"></i>
+                  <span id="badgeIconLbl">Star</span>
+                  <i class="fa-solid fa-chevron-down arrow"></i>
+                </button>
+                <input type="hidden" id="f_badge_icon" value="fa-star">
+                <div class="icon-dropdown" id="badgePickerDrop">
+                  <input class="icon-search-inp" placeholder="Search…" oninput="filterPicker('badge',this.value)">
+                  <div class="icon-grid" id="badgeGrid"></div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label>Badge Text</label>
+              <input class="f-input" type="text" id="f_badge_text" placeholder="e.g. Best Seller" oninput="refreshBadgePreview()"/>
+              <div id="badgeLivePreview" class="badge-live-preview" style="margin-top:.5rem">
+                <i class="fa-solid fa-star" id="badgePreviewIco"></i>
+                <span id="badgePreviewTxt">Popular</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-title">Tour Meta — shown on card</div>
+          <div class="form-grid">
+
+            <div class="field">
+              <label>Duration Label <span class="req">*</span></label>
+              <div class="smart-input-group" id="durationLabelGroup">
+                <input type="number" id="f_dur_days" min="1" max="30" placeholder="6" oninput="buildDurationLabel()"/>
+                <span class="sfix right">Days</span>
+                <span class="sep">/</span>
+                <input type="number" id="f_dur_nights" min="0" max="30" placeholder="5" oninput="buildDurationLabel()"/>
+                <span class="sfix right">Nights</span>
+              </div>
+              <input type="hidden" id="f_duration_label"/>
+              <div class="live-preview-tag" id="durationLabelPreview" style="display:none">
+                <i class="fa-regular fa-calendar"></i>
+                <span id="durationLabelText"></span>
+              </div>
+              <div class="field-hint">e.g. enter 6 Days / 5 Nights → saves as "6 Days / 5 Nights"</div>
+            </div>
+
+            <div class="field">
+              <label>Duration (days — for filtering) <span class="req">*</span></label>
+              <div class="dur-pills" id="durPills">
+                <button type="button" class="dur-pill" data-val="2" onclick="selectDur(this)">2 Days</button>
+                <button type="button" class="dur-pill" data-val="3" onclick="selectDur(this)">3 Days</button>
+                <button type="button" class="dur-pill" data-val="4" onclick="selectDur(this)">4 Days</button>
+                <button type="button" class="dur-pill" data-val="6" onclick="selectDur(this)">6 Days</button>
+                <button type="button" class="dur-pill" data-val="7" onclick="selectDur(this)">7 Days</button>
+                <button type="button" class="dur-pill" data-val="custom" onclick="selectDur(this)">Custom</button>
+              </div>
+              <div class="custom-dur-row" id="customDurRow">
+                <label><i class="fa-solid fa-pen"></i> Enter days:</label>
+                <input type="number" id="f_custom_dur_num" min="1" max="365" placeholder="5" oninput="applyCustomDur()"/>
+                <span class="dur-unit">days</span>
+              </div>
+              <input type="hidden" id="f_dur_tag" value="">
+              <div class="tags-out" id="durTagOut">(none selected)</div>
+            </div>
+
+            <div class="field">
+              <label>Group Size</label>
+              <div class="smart-input-group">
+                <input type="number" id="f_gs_min" min="1" max="50" placeholder="2" oninput="buildGroupSize()"/>
+                <span class="sfix right">–</span>
+                <input type="number" id="f_gs_max" min="1" max="50" placeholder="8" oninput="buildGroupSize()"/>
+                <span class="sfix right">Pax</span>
+              </div>
+              <input type="hidden" id="f_group_size"/>
+              <div class="live-preview-tag" id="groupSizePreview" style="display:none">
+                <i class="fa-solid fa-users"></i>
+                <span id="groupSizeText"></span>
+              </div>
+              <div class="field-hint">Enter min and max group size. Leave blank for "Private".</div>
+            </div>
+
+            <div class="field">
+              <label>Tour Type Label <span class="req">*</span></label>
+              <input class="f-input" type="text" id="f_tour_type_label" placeholder="e.g. Game Drives"/>
+            </div>
+            <div class="field">
+              <label>Tour Type Icon <span class="req">*</span></label>
+              <div class="icon-picker-wrap" id="typePicker">
+                <button type="button" class="icon-preview-btn" id="typePickerBtn" onclick="togglePicker('type')">
+                  <i class="fa-solid fa-car-side prev-ico" id="typeIconEl"></i>
+                  <span id="typeIconLbl">Game Drive</span>
+                  <i class="fa-solid fa-chevron-down arrow"></i>
+                </button>
+                <input type="hidden" id="f_tour_type_icon" value="fa-car-side">
+                <div class="icon-dropdown" id="typePickerDrop">
+                  <input class="icon-search-inp" placeholder="Search…" oninput="filterPicker('type',this.value)">
+                  <div class="icon-grid" id="typeGrid"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-title">Pricing</div>
+          <div class="form-grid">
+
+            <div class="field">
+              <label>Base Price (USD) <span class="req">*</span></label>
+              <div class="price-input-group">
+                <span class="price-prefix">$</span>
+                <input type="number" id="f_base_price" placeholder="1899" min="0"/>
+              </div>
+              <div class="field-hint">Numbers only — used for filtering. e.g. 1899</div>
+            </div>
+
+            <!-- ── PRICE DISPLAY: static "From $" + auto-comma number ── -->
+            <div class="field">
+              <label>Price Display <span class="req">*</span></label>
+              <div class="price-input-group" id="priceDisplayGroup">
+                <span class="price-prefix">From $</span>
+                <input type="text" id="f_price_display_num" placeholder="1,899" inputmode="numeric"
+                  style="flex:1;padding:.7rem .9rem;border:none;background:transparent;font-size:.92rem;font-weight:600;color:var(--cream2);font-family:inherit"
+                  oninput="formatPriceDisplay(this)"
+                  onfocus="this.closest('.price-input-group').style.borderColor='var(--gold)';this.closest('.price-input-group').style.boxShadow='0 0 0 3px var(--gold-dim)'"
+                  onblur="this.closest('.price-input-group').style.borderColor='';this.closest('.price-input-group').style.boxShadow=''"/>
+              </div>
+              <!-- hidden field stores the full "From $X,XXX" string -->
+              <input type="hidden" id="f_price_display"/>
+              <div class="live-preview-tag" id="priceDisplayPreview" style="display:none">
+                <i class="fa-solid fa-tag"></i>
+                <span id="priceDisplayText"></span>
+              </div>
+              <div class="field-hint">Type numbers only — commas auto-format. Saves as "From $1,899".</div>
+            </div>
+
+            <div class="field">
+              <label>Price Suffix</label>
+              <input class="f-input" type="text" id="f_price_suffix" placeholder="/ person"/>
+              <div class="field-hint">e.g. "/ person", "/ couple", leave blank for custom</div>
+            </div>
+            <div class="field">
+              <label>CTA Button Text</label>
+              <input class="f-input" type="text" id="f_cta_text" placeholder="View Details"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-title">Descriptions</div>
+          <div class="field">
+            <label>Short Description (shown on tour card) <span class="req">*</span></label>
+            <textarea class="f-textarea" id="f_short_desc" rows="3" placeholder="2–3 sentences shown on the tour card…"></textarea>
+          </div>
+
+          <!-- ── OVERVIEW HTML: multi-paragraph rich editor ── -->
+          <div class="field">
+            <label>Overview — Detail Page <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:.75rem">(each paragraph gets its own &lt;p&gt; tag)</span></label>
+            <div class="overview-editor-wrap" id="overviewEditorWrap">
+              <div id="f_overview_html_editor"
+                class="overview-editor"
+                contenteditable="true"
+                data-placeholder="Write your overview here. Press Enter twice (blank line) to start a new paragraph."
+                oninput="syncOverviewHtml()"
+                onkeydown="overviewKeydown(event)"></div>
+              <div class="overview-editor-footer">
+                <span>Press <kbd>Enter</kbd> twice for a new paragraph &nbsp;·&nbsp; <kbd>Shift+Enter</kbd> for a line break within a paragraph</span>
+                <span class="overview-para-count" id="overviewParaCount">0 paragraphs</span>
+              </div>
+            </div>
+            <!-- hidden textarea stores the final HTML sent to Supabase -->
+            <textarea id="f_overview_html" style="display:none"></textarea>
+            <div class="field-hint">Each paragraph block is wrapped in &lt;p&gt;…&lt;/p&gt; and displays with spacing on the detail page.</div>
+          </div>
+        </div>
+      </div><!-- /tab0 -->
+
+      <!-- TAB 1: IMAGES -->
+      <div class="tab-panel" id="tab1">
+        <div class="storage-note">
+          <i class="fa-solid fa-circle-info"></i>
+          <div>
+            Images are uploaded directly to your <strong>Supabase Storage</strong> bucket named <code>package-images</code>.
+            Make sure the bucket exists and has <strong>public access</strong> enabled in your Supabase Dashboard → Storage.
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-title"><i class="fa-solid fa-image" style="color:var(--gold)"></i> Hero Image <span style="font-size:.75rem;font-weight:400;text-transform:none;letter-spacing:0">(shown on card &amp; tours list) <span class="req">*</span></span></div>
+          <div class="img-upload-zone" id="heroZone"
+            ondragover="ev_dragover(event,'hero')"
+            ondragleave="ev_dragleave(event,'hero')"
+            ondrop="ev_drop(event,'hero')">
+            <div class="upload-trigger" id="heroTrigger">
+              <input type="file" id="heroFileInput" accept="image/*" onchange="handleFile(event,'hero')">
+              <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+              <p>Tap to upload from your phone or computer</p>
+              <small>JPG · PNG · WEBP · GIF · max 10 MB</small>
+              <div class="upload-actions">
+                <span class="upload-chip"><i class="fa-solid fa-mobile-screen"></i> Choose Photo</span>
+              </div>
+            </div>
+            <div class="upload-progress-bar" id="heroProgressBar">
+              <div class="upload-progress-fill indeterminate" id="heroProgressFill"></div>
+            </div>
+            <div class="upload-status uploading" id="heroStatus">
+              <i class="fa-solid fa-spinner fa-spin"></i>
+              <span id="heroStatusText">Uploading…</span>
+            </div>
+            <div class="img-preview-panel" id="heroPreviewPanel">
+              <img id="heroPreviewImg" src="" alt="Hero preview">
+              <div class="img-preview-overlay">
+                <span class="img-preview-name" id="heroPreviewName"></span>
+                <div class="img-preview-actions">
+                  <button type="button" class="img-preview-btn-small replace" onclick="replaceImg('hero')"><i class="fa-solid fa-arrows-rotate"></i> Replace</button>
+                  <button type="button" class="img-preview-btn-small remove" onclick="clearImg('hero')"><i class="fa-solid fa-trash"></i> Remove</button>
+                </div>
+              </div>
+            </div>
+            <div class="img-url-row">
+              <span class="url-label">URL</span>
+              <input type="text" id="f_hero_image" placeholder="Upload an image above — URL auto-fills here" readonly/>
+              <i class="fa-solid fa-circle-check url-check" id="heroUrlCheck"></i>
+            </div>
+          </div>
+          <div class="or-line">or paste an image URL directly</div>
+          <div class="paste-url-row">
+            <input class="f-input" type="url" id="heroPasteUrl" placeholder="https://images.unsplash.com/…"/>
+            <button type="button" class="btn btn-outline btn-sm" onclick="applyPastedUrl('hero')"><i class="fa-solid fa-check"></i> Use URL</button>
+          </div>
+        </div>
+
+        <div class="form-section" style="margin-top:1.4rem">
+          <div class="form-section-title"><i class="fa-solid fa-expand" style="color:var(--gold)"></i> Detail Page Hero Image <span style="font-size:.75rem;font-weight:400;text-transform:none;letter-spacing:0">(optional — larger banner on the detail page)</span></div>
+          <div class="img-upload-zone" id="detailZone"
+            ondragover="ev_dragover(event,'detail')"
+            ondragleave="ev_dragleave(event,'detail')"
+            ondrop="ev_drop(event,'detail')">
+            <div class="upload-trigger" id="detailTrigger">
+              <input type="file" id="detailFileInput" accept="image/*" onchange="handleFile(event,'detail')">
+              <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+              <p>Tap to upload — or leave blank to reuse hero image</p>
+              <small>JPG · PNG · WEBP · GIF · max 10 MB</small>
+              <div class="upload-actions">
+                <span class="upload-chip"><i class="fa-solid fa-mobile-screen"></i> Choose Photo</span>
+              </div>
+            </div>
+            <div class="upload-progress-bar" id="detailProgressBar">
+              <div class="upload-progress-fill indeterminate" id="detailProgressFill"></div>
+            </div>
+            <div class="upload-status uploading" id="detailStatus">
+              <i class="fa-solid fa-spinner fa-spin"></i>
+              <span id="detailStatusText">Uploading…</span>
+            </div>
+            <div class="img-preview-panel" id="detailPreviewPanel">
+              <img id="detailPreviewImg" src="" alt="Detail preview">
+              <div class="img-preview-overlay">
+                <span class="img-preview-name" id="detailPreviewName"></span>
+                <div class="img-preview-actions">
+                  <button type="button" class="img-preview-btn-small replace" onclick="replaceImg('detail')"><i class="fa-solid fa-arrows-rotate"></i> Replace</button>
+                  <button type="button" class="img-preview-btn-small remove" onclick="clearImg('detail')"><i class="fa-solid fa-trash"></i> Remove</button>
+                </div>
+              </div>
+            </div>
+            <div class="img-url-row">
+              <span class="url-label">URL</span>
+              <input type="text" id="f_detail_hero_img" placeholder="Optional — leave blank to reuse hero image" readonly/>
+              <i class="fa-solid fa-circle-check url-check" id="detailUrlCheck"></i>
+            </div>
+          </div>
+          <div class="or-line">or paste an image URL directly</div>
+          <div class="paste-url-row">
+            <input class="f-input" type="url" id="detailPasteUrl" placeholder="https://…"/>
+            <button type="button" class="btn btn-outline btn-sm" onclick="applyPastedUrl('detail')"><i class="fa-solid fa-check"></i> Use URL</button>
+          </div>
+        </div>
+      </div><!-- /tab1 -->
+
+      <!-- TAB 2: DESTINATIONS -->
+      <div class="tab-panel" id="tab2">
+        <div class="form-section">
+          <div class="form-section-title"><i class="fa-solid fa-map-pin" style="color:var(--gold)"></i> Destination Tags — select all that apply</div>
+          <p style="font-size:.8rem;color:var(--text);margin-bottom:1rem">These are used to filter packages on the tours page.</p>
+          <div class="visual-pick-grid" id="destGrid">
+            <button type="button" class="vpick-btn" data-val="serengeti" onclick="toggleDest(this)"><i class="fa-solid fa-paw"></i>Serengeti</button>
+            <button type="button" class="vpick-btn" data-val="ngorongoro" onclick="toggleDest(this)"><i class="fa-solid fa-circle-dot"></i>Ngorongoro</button>
+            <button type="button" class="vpick-btn" data-val="tarangire" onclick="toggleDest(this)"><i class="fa-solid fa-tree"></i>Tarangire</button>
+            <button type="button" class="vpick-btn" data-val="zanzibar" onclick="toggleDest(this)"><i class="fa-solid fa-umbrella-beach"></i>Zanzibar</button>
+            <button type="button" class="vpick-btn" data-val="kilimanjaro" onclick="toggleDest(this)"><i class="fa-solid fa-mountain"></i>Kilimanjaro</button>
+            <button type="button" class="vpick-btn" data-val="manyara" onclick="toggleDest(this)"><i class="fa-solid fa-water"></i>Lake Manyara</button>
+          </div>
+          <input type="hidden" id="f_dest_tags" value="">
+          <div style="margin-top:.6rem"><div style="font-size:.68rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text);margin-bottom:.3rem">dest_tags value →</div><div class="tags-out" id="destTagsOut">(none selected)</div></div>
+        </div>
+        <div class="form-section" style="margin-top:1.4rem">
+          <div class="form-section-title"><i class="fa-solid fa-tag" style="color:var(--gold)"></i> Tour Type Tags — select all that apply</div>
+          <div class="visual-pick-grid-2" id="typeTagGrid">
+            <button type="button" class="vpick-btn" data-val="game-drive" onclick="toggleTypeTag(this)"><i class="fa-solid fa-car-side"></i>Game Drive</button>
+            <button type="button" class="vpick-btn" data-val="fly-in" onclick="toggleTypeTag(this)"><i class="fa-solid fa-plane"></i>Fly-In</button>
+            <button type="button" class="vpick-btn" data-val="beach-bush" onclick="toggleTypeTag(this)"><i class="fa-solid fa-water"></i>Beach+Bush</button>
+            <button type="button" class="vpick-btn" data-val="trekking" onclick="toggleTypeTag(this)"><i class="fa-solid fa-person-hiking"></i>Trekking</button>
+            <button type="button" class="vpick-btn" data-val="honeymoon" onclick="toggleTypeTag(this)"><i class="fa-solid fa-heart"></i>Honeymoon</button>
+            <button type="button" class="vpick-btn" data-val="bespoke" onclick="toggleTypeTag(this)"><i class="fa-solid fa-crown"></i>Bespoke</button>
+          </div>
+          <input type="hidden" id="f_type_tags" value="">
+          <div style="margin-top:.6rem"><div style="font-size:.68rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text);margin-bottom:.3rem">type_tags value →</div><div class="tags-out" id="typeTagsOut">(none selected)</div></div>
+        </div>
+      </div><!-- /tab2 -->
+
+      <!-- TAB 3: INCLUSIONS -->
+      <div class="tab-panel" id="tab3">
+        <div class="form-section">
+          <div class="form-section-title"><i class="fa-solid fa-circle-check" style="color:var(--green)"></i> What's Included</div>
+          <div class="dyn-list" id="inclList"></div>
+          <button type="button" class="dyn-add-btn" onclick="addDynItem('inclList','Included item…')"><i class="fa-solid fa-plus"></i> Add Inclusion</button>
+        </div>
+        <div class="form-section" style="margin-top:1.4rem">
+          <div class="form-section-title"><i class="fa-solid fa-circle-xmark" style="color:var(--red)"></i> What's Excluded</div>
+          <div class="dyn-list" id="exclList"></div>
+          <button type="button" class="dyn-add-btn" onclick="addDynItem('exclList','Excluded item…')"><i class="fa-solid fa-plus"></i> Add Exclusion</button>
+        </div>
+        <div class="form-section" style="margin-top:1.4rem">
+          <div class="form-section-title"><i class="fa-solid fa-wand-magic-sparkles" style="color:var(--gold)"></i> Tour Highlights</div>
+          <div class="dyn-list" id="highlightList"></div>
+          <button type="button" class="dyn-add-btn" onclick="addDynItem('highlightList','Highlight…')"><i class="fa-solid fa-plus"></i> Add Highlight</button>
+        </div>
+      </div><!-- /tab3 -->
+
+      <!-- TAB 4: ITINERARY -->
+      <div class="tab-panel" id="tab4">
+        <div class="form-section">
+          <div class="form-section-title"><i class="fa-solid fa-map-location-dot" style="color:var(--gold)"></i> Day-by-Day Itinerary</div>
+          <div id="itinDays"></div>
+          <button type="button" class="dyn-add-btn" onclick="addItinDay()"><i class="fa-solid fa-plus"></i> Add Day</button>
+        </div>
+      </div><!-- /tab4 -->
+
+      <!-- TAB 5: ACCOMMODATION -->
+      <div class="tab-panel" id="tab5">
+        <div class="form-section">
+          <div class="form-section-title"><i class="fa-solid fa-hotel" style="color:var(--gold)"></i> Accommodation per Night</div>
+          <div id="accomList"></div>
+          <button type="button" class="dyn-add-btn" onclick="addAccomRow()"><i class="fa-solid fa-plus"></i> Add Night</button>
+        </div>
+      </div><!-- /tab5 -->
+
+      <!-- TAB 6: PRICING -->
+      <div class="tab-panel" id="tab6">
+        <div class="form-section">
+          <div class="form-section-title"><i class="fa-solid fa-tag" style="color:var(--gold)"></i> Pricing Tiers</div>
+          <p style="font-size:.78rem;color:var(--text);margin-bottom:1rem">e.g. "2 Passengers → $1,899 / person"</p>
+          <div id="priceTierList"></div>
+          <button type="button" class="dyn-add-btn" onclick="addPriceTier()"><i class="fa-solid fa-plus"></i> Add Tier</button>
+        </div>
+        <div class="form-section" style="margin-top:1.6rem">
+          <div class="form-section-title"><i class="fa-solid fa-circle-plus" style="color:var(--gold)"></i> Optional Add-Ons</div>
+          <div id="addOnList"></div>
+          <button type="button" class="dyn-add-btn" onclick="addAddOn()"><i class="fa-solid fa-plus"></i> Add Add-On</button>
+        </div>
+      </div><!-- /tab6 -->
+
+      <!-- TAB 7: SEO -->
+      <div class="tab-panel" id="tab7">
+        <div class="form-section">
+          <div class="form-section-title">SEO Meta</div>
+          <div class="field">
+            <label>Meta Title</label>
+            <input class="f-input" type="text" id="f_meta_title" placeholder="Tanzania Classic Safari (6 Days) – Sere Safari Africa"/>
+            <div class="field-hint">~60 characters max.</div>
+          </div>
+          <div class="field">
+            <label>Meta Description</label>
+            <textarea class="f-textarea" id="f_meta_desc" rows="3" placeholder="Tanzania Classic Safari 6 Days – Tarangire, Serengeti, Ngorongoro…"></textarea>
+            <div class="field-hint">~155 characters max.</div>
+          </div>
+        </div>
+      </div><!-- /tab7 -->
+
+    </div><!-- /modal-body -->
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('pkgModal')">Cancel</button>
+      <button class="btn btn-gold" onclick="savePackage()" id="saveBtn">
+        <i class="fa-solid fa-floppy-disk"></i> <span id="saveBtnText">Save Package</span>
+      </button>
+    </div>
+  </div>
+</div><!-- /pkgModal -->
+
+<!-- USER MODAL -->
+<div class="modal-overlay" id="userModal">
+  <div class="modal" style="max-width:500px">
+    <div class="modal-hdr">
+      <h2><i class="fa-solid fa-user-plus"></i> <span id="userModalTitle">Invite User</span></h2>
+      <button class="modal-close" onclick="closeModal('userModal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="invite-note"><i class="fa-solid fa-envelope"></i><div>Supabase will send the user a magic-link invite email.</div></div>
+      <div class="field"><label>Full Name</label><input class="f-input" type="text" id="u_name" placeholder="e.g. Jane Doe"/></div>
+      <div class="field"><label>Email Address <span class="req">*</span></label><input class="f-input" type="email" id="u_email" placeholder="jane@seresafariafrica.com"/></div>
+      <div class="field">
+        <label>Role <span class="req">*</span></label>
+        <select class="f-select" id="u_role">
+          <option value="editor">Editor — can add/edit/delete packages</option>
+          <option value="super_admin">Super Admin — full access including user management</option>
+        </select>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('userModal')">Cancel</button>
+      <button class="btn btn-gold" onclick="saveUser()" id="userSaveBtn"><i class="fa-solid fa-paper-plane"></i> <span id="userSaveBtnText">Send Invite</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- CONFIRM DIALOG -->
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-box">
+    <h3 id="confirmTitle">Are you sure?</h3>
+    <p id="confirmMsg">This action cannot be undone.</p>
+    <div class="confirm-btns">
+      <button class="btn btn-outline" onclick="closeConfirm()">Cancel</button>
+      <button class="btn btn-danger" id="confirmOkBtn">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST STACK -->
+<div class="toast-stack" id="toastStack"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/supabase-config.js"></script>
+<script>
+const STORAGE_BUCKET = 'package-images';
+
+let allPackages   = [];
+let allUsers      = [];
+let editingPkgId  = null;
+let editingUserId = null;
+let currentRole   = 'editor';
+
+const ICONS = [
+  {fa:'fa-star',lbl:'Star'},{fa:'fa-fire',lbl:'Fire'},{fa:'fa-heart',lbl:'Heart'},
+  {fa:'fa-crown',lbl:'Crown'},{fa:'fa-award',lbl:'Award'},{fa:'fa-trophy',lbl:'Trophy'},
+  {fa:'fa-diamond',lbl:'Diamond'},{fa:'fa-gem',lbl:'Gem'},{fa:'fa-bolt',lbl:'Bolt'},
+  {fa:'fa-car-side',lbl:'Car'},{fa:'fa-plane',lbl:'Plane'},{fa:'fa-helicopter',lbl:'Heli'},
+  {fa:'fa-person-hiking',lbl:'Hike'},{fa:'fa-mountain',lbl:'Mountain'},{fa:'fa-tent',lbl:'Tent'},
+  {fa:'fa-umbrella-beach',lbl:'Beach'},{fa:'fa-water',lbl:'Water'},{fa:'fa-wave-square',lbl:'Wave'},
+  {fa:'fa-paw',lbl:'Paw'},{fa:'fa-binoculars',lbl:'Binos'},{fa:'fa-camera',lbl:'Camera'},
+  {fa:'fa-tree',lbl:'Tree'},{fa:'fa-leaf',lbl:'Leaf'},{fa:'fa-sun',lbl:'Sun'},
+  {fa:'fa-moon',lbl:'Moon'},{fa:'fa-circle-dot',lbl:'Crater'},{fa:'fa-map-pin',lbl:'Pin'},
+  {fa:'fa-map',lbl:'Map'},{fa:'fa-compass',lbl:'Compass'},{fa:'fa-globe',lbl:'Globe'},
+  {fa:'fa-flag',lbl:'Flag'},{fa:'fa-users',lbl:'Group'},{fa:'fa-user-tie',lbl:'Guide'},
+  {fa:'fa-shield-halved',lbl:'Shield'},{fa:'fa-lock',lbl:'Private'},{fa:'fa-key',lbl:'Key'},
+  {fa:'fa-champagne-glasses',lbl:'Cheers'},{fa:'fa-utensils',lbl:'Food'},{fa:'fa-bed',lbl:'Sleep'},
+  {fa:'fa-wifi',lbl:'WiFi'},{fa:'fa-headset',lbl:'Support'},{fa:'fa-check',lbl:'Check'},
+  {fa:'fa-circle-check',lbl:'Done'},{fa:'fa-info-circle',lbl:'Info'},{fa:'fa-exclamation',lbl:'Alert'},
+  {fa:'fa-thumbs-up',lbl:'Popular'},{fa:'fa-rocket',lbl:'Rocket'},{fa:'fa-eye',lbl:'View'},
+];
+
+/* ── AUTH GUARD ── */
+(async () => {
+  const { data } = await window._sb.auth.getSession();
+  if (!data.session) { window.location.href = 'admin-login.html'; return; }
+  document.getElementById('adminEmail').textContent = data.session.user.email;
+  try {
+    const { data: prof } = await window._sb.from('admin_profiles').select('role').eq('id', data.session.user.id).single();
+    currentRole = prof?.role || 'editor';
+    if (currentRole === 'super_admin') {
+      document.getElementById('usersNavSection').style.display = '';
+      document.getElementById('usersNavItem').style.display = '';
+    }
+  } catch(e){}
+  buildIconGrids();
+  loadAll();
+})();
+
+/* ══ OVERVIEW HTML PARAGRAPH EDITOR ══ */
+
+function overviewKeydown(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    // Double-enter = new paragraph (we handle by inserting \n\n and letting the browser do the rest)
+    // We just let the browser insert a newline; we sync on input
+    // Nothing special needed — browser contenteditable handles Enter as <div> or <br>
+    // We normalise on sync instead
+  }
+}
+
+function syncOverviewHtml() {
+  const editor = document.getElementById('f_overview_html_editor');
+  const hidden = document.getElementById('f_overview_html');
+
+  // Get all block-level children (divs, p, br-only lines)
+  let html = editor.innerHTML;
+
+  // Normalize: replace <div>content</div> and <p>content</p> with newline-separated text
+  // Then split into paragraphs by double newlines or multiple <br> sequences
+  let text = html
+    .replace(/<div><br><\/div>/gi, '\n\n')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/div>\s*<div>/gi, '\n')
+    .replace(/<div>/gi, '')
+    .replace(/<\/div>/gi, '\n')
+    .replace(/<\/p>\s*<p>/gi, '\n\n')
+    .replace(/<p>/gi, '')
+    .replace(/<\/p>/gi, '\n')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/&nbsp;/g,' ');
+
+  // Split on 2+ newlines = paragraph boundary
+  const paras = text.split(/\n{2,}/).map(s => s.trim()).filter(Boolean);
+
+  hidden.value = paras.map(p => `<p>${p.replace(/\n/g,'<br>')}</p>`).join('\n');
+
+  const countEl = document.getElementById('overviewParaCount');
+  if (countEl) {
+    countEl.textContent = paras.length + (paras.length === 1 ? ' paragraph' : ' paragraphs');
+  }
+}
+
+function setOverviewEditor(html) {
+  const editor = document.getElementById('f_overview_html_editor');
+  if (!html) {
+    editor.innerHTML = '';
+    syncOverviewHtml();
+    return;
+  }
+  // Convert stored <p>...</p> blocks back to editable divs
+  // Each <p> → a div so the browser's contenteditable treats it as a block
+  const converted = html
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/p>\s*<p>/gi, '\n\n')
+    .replace(/<\/?p>/gi, '')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
+
+  // Set as plain text so the browser renders it naturally
+  editor.innerText = converted.trim();
+  syncOverviewHtml();
+}
+
+/* ══ PRICE DISPLAY — static "From $" + comma formatting ══ */
+
+function formatPriceDisplay(input) {
+  // Strip everything except digits
+  const raw = input.value.replace(/[^\d]/g, '');
+  // Re-format with commas
+  const formatted = raw ? parseInt(raw, 10).toLocaleString('en-US') : '';
+  input.value = formatted;
+  // Build the full saved string
+  const full = formatted ? 'From $' + formatted : '';
+  document.getElementById('f_price_display').value = full;
+  const preview    = document.getElementById('priceDisplayPreview');
+  const previewTxt = document.getElementById('priceDisplayText');
+  if (full) {
+    preview.style.display = 'inline-flex';
+    previewTxt.textContent = full;
+  } else {
+    preview.style.display = 'none';
+  }
+}
+
+/* ══ SMART INPUT BUILDERS ══ */
+
+function buildDurationLabel() {
+  const days   = parseInt(document.getElementById('f_dur_days').value)   || 0;
+  const nights = parseInt(document.getElementById('f_dur_nights').value) || 0;
+  let label = '';
+  if (days > 0 && nights > 0) {
+    label = days + ' Day' + (days !== 1 ? 's' : '') + ' / ' + nights + ' Night' + (nights !== 1 ? 's' : '');
+  } else if (days > 0) {
+    label = days + ' Day' + (days !== 1 ? 's' : '');
+  } else if (nights > 0) {
+    label = nights + ' Night' + (nights !== 1 ? 's' : '');
+  }
+  document.getElementById('f_duration_label').value = label;
+  const preview = document.getElementById('durationLabelPreview');
+  const previewText = document.getElementById('durationLabelText');
+  if (label) {
+    preview.style.display = 'inline-flex';
+    previewText.textContent = label;
+  } else {
+    preview.style.display = 'none';
+  }
+}
+
+function buildGroupSize() {
+  const min = parseInt(document.getElementById('f_gs_min').value) || 0;
+  const max = parseInt(document.getElementById('f_gs_max').value) || 0;
+  let size = '';
+  if (min > 0 && max > 0) {
+    size = min === max ? min + ' pax' : min + '–' + max + ' pax';
+  } else if (min > 0) {
+    size = min + '+ pax';
+  } else if (max > 0) {
+    size = 'Up to ' + max + ' pax';
+  }
+  document.getElementById('f_group_size').value = size;
+  const preview = document.getElementById('groupSizePreview');
+  const previewText = document.getElementById('groupSizeText');
+  if (size) {
+    preview.style.display = 'inline-flex';
+    previewText.textContent = size;
+  } else {
+    preview.style.display = 'none';
+  }
+}
+
+/* ── DURATION PILL ── */
+function selectDur(btn) {
+  document.querySelectorAll('#durPills .dur-pill').forEach(p => p.classList.remove('selected'));
+  btn.classList.add('selected');
+  const val = btn.dataset.val;
+  const customRow = document.getElementById('customDurRow');
+  if (val === 'custom') {
+    customRow.classList.add('show');
+    document.getElementById('f_custom_dur_num').value = '';
+    document.getElementById('f_dur_tag').value = 'custom';
+    document.getElementById('durTagOut').textContent = 'custom (enter number below)';
+  } else {
+    customRow.classList.remove('show');
+    document.getElementById('f_dur_tag').value = val;
+    document.getElementById('durTagOut').textContent = val;
+  }
+}
+
+function applyCustomDur() {
+  const num = parseInt(document.getElementById('f_custom_dur_num').value);
+  if (num > 0) {
+    document.getElementById('f_dur_tag').value = String(num);
+    document.getElementById('durTagOut').textContent = num + ' (custom)';
+  } else {
+    document.getElementById('f_dur_tag').value = 'custom';
+    document.getElementById('durTagOut').textContent = 'custom';
+  }
+}
+
+/* ══ IMAGE UPLOAD ══ */
+async function uploadToSupabase(file, which) {
+  if (!file) return;
+  if (file.size > 10 * 1024 * 1024) { toast('File too large — max 10 MB', 'error'); return; }
+  if (!file.type.startsWith('image/')) { toast('Only image files are allowed', 'error'); return; }
+  const localUrl = URL.createObjectURL(file);
+  setPreview(which, localUrl, file.name);
+  setUploadState(which, 'uploading');
+  try {
+    const safeName = file.name.replace(/[^a-z0-9._-]/gi, '_').toLowerCase();
+    const filePath = 'packages/' + Date.now() + '-' + Math.random().toString(36).slice(2,7) + '-' + safeName;
+    const { error: upErr } = await window._sb.storage.from(STORAGE_BUCKET).upload(filePath, file, { cacheControl:'3600', upsert:false, contentType:file.type });
+    if (upErr) throw upErr;
+    const { data: urlData } = window._sb.storage.from(STORAGE_BUCKET).getPublicUrl(filePath);
+    const publicUrl = urlData?.publicUrl;
+    if (!publicUrl) throw new Error('Could not get public URL');
+    const fieldId = which === 'hero' ? 'f_hero_image' : 'f_detail_hero_img';
+    document.getElementById(fieldId).value = publicUrl;
+    document.getElementById(which + 'UrlCheck').classList.add('show');
+    setUploadState(which, 'success', 'Uploaded: ' + file.name);
+    document.getElementById(which + 'PreviewImg').src = publicUrl;
+    toast('Image uploaded successfully!', 'success');
+  } catch(err) {
+    setUploadState(which, 'error', 'Upload failed — check bucket permissions');
+    toast('Upload failed: ' + (err.message || 'Unknown error'), 'error');
+    const fieldId = which === 'hero' ? 'f_hero_image' : 'f_detail_hero_img';
+    document.getElementById(fieldId).value = '';
+  }
+}
+
+function setUploadState(which, state, message) {
+  const progressBar = document.getElementById(which + 'ProgressBar');
+  const statusEl    = document.getElementById(which + 'Status');
+  const statusTxt   = document.getElementById(which + 'StatusText');
+  progressBar.classList.remove('show');
+  statusEl.classList.remove('show', 'uploading', 'success', 'error');
+  if (state === 'uploading') {
+    progressBar.classList.add('show');
+    statusEl.classList.add('show', 'uploading');
+    statusTxt.textContent = message || 'Uploading…';
+  } else if (state === 'success') {
+    statusEl.classList.add('show', 'success');
+    statusTxt.innerHTML = '<i class="fa-solid fa-circle-check"></i> ' + (message || 'Upload complete');
+    setTimeout(() => statusEl.classList.remove('show'), 3000);
+  } else if (state === 'error') {
+    statusEl.classList.add('show', 'error');
+    statusTxt.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> ' + (message || 'Upload failed');
+  }
+}
+
+function setPreview(which, src, name) {
+  document.getElementById(which + 'Trigger').style.display = 'none';
+  document.getElementById(which + 'PreviewPanel').classList.add('show');
+  document.getElementById(which + 'PreviewImg').src = src;
+  document.getElementById(which + 'PreviewName').textContent = name || '';
+}
+function replaceImg(which) {
+  document.getElementById(which + 'Trigger').style.display = '';
+  document.getElementById(which + 'PreviewPanel').classList.remove('show');
+  document.getElementById(which + 'FileInput').value = '';
+  setUploadState(which, 'idle');
+}
+function clearImg(which) {
+  document.getElementById(which + 'Trigger').style.display = '';
+  document.getElementById(which + 'PreviewPanel').classList.remove('show');
+  document.getElementById(which + 'FileInput').value = '';
+  const fieldId = which === 'hero' ? 'f_hero_image' : 'f_detail_hero_img';
+  document.getElementById(fieldId).value = '';
+  document.getElementById(which + 'PasteUrl').value = '';
+  document.getElementById(which + 'UrlCheck').classList.remove('show');
+  setUploadState(which, 'idle');
+}
+function handleFile(e, which) { const f = e.target.files[0]; if (f) uploadToSupabase(f, which); }
+function ev_dragover(e, which) { e.preventDefault(); document.getElementById(which+'Zone').classList.add('dragover'); }
+function ev_dragleave(e, which) { document.getElementById(which+'Zone').classList.remove('dragover'); }
+function ev_drop(e, which) { e.preventDefault(); document.getElementById(which+'Zone').classList.remove('dragover'); const f=e.dataTransfer.files[0]; if(f) uploadToSupabase(f,which); }
+function applyPastedUrl(which) {
+  const url = document.getElementById(which+'PasteUrl').value.trim();
+  if (!url || !url.startsWith('http')) { toast('Enter a valid URL starting with https://', 'error'); return; }
+  const fieldId = which === 'hero' ? 'f_hero_image' : 'f_detail_hero_img';
+  document.getElementById(fieldId).value = url;
+  setPreview(which, url, 'From URL');
+  document.getElementById(which+'UrlCheck').classList.add('show');
+  setUploadState(which, 'idle');
+  toast('URL applied.', 'success');
+}
+
+/* ══ ICON PICKER ══ */
+function buildIconGrids() {
+  renderIconGrid('badge', '', document.getElementById('f_badge_icon').value);
+  renderIconGrid('type',  '', document.getElementById('f_tour_type_icon').value);
+}
+function renderIconGrid(which, filter, currentVal) {
+  const gridId = which === 'badge' ? 'badgeGrid' : 'typeGrid';
+  const grid   = document.getElementById(gridId);
+  const items  = filter ? ICONS.filter(i => i.lbl.toLowerCase().includes(filter.toLowerCase())) : ICONS;
+  grid.innerHTML = items.map(ic =>
+    '<div class="icon-opt' + (ic.fa === currentVal ? ' selected' : '') + '" onclick="selectIcon(\'' + which + '\',\'' + ic.fa + '\',\'' + ic.lbl + '\')" title="' + ic.lbl + '">' +
+    '<i class="fa-solid ' + ic.fa + '"></i><span>' + ic.lbl + '</span></div>'
+  ).join('');
+}
+function filterPicker(which, q) { renderIconGrid(which, q, which === 'badge' ? document.getElementById('f_badge_icon').value : document.getElementById('f_tour_type_icon').value); }
+function togglePicker(which) {
+  const dropId = which === 'badge' ? 'badgePickerDrop' : 'typePickerDrop';
+  const btnId  = which === 'badge' ? 'badgePickerBtn'  : 'typePickerBtn';
+  const isOpen = document.getElementById(dropId).classList.toggle('open');
+  document.getElementById(btnId).classList.toggle('open', isOpen);
+  const other  = which === 'badge' ? 'typePickerDrop' : 'badgePickerDrop';
+  document.getElementById(other).classList.remove('open');
+}
+function selectIcon(which, fa, lbl) {
+  if (which === 'badge') {
+    document.getElementById('f_badge_icon').value = fa;
+    document.getElementById('badgeIconEl').className = 'fa-solid '+fa+' prev-ico';
+    document.getElementById('badgeIconLbl').textContent = lbl;
+    document.getElementById('badgePickerDrop').classList.remove('open');
+    document.getElementById('badgePickerBtn').classList.remove('open');
+    refreshBadgePreview(); renderIconGrid('badge','',fa);
+  } else {
+    document.getElementById('f_tour_type_icon').value = fa;
+    document.getElementById('typeIconEl').className = 'fa-solid '+fa+' prev-ico';
+    document.getElementById('typeIconLbl').textContent = lbl;
+    document.getElementById('typePickerDrop').classList.remove('open');
+    document.getElementById('typePickerBtn').classList.remove('open');
+    renderIconGrid('type','',fa);
+  }
+}
+function refreshBadgePreview() {
+  document.getElementById('badgePreviewTxt').textContent = document.getElementById('f_badge_text').value || 'Popular';
+  document.getElementById('badgePreviewIco').className = 'fa-solid '+(document.getElementById('f_badge_icon').value||'fa-star');
+}
+document.addEventListener('click', e => {
+  if (!e.target.closest('.icon-picker-wrap')) {
+    document.querySelectorAll('.icon-dropdown.open').forEach(d => d.classList.remove('open'));
+    document.querySelectorAll('.icon-preview-btn.open').forEach(b => b.classList.remove('open'));
+  }
+});
+
+/* ══ DESTINATION / TYPE TAG PICKERS ══ */
+function toggleDest(btn) {
+  btn.classList.toggle('selected');
+  const vals = [...document.querySelectorAll('#destGrid .vpick-btn.selected')].map(b=>b.dataset.val);
+  document.getElementById('f_dest_tags').value = vals.join(' ');
+  document.getElementById('destTagsOut').textContent = vals.length ? vals.join(' ') : '(none selected)';
+}
+function toggleTypeTag(btn) {
+  btn.classList.toggle('selected');
+  const vals = [...document.querySelectorAll('#typeTagGrid .vpick-btn.selected')].map(b=>b.dataset.val);
+  document.getElementById('f_type_tags').value = vals.join(' ');
+  document.getElementById('typeTagsOut').textContent = vals.length ? vals.join(' ') : '(none selected)';
+}
+
+/* ══ NAVIGATION ══ */
+function showSection(name) {
+  document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('sec-'+name)?.classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(n => { if(n.getAttribute('onclick')?.includes("'"+name+"'")) n.classList.add('active'); });
+  if (name==='packages') renderPackageTable(allPackages);
+  if (name==='users')    loadUsers();
+}
+async function signOut() { await window._sb.auth.signOut(); window.location.href = 'admin-login.html'; }
+
+/* ══ LOAD ALL PACKAGES ══ */
+async function loadAll() {
+  try {
+    const { data, error } = await window._sb.from('packages').select('*').order('sort_order');
+    if (error) throw error;
+    allPackages = data || [];
+    updateStats(); renderDashRecent(); renderPackageTable(allPackages);
+    document.getElementById('pkgCount').textContent = allPackages.length;
+  } catch(e) { toast('Failed to load: '+e.message,'error'); }
+}
+function updateStats() {
+  const act  = allPackages.filter(p=>p.is_active).length;
+  const feat = allPackages.filter(p=>p.is_featured).length;
+  const prc  = allPackages.map(p=>p.base_price).filter(Boolean);
+  document.getElementById('dashTotal').textContent    = allPackages.length;
+  document.getElementById('dashActive').textContent   = act;
+  document.getElementById('dashFeatured').textContent = feat;
+  document.getElementById('dashLowest').textContent   = prc.length ? '$'+Math.min(...prc).toLocaleString() : '—';
+}
+function renderDashRecent() {
+  const tbody = document.getElementById('dashRecentTbody');
+  const rows  = allPackages.slice(0,5);
+  if (!rows.length) { tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:2rem;color:var(--text)">No packages yet. <button onclick="openPackageModal()" style="background:none;border:none;color:var(--gold);font-weight:600;cursor:pointer;">Add one now →</button></td></tr>'; return; }
+  tbody.innerHTML = rows.map(p=>
+    '<tr><td><div class="tbl-title">'+esc(p.title)+'</div><div class="tbl-sub">'+esc(p.slug)+'</div></td>' +
+    '<td>'+esc(p.duration_label)+'</td>' +
+    '<td style="color:var(--gold);font-weight:600">'+esc(p.price_display)+'</td>' +
+    '<td>'+(p.is_active?'<span class="badge badge-green">Active</span>':'<span class="badge badge-red">Inactive</span>')+'</td>' +
+    '<td><button class="btn-icon edit" onclick="openPackageModal(\''+p.id+'\')"><i class="fa-solid fa-pen"></i></button></td></tr>'
+  ).join('');
+}
+function renderPackageTable(pkgs) {
+  const tbody = document.getElementById('pkgTbody');
+  if (!pkgs.length) { tbody.innerHTML = '<tr><td colspan="8"><div class="empty-state"><i class="fa-solid fa-suitcase"></i><h3>No packages found</h3><p>Click "Add New Package" to get started.</p></div></td></tr>'; return; }
+  tbody.innerHTML = pkgs.map(p=>
+    '<tr>' +
+    '<td><img class="tbl-img" src="'+esc(p.hero_image)+'" alt="" onerror="this.src=\'https://placehold.co/54x40/574535/F5EDD0?text=IMG\'"/></td>' +
+    '<td><div class="tbl-title">'+esc(p.title)+'</div><div class="tbl-sub">'+esc(p.slug)+'</div></td>' +
+    '<td>'+esc(p.duration_label)+'</td>' +
+    '<td style="color:var(--gold);font-weight:600">'+esc(p.price_display)+' <small style="color:var(--text);font-weight:400">'+esc(p.price_suffix||'')+'</small></td>' +
+    '<td>'+(p.type_tags||'').split(' ').map(t=>'<span class="badge badge-gold" style="margin:1px">'+esc(t)+'</span>').join('')+'</td>' +
+    '<td><label class="toggle"><input type="checkbox" '+(p.is_active?'checked':'')+' onchange="toggleField(\''+p.id+'\',\'is_active\',this.checked)"/><span class="toggle-slider"></span></label></td>' +
+    '<td><label class="toggle"><input type="checkbox" '+(p.is_featured?'checked':'')+' onchange="toggleField(\''+p.id+'\',\'is_featured\',this.checked)"/><span class="toggle-slider"></span></label></td>' +
+    '<td><div style="display:flex;gap:.4rem">' +
+    '<a href="'+esc(p.detail_url)+'" target="_blank" class="btn-icon view"><i class="fa-solid fa-eye"></i></a>' +
+    '<button class="btn-icon edit" onclick="openPackageModal(\''+p.id+'\')"><i class="fa-solid fa-pen"></i></button>' +
+    '<button class="btn-icon del" onclick="confirmDelete(\''+p.id+'\',\''+esc(p.title).replace(/'/g,"\\'")+'\')"><i class="fa-solid fa-trash"></i></button>' +
+    '</div></td></tr>'
+  ).join('');
+}
+function filterPackages() {
+  const q  = document.getElementById('pkgSearch').value.toLowerCase();
+  const st = document.getElementById('pkgStatusFilter').value;
+  const ty = document.getElementById('pkgTypeFilter').value;
+  renderPackageTable(allPackages.filter(p=>{
+    return (!q||p.title.toLowerCase().includes(q)||(p.slug||'').includes(q)) &&
+           (!st||String(p.is_active)===st) &&
+           (!ty||(p.type_tags||'').includes(ty));
+  }));
+}
+async function toggleField(id, field, value) {
+  const { error } = await window._sb.from('packages').update({[field]:value}).eq('id',id);
+  if (error) { toast('Update failed: '+error.message,'error'); return; }
+  const pkg = allPackages.find(p=>p.id===id);
+  if (pkg) pkg[field]=value;
+  updateStats();
+  toast('Package ' + (field==='is_active'?(value?'activated':'deactivated'):(value?'featured':'unfeatured')),'success');
+}
+
+/* ══ PACKAGE MODAL ══ */
+function openPackageModal(id) {
+  editingPkgId = id || null;
+  document.getElementById('modalTitle').textContent  = id ? 'Edit Package' : 'New Package';
+  document.getElementById('saveBtnText').textContent = id ? 'Update Package' : 'Save Package';
+  switchTab(0);
+  resetPackageForm();
+  if (id) { const pkg = allPackages.find(p=>p.id===id); if (pkg) populatePackageForm(pkg); }
+  document.getElementById('pkgModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow=''; }
+document.getElementById('pkgModal').addEventListener('click', function(e){ if(e.target===this)closeModal('pkgModal'); });
+document.getElementById('userModal').addEventListener('click', function(e){ if(e.target===this)closeModal('userModal'); });
+function switchTab(idx) {
+  document.querySelectorAll('.tab-btn').forEach((b,i)=>b.classList.toggle('active',i===idx));
+  document.querySelectorAll('.tab-panel').forEach((p,i)=>p.classList.toggle('active',i===idx));
+}
+
+/* ── RESET FORM ── */
+function resetPackageForm() {
+  ['f_title','f_slug','f_tour_type_label','f_detail_url','f_cta_text','f_short_desc',
+   'f_meta_title','f_meta_desc','f_hero_image','f_detail_hero_img',
+   'f_duration_label','f_group_size'].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.value='';
+  });
+
+  document.getElementById('f_dur_days').value   = '';
+  document.getElementById('f_dur_nights').value = '';
+  document.getElementById('f_gs_min').value     = '';
+  document.getElementById('f_gs_max').value     = '';
+  document.getElementById('f_base_price').value = '';
+  document.getElementById('durationLabelPreview').style.display = 'none';
+  document.getElementById('groupSizePreview').style.display     = 'none';
+  document.getElementById('priceDisplayPreview').style.display  = 'none';
+
+  // Reset price display
+  document.getElementById('f_price_display_num').value = '';
+  document.getElementById('f_price_display').value     = '';
+
+  // Reset overview editor
+  setOverviewEditor('');
+
+  document.getElementById('f_sort_order').value     = '0';
+  document.getElementById('f_cta_text').value       = 'View Details';
+  document.getElementById('f_price_suffix').value   = '/ person';
+  document.getElementById('f_badge_text').value     = 'Popular';
+  document.getElementById('f_badge_icon').value     = 'fa-star';
+  document.getElementById('f_tour_type_icon').value = 'fa-car-side';
+  document.getElementById('f_dest_tags').value      = '';
+  document.getElementById('f_type_tags').value      = '';
+  document.getElementById('f_dur_tag').value        = '';
+  document.getElementById('f_is_active').checked    = true;
+  document.getElementById('f_is_featured').checked  = false;
+
+  document.getElementById('badgeIconEl').className   = 'fa-solid fa-star prev-ico';
+  document.getElementById('badgeIconLbl').textContent = 'Star';
+  refreshBadgePreview();
+  document.getElementById('typeIconEl').className   = 'fa-solid fa-car-side prev-ico';
+  document.getElementById('typeIconLbl').textContent = 'Game Drive';
+
+  document.querySelectorAll('#destGrid .vpick-btn').forEach(b=>b.classList.remove('selected'));
+  document.querySelectorAll('#typeTagGrid .vpick-btn').forEach(b=>b.classList.remove('selected'));
+  document.querySelectorAll('#durPills .dur-pill').forEach(b=>b.classList.remove('selected'));
+  document.getElementById('destTagsOut').textContent = '(none selected)';
+  document.getElementById('typeTagsOut').textContent = '(none selected)';
+  document.getElementById('durTagOut').textContent   = '(none selected)';
+  document.getElementById('customDurRow').classList.remove('show');
+
+  ['hero','detail'].forEach(which => {
+    document.getElementById(which+'Trigger').style.display = '';
+    document.getElementById(which+'PreviewPanel').classList.remove('show');
+    document.getElementById(which+'FileInput').value = '';
+    document.getElementById(which+'PasteUrl').value  = '';
+    document.getElementById(which+'UrlCheck').classList.remove('show');
+    setUploadState(which, 'idle');
+  });
+
+  ['inclList','exclList','highlightList','itinDays','accomList','priceTierList','addOnList']
+    .forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML='';});
+
+  buildIconGrids();
+}
+
+/* ── POPULATE FORM (edit mode) ── */
+function populatePackageForm(p) {
+  const set = (id,val)=>{const el=document.getElementById(id);if(el&&val!=null)el.value=val;};
+  set('f_title',p.title); set('f_slug',p.slug);
+  set('f_tour_type_label',p.tour_type_label);
+  set('f_detail_url',p.detail_url); set('f_cta_text',p.cta_text||'View Details');
+  set('f_short_desc',p.short_desc);
+  set('f_meta_title',p.meta_title); set('f_meta_desc',p.meta_desc);
+  set('f_sort_order',p.sort_order);
+  set('f_price_suffix',p.price_suffix||'/ person');
+  document.getElementById('f_is_active').checked   = !!p.is_active;
+  document.getElementById('f_is_featured').checked = !!p.is_featured;
+
+  // Overview editor
+  setOverviewEditor(p.overview_html || '');
+
+  // Duration Label
+  if (p.duration_label) {
+    const matchFull  = p.duration_label.match(/(\d+)\s*Day/i);
+    const matchNight = p.duration_label.match(/(\d+)\s*Night/i);
+    if (matchFull)  document.getElementById('f_dur_days').value   = matchFull[1];
+    if (matchNight) document.getElementById('f_dur_nights').value = matchNight[1];
+    document.getElementById('f_duration_label').value = p.duration_label;
+    document.getElementById('durationLabelPreview').style.display = 'inline-flex';
+    document.getElementById('durationLabelText').textContent = p.duration_label;
+  }
+
+  // Group Size
+  if (p.group_size) {
+    const matchRange  = p.group_size.match(/(\d+)\s*[–\-]\s*(\d+)/);
+    const matchSingle = p.group_size.match(/^(\d+)\s*pax/i);
+    const matchPlus   = p.group_size.match(/(\d+)\+/);
+    if (matchRange)  { document.getElementById('f_gs_min').value = matchRange[1]; document.getElementById('f_gs_max').value = matchRange[2]; }
+    else if (matchSingle) { document.getElementById('f_gs_min').value = matchSingle[1]; document.getElementById('f_gs_max').value = matchSingle[1]; }
+    else if (matchPlus)   { document.getElementById('f_gs_min').value = matchPlus[1]; }
+    document.getElementById('f_group_size').value = p.group_size;
+    document.getElementById('groupSizePreview').style.display = 'inline-flex';
+    document.getElementById('groupSizeText').textContent = p.group_size;
+  }
+
+  // Base Price
+  if (p.base_price) set('f_base_price', p.base_price);
+
+  // Price Display — strip "From $" prefix, put just the number (with commas) in the visible input
+  if (p.price_display) {
+    const numOnly   = p.price_display.replace(/[^0-9]/g, '');
+    const formatted = numOnly ? parseInt(numOnly, 10).toLocaleString('en-US') : '';
+    document.getElementById('f_price_display_num').value = formatted;
+    document.getElementById('f_price_display').value     = p.price_display;
+    if (formatted) {
+      document.getElementById('priceDisplayPreview').style.display = 'inline-flex';
+      document.getElementById('priceDisplayText').textContent = p.price_display;
+    }
+  }
+
+  // Badge
+  if (p.badge_icon) {
+    document.getElementById('f_badge_icon').value = p.badge_icon;
+    document.getElementById('badgeIconEl').className = 'fa-solid '+p.badge_icon+' prev-ico';
+    const found = ICONS.find(i=>i.fa===p.badge_icon);
+    document.getElementById('badgeIconLbl').textContent = found ? found.lbl : p.badge_icon;
+  }
+  set('f_badge_text', p.badge_text||'Popular');
+  refreshBadgePreview();
+
+  // Type Icon
+  if (p.tour_type_icon) {
+    document.getElementById('f_tour_type_icon').value = p.tour_type_icon;
+    document.getElementById('typeIconEl').className = 'fa-solid '+p.tour_type_icon+' prev-ico';
+    const found = ICONS.find(i=>i.fa===p.tour_type_icon);
+    document.getElementById('typeIconLbl').textContent = found ? found.lbl : p.tour_type_icon;
+  }
+
+  // Destination picker
+  if (p.dest_tags) {
+    p.dest_tags.split(' ').filter(Boolean).forEach(v=>{
+      const btn = document.querySelector('#destGrid .vpick-btn[data-val="'+v+'"]');
+      if (btn) btn.classList.add('selected');
+    });
+    document.getElementById('f_dest_tags').value = p.dest_tags;
+    document.getElementById('destTagsOut').textContent = p.dest_tags;
+  }
+
+  // Type tag picker
+  if (p.type_tags) {
+    p.type_tags.split(' ').filter(Boolean).forEach(v=>{
+      const btn = document.querySelector('#typeTagGrid .vpick-btn[data-val="'+v+'"]');
+      if (btn) btn.classList.add('selected');
+    });
+    document.getElementById('f_type_tags').value = p.type_tags;
+    document.getElementById('typeTagsOut').textContent = p.type_tags;
+  }
+
+  // Duration pill
+  if (p.dur_tag) {
+    const standardPill = document.querySelector('#durPills .dur-pill[data-val="'+p.dur_tag+'"]');
+    if (standardPill) {
+      standardPill.classList.add('selected');
+      document.getElementById('f_dur_tag').value = p.dur_tag;
+      document.getElementById('durTagOut').textContent = p.dur_tag;
+    } else {
+      const customPill = document.querySelector('#durPills .dur-pill[data-val="custom"]');
+      if (customPill) customPill.classList.add('selected');
+      document.getElementById('customDurRow').classList.add('show');
+      document.getElementById('f_custom_dur_num').value = p.dur_tag;
+      document.getElementById('f_dur_tag').value = p.dur_tag;
+      document.getElementById('durTagOut').textContent = p.dur_tag + ' (custom)';
+    }
+  }
+
+  // Hero image
+  if (p.hero_image) {
+    document.getElementById('f_hero_image').value = p.hero_image;
+    setPreview('hero', p.hero_image, 'Existing image');
+    document.getElementById('heroUrlCheck').classList.add('show');
+  }
+  if (p.detail_hero_img) {
+    document.getElementById('f_detail_hero_img').value = p.detail_hero_img;
+    setPreview('detail', p.detail_hero_img, 'Existing image');
+    document.getElementById('detailUrlCheck').classList.add('show');
+  }
+
+  // Dynamic lists
+  safeJSON(p.inclusions,[]).forEach(v=>addDynItem('inclList','Included item…',v));
+  safeJSON(p.exclusions,[]).forEach(v=>addDynItem('exclList','Excluded item…',v));
+  safeJSON(p.highlights,[]).forEach(v=>addDynItem('highlightList','Highlight…',v));
+  safeJSON(p.itinerary,[]).forEach(day=>addItinDay(day));
+  safeJSON(p.accommodation,[]).forEach(row=>addAccomRow(row));
+  safeJSON(p.price_tiers,[]).forEach(t=>addPriceTier(t));
+  safeJSON(p.add_ons,[]).forEach(a=>addAddOn(a));
+
+  buildIconGrids();
+}
+
+/* ── AUTO SLUG ── */
+function autoSlug() {
+  if (editingPkgId) return;
+  const slug = document.getElementById('f_title').value.toLowerCase()
+    .replace(/[^a-z0-9\s-]/g,'').trim().replace(/\s+/g,'-').replace(/-+/g,'-');
+  document.getElementById('f_slug').value = slug;
+  const urlEl = document.getElementById('f_detail_url');
+  if (urlEl && !urlEl.value) urlEl.value = 'tour-packages/tour-detail.html?slug='+slug;
+}
+
+/* ── DYN LIST HELPERS ── */
+function addDynItem(listId, ph, value='') {
+  const list = document.getElementById(listId);
+  const div  = document.createElement('div');
+  div.className = 'dyn-item';
+  div.innerHTML = '<input type="text" placeholder="'+ph+'" value="'+esc(value)+'"/>' +
+    '<button type="button" class="dyn-remove" onclick="this.parentElement.remove()"><i class="fa-solid fa-xmark"></i></button>';
+  list.appendChild(div);
+}
+
+function addItinDay(day=null) {
+  const list   = document.getElementById('itinDays');
+  const dayNum = list.children.length + 1;
+  const div    = document.createElement('div');
+  div.className = 'day-card';
+  div.innerHTML =
+    '<div class="day-card-hdr">' +
+      '<span class="day-num">'+dayNum+'</span>' +
+      '<span class="day-card-title">Day '+dayNum+'</span>' +
+      '<button type="button" class="dyn-remove" onclick="this.closest(\'.day-card\').remove();reNumberDays()"><i class="fa-solid fa-xmark"></i></button>' +
+    '</div>' +
+    '<div class="day-card-body">' +
+      '<div class="field"><label>Day Title</label><input class="f-input itin-title" type="text" placeholder="e.g. Arusha → Tarangire" value="'+esc(day?.title||'')+'"/></div>' +
+      '<div class="field"><label>Route</label><input class="f-input itin-route" type="text" placeholder="e.g. Arusha → Tarangire Gate" value="'+esc(day?.route||'')+'"/></div>' +
+      '<div class="field full"><label>Description</label><textarea class="f-textarea itin-desc" rows="3" placeholder="What happens on this day…">'+esc(day?.description||'')+'</textarea></div>' +
+      '<div class="field"><label>Activities (comma-separated)</label><input class="f-input itin-act" type="text" placeholder="Game Drive, Big Five, Bush Picnic" value="'+esc((day?.activities||[]).join(', '))+'"/></div>' +
+      '<div class="field"><label>Night / Accommodation</label><input class="f-input itin-accom" type="text" placeholder="e.g. Serengeti Kati Kati Camp" value="'+esc(day?.accommodation||'')+'"/></div>' +
+      '<div class="field"><label>Meal Plan</label><input class="f-input itin-meals" type="text" placeholder="e.g. Full Board" value="'+esc(day?.meal_plan||'')+'"/></div>' +
+    '</div>';
+  list.appendChild(div);
+}
+
+function reNumberDays() {
+  document.querySelectorAll('#itinDays .day-card').forEach((c,i)=>{
+    c.querySelector('.day-num').textContent        = i+1;
+    c.querySelector('.day-card-title').textContent = 'Day '+(i+1);
+  });
+}
+
+function addAccomRow(row=null) {
+  const list  = document.getElementById('accomList');
+  const night = list.children.length + 1;
+  const div   = document.createElement('div');
+  div.className = 'dyn-item';
+  div.innerHTML =
+    '<input type="number" placeholder="Night#" value="'+(row?.night||night)+'" style="width:70px;flex-shrink:0;padding:.55rem .6rem;border:1.5px solid var(--border);background:var(--surface);font-size:.82rem;color:var(--cream2)"/>' +
+    '<input type="text" placeholder="Location" value="'+esc(row?.location||'')+'" class="f-input" style="flex:1"/>' +
+    '<input type="text" placeholder="Property name" value="'+esc(row?.property||'')+'" class="f-input" style="flex:2"/>' +
+    '<select class="f-select" style="width:100px;padding:.5rem .5rem">' +
+      ['budget','midrange','luxury'].map(l=>'<option value="'+l+'"'+(row?.level===l?' selected':'')+'>'+l+'</option>').join('') +
+    '</select>' +
+    '<input type="text" placeholder="Meal plan" value="'+esc(row?.meal_plan||'Full Board')+'" class="f-input" style="flex:1"/>' +
+    '<button type="button" class="dyn-remove" onclick="this.parentElement.remove()"><i class="fa-solid fa-xmark"></i></button>';
+  list.appendChild(div);
+}
+
+function addPriceTier(tier=null) {
+  const list = document.getElementById('priceTierList');
+  const div  = document.createElement('div');
+  div.className = 'tier-row';
+  div.innerHTML =
+    '<input type="text" placeholder="Label (e.g. 2 Passengers)" value="'+esc(tier?.label||'')+'" class="f-input"/>' +
+    '<input type="text" placeholder="Price (e.g. $1,899 / person)" value="'+esc(tier?.price||'')+'" class="f-input"/>' +
+    '<button type="button" class="dyn-remove" onclick="this.parentElement.remove()"><i class="fa-solid fa-xmark"></i></button>';
+  list.appendChild(div);
+}
+
+function addAddOn(addon=null) {
+  const list = document.getElementById('addOnList');
+  const div  = document.createElement('div');
+  div.className = 'tier-row';
+  div.innerHTML =
+    '<input type="text" placeholder="Label (e.g. Balloon Safari)" value="'+esc(addon?.label||'')+'" class="f-input"/>' +
+    '<input type="text" placeholder="Price (e.g. $550 /person)" value="'+esc(addon?.price||'')+'" class="f-input"/>' +
+    '<button type="button" class="dyn-remove" onclick="this.parentElement.remove()"><i class="fa-solid fa-xmark"></i></button>';
+  list.appendChild(div);
+}
+
+/* ── COLLECT FORM ── */
+function collectForm() {
+  const gv = id => document.getElementById(id)?.value?.trim()||'';
+  const inclusions    = [...document.querySelectorAll('#inclList input')].map(i=>i.value.trim()).filter(Boolean);
+  const exclusions    = [...document.querySelectorAll('#exclList input')].map(i=>i.value.trim()).filter(Boolean);
+  const highlights    = [...document.querySelectorAll('#highlightList input')].map(i=>i.value.trim()).filter(Boolean);
+  const itinerary     = [...document.querySelectorAll('#itinDays .day-card')].map((c,i)=>({
+    day:i+1,
+    title:c.querySelector('.itin-title')?.value?.trim()||'',
+    route:c.querySelector('.itin-route')?.value?.trim()||'',
+    description:c.querySelector('.itin-desc')?.value?.trim()||'',
+    activities:(c.querySelector('.itin-act')?.value||'').split(',').map(a=>a.trim()).filter(Boolean),
+    accommodation:c.querySelector('.itin-accom')?.value?.trim()||'',
+    meal_plan:c.querySelector('.itin-meals')?.value?.trim()||'',
+  }));
+  const accommodation = [...document.querySelectorAll('#accomList .dyn-item')].map(r=>{
+    const ins=r.querySelectorAll('input,select');
+    return {night:parseInt(ins[0]?.value)||1,location:ins[1]?.value?.trim()||'',property:ins[2]?.value?.trim()||'',level:ins[3]?.value||'midrange',meal_plan:ins[4]?.value?.trim()||'Full Board'};
+  });
+  const price_tiers = [...document.querySelectorAll('#priceTierList .tier-row')].map(r=>{
+    const ins=r.querySelectorAll('input');return{label:ins[0]?.value?.trim()||'',price:ins[1]?.value?.trim()||''};
+  }).filter(t=>t.label||t.price);
+  const add_ons = [...document.querySelectorAll('#addOnList .tier-row')].map(r=>{
+    const ins=r.querySelectorAll('input');return{label:ins[0]?.value?.trim()||'',price:ins[1]?.value?.trim()||''};
+  }).filter(a=>a.label||a.price);
+
+  return {
+    title:gv('f_title'), slug:gv('f_slug'),
+    hero_image:gv('f_hero_image'), detail_hero_img:gv('f_detail_hero_img'),
+    badge_text:gv('f_badge_text')||'Popular', badge_icon:gv('f_badge_icon')||'fa-star',
+    sort_order:parseInt(gv('f_sort_order'))||0,
+    is_active:document.getElementById('f_is_active')?.checked??true,
+    is_featured:document.getElementById('f_is_featured')?.checked??false,
+    duration_label:gv('f_duration_label'),
+    group_size:gv('f_group_size'),
+    tour_type_label:gv('f_tour_type_label'), tour_type_icon:gv('f_tour_type_icon')||'fa-car-side',
+    dest_tags:gv('f_dest_tags'), dur_tag:gv('f_dur_tag'), type_tags:gv('f_type_tags'),
+    base_price:parseInt(gv('f_base_price'))||0,
+    price_display:gv('f_price_display'),
+    price_suffix:gv('f_price_suffix'),
+    detail_url:gv('f_detail_url'),
+    cta_text:gv('f_cta_text')||'View Details',
+    short_desc:gv('f_short_desc'),
+    overview_html:gv('f_overview_html'),
+    meta_title:gv('f_meta_title'), meta_desc:gv('f_meta_desc'),
+    inclusions, exclusions, highlights, itinerary, accommodation, price_tiers, add_ons,
+  };
+}
+
+function validateForm(d) {
+  const required = [
+    {id:'f_title',label:'Package Title'},
+    {id:'f_slug',label:'URL Slug'},
+    {id:'f_hero_image',label:'Hero Image'},
+    {id:'f_duration_label',label:'Duration Label (enter days and nights above)'},
+    {id:'f_tour_type_label',label:'Tour Type Label'},
+    {id:'f_short_desc',label:'Short Description'},
+    {id:'f_detail_url',label:'Detail Page URL'},
+    {id:'f_price_display',label:'Price Display'},
+  ];
+  for (const r of required) {
+    if (!document.getElementById(r.id)?.value?.trim()) {
+      toast('"'+r.label+'" is required', 'error');
+      if (r.id==='f_hero_image') { switchTab(1); } else { switchTab(0); }
+      return false;
+    }
+  }
+  if (!d.dest_tags) { toast('Select at least one destination', 'error'); switchTab(2); return false; }
+  if (!d.type_tags) { toast('Select at least one tour type tag', 'error'); switchTab(2); return false; }
+  if (!d.dur_tag)   { toast('Select a duration', 'error'); switchTab(0); return false; }
+  if (!d.base_price){ toast('Base price is required', 'error'); switchTab(0); return false; }
+  return true;
+}
+
+/* ── SAVE PACKAGE ── */
+async function savePackage() {
+  const data = collectForm();
+  if (!validateForm(data)) return;
+  const btn  = document.getElementById('saveBtn');
+  const orig = document.getElementById('saveBtnText').textContent;
+  btn.disabled = true;
+  document.getElementById('saveBtnText').textContent = 'Saving…';
+  try {
+    let result;
+    if (editingPkgId) {
+      const {data:d,error} = await window._sb.from('packages').update(data).eq('id',editingPkgId).select().single();
+      if (error) throw error; result=d;
+      const idx = allPackages.findIndex(p=>p.id===editingPkgId);
+      if (idx!==-1) allPackages[idx]=result;
+      toast('Package updated!','success');
+    } else {
+      const {data:d,error} = await window._sb.from('packages').insert(data).select().single();
+      if (error) throw error; result=d;
+      allPackages.push(result);
+      toast('Package created!','success');
+    }
+    closeModal('pkgModal');
+    updateStats(); renderDashRecent(); renderPackageTable(allPackages);
+    document.getElementById('pkgCount').textContent = allPackages.length;
+  } catch(e) {
+    toast('Save failed: '+e.message,'error');
+  } finally {
+    btn.disabled=false;
+    document.getElementById('saveBtnText').textContent=orig;
+  }
+}
+
+/* ── DELETE ── */
+let pendingDeleteId = null;
+function confirmDelete(id, title) {
+  pendingDeleteId = id;
+  document.getElementById('confirmTitle').textContent = 'Delete Package?';
+  document.getElementById('confirmMsg').textContent   = 'Permanently delete "'+title+'"? This cannot be undone.';
+  document.getElementById('confirmOkBtn').textContent = 'Delete';
+  document.getElementById('confirmOkBtn').onclick     = doDelete;
+  document.getElementById('confirmOverlay').classList.add('open');
+}
+async function doDelete() {
+  if (!pendingDeleteId) return;
+  const {error} = await window._sb.from('packages').delete().eq('id',pendingDeleteId);
+  closeConfirm();
+  if (error) { toast('Delete failed: '+error.message,'error'); return; }
+  allPackages = allPackages.filter(p=>p.id!==pendingDeleteId);
+  pendingDeleteId = null;
+  updateStats(); renderDashRecent(); renderPackageTable(allPackages);
+  document.getElementById('pkgCount').textContent = allPackages.length;
+  toast('Package deleted.','success');
+}
+function closeConfirm() { document.getElementById('confirmOverlay').classList.remove('open'); pendingDeleteId=null; }
+
+/* ══ USERS ══ */
+async function loadUsers() {
+  const tbody = document.getElementById('usersTbody');
+  tbody.innerHTML = '<tr class="loading-row"><td colspan="6"><div class="spin"></div><br>Loading users…</td></tr>';
+  try {
+    const {data,error} = await window._sb.from('admin_profiles').select('*').order('created_at');
+    if (error) throw error;
+    allUsers = data || [];
+    renderUsersTable(allUsers);
+  } catch(e) {
+    toast('Failed to load users: '+e.message,'error');
+    tbody.innerHTML='<tr><td colspan="6"><div class="empty-state"><i class="fa-solid fa-triangle-exclamation"></i><h3>Could not load users</h3></div></td></tr>';
+  }
+}
+function renderUsersTable(users) {
+  const tbody = document.getElementById('usersTbody');
+  if (!users.length) { tbody.innerHTML='<tr><td colspan="6"><div class="empty-state"><i class="fa-solid fa-users"></i><h3>No users found</h3><p>Invite your first team member above.</p></div></td></tr>'; return; }
+  tbody.innerHTML = users.map(u=>
+    '<tr>' +
+    '<td><div class="tbl-title">'+esc(u.full_name||'—')+'</div></td>' +
+    '<td><div class="tbl-sub" style="font-size:.82rem;color:var(--text)">'+esc(u.email)+'</div></td>' +
+    '<td><span class="role-badge '+(u.role==='super_admin'?'role-super':'role-editor')+'"><i class="fa-solid '+(u.role==='super_admin'?'fa-crown':'fa-pen')+'"></i>'+(u.role==='super_admin'?'Super Admin':'Editor')+'</span></td>' +
+    '<td>'+(u.is_active?'<span class="badge badge-green">Active</span>':'<span class="badge badge-red">Inactive</span>')+'</td>' +
+    '<td><div class="tbl-sub">'+new Date(u.created_at).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})+'</div></td>' +
+    '<td><div style="display:flex;gap:.4rem">' +
+    '<button class="btn-icon edit" onclick="openEditUser(\''+u.id+'\')"><i class="fa-solid fa-pen"></i></button>' +
+    '<button class="btn-icon del" onclick="confirmDeactivateUser(\''+u.id+'\',\''+esc(u.email)+'\','+u.is_active+')"><i class="fa-solid '+(u.is_active?'fa-user-slash':'fa-user-check')+'"></i></button>' +
+    '</div></td></tr>'
+  ).join('');
+}
+function openUserModal() {
+  editingUserId = null;
+  document.getElementById('userModalTitle').textContent  = 'Invite User';
+  document.getElementById('userSaveBtnText').textContent = 'Send Invite';
+  document.getElementById('u_name').value  = '';
+  document.getElementById('u_email').value = '';
+  document.getElementById('u_email').disabled = false;
+  document.getElementById('u_role').value  = 'editor';
+  document.getElementById('userModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function openEditUser(id) {
+  const user = allUsers.find(u=>u.id===id);
+  if (!user) return;
+  editingUserId = id;
+  document.getElementById('userModalTitle').textContent  = 'Edit User';
+  document.getElementById('userSaveBtnText').textContent = 'Save Changes';
+  document.getElementById('u_name').value  = user.full_name||'';
+  document.getElementById('u_email').value = user.email;
+  document.getElementById('u_email').disabled = true;
+  document.getElementById('u_role').value  = user.role||'editor';
+  document.getElementById('userModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+async function saveUser() {
+  const btn   = document.getElementById('userSaveBtn');
+  const orig  = document.getElementById('userSaveBtnText').textContent;
+  const name  = document.getElementById('u_name').value.trim();
+  const email = document.getElementById('u_email').value.trim();
+  const role  = document.getElementById('u_role').value;
+  if (!email) { toast('Email is required','error'); return; }
+  btn.disabled=true;
+  document.getElementById('userSaveBtnText').textContent = editingUserId?'Saving…':'Sending…';
+  try {
+    if (editingUserId) {
+      const {error} = await window._sb.from('admin_profiles').update({full_name:name,role}).eq('id',editingUserId);
+      if (error) throw error;
+      toast('User updated!','success');
+      const idx=allUsers.findIndex(u=>u.id===editingUserId);
+      if (idx!==-1){allUsers[idx].full_name=name;allUsers[idx].role=role;}
+      renderUsersTable(allUsers);
+    } else {
+      const {data:inv, error:invErr} = await window._sb.auth.admin?.inviteUserByEmail
+        ? await window._sb.auth.admin.inviteUserByEmail(email)
+        : {data:null,error:{message:'Admin invite requires service role key. Create the user in Supabase Dashboard → Auth → Users.'}};
+      if (invErr) { toast('⚠️ '+invErr.message,'error'); btn.disabled=false; document.getElementById('userSaveBtnText').textContent=orig; return; }
+      await window._sb.from('admin_profiles').upsert({id:invErr?.data?.user?.id,email,full_name:name,role});
+      toast('Invite sent to '+email+'!','success');
+    }
+    closeModal('userModal');
+  } catch(e) { toast('Error: '+e.message,'error'); }
+  finally { btn.disabled=false; document.getElementById('userSaveBtnText').textContent=orig; }
+}
+function confirmDeactivateUser(id,email,isActive) {
+  pendingDeleteId = id;
+  document.getElementById('confirmTitle').textContent = isActive?'Deactivate User?':'Re-activate User?';
+  document.getElementById('confirmMsg').textContent   = 'Are you sure you want to '+(isActive?'deactivate':'re-activate')+' "'+email+'"?';
+  document.getElementById('confirmOkBtn').textContent = isActive?'Deactivate':'Re-activate';
+  document.getElementById('confirmOkBtn').onclick     = ()=>toggleUserActive(id,!isActive);
+  document.getElementById('confirmOverlay').classList.add('open');
+}
+async function toggleUserActive(id,state) {
+  closeConfirm();
+  const {error}=await window._sb.from('admin_profiles').update({is_active:state}).eq('id',id);
+  if (error){toast('Failed: '+error.message,'error');return;}
+  const u=allUsers.find(u=>u.id===id);if(u)u.is_active=state;
+  renderUsersTable(allUsers);
+  toast('User '+(state?'re-activated':'deactivated')+'.','success');
+}
+
+/* ── TOAST ── */
+function toast(msg, type='info'){
+  const stack=document.getElementById('toastStack');
+  const div=document.createElement('div');
+  div.className='toast toast-'+type;
+  div.innerHTML='<i class="fa-solid '+(type==='success'?'fa-circle-check':type==='error'?'fa-circle-exclamation':'fa-circle-info')+'"></i>'+msg;
+  stack.appendChild(div);
+  setTimeout(()=>div.remove(),5000);
+}
+
+/* ── UTILS ── */
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function safeJSON(v,fb){if(!v)return fb;if(typeof v==='object')return v;try{return JSON.parse(v);}catch{return fb;}}
+</script>
+</body>
+</html>

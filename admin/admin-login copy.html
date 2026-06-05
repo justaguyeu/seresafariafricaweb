@@ -161,7 +161,6 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../js/supabase-config.js"></script>
 <script>
-/* ── HELPERS ── */
 function showMsg(text, type='error') {
   const box  = document.getElementById('msgBox');
   const icon = document.getElementById('msgIcon');
@@ -173,106 +172,6 @@ function showMsg(text, type='error') {
   txt.textContent = text;
 }
 
-/* ── CHECK URL FOR INVITE OR RESET TOKEN ── */
-(async () => {
-  try {
-    // Supabase puts tokens in the URL hash after invite/reset links
-    const hash   = window.location.hash;
-    const params = new URLSearchParams(hash.replace('#', ''));
-    const type   = params.get('type');
-    const token  = params.get('access_token');
-
-    // If there's an invite or recovery token → show set-password UI
-    if ((type === 'invite' || type === 'recovery') && token) {
-      showSetPasswordUI(type);
-      return;
-    }
-
-    // Already logged in → go straight to dashboard
-    const { data } = await window._sb.auth.getSession();
-    if (data?.session) window.location.href = 'admin.html';
-
-  } catch(e) {}
-})();
-
-/* ── SHOW SET PASSWORD UI ── */
-function showSetPasswordUI(type) {
-  const body = document.querySelector('.login-body');
-  const label = type === 'invite' ? 'Welcome — Set Your Password' : 'Reset Your Password';
-  const sub   = type === 'invite'
-    ? 'You have been invited to the Sere Safari Africa admin panel. Please set a password to continue.'
-    : 'Enter your new password below.';
-
-  body.innerHTML = `
-    <div class="login-title">${label}</div>
-    <p class="login-sub">${sub}</p>
-    <div class="msg-box hidden" id="msgBox">
-      <i id="msgIcon" class="fa-solid fa-triangle-exclamation"></i>
-      <span id="msgText"></span>
-    </div>
-    <div class="field">
-      <label>New Password</label>
-      <input type="password" id="newPassword" placeholder="Min. 8 characters"
-        onkeydown="if(event.key==='Enter')doSetPassword()"/>
-    </div>
-    <div class="field">
-      <label>Confirm Password</label>
-      <input type="password" id="confirmPassword" placeholder="Repeat your password"
-        onkeydown="if(event.key==='Enter')doSetPassword()"/>
-    </div>
-    <button class="login-btn" id="loginBtn" onclick="doSetPassword()">
-      <span class="btn-text"><i class="fa-solid fa-lock"></i> Set Password & Sign In</span>
-      <span class="spinner"></span>
-    </button>
-    <div class="login-footer">
-      <a href="../pages/tours.html"><i class="fa-solid fa-arrow-left"></i> Back to Website</a>
-    </div>
-  `;
-}
-
-/* ── SET PASSWORD (invite / reset flow) ── */
-async function doSetPassword() {
-  const pw  = document.getElementById('newPassword').value;
-  const cp  = document.getElementById('confirmPassword').value;
-  const btn = document.getElementById('loginBtn');
-
-  if (!pw || pw.length < 8) {
-    showMsg('Password must be at least 8 characters.'); return;
-  }
-  if (pw !== cp) {
-    showMsg('Passwords do not match.'); return;
-  }
-
-  btn.classList.add('loading'); btn.disabled = true;
-  document.getElementById('msgBox').classList.add('hidden');
-
-  try {
-    // Exchange the token from URL for a session first
-    const hash   = window.location.hash;
-    const params = new URLSearchParams(hash.replace('#', ''));
-    const accessToken  = params.get('access_token');
-    const refreshToken = params.get('refresh_token');
-
-    // Set the session using the tokens from the invite/reset link
-    await window._sb.auth.setSession({
-      access_token:  accessToken,
-      refresh_token: refreshToken,
-    });
-
-    // Now update the password
-    const { error } = await window._sb.auth.updateUser({ password: pw });
-    if (error) throw error;
-
-    showMsg('Password set! Redirecting to dashboard…', 'success');
-    setTimeout(() => window.location.href = 'admin.html', 1500);
-
-  } catch(err) {
-    showMsg(err.message || 'Failed to set password.');
-    btn.classList.remove('loading'); btn.disabled = false;
-  }
-}
-
-/* ── NORMAL LOGIN ── */
 async function doLogin() {
   const btn   = document.getElementById('loginBtn');
   const email = document.getElementById('loginEmail').value.trim();
@@ -293,15 +192,12 @@ async function doLogin() {
   }
 }
 
-/* ── FORGOT PASSWORD ── */
 async function showForgot(e) {
   e.preventDefault();
   const email = document.getElementById('loginEmail').value.trim();
   if (!email) { showMsg('Enter your email address first, then click "Forgot password?".'); return; }
-
-  const btn = document.getElementById('loginBtn');
-  btn.classList.add('loading'); btn.disabled = true;
-
+  document.getElementById('loginBtn').classList.add('loading');
+  document.getElementById('loginBtn').disabled = true;
   try {
     const { error } = await window._sb.auth.resetPasswordForEmail(email, {
       redirectTo: window.location.origin + '/admin/admin-login.html'
@@ -311,9 +207,18 @@ async function showForgot(e) {
   } catch(err) {
     showMsg(err.message || 'Failed to send reset email.');
   } finally {
-    btn.classList.remove('loading'); btn.disabled = false;
+    document.getElementById('loginBtn').classList.remove('loading');
+    document.getElementById('loginBtn').disabled = false;
   }
 }
+
+// Already logged in → skip to dashboard
+(async () => {
+  try {
+    const { data } = await window._sb.auth.getSession();
+    if (data?.session) window.location.href = 'admin.html';
+  } catch(e) {}
+})();
 </script>
 </body>
 </html>
