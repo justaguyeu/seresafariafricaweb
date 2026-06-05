@@ -484,7 +484,7 @@ body.cursor-lg #cursor-ring {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url('../images/rhino.png') center/cover no-repeat;
+  background: url('../images/rhino.jpg') center/cover no-repeat;
   animation: heroZoom 20s ease-in-out infinite alternate;
   will-change: transform;
 }
