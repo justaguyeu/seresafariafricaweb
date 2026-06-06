@@ -193,6 +193,12 @@ body.cursor-lg #cursor-ring {
   clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
 }
 
+.btn-primary-white {
+  background: var(--white);
+  color: var(--dark);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+}
+
 .btn-primary:hover {
   background: var(--gold-light);
   transform: translateY(-2px);
@@ -2117,7 +2123,7 @@ body.cursor-lg #cursor-ring {
   padding: .9rem 1.3rem;
   background: var(--gold);
   border: 1px solid rgba(201, 150, 58, .28);
-  color: var(--white);
+  color: var(--dark);
   font-size: .88rem;
   transition: border-color var(--trans);
 }
