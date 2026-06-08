@@ -4,11 +4,157 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+   <link href="../favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="57x57" href="../favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="../favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="../favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="../favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../favicon/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../favicon/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
   <meta name="description"
     content="Explore Tanzania's most iconic destinations – Serengeti, Ngorongoro Crater, Tarangire, Lake Manyara, Kilimanjaro and Zanzibar with Sere Safari Africa." />
   <title>Destinations – Sere Safari Africa</title>
   <link rel="stylesheet" href="../css/main.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* ── DESTINATION GRID BADGES ───────────────────────────── */
+    .dest-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 11px;
+      border-radius: 50px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      backdrop-filter: blur(6px);
+      z-index: 2;
+      pointer-events: none;
+      font-family: var(--ff-head);
+    }
+
+    .badge-fire   { background: rgba(220, 60, 30, 0.88);  color: #fff; }
+    .badge-gold   { background: rgba(180, 130, 20, 0.92); color: #fff; }
+    .badge-green  { background: rgba(30, 120, 60, 0.88);  color: #fff; }
+    .badge-blue   { background: rgba(20, 100, 190, 0.88); color: #fff; }
+    .badge-purple { background: rgba(100, 40, 180, 0.88); color: #fff; }
+    .badge-teal   { background: rgba(0, 130, 130, 0.88);  color: #fff; }
+
+    /* ── DETAIL CARD BADGES ────────────────────────────────── */
+    .card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 50px;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-family: var(--ff-head);
+      margin-bottom: 0.6rem;
+    }
+
+    .card-badge-fire   { background: rgba(220,60,30,.12);  color: #c43a1a; border: 1px solid rgba(220,60,30,.3); }
+    .card-badge-gold   { background: rgba(180,130,20,.12); color: #9a7010; border: 1px solid rgba(180,130,20,.3); }
+    .card-badge-green  { background: rgba(30,120,60,.12);  color: #1a7a40; border: 1px solid rgba(30,120,60,.3); }
+    .card-badge-blue   { background: rgba(20,100,190,.12); color: #1460be; border: 1px solid rgba(20,100,190,.3); }
+    .card-badge-purple { background: rgba(100,40,180,.12); color: #6428b4; border: 1px solid rgba(100,40,180,.3); }
+    .card-badge-teal   { background: rgba(0,130,130,.12);  color: #008282; border: 1px solid rgba(0,130,130,.3); }
+
+    /* ── LOAD MORE SYSTEM ──────────────────────────────────── */
+    .dest-full-card {
+      transition: opacity 0.4s ease, transform 0.4s ease, border-color var(--trans);
+    }
+
+    .dest-full-card.hidden-card {
+      display: none;
+    }
+
+    .dest-full-card.fade-in {
+      animation: cardFadeIn 0.5s ease forwards;
+    }
+
+    @keyframes cardFadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .load-more-wrap {
+      text-align: center;
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .load-more-count {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text);
+      font-family: var(--ff-head);
+    }
+
+    .load-more-count span {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    #load-more-btn {
+      position: relative;
+      overflow: hidden;
+    }
+
+    #load-more-btn .btn-inner {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.3s;
+    }
+
+    #load-more-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    /* ── SHOW LESS BUTTON ──────────────────────────────────── */
+    #show-less-btn {
+      display: none;
+    }
+
+    /* ── PROGRESS BAR ──────────────────────────────────────── */
+    .load-progress-bar {
+      width: 200px;
+      height: 2px;
+      background: rgba(87, 69, 53, 0.15);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .load-progress-fill {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: width 0.4s ease;
+    }
+  </style>
 </head>
 
 <body>
@@ -28,7 +174,7 @@
       <li><a href="kilimanjaro.html">Kilimanjaro</a></li>
       <li><a href="zanzibar.html">Zanzibar</a></li>
       <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="contact.html" class="nav-book">Book Now</a></li>
+      <li><a href="contact.html" class="nav-book">Enquire Now</a></li>
     </ul>
     <button class="ham" id="ham"><span></span><span></span><span></span></button>
   </nav>
@@ -36,7 +182,7 @@
     <a href="../index.html">Home</a><a href="../about.html">About</a>
     <a href="destinations.html">Destinations</a><a href="tours.html">Tours</a>
     <a href="kilimanjaro.html">Kilimanjaro</a><a href="zanzibar.html">Zanzibar</a>
-    <a href="gallery.html">Gallery</a><a href="contact.html" style="color:var(--gold)">Book Now</a>
+    <a href="gallery.html">Gallery</a><a href="contact.html" style="color:var(--gold)">Enquire Now</a>
   </nav>
 
   <!-- PAGE HEADER -->
@@ -63,6 +209,7 @@
       <!-- SERENGETI — spans 2 cols -->
       <a href="../pages/destinations/serengeti.html" style="text-decoration:none;" class="dest-card">
         <img src="../images/3.webp" alt="Serengeti" loading="lazy" />
+        <div class="dest-badge badge-fire"><i class="fa-solid fa-fire"></i> Most Popular</div>
         <div class="dest-info">
           <div class="dest-name">Serengeti National Park</div>
           <div class="dest-region"><i class="fa-solid fa-location-dot"></i> Northern Tanzania · UNESCO World Heritage</div>
@@ -75,6 +222,7 @@
       <!-- NGORONGORO -->
       <a href="../pages/destinations/ngorongoro.html" style="text-decoration:none;" class="dest-card">
         <img src="../images/4.webp" alt="Ngorongoro" loading="lazy" />
+        <div class="dest-badge badge-gold"><i class="fa-solid fa-crown"></i> Must Visit</div>
         <div class="dest-info">
           <div class="dest-name">Ngorongoro Crater</div>
           <div class="dest-region"><i class="fa-solid fa-location-dot"></i> Conservation Area · UNESCO Heritage</div>
@@ -87,6 +235,7 @@
       <!-- TARANGIRE -->
       <a href="../pages/destinations/tarangire.html" style="text-decoration:none;" class="dest-card">
         <img src="../images/5.webp" alt="Tarangire" loading="lazy" />
+        <div class="dest-badge badge-green"><i class="fa-solid fa-gem"></i> Hidden Gem</div>
         <div class="dest-info">
           <div class="dest-name">Tarangire National Park</div>
           <div class="dest-region"><i class="fa-solid fa-location-dot"></i> Northern Tanzania</div>
@@ -99,6 +248,7 @@
       <!-- LAKE MANYARA -->
       <a href="../pages/destinations/lake-manyara.html" style="text-decoration:none;" class="dest-card">
         <img src="../images/6.webp" alt="Lake Manyara" loading="lazy" />
+        <div class="dest-badge badge-blue"><i class="fa-solid fa-binoculars"></i> Birdwatcher's Paradise</div>
         <div class="dest-info">
           <div class="dest-name">Lake Manyara</div>
           <div class="dest-region"><i class="fa-solid fa-location-dot"></i> Rift Valley · Northern Tanzania</div>
@@ -111,6 +261,7 @@
       <!-- KILIMANJARO -->
       <a href="../pages/destinations/kilimanjaro-destination.html" style="text-decoration:none;" class="dest-card">
         <img src="../images/7.webp" alt="Kilimanjaro" loading="lazy" />
+        <div class="dest-badge badge-purple"><i class="fa-solid fa-mountain-sun"></i> Bucket List</div>
         <div class="dest-info">
           <div class="dest-name">Kilimanjaro National Park</div>
           <div class="dest-region"><i class="fa-solid fa-location-dot"></i> Roof of Africa · 5,895 m</div>
@@ -130,12 +281,13 @@
       <h2 class="section-title">Know Your <em>Destination</em></h2>
       <p class="section-sub">Everything you need to know before you go — wildlife, best times, what to expect.</p>
     </div>
-    <div class="dest-cards-grid">
+    <div class="dest-cards-grid" id="dest-cards-container">
 
-      <!-- SERENGETI -->
-      <div class="dest-full-card reveal">
+      <!-- CARD 1 · SERENGETI · visible by default -->
+      <div class="dest-full-card reveal" data-card="1">
         <div class="card-img"><img src="../images/17.webp" alt="Serengeti National Park" loading="lazy" /></div>
         <div class="card-body">
+          <div class="card-badge card-badge-fire"><i class="fa-solid fa-fire"></i> Most Popular</div>
           <div class="card-meta">
             <span><i class="fa-solid fa-location-dot"></i> Northern Tanzania</span>
             <span><i class="fa-solid fa-star"></i> UNESCO Heritage</span>
@@ -159,10 +311,11 @@
         </div>
       </div>
 
-      <!-- NGORONGORO -->
-      <div class="dest-full-card reveal delay-1">
+      <!-- CARD 2 · NGORONGORO · visible by default -->
+      <div class="dest-full-card reveal delay-1" data-card="2">
         <div class="card-img"><img src="../images/4.webp" alt="Ngorongoro Crater" loading="lazy" /></div>
         <div class="card-body">
+          <div class="card-badge card-badge-gold"><i class="fa-solid fa-crown"></i> Must Visit</div>
           <div class="card-meta">
             <span><i class="fa-solid fa-location-dot"></i> Conservation Area</span>
             <span><i class="fa-solid fa-star"></i> UNESCO Heritage</span>
@@ -186,10 +339,11 @@
         </div>
       </div>
 
-      <!-- TARANGIRE -->
-      <div class="dest-full-card reveal delay-2">
+      <!-- CARD 3 · TARANGIRE · visible by default -->
+      <div class="dest-full-card reveal delay-2" data-card="3">
         <div class="card-img"><img src="../images/18.webp" alt="Tarangire National Park" loading="lazy" /></div>
         <div class="card-body">
+          <div class="card-badge card-badge-green"><i class="fa-solid fa-gem"></i> Hidden Gem</div>
           <div class="card-meta">
             <span><i class="fa-solid fa-location-dot"></i> Northern Tanzania</span>
             <span><i class="fa-solid fa-elephant"></i> Elephant Capital</span>
@@ -213,10 +367,11 @@
         </div>
       </div>
 
-      <!-- LAKE MANYARA -->
-      <div class="dest-full-card reveal">
+      <!-- CARD 4 · LAKE MANYARA · hidden initially -->
+      <div class="dest-full-card reveal hidden-card" data-card="4">
         <div class="card-img"><img src="../images/19.webp" alt="Lake Manyara" loading="lazy" /></div>
         <div class="card-body">
+          <div class="card-badge card-badge-blue"><i class="fa-solid fa-binoculars"></i> Birdwatcher's Paradise</div>
           <div class="card-meta">
             <span><i class="fa-solid fa-location-dot"></i> Rift Valley</span>
             <span><i class="fa-solid fa-feather"></i> 400+ Bird Species</span>
@@ -240,11 +395,12 @@
         </div>
       </div>
 
-      <!-- ZANZIBAR -->
-      <div class="dest-full-card reveal delay-1">
+      <!-- CARD 5 · ZANZIBAR · hidden initially -->
+      <div class="dest-full-card reveal delay-1 hidden-card" data-card="5">
         <div class="card-img"><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=700&q=80"
             alt="Zanzibar" loading="lazy" /></div>
         <div class="card-body">
+          <div class="card-badge card-badge-teal"><i class="fa-solid fa-umbrella-beach"></i> Beach Paradise</div>
           <div class="card-meta">
             <span><i class="fa-solid fa-location-dot"></i> Indian Ocean Island</span>
             <span><i class="fa-solid fa-umbrella-beach"></i> Beach Paradise</span>
@@ -268,10 +424,11 @@
         </div>
       </div>
 
-      <!-- KILIMANJARO -->
-      <div class="dest-full-card reveal delay-2">
+      <!-- CARD 6 · KILIMANJARO · hidden initially -->
+      <div class="dest-full-card reveal delay-2 hidden-card" data-card="6">
         <div class="card-img"><img src="../images/7.webp" alt="Mount Kilimanjaro" loading="lazy" /></div>
         <div class="card-body">
+          <div class="card-badge card-badge-purple"><i class="fa-solid fa-mountain-sun"></i> Bucket List</div>
           <div class="card-meta">
             <span><i class="fa-solid fa-location-dot"></i> Northern Tanzania</span>
             <span><i class="fa-solid fa-mountain"></i> 5,895 m Summit</span>
@@ -295,6 +452,22 @@
         </div>
       </div>
 
+    </div>
+
+    <!-- LOAD MORE / SHOW LESS -->
+    <div class="load-more-wrap reveal" id="load-more-wrap">
+      <div class="load-progress-bar">
+        <div class="load-progress-fill" id="load-progress-fill" style="width:50%;"></div>
+      </div>
+      <p class="load-more-count" id="load-more-count">Showing <span id="shown-count">3</span> of <span id="total-count">6</span> destinations</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
+        <button class="btn btn-ghost" id="load-more-btn">
+          <span class="btn-inner"><i class="fa-solid fa-plus"></i> Load More Destinations</span>
+        </button>
+        <button class="btn btn-outline" id="show-less-btn">
+          <span class="btn-inner"><i class="fa-solid fa-chevron-up"></i> Show Less</span>
+        </button>
+      </div>
     </div>
   </section>
 
@@ -402,10 +575,16 @@
         </ul>
       </div>
       <div class="footer-badges">
+        <video class="footer-plane-video" autoplay muted loop playsinline>
+          <source src="../images/jeep.mp4" type="video/mp4">
+        </video>
         <div class="footer-badge-row">
           <p class="badge-label">We Accept</p>
           <div class="badge-items">
-            <img src="../images/visa.png" alt="Visa accepted" class="payment-badge">
+            <a href="https://shop.directpay.online/paymybills/SERESAFARIAFRICATOURSCOMPANYLIMITED"
+              target="_blank" rel="noopener noreferrer">
+              <img src="../images/visa.png" alt="Visa accepted" class="payment-badge">
+            </a>
           </div>
         </div>
         <div class="footer-badge-row">
@@ -441,11 +620,102 @@
       </p>
     </div>
   </footer>
+
   <a class="wa-btn" href="https://wa.me/255690318461" target="_blank" rel="noopener" aria-label="WhatsApp"><i
       class="fa-brands fa-whatsapp"></i></a>
   <div id="lightbox" class="lightbox"><button id="lb-close" class="lb-close"><i
         class="fa-solid fa-xmark"></i></button><img id="lb-img" src="" alt="" /></div>
   <script src="../js/main.js"></script>
-</body>
 
+  <!-- LOAD MORE SCRIPT -->
+  <script>
+    (function () {
+      const CARDS_PER_BATCH = 3;   // how many cards to reveal per click
+      const INITIAL_SHOWN   = 3;   // cards visible on first load
+
+      const allCards     = Array.from(document.querySelectorAll('#dest-cards-container .dest-full-card'));
+      const totalCards   = allCards.length;
+      let   shownCount   = INITIAL_SHOWN;
+
+      const loadMoreBtn  = document.getElementById('load-more-btn');
+      const showLessBtn  = document.getElementById('show-less-btn');
+      const shownEl      = document.getElementById('shown-count');
+      const totalEl      = document.getElementById('total-count');
+      const progressFill = document.getElementById('load-progress-fill');
+
+      // Set total
+      totalEl.textContent = totalCards;
+
+      function updateUI() {
+        shownEl.textContent = Math.min(shownCount, totalCards);
+        progressFill.style.width = ((Math.min(shownCount, totalCards) / totalCards) * 100) + '%';
+
+        // Hide/show load more button
+        if (shownCount >= totalCards) {
+          loadMoreBtn.style.display = 'none';
+        } else {
+          loadMoreBtn.style.display = 'inline-flex';
+        }
+
+        // Hide/show show-less button — only visible if more than initial cards shown
+        if (shownCount > INITIAL_SHOWN) {
+          showLessBtn.style.display = 'inline-flex';
+        } else {
+          showLessBtn.style.display = 'none';
+        }
+      }
+
+      function showCards(upTo) {
+        allCards.forEach(function (card, idx) {
+          if (idx < upTo) {
+            card.classList.remove('hidden-card');
+            // trigger fade-in for newly revealed ones
+            if (!card.dataset.revealed) {
+              card.dataset.revealed = '1';
+              card.classList.add('fade-in');
+              // Trigger scroll observer for reveal class
+              setTimeout(function () {
+                card.classList.add('visible');
+              }, 50);
+            }
+          } else {
+            card.classList.add('hidden-card');
+            delete card.dataset.revealed;
+            card.classList.remove('visible', 'fade-in');
+          }
+        });
+      }
+
+      // Load More
+      loadMoreBtn.addEventListener('click', function () {
+        shownCount = Math.min(shownCount + CARDS_PER_BATCH, totalCards);
+        showCards(shownCount);
+        updateUI();
+
+        // Smooth scroll to first new card
+        const firstNew = allCards[shownCount - CARDS_PER_BATCH];
+        if (firstNew) {
+          setTimeout(function () {
+            firstNew.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }, 100);
+        }
+      });
+
+      // Show Less
+      showLessBtn.addEventListener('click', function () {
+        shownCount = INITIAL_SHOWN;
+        showCards(shownCount);
+        updateUI();
+
+        // Scroll back up to section
+        document.getElementById('dest-cards-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      // Initial state
+      showCards(INITIAL_SHOWN);
+      updateUI();
+    })();
+  </script>
+
+</body>
 </html>

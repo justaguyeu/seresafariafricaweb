@@ -29,7 +29,15 @@
   const nav = document.getElementById('nav');
   if (!nav) return;
   const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 60);
-  window.addEventListener('scroll', onScroll, { passive: true });
+  // window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('scroll', function () {
+  const triggerAt = window.innerHeight * 0.25; // 25% of viewport height
+  if (window.scrollY > triggerAt) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+});
   onScroll();
   const sections = document.querySelectorAll('section[id]');
   const links    = document.querySelectorAll('.nav-links a[href*="#"]');
