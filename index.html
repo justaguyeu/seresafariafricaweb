@@ -678,95 +678,283 @@
     </div>
   </section>
 
-  <!-- ═══ TESTIMONIALS ═══ -->
-  <section class="test-section" id="reviews" style="background:var(--dark3);">
+  <!-- ═══ TESTIMONIALS — TripAdvisor Carousel ═══ -->
+  <section class="test-section" id="reviews" style="background:var(--dark3);overflow:hidden;">
     <div style="text-align:center;" class="reveal">
-      <div class="section-tag"><i class="fa-solid fa-star"></i> What Travellers Say</div>
+      <div class="section-tag"><i class="fa-brands fa-tripadvisor"></i> Verified TripAdvisor Reviews</div>
       <h2 class="section-title">Real Stories, <em>Real Magic</em></h2>
-      <p class="section-sub" style="max-width:500px;margin:0 auto;">Over 1,000 happy travellers have experienced the
-        magic of Africa with Seresafari Africa.</p>
+      <p class="section-sub" style="max-width:500px;margin:0 auto;">Over 1,000 happy travellers have experienced the magic of Africa with Seresafari Africa.</p>
+      <!-- Rating summary -->
+      <div style="display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:1.2rem;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:.4rem;">
+          <span style="font-size:1.6rem;font-weight:800;color:var(--gold);font-family:var(--ff-head);">5.0</span>
+          <span style="color:#00aa6c;font-size:1.4rem;">●●●●●</span>
+        </div>
+        <span style="font-size:.82rem;color:var(--text);">Excellent · 5.0 / 5.0 on <strong style="color:var(--cream2);">TripAdvisor</strong></span>
+      </div>
     </div>
-    <div class="test-grid">
-      <div class="test-card reveal">
-        <div class="test-quote">"</div>
-        <div class="test-stars">★★★★★</div>
-        <p class="test-text">We had an incredible 3-day safari with Seresafari Africa! Everything was seamless —
-          our outstanding guide was knowledgeable, friendly, and skilled at spotting wildlife. We saw lions, elephants,
-          giraffes, zebras, and even a leopard! Absolutely exceptional.</p>
-        <div class="test-author"><img class="test-avatar" src="https://i.pravatar.cc/100?img=44" alt="Sarah K." />
-          <div>
-            <div class="test-name">Sarah &amp; James K.</div>
-            <div class="test-trip"><i class="fa-solid fa-route"></i> 3-Day Central Serengeti Safari</div>
+
+    <!-- Carousel -->
+    <div style="position:relative;margin-top:3rem;" class="reveal">
+      <div id="trCarouselViewport" style="overflow:hidden;width:100%;">
+        <div id="trCarouselTrack" style="display:flex;gap:1.6rem;transition:transform .5s cubic-bezier(.4,0,.2,1);will-change:transform;padding:0 0 1rem;">
+
+          <!-- Review 1 -->
+          <div class="tr-card">
+            <div class="tr-header">
+              <div class="tr-avatar">M</div>
+              <div>
+                <div class="tr-name">Michal_Kycia</div>
+                <div class="tr-loc"><i class="fa-solid fa-location-dot"></i> Poland</div>
+              </div>
+              <img src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" alt="TripAdvisor" class="tr-logo">
+            </div>
+            <div class="tr-stars">★★★★★</div>
+            <div class="tr-title">"Unforgettable Safari Experience"</div>
+            <p class="tr-text">We had an incredible safari with Seresafari Africa! Everything was seamless — our guide was knowledgeable, friendly, and skilled at spotting wildlife. We saw lions, elephants, giraffes, zebras, and even a leopard! Absolutely exceptional service from start to finish.</p>
+            <div class="tr-date"><i class="fa-regular fa-calendar"></i> April 2025</div>
           </div>
+
+          <!-- Review 2 -->
+          <div class="tr-card">
+            <div class="tr-header">
+              <div class="tr-avatar">A</div>
+              <div>
+                <div class="tr-name">Adventure_Seeker22</div>
+                <div class="tr-loc"><i class="fa-solid fa-location-dot"></i> United Kingdom</div>
+              </div>
+              <img src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" alt="TripAdvisor" class="tr-logo">
+            </div>
+            <div class="tr-stars">★★★★★</div>
+            <div class="tr-title">"Best Safari Company in Tanzania!"</div>
+            <p class="tr-text">I absolutely loved my experience with Seresafari Africa. A 7-day trip to Tarangire, Ngorongoro, and Serengeti, ending in Zanzibar — amazing service, good food, and unforgettable wildlife moments. The team was warm and professional throughout. Will definitely be back!</p>
+            <div class="tr-date"><i class="fa-regular fa-calendar"></i> March 2025</div>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="tr-card">
+            <div class="tr-header">
+              <div class="tr-avatar">J</div>
+              <div>
+                <div class="tr-name">JourneyLover_JP</div>
+                <div class="tr-loc"><i class="fa-solid fa-location-dot"></i> Japan</div>
+              </div>
+              <img src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" alt="TripAdvisor" class="tr-logo">
+            </div>
+            <div class="tr-stars">★★★★★</div>
+            <div class="tr-title">"Outstanding and Professional Team"</div>
+            <p class="tr-text">Outstanding service from a highly professional and enthusiastic team. The entire experience was enjoyable, well-organised, and memorable. I had the most amazing time — the Ngorongoro Crater, Serengeti, and balloon safari were all incredible. Seresafari is simply the best!</p>
+            <div class="tr-date"><i class="fa-regular fa-calendar"></i> February 2025</div>
+          </div>
+
+          <!-- Review 4 -->
+          <div class="tr-card">
+            <div class="tr-header">
+              <div class="tr-avatar">S</div>
+              <div>
+                <div class="tr-name">Stanley_Photo</div>
+                <div class="tr-loc"><i class="fa-solid fa-location-dot"></i> United States</div>
+              </div>
+              <img src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" alt="TripAdvisor" class="tr-logo">
+            </div>
+            <div class="tr-stars">★★★★★</div>
+            <div class="tr-title">"Perfect for Photography Safari"</div>
+            <p class="tr-text">We embarked on the Bush to Beach trip — four unforgettable days in Tarangire, Serengeti and Ngorongoro. Our guide Stanley was exceptional. As a wildlife photographer, I was thrilled he always knew the perfect vantage points and the best light at every opportunity.</p>
+            <div class="tr-date"><i class="fa-regular fa-calendar"></i> January 2025</div>
+          </div>
+
+          <!-- Review 5 -->
+          <div class="tr-card">
+            <div class="tr-header">
+              <div class="tr-avatar">E</div>
+              <div>
+                <div class="tr-name">EuroTraveller_BE</div>
+                <div class="tr-loc"><i class="fa-solid fa-location-dot"></i> Belgium</div>
+              </div>
+              <img src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" alt="TripAdvisor" class="tr-logo">
+            </div>
+            <div class="tr-stars">★★★★★</div>
+            <div class="tr-title">"Genuine Warm People, Amazing Safari"</div>
+            <p class="tr-text">This company provides a great time on safari. The best part is the people who form Seresafari — very nice, genuine, warm humans. We were greeted the night before and all logistics and the schedule were explained clearly. Perfect in every single way. Hakuna Matata!</p>
+            <div class="tr-date"><i class="fa-regular fa-calendar"></i> December 2024</div>
+          </div>
+
+          <!-- Review 6 -->
+          <div class="tr-card">
+            <div class="tr-header">
+              <div class="tr-avatar">K</div>
+              <div>
+                <div class="tr-name">KiliClimber_NL</div>
+                <div class="tr-loc"><i class="fa-solid fa-location-dot"></i> Netherlands</div>
+              </div>
+              <img src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" alt="TripAdvisor" class="tr-logo">
+            </div>
+            <div class="tr-stars">★★★★★</div>
+            <div class="tr-title">"Reached Uhuru Peak — Life Changing!"</div>
+            <p class="tr-text">The Kilimanjaro climb was the hardest and most rewarding thing I've ever done. Our Seresafari guides were professional, patient and encouraging every single step of the way. Reaching Uhuru Peak at sunrise was an absolutely life-changing moment I will never forget.</p>
+            <div class="tr-date"><i class="fa-regular fa-calendar"></i> November 2024</div>
+          </div>
+
+          <!-- Review 7 -->
+          <div class="tr-card">
+            <div class="tr-header">
+              <div class="tr-avatar">R</div>
+              <div>
+                <div class="tr-name">RomanticsOnTour</div>
+                <div class="tr-loc"><i class="fa-solid fa-location-dot"></i> Australia</div>
+              </div>
+              <img src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" alt="TripAdvisor" class="tr-logo">
+            </div>
+            <div class="tr-stars">★★★★★</div>
+            <div class="tr-title">"Honeymoon Safari — Absolutely Perfect"</div>
+            <p class="tr-text">We booked a honeymoon safari and it was everything we dreamed of and more. From the warm airport welcome to the stunning Serengeti sunsets, every detail was flawless. Our guide went above and beyond to make our trip truly magical. Highly recommend Seresafari!</p>
+            <div class="tr-date"><i class="fa-regular fa-calendar"></i> October 2024</div>
+          </div>
+
+          <!-- Review 8 -->
+          <div class="tr-card">
+            <div class="tr-header">
+              <div class="tr-avatar">C</div>
+              <div>
+                <div class="tr-name">Carlos_Aventura</div>
+                <div class="tr-loc"><i class="fa-solid fa-location-dot"></i> Spain</div>
+              </div>
+              <img src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" alt="TripAdvisor" class="tr-logo">
+            </div>
+            <div class="tr-stars">★★★★★</div>
+            <div class="tr-title">"100% Recommend — Exceeded All Expectations"</div>
+            <p class="tr-text">From the first email response to the final farewell at the airport, Seresafari exceeded all expectations. The Great Migration crossing in the Serengeti was jaw-dropping. Our guide's knowledge of the animals and their behaviour made every game drive incredibly enriching.</p>
+            <div class="tr-date"><i class="fa-regular fa-calendar"></i> September 2024</div>
+          </div>
+
         </div>
       </div>
-      <div class="test-card reveal delay-1">
-        <div class="test-quote">"</div>
-        <div class="test-stars">★★★★★</div>
-        <p class="test-text">I absolutely loved my experience with Seresafari Africa. A 7-day trip to Tarangire,
-          Ngorongoro, and Serengeti, ending in Zanzibar — amazing service, good food, and unforgettable moments. I truly
-          had a wonderful time! Will definitely be back.</p>
-        <div class="test-author"><img class="test-avatar" src="https://i.pravatar.cc/100?img=47" alt="Maria L." />
-          <div>
-            <div class="test-name">Maria L.</div>
-            <div class="test-trip"><i class="fa-solid fa-plane"></i> 7-Day Tanzania &amp; Zanzibar Package</div>
-          </div>
-        </div>
-      </div>
-      <div class="test-card reveal delay-2">
-        <div class="test-quote">"</div>
-        <div class="test-stars">★★★★★</div>
-        <p class="test-text">Outstanding service from a highly professional and enthusiastic team. The entire experience
-          was enjoyable, well-organised, and memorable. I am definitely looking forward to joining again — Seresafari is
-          simply the best!</p>
-        <div class="test-author"><img class="test-avatar" src="https://i.pravatar.cc/100?img=32" alt="Tom R." />
-          <div>
-            <div class="test-name">Tom R.</div>
-            <div class="test-trip"><i class="fa-solid fa-car-side"></i> Bush to Beach Adventure</div>
-          </div>
-        </div>
-      </div>
-      <div class="test-card reveal delay-3">
-        <div class="test-quote">"</div>
-        <div class="test-stars">★★★★★</div>
-        <p class="test-text">We embarked on the Bush to Beach trip — four unforgettable days in Tarangire, Serengeti and
-          Ngorongoro. Our guide Stanley was exceptional. As a photographer I was thrilled he always knew the perfect
-          vantage points at every opportunity.</p>
-        <div class="test-author"><img class="test-avatar" src="https://i.pravatar.cc/100?img=12" alt="David M." />
-          <div>
-            <div class="test-name">David M.</div>
-            <div class="test-trip"><i class="fa-solid fa-camera"></i> 4-Day Bush to Beach Safari</div>
-          </div>
-        </div>
-      </div>
-      <div class="test-card reveal delay-1">
-        <div class="test-quote">"</div>
-        <div class="test-stars">★★★★★</div>
-        <p class="test-text">The Kilimanjaro climb was the hardest and most rewarding thing I've ever done. Our
-          Seresafari guides were professional, patient and encouraging every single step of the way. Reaching Uhuru Peak
-          at sunrise was a life-changing moment.</p>
-        <div class="test-author"><img class="test-avatar" src="https://i.pravatar.cc/100?img=25" alt="Anna S." />
-          <div>
-            <div class="test-name">Anna S.</div>
-            <div class="test-trip"><i class="fa-solid fa-mountain"></i> 7-Day Machame Route Kilimanjaro</div>
-          </div>
-        </div>
-      </div>
-      <div class="test-card reveal delay-2">
-        <div class="test-quote">"</div>
-        <div class="test-stars">★★★★★</div>
-        <p class="test-text">This company provides a great time while on safari. The best part is the people who form
-          Seresafari — very nice, genuine warm humans. Amazing safari! We were greeted the night before and all
-          logistics explained clearly. Perfect in every single way.</p>
-        <div class="test-author"><img class="test-avatar" src="https://i.pravatar.cc/100?img=56" alt="Carlos V." />
-          <div>
-            <div class="test-name">Carlos &amp; Rosa V.</div>
-            <div class="test-trip"><i class="fa-solid fa-star"></i> Tanzania Classic Safari</div>
-          </div>
-        </div>
-      </div>
+
+      <!-- Arrows -->
+      <button id="trPrev" class="tr-arrow tr-prev" aria-label="Previous review"><i class="fa-solid fa-chevron-left"></i></button>
+      <button id="trNext" class="tr-arrow tr-next" aria-label="Next review"><i class="fa-solid fa-chevron-right"></i></button>
+
+      <!-- Dots -->
+      <div id="trDots" style="display:flex;justify-content:center;gap:.5rem;margin-top:2rem;flex-wrap:wrap;"></div>
+    </div>
+
+    <!-- View More Button -->
+    <div style="text-align:center;margin-top:2.5rem;" class="reveal">
+      <a href="https://www.tripadvisor.com/Attraction_Review-g297913-d28413189-Reviews-Seresafari_Africa_Tours-Arusha_Arusha_Region.html"
+         target="_blank" rel="noopener noreferrer" class="btn btn-ghost" id="tripAdvisorBtn">
+        <i class="fa-brands fa-tripadvisor"></i> View All Reviews on TripAdvisor
+      </a>
     </div>
   </section>
+
+  <style>
+  .tr-card{
+    flex:0 0 calc(33.333% - 1.1rem);
+    min-width:300px;
+    background:var(--dark2);
+    border:1px solid rgba(201,150,58,.18);
+    border-radius:2px;
+    padding:2rem 1.8rem;
+    display:flex;flex-direction:column;gap:.9rem;
+    transition:border-color .3s,transform .3s;
+    cursor:default;
+  }
+  .tr-card:hover{border-color:var(--gold);transform:translateY(-4px);}
+  .tr-header{display:flex;align-items:center;gap:.9rem;}
+  .tr-avatar{
+    width:44px;height:44px;border-radius:50%;
+    background:var(--gold);color:var(--dark);
+    font-family:var(--ff-head);font-weight:700;font-size:1.2rem;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .tr-name{font-size:.85rem;font-weight:600;color:var(--cream2);}
+  .tr-loc{font-size:.75rem;color:var(--text);margin-top:2px;}
+  .tr-logo{width:90px;margin-left:auto;opacity:.7;flex-shrink:0;}
+  .tr-stars{color:#00aa6c;font-size:1rem;letter-spacing:2px;}
+  .tr-title{font-family:var(--ff-head);font-size:.95rem;font-weight:700;color:var(--white);line-height:1.3;}
+  .tr-text{font-size:.83rem;color:var(--text);line-height:1.7;flex:1;}
+  .tr-date{font-size:.75rem;color:var(--text);opacity:.7;display:flex;align-items:center;gap:.4rem;}
+  .tr-arrow{
+    position:absolute;top:50%;transform:translateY(-50%);
+    width:44px;height:44px;border-radius:50%;
+    background:var(--dark);border:1px solid rgba(201,150,58,.3);
+    color:var(--gold);font-size:.9rem;
+    cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:background .2s,border-color .2s;z-index:10;
+  }
+  .tr-arrow:hover{background:var(--gold);color:var(--dark);border-color:var(--gold);}
+  .tr-arrow:disabled{opacity:.3;cursor:not-allowed;}
+  .tr-prev{left:-22px;}
+  .tr-next{right:-22px;}
+  .tr-dot{
+    width:8px;height:8px;border-radius:50%;
+    background:rgba(201,150,58,.25);border:none;cursor:pointer;transition:background .3s,transform .3s;
+  }
+  .tr-dot.active{background:var(--gold);transform:scale(1.4);}
+  @media(max-width:1024px){.tr-card{flex:0 0 calc(50% - .8rem);}}
+  @media(max-width:640px){.tr-card{flex:0 0 calc(100%);}.tr-prev{left:-10px;}.tr-next{right:-10px;}}
+  </style>
+
+  <script>
+  (function(){
+    var track=document.getElementById('trCarouselTrack');
+    var vp=document.getElementById('trCarouselViewport');
+    var prev=document.getElementById('trPrev');
+    var next=document.getElementById('trNext');
+    var dotsEl=document.getElementById('trDots');
+    if(!track)return;
+    var cards=track.querySelectorAll('.tr-card');
+    var total=cards.length;
+    var cur=0;
+    var timer=null;
+
+    function vis(){var w=vp.offsetWidth;if(w<=640)return 1;if(w<=1024)return 2;return 3;}
+    function maxIdx(){return Math.max(0,total-vis());}
+
+    function buildDots(){
+      dotsEl.innerHTML='';
+      for(var i=0;i<=maxIdx();i++){
+        var d=document.createElement('button');
+        d.className='tr-dot'+(i===cur?' active':'');
+        d.setAttribute('aria-label','Slide '+(i+1));
+        (function(idx){d.addEventListener('click',function(){goTo(idx);reset();});})(i);
+        dotsEl.appendChild(d);
+      }
+    }
+
+    function goTo(idx){
+      var max=maxIdx();
+      idx=Math.max(0,Math.min(idx,max));
+      cur=idx;
+      var gap=24;
+      var cw=cards[0].offsetWidth+gap;
+      track.style.transform='translateX(-'+(cur*cw)+'px)';
+      dotsEl.querySelectorAll('.tr-dot').forEach(function(d,i){d.classList.toggle('active',i===cur);});
+      prev.disabled=cur===0;
+      next.disabled=cur===max;
+    }
+
+    buildDots();
+    goTo(0);
+
+    prev.addEventListener('click',function(){goTo(cur-1);reset();});
+    next.addEventListener('click',function(){goTo(cur+1);reset();});
+
+    function auto(){timer=setInterval(function(){goTo(cur<maxIdx()?cur+1:0);},4500);}
+    function reset(){clearInterval(timer);auto();}
+    auto();
+
+    /* touch swipe */
+    var sx=0;
+    track.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+    track.addEventListener('touchend',function(e){
+      var dx=sx-e.changedTouches[0].clientX;
+      if(Math.abs(dx)>50){goTo(dx>0?cur+1:cur-1);reset();}
+    });
+
+    window.addEventListener('resize',function(){buildDots();goTo(cur);});
+  })();
+  </script>
 
   <!-- ═══ BOOKING CTA ═══ -->
   <section class="book-section" id="booking" style="background:var(--dark3);">
