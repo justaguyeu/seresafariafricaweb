@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Loading… – Sere Safari Africa</title>
+  <meta name="description" content=""/>
+  <link rel="stylesheet" href="../../css/main.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    /* ── SKELETON ── */
+    .skel {
+      background: linear-gradient(90deg,rgba(87,69,53,.08) 25%,rgba(87,69,53,.16) 50%,rgba(87,69,53,.08) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.4s infinite;
+      border-radius: 2px;
+    }
+    @keyframes shimmer { to { background-position: -200% 0; } }
+    .skel-hero { height: 70vh; min-height: 480px; }
+    .skel-block { height: 16px; margin-bottom: .7rem; }
+    .skel-block.w80 { width: 80%; }
+    .skel-block.w60 { width: 60%; }
+    .skel-block.w40 { width: 40%; }
+    .skel-layout { display: grid; grid-template-columns: 1fr 340px; gap: 3rem; padding: 4rem 8%; background: var(--dark2); }
+    @media(max-width:900px) { .skel-layout { grid-template-columns: 1fr; padding: 3rem 5%; } }
+
+    /* ── NOT FOUND ── */
+    .not-found {
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; min-height: 60vh; text-align: center; padding: 4rem 2rem;
+    }
+    .not-found i { font-size: 3rem; color: var(--gold); opacity: .4; margin-bottom: 1.2rem; }
+    .not-found h2 { font-family: var(--ff-head); font-size: 2rem; color: var(--white); letter-spacing: 2px; margin-bottom: .7rem; }
+    .not-found p { color: var(--text); font-size: .9rem; margin-bottom: 1.5rem; }
+
+    /* ══════════════════════════════════════════
+       ACCOMMODATION POPUP MODAL — A&K-style layout
+    ══════════════════════════════════════════ */
+    .accom-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(26,15,7,.78);
+      z-index: 9000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .35s ease;
+    }
+    .accom-modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* ── MODAL SHELL ── */
+    .accom-modal {
+      background: #fff;
+      max-width: 980px;
+      width: 100%;
+      max-height: 90vh;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      animation: accomIn .35s ease;
+      border-radius: 2px;
+    }
+    @keyframes accomIn {
+      from { transform: translateY(24px); opacity: 0; }
+      to   { transform: none; opacity: 1; }
+    }
+
+    /* ── CLOSE BUTTON ── */
+    .accom-modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 38px;
+      height: 38px;
+      background: rgba(26,15,7,.55);
+      border: 1px solid rgba(255,255,255,.25);
+      color: #fff;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background .2s;
+      z-index: 20;
+      border-radius: 2px;
+    }
+    .accom-modal-close:hover { background: rgba(192,57,43,.85); }
+
+    /* ── MAIN BODY: left image | right content ── */
+    .accom-modal-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    /* ── LEFT: IMAGE PANEL ── */
+    .accom-img-panel {
+      position: relative;
+      background: #1A0F07;
+      overflow: hidden;
+    }
+    .accom-img-main {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: opacity .4s ease;
+    }
+    /* Prev / Next arrow buttons */
+    .accom-img-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,.92);
+      border: none;
+      color: #3D2B1A;
+      font-size: .9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 5;
+      transition: background .2s, color .2s;
+      border-radius: 50%;
+      box-shadow: 0 2px 12px rgba(0,0,0,.25);
+    }
+    .accom-img-btn:hover { background: #C99A32; color: #fff; }
+    .accom-img-btn.prev { left: .9rem; }
+    .accom-img-btn.next { right: .9rem; }
+    /* Dot indicators */
+    .accom-img-dots {
+      position: absolute;
+      bottom: .9rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+      z-index: 5;
+    }
+    .accom-img-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.5);
+      border: none;
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+      padding: 0;
+    }
+    .accom-img-dot.active {
+      background: #C99A32;
+      transform: scale(1.3);
+    }
+    /* Level badge over image */
+    .accom-img-level {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      z-index: 6;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: .28rem .85rem;
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: 1px solid currentColor;
+      background: rgba(26,15,7,.55);
+      backdrop-filter: blur(4px);
+    }
+    /* Image count badge */
+    .accom-img-count {
+      position: absolute;
+      bottom: .9rem;
+      right: 1rem;
+      z-index: 6;
+      font-size: .65rem;
+      color: rgba(255,255,255,.75);
+      letter-spacing: 1px;
+      background: rgba(0,0,0,.4);
+      padding: .2rem .55rem;
+      border-radius: 20px;
+    }
+
+    /* ── RIGHT: CONTENT PANEL ── */
+    .accom-content-panel {
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      padding: 2.2rem 2rem 2rem;
+      background: #fff;
+      scrollbar-width: thin;
+      scrollbar-color: #E8D9C0 #fff;
+    }
+    .accom-content-panel::-webkit-scrollbar { width: 4px; }
+    .accom-content-panel::-webkit-scrollbar-thumb { background: #C99A32; border-radius: 2px; }
+
+    /* Location line */
+    .accom-popup-loc {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .75rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #C99A32;
+      margin-bottom: .5rem;
+      font-weight: 600;
+    }
+    .accom-popup-loc i { font-size: .7rem; }
+
+    /* Property name */
+    .accom-popup-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #1A0F07;
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+
+    /* Divider */
+    .accom-popup-divider {
+      height: 1px;
+      background: #E8D9C0;
+      margin-bottom: 1.2rem;
+    }
+
+    /* Description */
+    .accom-popup-desc {
+      font-size: .875rem;
+      line-height: 1.8;
+      color: #5a4a3a;
+      margin-bottom: 1.6rem;
+    }
+    .accom-popup-desc p { margin-bottom: .8rem; }
+    .accom-popup-desc p:last-child { margin-bottom: 0; }
+
+    /* ACCOMMODATION HIGHLIGHTS heading */
+    .accom-hl-heading {
+      font-family: 'Oswald', sans-serif;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #C99A32;
+      margin-bottom: .9rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .accom-hl-heading::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #E8D9C0;
+    }
+
+    /* Highlights 2-column checklist */
+    .accom-hl-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .5rem .8rem;
+      margin-bottom: 1.6rem;
+    }
+    .accom-hl-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: .82rem;
+      color: #4a3828;
+      line-height: 1.4;
+      padding: .35rem 0;
+      border-bottom: 1px solid #F0E8D6;
+    }
+    .accom-hl-item i {
+      color: #27ae60;
+      font-size: .7rem;
+      margin-top: 3px;
+      flex-shrink: 0;
+      width: 14px;
+    }
+
+    /* Info row (level / location) */
+    .accom-popup-info-strip {
+      display: flex;
+      gap: .8rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.6rem;
+      padding: .9rem 1rem;
+      background: #FAF6EF;
+      border: 1px solid #E8D9C0;
+    }
+    .accom-info-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .76rem;
+      color: #574535;
+    }
+    .accom-info-chip i { color: #C99A32; font-size: .72rem; }
+    .accom-info-chip strong { color: #1A0F07; }
+
+    /* CTA buttons at bottom */
+    .accom-popup-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      margin-top: auto;
+      padding-top: 1rem;
+      border-top: 1px solid #E8D9C0;
+    }
+    .accom-popup-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: .75rem 1rem;
+      font-family: 'Oswald', sans-serif;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .accom-popup-btn-primary { background: #3D2B1A; color: #F5EDD0; }
+    .accom-popup-btn-primary:hover { background: #574535; }
+    .accom-popup-btn-wa { background: #25D366; color: #fff; }
+    .accom-popup-btn-wa:hover { background: #1ebe5a; }
+
+    /* Loading state */
+    .accom-modal-loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      gap: 1rem;
+      color: #6B5240;
+      font-size: .85rem;
+      min-height: 320px;
+    }
+    .accom-spin {
+      width: 32px;
+      height: 32px;
+      border: 3px solid rgba(87,69,53,.15);
+      border-top-color: #C99A32;
+      border-radius: 50%;
+      animation: acspin .7s linear infinite;
+    }
+    @keyframes acspin { to { transform: rotate(360deg); } }
+
+    /* Clickable accommodation link in itinerary */
+    .accom-link {
+      color: #C99A32;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: 600;
+      transition: color .2s;
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(201,154,50,.4);
+    }
+    .accom-link:hover {
+      color: #d4aa44;
+      border-bottom-color: rgba(212,170,68,.7);
+    }
+    .accom-link i { font-size: .7rem; }
+
+    /* ── MOBILE: stack image on top, content below ── */
+    @media (max-width: 680px) {
+      .accom-modal {
+        max-height: 95vh;
+        flex-direction: column;
+      }
+      .accom-modal-inner {
+        grid-template-columns: 1fr;
+        overflow-y: auto;
+      }
+      .accom-img-panel {
+        position: relative;
+        height: 220px;
+        flex-shrink: 0;
+      }
+      .accom-content-panel {
+        padding: 1.5rem 1.2rem;
+      }
+      .accom-hl-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 400px) {
+      .accom-popup-name {
+        font-size: 1.3rem;
+      }
+      .accom-modal-overlay {
+        padding: .5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+  <button id="back-top"><i class="fa-solid fa-chevron-up"></i></button>
+
+  <nav id="nav">
+    <a href="../../index.html" class="logo"><img src="../../logo2.png" alt="Sere Safari Africa"/></a>
+    <ul class="nav-links">
+      <li><a href="../../about.html">About</a></li>
+      <li><a href="../destinations.html">Destinations</a></li>
+      <li><a href="../tours.html" class="active">Tours</a></li>
+      <li><a href="../kilimanjaro.html">Kilimanjaro</a></li>
+      <li><a href="../zanzibar.html">Zanzibar</a></li>
+      <li><a href="../gallery.html">Gallery</a></li>
+      <li><a href="../contact.html" class="nav-book">Enquire Now</a></li>
+    </ul>
+    <button class="ham" id="ham"><span></span><span></span><span></span></button>
+  </nav>
+  <nav class="mob-menu" id="mob-menu">
+    <a href="../../index.html">Home</a>
+    <a href="../../about.html">About</a>
+    <a href="../destinations.html">Destinations</a>
+    <a href="../tours.html">Tours</a>
+    <a href="../kilimanjaro.html">Kilimanjaro</a>
+    <a href="../zanzibar.html">Zanzibar</a>
+    <a href="../gallery.html">Gallery</a>
+    <a href="../contact.html" style="color:var(--gold)">Enquire Now</a>
+  </nav>
+
+  <!-- Skeleton while loading -->
+  <div id="pageContent">
+    <div id="skeletonHero" class="skel skel-hero" style="margin-top:var(--nav-h)"></div>
+    <div class="skel-layout" id="skeletonBody">
+      <div>
+        <div class="skel skel-block w80"></div>
+        <div class="skel skel-block w60"></div>
+        <div class="skel skel-block w40"></div>
+        <div class="skel skel-block w80" style="margin-top:1.5rem"></div>
+        <div class="skel skel-block w60"></div>
+        <div class="skel skel-block"></div>
+        <div class="skel skel-block w80" style="margin-top:1.5rem"></div>
+        <div class="skel skel-block w60"></div>
+        <div class="skel skel-block w40"></div>
+      </div>
+      <div>
+        <div class="skel skel-block" style="height:320px"></div>
+        <div class="skel skel-block" style="height:160px;margin-top:1rem"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       ACCOMMODATION POPUP MODAL
+  ══════════════════════════════════════════ -->
+  <div class="accom-modal-overlay" id="accomPopupOverlay" onclick="closeAccomPopup(event)">
+    <div class="accom-modal" id="accomPopup">
+      <div class="accom-modal-loading">
+        <div class="accom-spin"></div>
+        <span>Loading accommodation details…</span>
+      </div>
+    </div>
+  </div>
+
+  <a class="wa-btn" href="https://wa.me/255690318461" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../../js/supabase-config.js"></script>
+  <script src="../../js/main.js"></script>
+  <script>
+  /* ════════════════════════════════════════════════════════
+     DYNAMIC TOUR DETAIL PAGE
+     URL:  tour-packages/tour-detail.html?slug=classic-safari
+  ════════════════════════════════════════════════════════ */
+
+  const accomCache = {};
+  let accomPopupActive = false;
+
+  // Carousel state
+  let _accomImages = [];
+  let _accomIdx    = 0;
+
+  /* ── GET SLUG ─────────────────────────────────────────── */
+  function getSlug() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('slug')) return params.get('slug');
+    const file = window.location.pathname.split('/').pop().replace('.html','');
+    return (file && file !== 'tour-detail') ? file : null;
+  }
+
+  /* ── HELPERS ──────────────────────────────────────────── */
+  function esc(s) {
+    return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+  function safeJSON(v, fb) {
+    if (!v) return fb;
+    if (typeof v === 'object') return v;
+    try { return JSON.parse(v); } catch { return fb; }
+  }
+  function capitalize(s) {
+    return String(s).charAt(0).toUpperCase() + String(s).slice(1);
+  }
+
+  /* ── FETCH + BOOT ─────────────────────────────────────── */
+  async function boot() {
+    const slug = getSlug();
+    if (!slug) { showNotFound('No package slug provided in the URL.'); return; }
+    try {
+      const { data, error } = await window._sb
+        .from('packages')
+        .select('*')
+        .eq('slug', slug)
+        .eq('is_active', true)
+        .single();
+      if (error || !data) {
+        showNotFound(`Package "${slug}" was not found or is not currently active.`);
+        return;
+      }
+      render(data);
+    } catch(e) {
+      showNotFound('Failed to load package data. Please try again later.');
+      console.error(e);
+    }
+  }
+
+  /* ── RENDER FULL DETAIL PAGE ──────────────────────────── */
+  function render(p) {
+    document.title = p.meta_title || (p.title + ' – Sere Safari Africa');
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', p.meta_desc || p.short_desc || '');
+
+    const inclusions    = safeJSON(p.inclusions, []);
+    const exclusions    = safeJSON(p.exclusions, []);
+    const highlights    = safeJSON(p.highlights, []);
+    const itinerary     = safeJSON(p.itinerary,  []);
+    const price_tiers   = safeJSON(p.price_tiers, []);
+    const add_ons       = safeJSON(p.add_ons, []);
+
+    const html = `
+      <!-- HERO -->
+      <div class="detail-hero" style="margin-top:var(--nav-h);">
+        <div class="detail-hero-bg" style="background-image:url('${esc(p.detail_hero_img || p.hero_image)}')"></div>
+        <div class="detail-hero-content">
+          <div class="detail-badge">
+            <i class="fa-solid ${esc(p.badge_icon || 'fa-star')}"></i>
+            ${esc(p.badge_text || 'Popular')}
+          </div>
+          <h1 class="detail-title">${esc(p.title)}</h1>
+          <div class="detail-meta-strip">
+            <div class="detail-meta-item">
+              <i class="fa-regular fa-calendar"></i>
+              <strong>${esc(p.duration_label || '')}</strong>
+            </div>
+            ${p.group_size ? `<div class="detail-meta-item"><i class="fa-solid fa-users"></i><strong>${esc(p.group_size)}</strong></div>` : ''}
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTENT -->
+      <div class="detail-layout">
+        <div class="detail-main">
+
+          <!-- OVERVIEW -->
+          <div class="detail-block">
+            <div class="detail-block-title"><i class="fa-solid fa-circle-info"></i> Tour Overview</div>
+            <div>${p.overview_html || ''}</div>
+          </div>
+
+          <!-- HIGHLIGHTS -->
+          ${highlights.length ? `
+          <div class="detail-block">
+            <div class="detail-block-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Tour Highlights</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem">
+              ${highlights.map(h => `<span class="itin-sleep"><i class="fa-solid fa-check"></i> ${esc(h)}</span>`).join('')}
+            </div>
+          </div>` : ''}
+
+          <!-- ITINERARY -->
+          <div class="detail-block">
+            <div class="detail-block-title"><i class="fa-solid fa-map-location-dot"></i> Day By Day Itinerary</div>
+            ${itinerary.length
+              ? `<div class="itinerary">${itinerary.map(day => buildDayHTML(day)).join('')}</div>`
+              : '<p style="color:var(--text);font-size:.85rem">Itinerary coming soon.</p>'
+            }
+          </div>
+
+          <!-- INCLUSIONS / EXCLUSIONS -->
+          ${inclusions.length || exclusions.length ? `
+          <div class="detail-block">
+            <div class="detail-block-title"><i class="fa-solid fa-list-check"></i> Included / Excluded</div>
+            <div class="inc-exc-grid">
+              <div class="inc-exc-box included">
+                <h4><i class="fa-solid fa-circle-check"></i> What's Included</h4>
+                <ul class="inc-exc-list">
+                  ${inclusions.map(item => `<li><i class="fa-solid fa-check ic"></i>${esc(item)}</li>`).join('')}
+                </ul>
+              </div>
+              <div class="inc-exc-box excluded">
+                <h4><i class="fa-solid fa-circle-xmark"></i> Not Included</h4>
+                <ul class="inc-exc-list">
+                  ${exclusions.map(item => `<li><i class="fa-solid fa-xmark ic"></i>${esc(item)}</li>`).join('')}
+                </ul>
+              </div>
+            </div>
+          </div>` : ''}
+
+          <!-- IMPORTANT NOTES -->
+          <div class="detail-block">
+            <div class="detail-block-title"><i class="fa-solid fa-triangle-exclamation"></i> Important Information</div>
+            <div class="notes-grid">
+              <div class="note-item"><i class="fa-solid fa-plane"></i>
+                <p><strong>Flights:</strong> The nearest airport is Kilimanjaro International Airport (JRO), approximately 45 minutes from Arusha. We provide complimentary transfers from JRO or Arusha Airport. We recommend arriving the day before the safari starts.</p>
+              </div>
+              <div class="note-item"><i class="fa-solid fa-passport"></i>
+                <p><strong>Visa:</strong> Most nationalities can obtain a Tanzania e-Visa online at immigration.go.tz before departure. Fee is approximately $50 USD. Yellow Fever vaccination certificate may be required depending on your country of origin.</p>
+              </div>
+              <div class="note-item"><i class="fa-solid fa-syringe"></i>
+                <p><strong>Health:</strong> Anti-malaria medication is strongly recommended. Consult your doctor at least 6 weeks before travel. Our guides carry comprehensive first aid kits and emergency oxygen on all game drives.</p>
+              </div>
+              <div class="note-item"><i class="fa-solid fa-shield-halved"></i>
+                <p><strong>Insurance:</strong> Comprehensive travel insurance including medical evacuation cover is mandatory for all Seresafari guests. This is a non-negotiable requirement for your safety and our peace of mind.</p>
+              </div>
+              <div class="note-item"><i class="fa-solid fa-shirt"></i>
+                <p><strong>What to Wear:</strong> Neutral colours (khaki, tan, olive, green) are recommended on game drives. Avoid blue and black clothing as these attract tsetse flies. Bring layers — mornings are cool, afternoons warm.</p>
+              </div>
+              <div class="note-item"><i class="fa-solid fa-money-bill"></i>
+                <p><strong>Tipping:</strong> Tipping is customary and greatly appreciated. Recommended: Driver-Guide $15–20/day, Camp Staff $5–10/day per group. Tips are given directly to staff at the end of the safari.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="detail-sidebar">
+
+          <!-- PRICING -->
+          ${price_tiers.length ? `
+          <div class="price-box">
+            <div class="price-box-title"><i class="fa-solid fa-tag"></i> Pricing Per Person</div>
+            <div class="price-tiers">
+              ${price_tiers.map(t => `
+              <div class="price-tier">
+                <div class="tier-label"><i class="fa-solid fa-users"></i> ${esc(t.label)}</div>
+                <div class="tier-price">${esc(t.price)}</div>
+              </div>`).join('')}
+            </div>
+            <div class="sidebar-note">
+              <i class="fa-solid fa-circle-info"></i>
+              Prices per person sharing. Single supplement available on request. All park fees, accommodation &amp; meals included as listed.
+            </div>
+            <a href="../contact.html" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:1.2rem;">
+              <i class="fa-solid fa-paper-plane"></i> Book This Safari
+            </a>
+            <a href="https://wa.me/255690318461" target="_blank" rel="noopener" class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:.7rem;">
+              <i class="fa-brands fa-whatsapp"></i> WhatsApp Enquiry
+            </a>
+          </div>` : `
+          <div class="price-box">
+            <div class="price-box-title"><i class="fa-solid fa-tag"></i> Price</div>
+            <div style="font-family:var(--ff-head);font-size:1.9rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:.3rem;">${esc(p.price_display)}</div>
+            <div style="font-size:.78rem;color:var(--text);margin-bottom:1.4rem;">${esc(p.price_suffix||'')}</div>
+            <a href="../contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">
+              <i class="fa-solid fa-paper-plane"></i> Book This Safari
+            </a>
+            <a href="https://wa.me/255690318461" target="_blank" rel="noopener" class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:.7rem;">
+              <i class="fa-brands fa-whatsapp"></i> WhatsApp Enquiry
+            </a>
+          </div>`}
+
+          <!-- BEST TRAVEL TIMES -->
+          <div class="price-box">
+            <div class="price-box-title"><i class="fa-solid fa-calendar-days"></i> Best Travel Times</div>
+            <div style="display:flex;flex-direction:column;gap:.6rem;">
+              <div class="price-tier"><div class="tier-label"><i class="fa-solid fa-sun"></i> Jun – Oct (Peak)</div><div style="font-size:.78rem;color:#7EB87A;font-weight:600;">Best Wildlife</div></div>
+              <div class="price-tier"><div class="tier-label"><i class="fa-solid fa-baby"></i> Jan – Feb (Calving)</div><div style="font-size:.78rem;color:var(--gold);font-weight:600;">Excellent</div></div>
+              <div class="price-tier"><div class="tier-label"><i class="fa-solid fa-cloud-sun"></i> Nov – Dec</div><div style="font-size:.78rem;color:var(--text);font-weight:600;">Good / Fewer Crowds</div></div>
+            </div>
+          </div>
+
+          <!-- ADD-ONS -->
+          ${add_ons.length ? `
+          <div class="price-box">
+            <div class="price-box-title"><i class="fa-solid fa-plus"></i> Optional Add-Ons</div>
+            <div style="display:flex;flex-direction:column;gap:.6rem;">
+              ${add_ons.map(a => `
+              <div class="price-tier">
+                <div class="tier-label"><i class="fa-solid fa-circle-plus"></i> ${esc(a.label)}</div>
+                <div class="tier-price" style="font-size:.95rem;">${esc(a.price)}</div>
+              </div>`).join('')}
+            </div>
+          </div>` : ''}
+
+          <!-- CONTACT -->
+          <div class="price-box">
+            <div class="price-box-title"><i class="fa-solid fa-phone"></i> Need Help?</div>
+            <div style="display:flex;flex-direction:column;gap:.7rem;">
+              <a href="tel:+255690318461" style="display:flex;align-items:center;gap:.8rem;padding:.8rem;background:rgba(201,150,58,.06);border:1px solid rgba(201,150,58,.2);color:var(--cream2);font-size:.83rem;text-decoration:none">
+                <i class="fa-solid fa-phone" style="color:var(--gold);"></i>+255 690 318 461
+              </a>
+              <a href="mailto:info@seresafariafrica.com" style="display:flex;align-items:center;gap:.8rem;padding:.8rem;background:rgba(201,150,58,.06);border:1px solid rgba(201,150,58,.2);color:var(--cream2);font-size:.83rem;text-decoration:none">
+                <i class="fa-solid fa-envelope" style="color:var(--gold);"></i>info@seresafariafrica.com
+              </a>
+              <a href="https://wa.me/255690318461" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:.8rem;padding:.8rem;background:#25D366;color:#fff;font-size:.83rem;font-weight:600;text-decoration:none">
+                <i class="fa-brands fa-whatsapp"></i>Chat on WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <!-- OTHER TOURS -->
+          <div class="price-box" id="otherToursBox" style="display:none">
+            <div class="price-box-title"><i class="fa-solid fa-compass"></i> Other Tours</div>
+            <div id="otherToursList" style="display:flex;flex-direction:column;gap:.5rem;"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- BOOK SECTION -->
+      <section class="book-section" style="padding:6rem 8%;text-align:center;">
+        <div class="book-bg"></div>
+        <div class="book-inner">
+          <div class="section-tag" style="justify-content:center;"><i class="fa-solid fa-paper-plane"></i> Ready to Book?</div>
+          <h2 style="font-family:var(--ff-head);font-size:clamp(2rem,5vw,3.5rem);font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--white);margin-bottom:.8rem;">
+            Book The <em style="color:var(--gold);font-style:normal;">${esc(p.title)}</em>
+          </h2>
+          <p style="color:var(--text);max-width:520px;margin:0 auto 2rem;">Send us your preferred dates and group size and we'll confirm availability and a personalised quote within 24 hours — completely free, no obligation.</p>
+          <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+            <a href="../contact.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Enquire Now</a>
+            <a href="../tours.html" class="btn btn-outline"><i class="fa-solid fa-arrow-left"></i> All Tour Packages</a>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a href="../../index.html" class="logo">SERE<span>SAFARI</span></a>
+            <p class="footer-tagline">Creating unforgettable safari experiences in the heart of Africa. Expert guides. Hand-picked lodges. 100% locally owned.</p>
+            <div class="footer-social">
+              <a href="https://www.facebook.com/Seresafari/" target="_blank" rel="noopener" class="soc-btn"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" class="soc-btn"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="soc-btn"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#" class="soc-btn"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Tour Packages</h4>
+            <ul class="footer-links" id="footerPackageLinks">
+              <li><a href="tour-detail.html?slug=classic-safari"><i class="fa-solid fa-chevron-right"></i>Tanzania Classic (6 Days)</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Destinations</h4>
+            <ul class="footer-links">
+              <li><a href="../destinations.html"><i class="fa-solid fa-chevron-right"></i>Serengeti</a></li>
+              <li><a href="../destinations.html"><i class="fa-solid fa-chevron-right"></i>Ngorongoro</a></li>
+              <li><a href="../destinations.html"><i class="fa-solid fa-chevron-right"></i>Tarangire</a></li>
+              <li><a href="../kilimanjaro.html"><i class="fa-solid fa-chevron-right"></i>Kilimanjaro</a></li>
+              <li><a href="../zanzibar.html"><i class="fa-solid fa-chevron-right"></i>Zanzibar</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <ul class="footer-contact">
+              <li><span class="fc-ico"><i class="fa-solid fa-location-dot"></i></span>Arusha, Tanzania 23100</li>
+              <li><span class="fc-ico"><i class="fa-solid fa-phone"></i></span><a href="tel:+255690318461" style="color:var(--text);">+255 690 318 461</a></li>
+              <li><span class="fc-ico"><i class="fa-solid fa-envelope"></i></span><a href="mailto:info@seresafariafrica.com" style="color:var(--text);">info@seresafariafrica.com</a></li>
+              <li><span class="fc-ico"><i class="fa-solid fa-clock"></i></span>Mon–Sat: 8AM–6PM EAT</li>
+            </ul>
+          </div>
+          <div class="footer-badges">
+            <div class="footer-badge-row">
+              <p class="badge-label">We Accept</p>
+              <div class="badge-items">
+                <a href="https://shop.directpay.online/paymybills/SERESAFARIAFRICATOURSCOMPANYLIMITED" target="_blank" rel="noopener noreferrer">
+                  <img src="../../images/visa.png" alt="Visa accepted" class="payment-badge">
+                </a>
+              </div>
+            </div>
+            <div class="footer-badge-row">
+              <p class="badge-label">Find Us On</p>
+              <div class="badge-items">
+                <a href="https://www.tripadvisor.com/Attraction_Review-g297913-d28413189-Reviews-Seresafari_Africa_Tours-Arusha_Arusha_Region.html" target="_blank" rel="noopener" class="review-badge">
+                  <img src="../../images/tripadvisor.svg" alt="TripAdvisor" class="platform-logo">
+                </a>
+                <a href="https://www.getyourguide.com/seresafari-africa-s583425/" target="_blank" rel="noopener" class="review-badge">
+                  <img src="../../images/getyourguide.svg" alt="GetYourGuide" class="platform-logo">
+                </a>
+                <a href="https://www.safarigo.com/operator/seresafari-africa-tours-3208" target="_blank" rel="noopener" class="review-badge">
+                  <img src="../../images/safarigo.png" alt="SafariGo" class="platform-logo">
+                </a>
+                <a href="https://tourist.com/p/15564/seresafari_africa" target="_blank" rel="noopener" class="review-badge">
+                  <img src="../../images/tourist.svg" alt="Tourist.com" class="platform-logo">
+                </a>
+                <a href="https://www.safaribookings.com/p7682" target="_blank" rel="noopener" class="review-badge">
+                  <img src="../../images/safaribookings.png" alt="SafariBookings" class="platform-logo">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bot">
+          <p>© 2026 Seresafari Africa. All Rights Reserved. · Web by Pamtech</p>
+          <div class="hakuna">Hakuna Matata <i class="fa-solid fa-earth-africa"></i></div>
+          <p>
+            <a href="../privacy-policy.html">Privacy Policy</a> ·
+            <a href="../terms-of-service.html">Terms of Service</a> ·
+            <a href="../travel-insights.html">Travel Insights</a>
+          </p>
+        </div>
+      </footer>`;
+
+    document.getElementById('pageContent').innerHTML = html;
+    loadOtherPackages(p.slug);
+    if (typeof initReveal === 'function') initReveal();
+  }
+
+  /* ── BUILD DAY HTML ───────────────────────────────────── */
+  function buildDayHTML(day) {
+    const acts = Array.isArray(day.activities) ? day.activities : [];
+    const hasAccomId   = day.accommodation_id && day.accommodation_id !== '';
+    const hasAccomText = day.accommodation && day.accommodation.trim() !== '';
+
+    let accomHTML = '';
+    if (hasAccomText) {
+      if (hasAccomId) {
+        accomHTML = `
+          <div class="itin-sleep">
+            <i class="fa-solid fa-bed"></i>
+            <strong>Night ${esc(String(day.day||''))}:</strong>
+            <span class="accom-link" onclick="openAccomPopup('${esc(day.accommodation_id)}','')">
+              <i class="fa-solid fa-eye"></i>
+              ${esc(day.accommodation)}
+            </span>
+            ${day.meal_plan ? `&nbsp;|&nbsp; ${esc(day.meal_plan)}` : ''}
+          </div>`;
+      } else {
+        accomHTML = `
+          <div class="itin-sleep">
+            <i class="fa-solid fa-bed"></i>
+            <strong>Night ${esc(String(day.day||''))}:</strong>
+            <span class="accom-link" onclick="openAccomPopupByName('${esc(day.accommodation).replace(/'/g,"\\'")}')">
+              <i class="fa-solid fa-eye"></i>
+              ${esc(day.accommodation)}
+            </span>
+            ${day.meal_plan ? `&nbsp;|&nbsp; ${esc(day.meal_plan)}` : ''}
+          </div>`;
+      }
+    }
+
+    return `
+      <div class="itin-day">
+        <div class="itin-num">
+          <div class="day-label">Day</div>
+          <div class="day-number">${esc(String(day.day||''))}</div>
+        </div>
+        <div class="itin-body">
+          <div class="itin-title">${esc(day.title||'')}</div>
+          ${day.route ? `<div class="itin-route"><i class="fa-solid fa-route"></i> ${esc(day.route)}</div>` : ''}
+          <p class="itin-desc">${esc(day.description||'')}</p>
+          ${acts.length ? `
+          <div class="itin-activities">
+            ${acts.map(a => `<span class="itin-tag"><i class="fa-solid fa-check"></i> ${esc(a)}</span>`).join('')}
+          </div>` : ''}
+          ${accomHTML}
+        </div>
+      </div>`;
+  }
+
+  /* ── OTHER PACKAGES ───────────────────────────────────── */
+  async function loadOtherPackages(currentSlug) {
+    try {
+      const { data } = await window._sb
+        .from('packages')
+        .select('title,slug,detail_url')
+        .eq('is_active', true)
+        .neq('slug', currentSlug)
+        .order('sort_order')
+        .limit(5);
+      if (!data?.length) return;
+      const box  = document.getElementById('otherToursBox');
+      const list = document.getElementById('otherToursList');
+      if (box && list) {
+        list.innerHTML = data.map(p => `
+          <a href="${esc(p.detail_url)}"
+            style="display:flex;align-items:center;gap:.7rem;padding:.8rem;background:rgba(255,255,255,.03);border:1px solid rgba(201,150,58,.1);color:var(--cream2);font-size:.8rem;transition:border-color .3s;text-decoration:none"
+            onmouseover="this.style.borderColor='rgba(201,150,58,.4)'"
+            onmouseout="this.style.borderColor='rgba(201,150,58,.1)'">
+            <i class="fa-solid fa-chevron-right" style="color:var(--gold);font-size:.7rem;flex-shrink:0"></i>
+            ${esc(p.title)}
+          </a>`).join('');
+        box.style.display = 'block';
+      }
+      const footerUl = document.getElementById('footerPackageLinks');
+      if (footerUl) {
+        footerUl.innerHTML = data.map(p =>
+          `<li><a href="${esc(p.detail_url)}"><i class="fa-solid fa-chevron-right"></i>${esc(p.title)}</a></li>`
+        ).join('');
+      }
+    } catch(e) { console.warn('Could not load other packages', e); }
+  }
+
+  /* ════════════════════════════════════════════════════════
+     ACCOMMODATION POPUP — A&K-style layout
+  ════════════════════════════════════════════════════════ */
+
+  async function openAccomPopup(accomId, accomName) {
+    const overlay = document.getElementById('accomPopupOverlay');
+    const popup   = document.getElementById('accomPopup');
+
+    popup.innerHTML = `<div class="accom-modal-loading">
+      <div class="accom-spin"></div><span>Loading accommodation details…</span>
+    </div>`;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    accomPopupActive = true;
+
+    try {
+      if (accomCache[accomId]) {
+        renderAccomPopup(accomCache[accomId]);
+        return;
+      }
+      const { data, error } = await window._sb
+        .from('accommodations')
+        .select('*')
+        .eq('id', accomId)
+        .eq('is_active', true)
+        .single();
+      if (error || !data) throw new Error('Accommodation not found');
+      accomCache[accomId] = data;
+      renderAccomPopup(data);
+    } catch(e) {
+      popup.innerHTML = `
+        <div style="padding:3rem 2rem;text-align:center;color:#6B5240;min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;">
+          <i class="fa-solid fa-triangle-exclamation" style="font-size:2rem;color:#C99A32;opacity:.5"></i>
+          <p style="font-size:.85rem">Could not load accommodation details.</p>
+          <button onclick="closeAccomPopupDirect()" style="padding:.6rem 1.4rem;background:#3D2B1A;color:#F5EDD0;border:none;cursor:pointer;font-family:inherit;font-size:.78rem;letter-spacing:1px">Close</button>
+        </div>`;
+    }
+  }
+
+  async function openAccomPopupByName(name) {
+    if (!name || name.trim() === '' || name === 'None') return;
+    const overlay = document.getElementById('accomPopupOverlay');
+    const popup   = document.getElementById('accomPopup');
+
+    popup.innerHTML = `<div class="accom-modal-loading">
+      <div class="accom-spin"></div><span>Loading ${esc(name)}…</span>
+    </div>`;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    accomPopupActive = true;
+
+    try {
+      const { data, error } = await window._sb
+        .from('accommodations')
+        .select('*')
+        .ilike('name', name.trim())
+        .eq('is_active', true)
+        .limit(1);
+
+      if (error || !data?.length) throw new Error('Not found');
+      const accom = data[0];
+      accomCache[accom.id] = accom;
+      renderAccomPopup(accom);
+    } catch(e) {
+      renderAccomPopupFallback(name);
+    }
+  }
+
+  /* ── CAROUSEL HELPERS ─────────────────────────────────── */
+  function accomGoTo(idx) {
+    if (!_accomImages.length) return;
+    _accomIdx = (idx + _accomImages.length) % _accomImages.length;
+    const bg = document.getElementById('accomMainImg');
+    if (bg) bg.style.backgroundImage = `url('${_accomImages[_accomIdx].url}')`;
+    // Update dots
+    document.querySelectorAll('.accom-img-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === _accomIdx);
+    });
+    // Update counter
+    const counter = document.getElementById('accomImgCount');
+    if (counter) counter.textContent = `${_accomIdx + 1} / ${_accomImages.length}`;
+  }
+
+  /* ── MAIN RENDER ──────────────────────────────────────── */
+  function renderAccomPopup(accom) {
+    const popup      = document.getElementById('accomPopup');
+    const images     = safeJSON(accom.images, []);
+    const highlights = safeJSON(accom.highlights, []);
+
+    // Reset carousel state
+    _accomImages = images.length ? images : [];
+    _accomIdx    = 0;
+    const primaryImg = (_accomImages.find(i => i.is_primary) || _accomImages[0])?.url || '';
+
+    const levelMap   = { luxury: '#C99A32', midrange: '#7EB87A', budget: '#8A9BB0' };
+    const levelColor = levelMap[accom.level] || levelMap.midrange;
+    const levelIcon  = accom.level === 'luxury' ? 'fa-crown' : accom.level === 'budget' ? 'fa-circle-dollar-to-slot' : 'fa-circle-check';
+
+    // Dots HTML
+    const dotsHTML = _accomImages.length > 1
+      ? `<div class="accom-img-dots">
+          ${_accomImages.map((_, i) => `<button class="accom-img-dot ${i===0?'active':''}" onclick="accomGoTo(${i})" aria-label="Image ${i+1}"></button>`).join('')}
+        </div>`
+      : '';
+
+    // Prev/Next arrows (only if multiple images)
+    const arrowsHTML = _accomImages.length > 1
+      ? `<button class="accom-img-btn prev" onclick="accomGoTo(_accomIdx - 1)" aria-label="Previous image">
+           <i class="fa-solid fa-chevron-left"></i>
+         </button>
+         <button class="accom-img-btn next" onclick="accomGoTo(_accomIdx + 1)" aria-label="Next image">
+           <i class="fa-solid fa-chevron-right"></i>
+         </button>`
+      : '';
+
+    // Image count badge
+    const countHTML = _accomImages.length > 1
+      ? `<span class="accom-img-count" id="accomImgCount">1 / ${_accomImages.length}</span>`
+      : '';
+
+    // Highlights grid (2 columns, like A&K)
+    const hlHTML = highlights.length
+      ? `<div class="accom-hl-heading">
+           <i class="fa-solid fa-wand-magic-sparkles"></i> Accommodation Highlights
+         </div>
+         <div class="accom-hl-grid">
+           ${highlights.map(h => `
+             <div class="accom-hl-item">
+               <i class="fa-solid fa-circle-check"></i>
+               <span>${esc(h)}</span>
+             </div>`).join('')}
+         </div>`
+      : '';
+
+    // Description paragraphs
+    const descHTML = accom.description
+      ? `<div class="accom-popup-desc">
+           ${accom.description.split(/\n\n+/).filter(Boolean).map(para => `<p>${esc(para.trim())}</p>`).join('')}
+         </div>`
+      : '';
+
+    // Info strip (level + location)
+    const infoHTML = `
+      <div class="accom-popup-info-strip">
+        <div class="accom-info-chip">
+          <i class="fa-solid fa-map-pin"></i>
+          <strong>${esc(accom.location || '')}</strong>
+        </div>
+        <div class="accom-info-chip">
+          <i class="fa-solid ${levelIcon}" style="color:${levelColor}"></i>
+          <strong style="color:${levelColor}">${capitalize(accom.level || 'midrange')}</strong>
+        </div>
+        ${_accomImages.length ? `<div class="accom-info-chip"><i class="fa-solid fa-images"></i><strong>${_accomImages.length} Photo${_accomImages.length!==1?'s':''}</strong></div>` : ''}
+      </div>`;
+
+    popup.innerHTML = `
+      <!-- CLOSE -->
+      <button class="accom-modal-close" onclick="closeAccomPopupDirect()" title="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- SPLIT LAYOUT -->
+      <div class="accom-modal-inner">
+
+        <!-- LEFT: IMAGE PANEL -->
+        <div class="accom-img-panel">
+          <div class="accom-img-main" id="accomMainImg"
+               style="background-image:url('${esc(primaryImg)}')"></div>
+
+          <!-- Level badge -->
+          <div class="accom-img-level" style="color:${levelColor}">
+            <i class="fa-solid ${levelIcon}"></i>
+            ${capitalize(accom.level || 'midrange')}
+          </div>
+
+          ${arrowsHTML}
+          ${dotsHTML}
+          ${countHTML}
+        </div>
+
+        <!-- RIGHT: CONTENT PANEL -->
+        <div class="accom-content-panel">
+
+          <!-- Location -->
+          <div class="accom-popup-loc">
+            <i class="fa-solid fa-map-pin"></i>
+            ${esc(accom.location || '')}
+          </div>
+
+          <!-- Name -->
+          <div class="accom-popup-name">${esc(accom.name)}</div>
+
+          <div class="accom-popup-divider"></div>
+
+          <!-- Description -->
+          ${descHTML}
+
+          <!-- Highlights (the A&K section) -->
+          ${hlHTML}
+
+          <!-- Info strip -->
+          ${infoHTML}
+
+          <!-- CTAs -->
+          <div class="accom-popup-ctas">
+            <a href="../contact.html" class="accom-popup-btn accom-popup-btn-primary">
+              <i class="fa-solid fa-paper-plane"></i> Enquire About This Stay
+            </a>
+            <a href="https://wa.me/255690318461?text=Hi%2C%20I'm%20interested%20in%20staying%20at%20${encodeURIComponent(accom.name)}"
+               target="_blank" rel="noopener" class="accom-popup-btn accom-popup-btn-wa">
+              <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+            </a>
+          </div>
+
+        </div>
+      </div>`;
+  }
+
+  /* ── FALLBACK (no DB record) ──────────────────────────── */
+  function renderAccomPopupFallback(name) {
+    const popup = document.getElementById('accomPopup');
+    popup.innerHTML = `
+      <button class="accom-modal-close" onclick="closeAccomPopupDirect()" title="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="accom-modal-inner" style="grid-template-columns:1fr">
+        <div class="accom-content-panel" style="padding:2.5rem 2rem;text-align:center;align-items:center;justify-content:center;min-height:320px;">
+          <i class="fa-solid fa-hotel" style="font-size:2.5rem;color:#C99A32;opacity:.5;margin-bottom:1rem;display:block"></i>
+          <div class="accom-popup-name" style="margin-bottom:.5rem">${esc(name)}</div>
+          <p style="font-size:.85rem;color:#6B5240;margin-bottom:1.5rem;line-height:1.6">Contact our team for full details, photos and availability for this property.</p>
+          <div style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;">
+            <a href="../contact.html" class="accom-popup-btn accom-popup-btn-primary" style="min-width:140px;">
+              <i class="fa-solid fa-paper-plane"></i> Enquire
+            </a>
+            <button onclick="closeAccomPopupDirect()" style="min-width:120px;padding:.75rem 1rem;background:transparent;border:1.5px solid #574535;color:#574535;font-family:'Oswald',sans-serif;font-size:.78rem;letter-spacing:2px;text-transform:uppercase;cursor:pointer;">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  /* ── CLOSE ────────────────────────────────────────────── */
+  function closeAccomPopup(event) {
+    if (event.target === document.getElementById('accomPopupOverlay')) {
+      closeAccomPopupDirect();
+    }
+  }
+  function closeAccomPopupDirect() {
+    const overlay = document.getElementById('accomPopupOverlay');
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    accomPopupActive = false;
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (!accomPopupActive) return;
+    if (e.key === 'Escape') closeAccomPopupDirect();
+    if (e.key === 'ArrowLeft'  && _accomImages.length > 1) accomGoTo(_accomIdx - 1);
+    if (e.key === 'ArrowRight' && _accomImages.length > 1) accomGoTo(_accomIdx + 1);
+  });
+
+  /* ── NOT FOUND STATE ─────────────────────────────────── */
+  function showNotFound(msg) {
+    document.title = 'Package Not Found – Sere Safari Africa';
+    document.getElementById('pageContent').innerHTML = `
+      <div style="margin-top:var(--nav-h);background:var(--dark2);min-height:80vh">
+        <div class="not-found">
+          <i class="fa-solid fa-binoculars"></i>
+          <h2>Package Not Found</h2>
+          <p>${esc(msg)}</p>
+          <a href="../tours.html" class="btn btn-primary">
+            <i class="fa-solid fa-arrow-left"></i> Back to All Tours
+          </a>
+        </div>
+      </div>
+      <footer>
+        <div class="footer-bot" style="padding:1.4rem 8%">
+          <p>© 2026 Seresafari Africa. All Rights Reserved.</p>
+          <div class="hakuna">Hakuna Matata <i class="fa-solid fa-earth-africa"></i></div>
+        </div>
+      </footer>`;
+  }
+
+  /* ── BOOT ────────────────────────────────────────────── */
+  boot();
+  </script>
+</body>
+</html>

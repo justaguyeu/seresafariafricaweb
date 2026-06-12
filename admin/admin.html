@@ -2954,7 +2954,7 @@ function formatTimeAgo(ts) {
 }
 
 // Also save draft on page unload / tab close (belt-and-suspenders)
-window.addEventListener('beforeunload', () => {
+window.addEventListener ('beforeunload', () => {
   if (document.getElementById('pkgModal')?.classList.contains('open')) {
     saveDraftSnapshot();
   }

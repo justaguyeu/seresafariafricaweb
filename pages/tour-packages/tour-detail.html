@@ -7,6 +7,8 @@
   <meta name="description" content=""/>
   <link rel="stylesheet" href="../../css/main.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
   <style>
     /* ── SKELETON ── */
     .skel {
@@ -34,6 +36,208 @@
     .not-found p { color: var(--text); font-size: .9rem; margin-bottom: 1.5rem; }
 
     /* ══════════════════════════════════════════
+       SAFARI ROUTE MAP
+    ══════════════════════════════════════════ */
+    .safari-map-block {
+      margin-bottom: 0;
+      border: 1px solid rgba(201,150,58,.25);
+      overflow: hidden;
+      background: #1A0F07;
+    }
+
+    /* Map header bar */
+    .safari-map-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .85rem 1.2rem;
+      background: #3D2B1A;
+      border-bottom: 1px solid rgba(201,150,58,.2);
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+    .safari-map-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #C99A32;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .safari-map-title i { font-size: .8rem; }
+    .safari-map-legend {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      flex-wrap: wrap;
+    }
+    .map-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: .65rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(245,237,208,.6);
+    }
+    .map-legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .map-legend-line {
+      width: 20px;
+      height: 2px;
+      flex-shrink: 0;
+      background: repeating-linear-gradient(90deg, #C99A32 0px, #C99A32 5px, transparent 5px, transparent 9px);
+    }
+
+    /* The actual Leaflet map */
+    #safariRouteMap {
+      width: 100%;
+      height: 380px;
+    }
+    @media(max-width:768px) { #safariRouteMap { height: 280px; } }
+
+    /* Day progress strip under map */
+    .safari-map-days {
+      display: flex;
+      overflow-x: auto;
+      scrollbar-width: none;
+      background: #2A1A0E;
+      border-top: 1px solid rgba(201,150,58,.15);
+      padding: .55rem .6rem;
+      gap: .4rem;
+    }
+    .safari-map-days::-webkit-scrollbar { display: none; }
+    .map-day-btn {
+      flex-shrink: 0;
+      min-width: 52px;
+      padding: .4rem .6rem;
+      background: rgba(201,150,58,.06);
+      border: 1px solid rgba(201,150,58,.18);
+      color: rgba(245,237,208,.55);
+      font-family: 'Oswald', sans-serif;
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-align: center;
+      cursor: pointer;
+      transition: all .22s;
+      border-radius: 2px;
+      white-space: nowrap;
+      line-height: 1.3;
+    }
+    .map-day-btn:hover {
+      border-color: rgba(201,150,58,.55);
+      color: #C99A32;
+      background: rgba(201,150,58,.12);
+    }
+    .map-day-btn.active {
+      background: #C99A32;
+      border-color: #C99A32;
+      color: #1A0F07;
+    }
+    .map-day-btn .day-num { font-size: .8rem; display: block; }
+    .map-day-btn .day-loc { font-size: .58rem; opacity: .75; display: block; max-width: 72px; overflow: hidden; text-overflow: ellipsis; }
+
+    /* ── ITINERARY DAY: clickable / active state ── */
+    .itin-day {
+      cursor: pointer;
+      position: relative;
+    }
+    .itin-day.map-active {
+      background: rgba(201,150,58,.07) !important;
+    }
+    .itin-day.map-active .itin-num {
+      background: #C99A32;
+    }
+    .itin-day.map-active .day-label,
+    .itin-day.map-active .day-number {
+      color: #1A0F07 !important;
+    }
+    .itin-day.map-active .itin-num::after {
+      opacity: 1;
+    }
+
+    /* Map "no location" notice */
+    .map-no-location {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      flex-direction: column;
+      gap: .8rem;
+      color: rgba(245,237,208,.4);
+      font-size: .8rem;
+      letter-spacing: 1px;
+      text-align: center;
+      padding: 2rem;
+    }
+    .map-no-location i { font-size: 2rem; opacity: .3; }
+
+    /* Tip bar between map and day strip */
+    .safari-map-tip {
+      padding: .4rem 1rem;
+      background: #1A0F07;
+      border-top: 1px solid rgba(201,150,58,.1);
+      font-size: .62rem;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: rgba(245,237,208,.38);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .safari-map-tip i { color: #C99A32; font-size: .65rem; opacity: .6; }
+
+    /* Custom Leaflet popup & marker styles */
+    .leaflet-popup-content-wrapper {
+      background: #3D2B1A !important;
+      border: 1px solid rgba(201,150,58,.35) !important;
+      border-radius: 2px !important;
+      box-shadow: 0 8px 32px rgba(0,0,0,.45) !important;
+      color: #F5EDD0 !important;
+    }
+    .leaflet-popup-tip { background: #3D2B1A !important; }
+    .leaflet-popup-content { margin: .75rem 1rem !important; min-width: 140px; }
+    .map-popup-day {
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #C99A32;
+      margin-bottom: 3px;
+    }
+    .map-popup-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: .95rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #F5EDD0;
+      line-height: 1.2;
+      margin-bottom: 3px;
+    }
+    .map-popup-loc {
+      font-size: .72rem;
+      color: rgba(245,237,208,.6);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Animated route line */
+    @keyframes dashAnim {
+      to { stroke-dashoffset: 0; }
+    }
+
+    /* ══════════════════════════════════════════
        ACCOMMODATION POPUP MODAL — A&K-style layout
     ══════════════════════════════════════════ */
     .accom-modal-overlay {
@@ -53,8 +257,6 @@
       opacity: 1;
       pointer-events: all;
     }
-
-    /* ── MODAL SHELL ── */
     .accom-modal {
       background: #fff;
       max-width: 980px;
@@ -71,8 +273,6 @@
       from { transform: translateY(24px); opacity: 0; }
       to   { transform: none; opacity: 1; }
     }
-
-    /* ── CLOSE BUTTON ── */
     .accom-modal-close {
       position: absolute;
       top: 1rem;
@@ -92,8 +292,6 @@
       border-radius: 2px;
     }
     .accom-modal-close:hover { background: rgba(192,57,43,.85); }
-
-    /* ── MAIN BODY: left image | right content ── */
     .accom-modal-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -101,8 +299,6 @@
       min-height: 0;
       overflow: hidden;
     }
-
-    /* ── LEFT: IMAGE PANEL ── */
     .accom-img-panel {
       position: relative;
       background: #1A0F07;
@@ -115,7 +311,6 @@
       background-position: center;
       transition: opacity .4s ease;
     }
-    /* Prev / Next arrow buttons */
     .accom-img-btn {
       position: absolute;
       top: 50%;
@@ -138,7 +333,6 @@
     .accom-img-btn:hover { background: #C99A32; color: #fff; }
     .accom-img-btn.prev { left: .9rem; }
     .accom-img-btn.next { right: .9rem; }
-    /* Dot indicators */
     .accom-img-dots {
       position: absolute;
       bottom: .9rem;
@@ -158,11 +352,7 @@
       transition: background .2s, transform .2s;
       padding: 0;
     }
-    .accom-img-dot.active {
-      background: #C99A32;
-      transform: scale(1.3);
-    }
-    /* Level badge over image */
+    .accom-img-dot.active { background: #C99A32; transform: scale(1.3); }
     .accom-img-level {
       position: absolute;
       top: 1rem;
@@ -180,7 +370,6 @@
       background: rgba(26,15,7,.55);
       backdrop-filter: blur(4px);
     }
-    /* Image count badge */
     .accom-img-count {
       position: absolute;
       bottom: .9rem;
@@ -193,8 +382,6 @@
       padding: .2rem .55rem;
       border-radius: 20px;
     }
-
-    /* ── RIGHT: CONTENT PANEL ── */
     .accom-content-panel {
       display: flex;
       flex-direction: column;
@@ -206,8 +393,6 @@
     }
     .accom-content-panel::-webkit-scrollbar { width: 4px; }
     .accom-content-panel::-webkit-scrollbar-thumb { background: #C99A32; border-radius: 2px; }
-
-    /* Location line */
     .accom-popup-loc {
       display: flex;
       align-items: center;
@@ -219,9 +404,6 @@
       margin-bottom: .5rem;
       font-weight: 600;
     }
-    .accom-popup-loc i { font-size: .7rem; }
-
-    /* Property name */
     .accom-popup-name {
       font-family: 'Oswald', sans-serif;
       font-size: clamp(1.5rem, 3.5vw, 2rem);
@@ -232,25 +414,10 @@
       line-height: 1.1;
       margin-bottom: 1.2rem;
     }
-
-    /* Divider */
-    .accom-popup-divider {
-      height: 1px;
-      background: #E8D9C0;
-      margin-bottom: 1.2rem;
-    }
-
-    /* Description */
-    .accom-popup-desc {
-      font-size: .875rem;
-      line-height: 1.8;
-      color: #5a4a3a;
-      margin-bottom: 1.6rem;
-    }
+    .accom-popup-divider { height: 1px; background: #E8D9C0; margin-bottom: 1.2rem; }
+    .accom-popup-desc { font-size: .875rem; line-height: 1.8; color: #5a4a3a; margin-bottom: 1.6rem; }
     .accom-popup-desc p { margin-bottom: .8rem; }
     .accom-popup-desc p:last-child { margin-bottom: 0; }
-
-    /* ACCOMMODATION HIGHLIGHTS heading */
     .accom-hl-heading {
       font-family: 'Oswald', sans-serif;
       font-size: .72rem;
@@ -263,20 +430,8 @@
       align-items: center;
       gap: 8px;
     }
-    .accom-hl-heading::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: #E8D9C0;
-    }
-
-    /* Highlights 2-column checklist */
-    .accom-hl-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: .5rem .8rem;
-      margin-bottom: 1.6rem;
-    }
+    .accom-hl-heading::after { content: ''; flex: 1; height: 1px; background: #E8D9C0; }
+    .accom-hl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem .8rem; margin-bottom: 1.6rem; }
     .accom-hl-item {
       display: flex;
       align-items: flex-start;
@@ -287,15 +442,7 @@
       padding: .35rem 0;
       border-bottom: 1px solid #F0E8D6;
     }
-    .accom-hl-item i {
-      color: #27ae60;
-      font-size: .7rem;
-      margin-top: 3px;
-      flex-shrink: 0;
-      width: 14px;
-    }
-
-    /* Info row (level / location) */
+    .accom-hl-item i { color: #27ae60; font-size: .7rem; margin-top: 3px; flex-shrink: 0; width: 14px; }
     .accom-popup-info-strip {
       display: flex;
       gap: .8rem;
@@ -305,115 +452,48 @@
       background: #FAF6EF;
       border: 1px solid #E8D9C0;
     }
-    .accom-info-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: .76rem;
-      color: #574535;
-    }
+    .accom-info-chip { display: inline-flex; align-items: center; gap: 6px; font-size: .76rem; color: #574535; }
     .accom-info-chip i { color: #C99A32; font-size: .72rem; }
     .accom-info-chip strong { color: #1A0F07; }
-
-    /* CTA buttons at bottom */
-    .accom-popup-ctas {
-      display: flex;
-      flex-direction: column;
-      gap: .6rem;
-      margin-top: auto;
-      padding-top: 1rem;
-      border-top: 1px solid #E8D9C0;
-    }
+    .accom-popup-ctas { display: flex; flex-direction: column; gap: .6rem; margin-top: auto; padding-top: 1rem; border-top: 1px solid #E8D9C0; }
     .accom-popup-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: .75rem 1rem;
-      font-family: 'Oswald', sans-serif;
-      font-size: .78rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: all .2s;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: .75rem 1rem; font-family: 'Oswald', sans-serif; font-size: .78rem;
+      font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+      text-decoration: none; border: none; cursor: pointer; transition: all .2s;
     }
     .accom-popup-btn-primary { background: #3D2B1A; color: #F5EDD0; }
     .accom-popup-btn-primary:hover { background: #574535; }
     .accom-popup-btn-wa { background: #25D366; color: #fff; }
     .accom-popup-btn-wa:hover { background: #1ebe5a; }
-
-    /* Loading state */
     .accom-modal-loading {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 4rem 2rem;
-      gap: 1rem;
-      color: #6B5240;
-      font-size: .85rem;
-      min-height: 320px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 4rem 2rem; gap: 1rem; color: #6B5240; font-size: .85rem; min-height: 320px;
     }
     .accom-spin {
-      width: 32px;
-      height: 32px;
-      border: 3px solid rgba(87,69,53,.15);
-      border-top-color: #C99A32;
-      border-radius: 50%;
-      animation: acspin .7s linear infinite;
+      width: 32px; height: 32px;
+      border: 3px solid rgba(87,69,53,.15); border-top-color: #C99A32;
+      border-radius: 50%; animation: acspin .7s linear infinite;
     }
     @keyframes acspin { to { transform: rotate(360deg); } }
-
-    /* Clickable accommodation link in itinerary */
     .accom-link {
-      color: #C99A32;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-weight: 600;
-      transition: color .2s;
-      text-decoration: none;
+      color: #C99A32; cursor: pointer; display: inline-flex; align-items: center; gap: 5px;
+      font-weight: 600; transition: color .2s; text-decoration: none;
       border-bottom: 1px dashed rgba(201,154,50,.4);
     }
-    .accom-link:hover {
-      color: #d4aa44;
-      border-bottom-color: rgba(212,170,68,.7);
-    }
+    .accom-link:hover { color: #d4aa44; border-bottom-color: rgba(212,170,68,.7); }
     .accom-link i { font-size: .7rem; }
 
-    /* ── MOBILE: stack image on top, content below ── */
     @media (max-width: 680px) {
-      .accom-modal {
-        max-height: 95vh;
-        flex-direction: column;
-      }
-      .accom-modal-inner {
-        grid-template-columns: 1fr;
-        overflow-y: auto;
-      }
-      .accom-img-panel {
-        position: relative;
-        height: 220px;
-        flex-shrink: 0;
-      }
-      .accom-content-panel {
-        padding: 1.5rem 1.2rem;
-      }
-      .accom-hl-grid {
-        grid-template-columns: 1fr;
-      }
+      .accom-modal { max-height: 95vh; flex-direction: column; }
+      .accom-modal-inner { grid-template-columns: 1fr; overflow-y: auto; }
+      .accom-img-panel { position: relative; height: 220px; flex-shrink: 0; }
+      .accom-content-panel { padding: 1.5rem 1.2rem; }
+      .accom-hl-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 400px) {
-      .accom-popup-name {
-        font-size: 1.3rem;
-      }
-      .accom-modal-overlay {
-        padding: .5rem;
-      }
+      .accom-popup-name { font-size: 1.3rem; }
+      .accom-modal-overlay { padding: .5rem; }
     }
   </style>
 </head>
@@ -446,7 +526,6 @@
     <a href="../contact.html" style="color:var(--gold)">Enquire Now</a>
   </nav>
 
-  <!-- Skeleton while loading -->
   <div id="pageContent">
     <div id="skeletonHero" class="skel skel-hero" style="margin-top:var(--nav-h)"></div>
     <div class="skel-layout" id="skeletonBody">
@@ -457,9 +536,6 @@
         <div class="skel skel-block w80" style="margin-top:1.5rem"></div>
         <div class="skel skel-block w60"></div>
         <div class="skel skel-block"></div>
-        <div class="skel skel-block w80" style="margin-top:1.5rem"></div>
-        <div class="skel skel-block w60"></div>
-        <div class="skel skel-block w40"></div>
       </div>
       <div>
         <div class="skel skel-block" style="height:320px"></div>
@@ -468,9 +544,7 @@
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════════
-       ACCOMMODATION POPUP MODAL
-  ══════════════════════════════════════════ -->
+  <!-- ACCOMMODATION POPUP -->
   <div class="accom-modal-overlay" id="accomPopupOverlay" onclick="closeAccomPopup(event)">
     <div class="accom-modal" id="accomPopup">
       <div class="accom-modal-loading">
@@ -483,22 +557,534 @@
   <a class="wa-btn" href="https://wa.me/255690318461" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
   <script src="../../js/supabase-config.js"></script>
   <script src="../../js/main.js"></script>
   <script>
   /* ════════════════════════════════════════════════════════
      DYNAMIC TOUR DETAIL PAGE
-     URL:  tour-packages/tour-detail.html?slug=classic-safari
   ════════════════════════════════════════════════════════ */
 
   const accomCache = {};
   let accomPopupActive = false;
-
-  // Carousel state
   let _accomImages = [];
-  let _accomIdx    = 0;
+  let _accomIdx = 0;
 
-  /* ── GET SLUG ─────────────────────────────────────────── */
+  /* ════════════════════════════════════════════════════════
+     SAFARI LOCATION DATABASE
+     Comprehensive Tanzania / East Africa geocoding lookup.
+     Keys are lowercase, partial-match friendly.
+  ════════════════════════════════════════════════════════ */
+  const SAFARI_LOCATIONS = {
+    // ── ARUSHA ──────────────────────────────────────────
+    'arusha':               [-3.3869, 36.6830],
+    'arusha town':          [-3.3869, 36.6830],
+    'arusha city':          [-3.3869, 36.6830],
+    'arusha national park': [-3.2500, 36.7833],
+    'kilimanajaro airport': [-3.4284, 37.0738],
+    'jro':                  [-3.4284, 37.0738],
+    'kilimanjaro airport':  [-3.4284, 37.0738],
+
+    // ── SERENGETI ────────────────────────────────────────
+    'serengeti':            [-2.3333, 34.8333],
+    'serengeti national park': [-2.3333, 34.8333],
+    'central serengeti':    [-2.4100, 34.8300],
+    'northern serengeti':   [-1.5500, 34.9000],
+    'southern serengeti':   [-3.0000, 34.9000],
+    'western serengeti':    [-2.4000, 34.1500],
+    'seronera':             [-2.4500, 34.8200],
+    'mara river':           [-1.5234, 35.0050],
+    'grumeti':              [-2.0500, 34.3000],
+    'lobo':                 [-1.5700, 35.0200],
+    'kogatende':            [-1.4800, 34.8900],
+
+    // ── NGORONGORO ───────────────────────────────────────
+    'ngorongoro':           [-3.1800, 35.5900],
+    'ngorongoro crater':    [-3.1800, 35.5900],
+    'ngorongoro conservation area': [-3.2000, 35.5000],
+    'olduvai gorge':        [-2.9950, 35.3500],
+    'oldupai gorge':        [-2.9950, 35.3500],
+    'empakaai':             [-2.9100, 35.8300],
+
+    // ── TARANGIRE ────────────────────────────────────────
+    'tarangire':            [-3.8333, 36.0167],
+    'tarangire national park': [-3.8333, 36.0167],
+
+    // ── LAKE MANYARA ─────────────────────────────────────
+    'lake manyara':         [-3.5600, 35.8300],
+    'manyara':              [-3.5600, 35.8300],
+    'lake manyara national park': [-3.5600, 35.8300],
+
+    // ── KILIMANJARO ──────────────────────────────────────
+    'kilimanjaro':          [-3.0674, 37.3556],
+    'mount kilimanjaro':    [-3.0674, 37.3556],
+    'mt kilimanjaro':       [-3.0674, 37.3556],
+    'uhuru peak':           [-3.0755, 37.3517],
+    'marangu gate':         [-3.2500, 37.5200],
+    'machame gate':         [-3.1600, 37.3400],
+    'lemosho gate':         [-3.0500, 37.0800],
+    'rongai gate':          [-3.0700, 37.5700],
+
+    // ── ZANZIBAR ─────────────────────────────────────────
+    'zanzibar':             [-6.1660, 39.2026],
+    'stone town':           [-6.1600, 39.1900],
+    'nungwi':               [-5.7200, 39.2900],
+    'kendwa':               [-5.7500, 39.2800],
+    'paje':                 [-6.2700, 39.5300],
+    'jambiani':             [-6.3200, 39.5500],
+    'matemwe':              [-5.8400, 39.3600],
+    'kiwengwa':             [-5.8700, 39.3900],
+    'mangapwani':           [-5.9800, 39.1400],
+
+    // ── PEMBA / MAFIA ─────────────────────────────────────
+    'pemba':                [-5.0700, 39.7800],
+    'mafia island':         [-7.9200, 39.8500],
+
+    // ── RUAHA ────────────────────────────────────────────
+    'ruaha':                [-7.7500, 34.9800],
+    'ruaha national park':  [-7.7500, 34.9800],
+    'msembe':               [-7.7900, 34.9200],
+
+    // ── SELOUS / NYERERE ─────────────────────────────────
+    'selous':               [-8.8500, 37.7000],
+    'nyerere':              [-8.8500, 37.7000],
+    'nyerere national park': [-8.8500, 37.7000],
+    'stiegler\'s gorge':    [-8.6000, 37.6500],
+
+    // ── MIKUMI ───────────────────────────────────────────
+    'mikumi':               [-7.3200, 37.0500],
+    'mikumi national park': [-7.3200, 37.0500],
+
+    // ── MAHALE / GOMBE ────────────────────────────────────
+    'mahale':               [-6.2700, 29.8200],
+    'gombe':                [-4.6700, 29.6700],
+    'lake tanganyika':      [-6.0000, 29.5000],
+
+    // ── LAKE VICTORIA ────────────────────────────────────
+    'lake victoria':        [-1.0000, 32.9000],
+    'mwanza':               [-2.5167, 32.9000],
+
+    // ── DAR ES SALAAM ────────────────────────────────────
+    'dar es salaam':        [-6.7924, 39.2083],
+    'dar':                  [-6.7924, 39.2083],
+
+    // ── OTHER TANZANIA ───────────────────────────────────
+    'dodoma':               [-6.1722, 35.7395],
+    'moshi':                [-3.3500, 37.3400],
+    'karatu':               [-3.3333, 35.6500],
+    'loduare':              [-3.2300, 35.7600],
+
+    // ── KENYA ────────────────────────────────────────────
+    'nairobi':              [-1.2921, 36.8219],
+    'masai mara':           [-1.5000, 35.1500],
+    'maasai mara':          [-1.5000, 35.1500],
+    'amboseli':             [-2.6500, 37.2600],
+    'samburu':              [0.6000, 37.5500],
+    'tsavo':                [-3.0000, 38.5000],
+    'mombasa':              [-4.0500, 39.6700],
+  };
+
+  /* Resolve a day's location text → [lat, lng] or null
+     Priority:
+       1. Explicit lat/lng on the day object
+       2. day.location field
+       3. DESTINATION of day.route (text after →  -  –  to  via)
+          e.g. "KIA → Arusha"         → Arusha
+               "Arusha to Serengeti"  → Serengeti
+       4. Full route / title substring match
+       5. First 80 chars of description
+  */
+  function resolveLocation(day) {
+    if (day.lat && day.lng) return [parseFloat(day.lat), parseFloat(day.lng)];
+
+    function bestMatch(text) {
+      const t = (text || '').toLowerCase().trim();
+      if (!t) return null;
+      if (SAFARI_LOCATIONS[t]) return SAFARI_LOCATIONS[t];
+      let best = null, bestLen = 0;
+      for (const [key, coords] of Object.entries(SAFARI_LOCATIONS)) {
+        if (t.includes(key) && key.length > bestLen) {
+          best = coords; bestLen = key.length;
+        }
+      }
+      return best;
+    }
+
+    if (day.location) { const r = bestMatch(day.location); if (r) return r; }
+
+    if (day.route) {
+      const parts = day.route.split(/[→>\-–]|\bto\b|\bvia\b/i).map(s => s.trim()).filter(Boolean);
+      for (const part of [...parts].reverse()) { const r = bestMatch(part); if (r) return r; }
+      const r = bestMatch(day.route); if (r) return r;
+    }
+
+    if (day.title) { const r = bestMatch(day.title); if (r) return r; }
+    if (day.description) { const r = bestMatch(day.description.slice(0, 80)); if (r) return r; }
+    return null;
+  }
+
+
+  /* ════════════════════════════════════════════════════════
+     MAP ENGINE — Animated Safari Route
+     
+     Behaviour:
+       • Ghost route (full dotted line, very dim) always visible
+       • Solid animated line draws from Day 1 → selected day
+       • Each new segment animates with requestAnimationFrame
+       • A moving jeep marker travels along the new segment
+       • Markers: inactive = small dark pin, active = large gold pin
+       • Clicking day card OR day strip button triggers the animation
+  ════════════════════════════════════════════════════════ */
+
+  let _map           = null;
+  let _mapDayCoords  = [];   // [{day, title, locationLabel, coords}]
+  let _mapMarkers    = {};   // { dayNum: L.marker }
+  let _mapActiveDay  = -1;
+  let _mapDrawnUpTo  = -1;   // highest day number whose line has been drawn
+  let _ghostLine     = null; // full dim route
+  let _progressLines = {};   // { "1-2": L.polyline, "2-3": L.polyline, … }
+  let _jeepMarker    = null;
+  let _animRaf       = null; // current animation frame id
+
+  /* ── ICON FACTORY ─────────────────────────────────────── */
+  function makeIcon(label, state) {
+    // state: 'inactive' | 'active' | 'visited'
+    const configs = {
+      inactive: { bg: '#3D2B1A', fg: '#C99A32', stroke: '#C99A32', sw: 1.5, size: 28 },
+      visited:  { bg: '#574535', fg: '#C99A32', stroke: '#C99A32', sw: 1.5, size: 28 },
+      active:   { bg: '#C99A32', fg: '#1A0F07', stroke: '#1A0F07', sw: 2,   size: 38 },
+    };
+    const c    = configs[state] || configs.inactive;
+    const h    = Math.round(c.size * 1.4);
+    const svg  = `<svg xmlns="http://www.w3.org/2000/svg" width="${c.size}" height="${h}" viewBox="0 0 40 56">
+      <path d="M20 0C9 0 0 9 0 20c0 15 20 36 20 36s20-21 20-36C40 9 31 0 20 0z"
+            fill="${c.bg}" stroke="${c.stroke}" stroke-width="${c.sw}"/>
+      <text x="20" y="${state==='active'?25:22}" text-anchor="middle" fill="${c.fg}"
+            font-family="Oswald,sans-serif" font-weight="700"
+            font-size="${state==='active'?14:11}">${label}</text>
+    </svg>`;
+    return L.divIcon({
+      html: svg,
+      iconSize:    [c.size, h],
+      iconAnchor:  [c.size / 2, h],
+      popupAnchor: [0, -h],
+      className: ''
+    });
+  }
+
+  /* Moving jeep icon */
+  function makeJeepIcon() {
+    return L.divIcon({
+      html: `<div style="
+        width:28px;height:28px;
+        background:#C99A32;
+        border:2px solid #1A0F07;
+        border-radius:50%;
+        display:flex;align-items:center;justify-content:center;
+        box-shadow:0 0 0 3px rgba(201,154,50,.35),0 3px 10px rgba(0,0,0,.5);
+        font-size:13px;line-height:1;
+      ">🚙</div>`,
+      iconSize: [28, 28],
+      iconAnchor: [14, 14],
+      className: ''
+    });
+  }
+
+  /* ── MAP INIT ─────────────────────────────────────────── */
+  function initMap(dayData) {
+    _mapDayCoords = dayData;
+    const valid = dayData.filter(d => d.coords);
+    if (!valid.length) return;
+
+    if (_map) { _map.remove(); _map = null; }
+
+    _map = L.map('safariRouteMap', {
+      zoomControl: true,
+      scrollWheelZoom: false,
+      attributionControl: false,
+    });
+
+    // Warm earthy map tiles (CartoDB Voyager — roads + terrain labels)
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+      maxZoom: 15,
+      subdomains: 'abcd',
+    }).addTo(_map);
+
+    L.control.attribution({ prefix: '© OpenStreetMap © CARTO' }).addTo(_map);
+
+    // Ghost route — full dim dashed line
+    const allCoords = valid.map(d => d.coords);
+    _ghostLine = L.polyline(allCoords, {
+      color: '#C99A32',
+      weight: 2,
+      opacity: 0.18,
+      dashArray: '6 5',
+    }).addTo(_map);
+
+    // Markers for every day
+    _mapMarkers = {};
+    valid.forEach(d => {
+      const m = L.marker(d.coords, {
+        icon: makeIcon(d.day, 'inactive'),
+        zIndexOffset: 0,
+      }).addTo(_map);
+
+      m.bindPopup(
+        `<div class="map-popup-day">Day ${d.day}</div>
+         <div class="map-popup-title">${escHTML(d.title)}</div>
+         <div class="map-popup-loc">
+           <i class="fa-solid fa-map-pin" style="color:#C99A32;font-size:.6rem"></i>
+           ${escHTML(d.locationLabel)}
+         </div>`,
+        { maxWidth: 220, closeButton: false }
+      );
+
+      m.on('click', () => {
+        selectDay(d.day, true);
+      });
+
+      _mapMarkers[d.day] = m;
+    });
+
+    // Fit view to full route
+    _map.fitBounds(_ghostLine.getBounds().pad(0.2));
+
+    // Reset progress state
+    _progressLines = {};
+    _mapDrawnUpTo  = -1;
+    _mapActiveDay  = -1;
+  }
+
+  /* ════════════════════════════════════════════════════════
+     ANIMATED SEGMENT DRAWING
+     
+     animateSegment(fromCoords, toCoords, onDone)
+       — draws a solid gold line from → to using rAF
+       — moves the jeep marker along the segment
+       — calls onDone() when finished
+  ════════════════════════════════════════════════════════ */
+  function animateSegment(fromCoords, toCoords, segKey, duration, onDone) {
+    if (_animRaf) { cancelAnimationFrame(_animRaf); _animRaf = null; }
+
+    // Remove previous segment line if re-drawing
+    if (_progressLines[segKey]) {
+      _progressLines[segKey].remove();
+      delete _progressLines[segKey];
+    }
+
+    // Place or move jeep to start
+    if (!_jeepMarker) {
+      _jeepMarker = L.marker(fromCoords, { icon: makeJeepIcon(), zIndexOffset: 9000 }).addTo(_map);
+    } else {
+      _jeepMarker.setLatLng(fromCoords);
+    }
+
+    // The growing polyline for this segment
+    const segLine = L.polyline([fromCoords, fromCoords], {
+      color: '#C99A32',
+      weight: 4,
+      opacity: 0.95,
+    }).addTo(_map);
+    _progressLines[segKey] = segLine;
+
+    const start  = performance.now();
+    const [lat1, lng1] = fromCoords;
+    const [lat2, lng2] = toCoords;
+
+    function frame(now) {
+      const t = Math.min((now - start) / duration, 1);
+      // Ease in-out cubic
+      const e = t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2;
+
+      const lat = lat1 + (lat2 - lat1) * e;
+      const lng = lng1 + (lng2 - lng1) * e;
+
+      segLine.setLatLngs([fromCoords, [lat, lng]]);
+      _jeepMarker.setLatLng([lat, lng]);
+
+      if (t < 1) {
+        _animRaf = requestAnimationFrame(frame);
+      } else {
+        segLine.setLatLngs([fromCoords, toCoords]);
+        _jeepMarker.setLatLng(toCoords);
+        _animRaf = null;
+        if (onDone) onDone();
+      }
+    }
+
+    _animRaf = requestAnimationFrame(frame);
+  }
+
+  /* ════════════════════════════════════════════════════════
+     SELECT DAY — main entry point
+     
+     When dayNum > _mapDrawnUpTo:
+       animate each missing segment in sequence
+     When dayNum < _mapDrawnUpTo:
+       remove excess segments and rewind
+     When dayNum === _mapDrawnUpTo:
+       just fly + popup
+  ════════════════════════════════════════════════════════ */
+  function selectDay(dayNum, fromMarker) {
+    if (!_map) return;
+    _mapActiveDay = dayNum;
+
+    // ── Update UI: day strip buttons
+    document.querySelectorAll('.map-day-btn').forEach(btn => {
+      btn.classList.toggle('active', parseInt(btn.dataset.day) === dayNum);
+    });
+    // Keep active day button in view
+    setTimeout(() => scrollDayStripToActive(dayNum), 50);
+
+    // ── Update UI: itinerary rows
+    document.querySelectorAll('.itin-day').forEach(row => {
+      const rDay = parseInt(row.dataset.day);
+      row.classList.toggle('map-active', rDay === dayNum);
+    });
+
+    // ── Update all marker states
+    _mapDayCoords.forEach(d => {
+      const m = _mapMarkers[d.day];
+      if (!m) return;
+      if (d.day === dayNum)        m.setIcon(makeIcon(d.day, 'active'));
+      else if (d.day < dayNum)     m.setIcon(makeIcon(d.day, 'visited'));
+      else                         m.setIcon(makeIcon(d.day, 'inactive'));
+    });
+
+    // ── Determine direction
+    const validDays = _mapDayCoords.filter(d => d.coords).sort((a,b) => a.day - b.day);
+
+    if (dayNum < _mapDrawnUpTo) {
+      // REWIND: cancel any running animation
+      if (_animRaf) { cancelAnimationFrame(_animRaf); _animRaf = null; }
+
+      // Remove all segment lines where the destination day > dayNum
+      Object.keys(_progressLines).forEach(key => {
+        const toDay = parseInt(key.split('-')[1]);
+        if (toDay > dayNum) {
+          _progressLines[key].remove();
+          delete _progressLines[key];
+        }
+      });
+      _mapDrawnUpTo = dayNum;
+
+      // Move jeep back to this day's location
+      const dayData = _mapDayCoords.find(d => d.day === dayNum);
+      if (dayData?.coords) {
+        if (_jeepMarker) _jeepMarker.setLatLng(dayData.coords);
+        else _jeepMarker = L.marker(dayData.coords, { icon: makeJeepIcon(), zIndexOffset: 9000 }).addTo(_map);
+      }
+
+      finishSelectDay(dayNum, fromMarker);
+      return;
+    }
+
+    if (dayNum === _mapDrawnUpTo || _mapDrawnUpTo === -1) {
+      // Same day or first day — just position jeep, no animation
+      _mapDrawnUpTo = dayNum;
+      const dayData = _mapDayCoords.find(d => d.day === dayNum);
+      if (dayData?.coords && _jeepMarker) _jeepMarker.setLatLng(dayData.coords);
+      else if (dayData?.coords) {
+        _jeepMarker = L.marker(dayData.coords, { icon: makeJeepIcon(), zIndexOffset: 9000 }).addTo(_map);
+      }
+      finishSelectDay(dayNum, fromMarker);
+      return;
+    }
+
+    // FORWARD: animate each new segment from _mapDrawnUpTo → dayNum
+    // Build the chain of segments to animate
+    const segmentsToAnimate = [];
+    let prevDay = _mapDrawnUpTo;
+
+    for (const vd of validDays) {
+      if (vd.day <= _mapDrawnUpTo) continue;
+      if (vd.day > dayNum) break;
+
+      // Find the last valid day before this one
+      const prevValid = [...validDays].reverse().find(v => v.day <= prevDay && v.day !== vd.day);
+      const fromCoords = prevValid ? prevValid.coords : validDays[0].coords;
+      segmentsToAnimate.push({
+        from: fromCoords,
+        to:   vd.coords,
+        key:  `${prevDay}-${vd.day}`,
+        day:  vd.day,
+      });
+      prevDay = vd.day;
+    }
+
+    if (!segmentsToAnimate.length) {
+      _mapDrawnUpTo = dayNum;
+      finishSelectDay(dayNum, fromMarker);
+      return;
+    }
+
+    // Animate segments in sequence
+    const totalSegs = segmentsToAnimate.length;
+    // Duration per segment: shorter for multi-step jumps so it doesn't feel sluggish
+    const segDuration = totalSegs === 1 ? 1200 : Math.max(600, 1800 / totalSegs);
+
+    function animateNext(idx) {
+      if (idx >= segmentsToAnimate.length) {
+        _mapDrawnUpTo = dayNum;
+        finishSelectDay(dayNum, fromMarker);
+        return;
+      }
+      const seg = segmentsToAnimate[idx];
+      animateSegment(seg.from, seg.to, seg.key, segDuration, () => animateNext(idx + 1));
+    }
+
+    animateNext(0);
+  }
+
+  /* After animation: fly map + open popup */
+  function finishSelectDay(dayNum, fromMarker) {
+    const dayData = _mapDayCoords.find(d => d.day === dayNum);
+    if (!dayData || !dayData.coords) return;
+
+    // Decide zoom: if we have multiple days drawn, show the full drawn route
+    // Otherwise zoom into the active location
+    const drawnDays = _mapDayCoords.filter(d => d.coords && d.day <= _mapDrawnUpTo);
+
+    if (drawnDays.length > 1) {
+      const bounds = L.latLngBounds(drawnDays.map(d => d.coords)).pad(0.25);
+      _map.flyToBounds(bounds, { animate: true, duration: 0.9, maxZoom: 10 });
+    } else {
+      _map.flyTo(dayData.coords, 9, { animate: true, duration: 0.9 });
+    }
+
+    // Open popup after fly completes
+    const m = _mapMarkers[dayNum];
+    if (m) setTimeout(() => { m.openPopup(); }, 900);
+  }
+
+  /* ── LEGACY COMPAT WRAPPERS (called from HTML onclick) ── */
+  function activateDay(dayNum, fromMarker) {
+    selectDay(dayNum, fromMarker);
+  }
+  function showRouteTo(dayNum) {
+    // No-op — selectDay handles everything now
+  }
+
+  /* Fit map back to full route bounds */
+  function resetMapView() {
+    if (!_map || !_ghostLine) return;
+    _map.fitBounds(_ghostLine.getBounds().pad(0.2), { animate: true, duration: 0.7 });
+  }
+
+  /* Auto-scroll the day strip to keep the active button visible */
+  function scrollDayStripToActive(dayNum) {
+    const strip = document.querySelector('.safari-map-days');
+    const btn   = document.querySelector(`.map-day-btn[data-day="${dayNum}"]`);
+    if (!strip || !btn) return;
+    const btnLeft   = btn.offsetLeft;
+    const btnWidth  = btn.offsetWidth;
+    const stripW    = strip.offsetWidth;
+    const scrollTo  = btnLeft - (stripW / 2) + (btnWidth / 2);
+    strip.scrollTo({ left: scrollTo, behavior: 'smooth' });
+  }
+
+
+  /* ── HELPERS ──────────────────────────────────────────── */
   function getSlug() {
     const params = new URLSearchParams(window.location.search);
     if (params.get('slug')) return params.get('slug');
@@ -506,10 +1092,10 @@
     return (file && file !== 'tour-detail') ? file : null;
   }
 
-  /* ── HELPERS ──────────────────────────────────────────── */
   function esc(s) {
     return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
+  function escHTML(s) { return String(s||'').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
   function safeJSON(v, fb) {
     if (!v) return fb;
     if (typeof v === 'object') return v;
@@ -517,6 +1103,17 @@
   }
   function capitalize(s) {
     return String(s).charAt(0).toUpperCase() + String(s).slice(1);
+  }
+
+  /* Short location label — show destination of route strings */
+  function locationLabel(day) {
+    if (day.location) return day.location;
+    if (day.route) {
+      // Extract last segment of "A → B" or "A to B"
+      const parts = day.route.split(/[→>\-–]|\bto\b|\bvia\b/i).map(s => s.trim()).filter(Boolean);
+      return parts[parts.length - 1] || day.route;
+    }
+    return day.title || '';
   }
 
   /* ── FETCH + BOOT ─────────────────────────────────────── */
@@ -547,12 +1144,77 @@
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) metaDesc.setAttribute('content', p.meta_desc || p.short_desc || '');
 
-    const inclusions    = safeJSON(p.inclusions, []);
-    const exclusions    = safeJSON(p.exclusions, []);
-    const highlights    = safeJSON(p.highlights, []);
-    const itinerary     = safeJSON(p.itinerary,  []);
-    const price_tiers   = safeJSON(p.price_tiers, []);
-    const add_ons       = safeJSON(p.add_ons, []);
+    const inclusions  = safeJSON(p.inclusions, []);
+    const exclusions  = safeJSON(p.exclusions, []);
+    const highlights  = safeJSON(p.highlights, []);
+    const itinerary   = safeJSON(p.itinerary,  []);
+    const price_tiers = safeJSON(p.price_tiers, []);
+    const add_ons     = safeJSON(p.add_ons, []);
+
+    // ── Pre-resolve map data ──────────────────────────────
+    const mapDayData = itinerary.map(day => ({
+      day:           day.day,
+      title:         day.title || '',
+      locationLabel: locationLabel(day),
+      coords:        resolveLocation(day),
+    }));
+    const hasMap = mapDayData.some(d => d.coords);
+
+    // Day strip buttons HTML
+    const dayStripHTML = hasMap ? mapDayData.map(d => `
+      <button class="map-day-btn" data-day="${d.day}" onclick="activateDay(${d.day}, false); showRouteTo(${d.day})">
+        <span class="day-num">Day ${d.day}</span>
+        <span class="day-loc">${esc(d.locationLabel.slice(0, 14))}${d.locationLabel.length > 14 ? '…' : ''}</span>
+      </button>`).join('') : '';
+
+    // Map block HTML
+    const mapBlockHTML = itinerary.length ? `
+      <div class="safari-map-block">
+        <div class="safari-map-header">
+          <div class="safari-map-title">
+            <i class="fa-solid fa-map-location-dot"></i>
+            Safari Route Map
+          </div>
+          <div style="display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;">
+            <div class="safari-map-legend">
+              <div class="map-legend-item">
+                <div class="map-legend-dot" style="background:#C99A32"></div>
+                Active
+              </div>
+              <div class="map-legend-item">
+                <div class="map-legend-dot" style="background:#574535;border:1px solid #C99A32"></div>
+                Visited
+              </div>
+              <div class="map-legend-item">
+                <div class="map-legend-line"></div>
+                Route
+              </div>
+            </div>
+            <button onclick="resetMapView()" style="
+              background:none;border:1px solid rgba(201,150,50,.35);color:rgba(245,237,208,.6);
+              padding:.28rem .7rem;font-family:'Oswald',sans-serif;font-size:.6rem;
+              letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;
+              transition:all .2s;border-radius:2px;
+            " onmouseover="this.style.borderColor='#C99A32';this.style.color='#C99A32'"
+               onmouseout="this.style.borderColor='rgba(201,150,50,.35)';this.style.color='rgba(245,237,208,.6)'">
+              <i class="fa-solid fa-compress" style="margin-right:4px"></i>Fit All
+            </button>
+          </div>
+        </div>
+        ${hasMap
+          ? `<div id="safariRouteMap"></div>`
+          : `<div id="safariRouteMap"><div class="map-no-location">
+               <i class="fa-solid fa-map-location-dot"></i>
+               <span>Add a <code>location</code> or <code>route</code> field to each itinerary day to enable the route map</span>
+             </div></div>`
+        }
+        ${hasMap ? `
+        <div class="safari-map-tip">
+          <i class="fa-solid fa-hand-pointer"></i>
+          Click any day below or in the itinerary to animate the route
+        </div>
+        <div class="safari-map-days">${dayStripHTML}</div>` : ''}
+      </div>` : '';
 
     const html = `
       <!-- HERO -->
@@ -596,10 +1258,10 @@
           <!-- ITINERARY -->
           <div class="detail-block">
             <div class="detail-block-title"><i class="fa-solid fa-map-location-dot"></i> Day By Day Itinerary</div>
-            ${itinerary.length
-              ? `<div class="itinerary">${itinerary.map(day => buildDayHTML(day)).join('')}</div>`
-              : '<p style="color:var(--text);font-size:.85rem">Itinerary coming soon.</p>'
-            }
+            ${itinerary.length ? `
+              ${mapBlockHTML}
+              <div class="itinerary">${itinerary.map(day => buildDayHTML(day)).join('')}</div>
+            ` : '<p style="color:var(--text);font-size:.85rem">Itinerary coming soon.</p>'}
           </div>
 
           <!-- INCLUSIONS / EXCLUSIONS -->
@@ -651,8 +1313,6 @@
 
         <!-- SIDEBAR -->
         <div class="detail-sidebar">
-
-          <!-- PRICING -->
           ${price_tiers.length ? `
           <div class="price-box">
             <div class="price-box-title"><i class="fa-solid fa-tag"></i> Pricing Per Person</div>
@@ -665,7 +1325,7 @@
             </div>
             <div class="sidebar-note">
               <i class="fa-solid fa-circle-info"></i>
-              Prices per person sharing. Single supplement available on request. All park fees, accommodation &amp; meals included as listed.
+              Prices per person sharing. Single supplement available on request.
             </div>
             <a href="../contact.html" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:1.2rem;">
               <i class="fa-solid fa-paper-plane"></i> Book This Safari
@@ -686,7 +1346,6 @@
             </a>
           </div>`}
 
-          <!-- BEST TRAVEL TIMES -->
           <div class="price-box">
             <div class="price-box-title"><i class="fa-solid fa-calendar-days"></i> Best Travel Times</div>
             <div style="display:flex;flex-direction:column;gap:.6rem;">
@@ -696,7 +1355,6 @@
             </div>
           </div>
 
-          <!-- ADD-ONS -->
           ${add_ons.length ? `
           <div class="price-box">
             <div class="price-box-title"><i class="fa-solid fa-plus"></i> Optional Add-Ons</div>
@@ -709,7 +1367,6 @@
             </div>
           </div>` : ''}
 
-          <!-- CONTACT -->
           <div class="price-box">
             <div class="price-box-title"><i class="fa-solid fa-phone"></i> Need Help?</div>
             <div style="display:flex;flex-direction:column;gap:.7rem;">
@@ -725,12 +1382,10 @@
             </div>
           </div>
 
-          <!-- OTHER TOURS -->
           <div class="price-box" id="otherToursBox" style="display:none">
             <div class="price-box-title"><i class="fa-solid fa-compass"></i> Other Tours</div>
             <div id="otherToursList" style="display:flex;flex-direction:column;gap:.5rem;"></div>
           </div>
-
         </div>
       </div>
 
@@ -799,21 +1454,11 @@
             <div class="footer-badge-row">
               <p class="badge-label">Find Us On</p>
               <div class="badge-items">
-                <a href="https://www.tripadvisor.com/Attraction_Review-g297913-d28413189-Reviews-Seresafari_Africa_Tours-Arusha_Arusha_Region.html" target="_blank" rel="noopener" class="review-badge">
-                  <img src="../../images/tripadvisor.svg" alt="TripAdvisor" class="platform-logo">
-                </a>
-                <a href="https://www.getyourguide.com/seresafari-africa-s583425/" target="_blank" rel="noopener" class="review-badge">
-                  <img src="../../images/getyourguide.svg" alt="GetYourGuide" class="platform-logo">
-                </a>
-                <a href="https://www.safarigo.com/operator/seresafari-africa-tours-3208" target="_blank" rel="noopener" class="review-badge">
-                  <img src="../../images/safarigo.png" alt="SafariGo" class="platform-logo">
-                </a>
-                <a href="https://tourist.com/p/15564/seresafari_africa" target="_blank" rel="noopener" class="review-badge">
-                  <img src="../../images/tourist.svg" alt="Tourist.com" class="platform-logo">
-                </a>
-                <a href="https://www.safaribookings.com/p7682" target="_blank" rel="noopener" class="review-badge">
-                  <img src="../../images/safaribookings.png" alt="SafariBookings" class="platform-logo">
-                </a>
+                <a href="https://www.tripadvisor.com/Attraction_Review-g297913-d28413189-Reviews-Seresafari_Africa_Tours-Arusha_Arusha_Region.html" target="_blank" rel="noopener" class="review-badge"><img src="../../images/tripadvisor.svg" alt="TripAdvisor" class="platform-logo"></a>
+                <a href="https://www.getyourguide.com/seresafari-africa-s583425/" target="_blank" rel="noopener" class="review-badge"><img src="../../images/getyourguide.svg" alt="GetYourGuide" class="platform-logo"></a>
+                <a href="https://www.safarigo.com/operator/seresafari-africa-tours-3208" target="_blank" rel="noopener" class="review-badge"><img src="../../images/safarigo.png" alt="SafariGo" class="platform-logo"></a>
+                <a href="https://tourist.com/p/15564/seresafari_africa" target="_blank" rel="noopener" class="review-badge"><img src="../../images/tourist.svg" alt="Tourist.com" class="platform-logo"></a>
+                <a href="https://www.safaribookings.com/p7682" target="_blank" rel="noopener" class="review-badge"><img src="../../images/safaribookings.png" alt="SafariBookings" class="platform-logo"></a>
               </div>
             </div>
           </div>
@@ -830,6 +1475,22 @@
       </footer>`;
 
     document.getElementById('pageContent').innerHTML = html;
+
+    // Init map after DOM is painted, then position jeep on Day 1
+    if (hasMap) {
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          initMap(mapDayData);
+          // Place jeep on day 1 and highlight — no line yet on first load
+          const firstValid = mapDayData.find(d => d.coords);
+          if (firstValid) {
+            _mapDrawnUpTo = firstValid.day; // mark as "at day 1, no segments yet"
+            selectDay(firstValid.day, false);
+          }
+        }, 100);
+      });
+    }
+
     loadOtherPackages(p.slug);
     if (typeof initReveal === 'function') initReveal();
   }
@@ -848,8 +1509,7 @@
             <i class="fa-solid fa-bed"></i>
             <strong>Night ${esc(String(day.day||''))}:</strong>
             <span class="accom-link" onclick="openAccomPopup('${esc(day.accommodation_id)}','')">
-              <i class="fa-solid fa-eye"></i>
-              ${esc(day.accommodation)}
+              <i class="fa-solid fa-eye"></i>${esc(day.accommodation)}
             </span>
             ${day.meal_plan ? `&nbsp;|&nbsp; ${esc(day.meal_plan)}` : ''}
           </div>`;
@@ -859,8 +1519,7 @@
             <i class="fa-solid fa-bed"></i>
             <strong>Night ${esc(String(day.day||''))}:</strong>
             <span class="accom-link" onclick="openAccomPopupByName('${esc(day.accommodation).replace(/'/g,"\\'")}')">
-              <i class="fa-solid fa-eye"></i>
-              ${esc(day.accommodation)}
+              <i class="fa-solid fa-eye"></i>${esc(day.accommodation)}
             </span>
             ${day.meal_plan ? `&nbsp;|&nbsp; ${esc(day.meal_plan)}` : ''}
           </div>`;
@@ -868,7 +1527,8 @@
     }
 
     return `
-      <div class="itin-day">
+      <div class="itin-day" data-day="${day.day}"
+           onclick="activateDay(${day.day}, false); showRouteTo(${day.day})">
         <div class="itin-num">
           <div class="day-label">Day</div>
           <div class="day-number">${esc(String(day.day||''))}</div>
@@ -922,39 +1582,26 @@
   /* ════════════════════════════════════════════════════════
      ACCOMMODATION POPUP — A&K-style layout
   ════════════════════════════════════════════════════════ */
-
-  async function openAccomPopup(accomId, accomName) {
+  async function openAccomPopup(accomId) {
     const overlay = document.getElementById('accomPopupOverlay');
     const popup   = document.getElementById('accomPopup');
-
-    popup.innerHTML = `<div class="accom-modal-loading">
-      <div class="accom-spin"></div><span>Loading accommodation details…</span>
-    </div>`;
+    popup.innerHTML = `<div class="accom-modal-loading"><div class="accom-spin"></div><span>Loading accommodation details…</span></div>`;
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
     accomPopupActive = true;
-
     try {
-      if (accomCache[accomId]) {
-        renderAccomPopup(accomCache[accomId]);
-        return;
-      }
+      if (accomCache[accomId]) { renderAccomPopup(accomCache[accomId]); return; }
       const { data, error } = await window._sb
-        .from('accommodations')
-        .select('*')
-        .eq('id', accomId)
-        .eq('is_active', true)
-        .single();
-      if (error || !data) throw new Error('Accommodation not found');
+        .from('accommodations').select('*').eq('id', accomId).eq('is_active', true).single();
+      if (error || !data) throw new Error('Not found');
       accomCache[accomId] = data;
       renderAccomPopup(data);
     } catch(e) {
-      popup.innerHTML = `
-        <div style="padding:3rem 2rem;text-align:center;color:#6B5240;min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;">
-          <i class="fa-solid fa-triangle-exclamation" style="font-size:2rem;color:#C99A32;opacity:.5"></i>
-          <p style="font-size:.85rem">Could not load accommodation details.</p>
-          <button onclick="closeAccomPopupDirect()" style="padding:.6rem 1.4rem;background:#3D2B1A;color:#F5EDD0;border:none;cursor:pointer;font-family:inherit;font-size:.78rem;letter-spacing:1px">Close</button>
-        </div>`;
+      popup.innerHTML = `<div style="padding:3rem 2rem;text-align:center;color:#6B5240;min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;">
+        <i class="fa-solid fa-triangle-exclamation" style="font-size:2rem;color:#C99A32;opacity:.5"></i>
+        <p style="font-size:.85rem">Could not load accommodation details.</p>
+        <button onclick="closeAccomPopupDirect()" style="padding:.6rem 1.4rem;background:#3D2B1A;color:#F5EDD0;border:none;cursor:pointer;font-family:inherit;font-size:.78rem;letter-spacing:1px">Close</button>
+      </div>`;
     }
   }
 
@@ -962,226 +1609,111 @@
     if (!name || name.trim() === '' || name === 'None') return;
     const overlay = document.getElementById('accomPopupOverlay');
     const popup   = document.getElementById('accomPopup');
-
-    popup.innerHTML = `<div class="accom-modal-loading">
-      <div class="accom-spin"></div><span>Loading ${esc(name)}…</span>
-    </div>`;
+    popup.innerHTML = `<div class="accom-modal-loading"><div class="accom-spin"></div><span>Loading ${esc(name)}…</span></div>`;
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
     accomPopupActive = true;
-
     try {
       const { data, error } = await window._sb
-        .from('accommodations')
-        .select('*')
-        .ilike('name', name.trim())
-        .eq('is_active', true)
-        .limit(1);
-
+        .from('accommodations').select('*').ilike('name', name.trim()).eq('is_active', true).limit(1);
       if (error || !data?.length) throw new Error('Not found');
-      const accom = data[0];
-      accomCache[accom.id] = accom;
-      renderAccomPopup(accom);
-    } catch(e) {
-      renderAccomPopupFallback(name);
-    }
+      accomCache[data[0].id] = data[0];
+      renderAccomPopup(data[0]);
+    } catch(e) { renderAccomPopupFallback(name); }
   }
 
-  /* ── CAROUSEL HELPERS ─────────────────────────────────── */
   function accomGoTo(idx) {
     if (!_accomImages.length) return;
     _accomIdx = (idx + _accomImages.length) % _accomImages.length;
     const bg = document.getElementById('accomMainImg');
     if (bg) bg.style.backgroundImage = `url('${_accomImages[_accomIdx].url}')`;
-    // Update dots
-    document.querySelectorAll('.accom-img-dot').forEach((d, i) => {
-      d.classList.toggle('active', i === _accomIdx);
-    });
-    // Update counter
+    document.querySelectorAll('.accom-img-dot').forEach((d, i) => d.classList.toggle('active', i === _accomIdx));
     const counter = document.getElementById('accomImgCount');
     if (counter) counter.textContent = `${_accomIdx + 1} / ${_accomImages.length}`;
   }
 
-  /* ── MAIN RENDER ──────────────────────────────────────── */
   function renderAccomPopup(accom) {
     const popup      = document.getElementById('accomPopup');
     const images     = safeJSON(accom.images, []);
     const highlights = safeJSON(accom.highlights, []);
-
-    // Reset carousel state
-    _accomImages = images.length ? images : [];
-    _accomIdx    = 0;
+    _accomImages = images; _accomIdx = 0;
     const primaryImg = (_accomImages.find(i => i.is_primary) || _accomImages[0])?.url || '';
-
     const levelMap   = { luxury: '#C99A32', midrange: '#7EB87A', budget: '#8A9BB0' };
     const levelColor = levelMap[accom.level] || levelMap.midrange;
     const levelIcon  = accom.level === 'luxury' ? 'fa-crown' : accom.level === 'budget' ? 'fa-circle-dollar-to-slot' : 'fa-circle-check';
 
-    // Dots HTML
-    const dotsHTML = _accomImages.length > 1
-      ? `<div class="accom-img-dots">
-          ${_accomImages.map((_, i) => `<button class="accom-img-dot ${i===0?'active':''}" onclick="accomGoTo(${i})" aria-label="Image ${i+1}"></button>`).join('')}
-        </div>`
-      : '';
-
-    // Prev/Next arrows (only if multiple images)
-    const arrowsHTML = _accomImages.length > 1
-      ? `<button class="accom-img-btn prev" onclick="accomGoTo(_accomIdx - 1)" aria-label="Previous image">
-           <i class="fa-solid fa-chevron-left"></i>
-         </button>
-         <button class="accom-img-btn next" onclick="accomGoTo(_accomIdx + 1)" aria-label="Next image">
-           <i class="fa-solid fa-chevron-right"></i>
-         </button>`
-      : '';
-
-    // Image count badge
-    const countHTML = _accomImages.length > 1
-      ? `<span class="accom-img-count" id="accomImgCount">1 / ${_accomImages.length}</span>`
-      : '';
-
-    // Highlights grid (2 columns, like A&K)
-    const hlHTML = highlights.length
-      ? `<div class="accom-hl-heading">
-           <i class="fa-solid fa-wand-magic-sparkles"></i> Accommodation Highlights
-         </div>
-         <div class="accom-hl-grid">
-           ${highlights.map(h => `
-             <div class="accom-hl-item">
-               <i class="fa-solid fa-circle-check"></i>
-               <span>${esc(h)}</span>
-             </div>`).join('')}
-         </div>`
-      : '';
-
-    // Description paragraphs
-    const descHTML = accom.description
-      ? `<div class="accom-popup-desc">
-           ${accom.description.split(/\n\n+/).filter(Boolean).map(para => `<p>${esc(para.trim())}</p>`).join('')}
-         </div>`
-      : '';
-
-    // Info strip (level + location)
-    const infoHTML = `
-      <div class="accom-popup-info-strip">
-        <div class="accom-info-chip">
-          <i class="fa-solid fa-map-pin"></i>
-          <strong>${esc(accom.location || '')}</strong>
-        </div>
-        <div class="accom-info-chip">
-          <i class="fa-solid ${levelIcon}" style="color:${levelColor}"></i>
-          <strong style="color:${levelColor}">${capitalize(accom.level || 'midrange')}</strong>
-        </div>
-        ${_accomImages.length ? `<div class="accom-info-chip"><i class="fa-solid fa-images"></i><strong>${_accomImages.length} Photo${_accomImages.length!==1?'s':''}</strong></div>` : ''}
-      </div>`;
-
     popup.innerHTML = `
-      <!-- CLOSE -->
-      <button class="accom-modal-close" onclick="closeAccomPopupDirect()" title="Close">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-
-      <!-- SPLIT LAYOUT -->
+      <button class="accom-modal-close" onclick="closeAccomPopupDirect()" title="Close"><i class="fa-solid fa-xmark"></i></button>
       <div class="accom-modal-inner">
-
-        <!-- LEFT: IMAGE PANEL -->
         <div class="accom-img-panel">
-          <div class="accom-img-main" id="accomMainImg"
-               style="background-image:url('${esc(primaryImg)}')"></div>
-
-          <!-- Level badge -->
+          <div class="accom-img-main" id="accomMainImg" style="background-image:url('${esc(primaryImg)}')"></div>
           <div class="accom-img-level" style="color:${levelColor}">
-            <i class="fa-solid ${levelIcon}"></i>
-            ${capitalize(accom.level || 'midrange')}
+            <i class="fa-solid ${levelIcon}"></i>${capitalize(accom.level || 'midrange')}
           </div>
-
-          ${arrowsHTML}
-          ${dotsHTML}
-          ${countHTML}
+          ${_accomImages.length > 1 ? `
+            <button class="accom-img-btn prev" onclick="accomGoTo(_accomIdx-1)"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="accom-img-btn next" onclick="accomGoTo(_accomIdx+1)"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="accom-img-dots">${_accomImages.map((_, i) => `<button class="accom-img-dot ${i===0?'active':''}" onclick="accomGoTo(${i})"></button>`).join('')}</div>
+            <span class="accom-img-count" id="accomImgCount">1 / ${_accomImages.length}</span>
+          ` : ''}
         </div>
-
-        <!-- RIGHT: CONTENT PANEL -->
         <div class="accom-content-panel">
-
-          <!-- Location -->
-          <div class="accom-popup-loc">
-            <i class="fa-solid fa-map-pin"></i>
-            ${esc(accom.location || '')}
-          </div>
-
-          <!-- Name -->
+          <div class="accom-popup-loc"><i class="fa-solid fa-map-pin"></i>${esc(accom.location||'')}</div>
           <div class="accom-popup-name">${esc(accom.name)}</div>
-
           <div class="accom-popup-divider"></div>
-
-          <!-- Description -->
-          ${descHTML}
-
-          <!-- Highlights (the A&K section) -->
-          ${hlHTML}
-
-          <!-- Info strip -->
-          ${infoHTML}
-
-          <!-- CTAs -->
-          <div class="accom-popup-ctas">
-            <a href="../contact.html" class="accom-popup-btn accom-popup-btn-primary">
-              <i class="fa-solid fa-paper-plane"></i> Enquire About This Stay
-            </a>
-            <a href="https://wa.me/255690318461?text=Hi%2C%20I'm%20interested%20in%20staying%20at%20${encodeURIComponent(accom.name)}"
-               target="_blank" rel="noopener" class="accom-popup-btn accom-popup-btn-wa">
-              <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
-            </a>
+          ${accom.description ? `<div class="accom-popup-desc">${accom.description.split(/\n\n+/).filter(Boolean).map(p => `<p>${esc(p.trim())}</p>`).join('')}</div>` : ''}
+          ${highlights.length ? `
+            <div class="accom-hl-heading"><i class="fa-solid fa-wand-magic-sparkles"></i> Accommodation Highlights</div>
+            <div class="accom-hl-grid">${highlights.map(h => `<div class="accom-hl-item"><i class="fa-solid fa-circle-check"></i><span>${esc(h)}</span></div>`).join('')}</div>
+          ` : ''}
+          <div class="accom-popup-info-strip">
+            <div class="accom-info-chip"><i class="fa-solid fa-map-pin"></i><strong>${esc(accom.location||'')}</strong></div>
+            <div class="accom-info-chip"><i class="fa-solid ${levelIcon}" style="color:${levelColor}"></i><strong style="color:${levelColor}">${capitalize(accom.level||'midrange')}</strong></div>
+            ${_accomImages.length ? `<div class="accom-info-chip"><i class="fa-solid fa-images"></i><strong>${_accomImages.length} Photo${_accomImages.length!==1?'s':''}</strong></div>` : ''}
           </div>
-
+          <div class="accom-popup-ctas">
+            <a href="../contact.html" class="accom-popup-btn accom-popup-btn-primary"><i class="fa-solid fa-paper-plane"></i> Enquire About This Stay</a>
+            <a href="https://wa.me/255690318461?text=Hi%2C%20I'm%20interested%20in%20${encodeURIComponent(accom.name)}" target="_blank" rel="noopener" class="accom-popup-btn accom-popup-btn-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+          </div>
         </div>
       </div>`;
   }
 
-  /* ── FALLBACK (no DB record) ──────────────────────────── */
   function renderAccomPopupFallback(name) {
     const popup = document.getElementById('accomPopup');
     popup.innerHTML = `
-      <button class="accom-modal-close" onclick="closeAccomPopupDirect()" title="Close">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
+      <button class="accom-modal-close" onclick="closeAccomPopupDirect()"><i class="fa-solid fa-xmark"></i></button>
       <div class="accom-modal-inner" style="grid-template-columns:1fr">
         <div class="accom-content-panel" style="padding:2.5rem 2rem;text-align:center;align-items:center;justify-content:center;min-height:320px;">
           <i class="fa-solid fa-hotel" style="font-size:2.5rem;color:#C99A32;opacity:.5;margin-bottom:1rem;display:block"></i>
           <div class="accom-popup-name" style="margin-bottom:.5rem">${esc(name)}</div>
           <p style="font-size:.85rem;color:#6B5240;margin-bottom:1.5rem;line-height:1.6">Contact our team for full details, photos and availability for this property.</p>
           <div style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;">
-            <a href="../contact.html" class="accom-popup-btn accom-popup-btn-primary" style="min-width:140px;">
-              <i class="fa-solid fa-paper-plane"></i> Enquire
-            </a>
-            <button onclick="closeAccomPopupDirect()" style="min-width:120px;padding:.75rem 1rem;background:transparent;border:1.5px solid #574535;color:#574535;font-family:'Oswald',sans-serif;font-size:.78rem;letter-spacing:2px;text-transform:uppercase;cursor:pointer;">
-              Close
-            </button>
+            <a href="../contact.html" class="accom-popup-btn accom-popup-btn-primary" style="min-width:140px;"><i class="fa-solid fa-paper-plane"></i> Enquire</a>
+            <button onclick="closeAccomPopupDirect()" style="min-width:120px;padding:.75rem 1rem;background:transparent;border:1.5px solid #574535;color:#574535;font-family:'Oswald',sans-serif;font-size:.78rem;letter-spacing:2px;text-transform:uppercase;cursor:pointer;">Close</button>
           </div>
         </div>
       </div>`;
   }
 
-  /* ── CLOSE ────────────────────────────────────────────── */
   function closeAccomPopup(event) {
-    if (event.target === document.getElementById('accomPopupOverlay')) {
-      closeAccomPopupDirect();
-    }
+    if (event.target === document.getElementById('accomPopupOverlay')) closeAccomPopupDirect();
   }
   function closeAccomPopupDirect() {
-    const overlay = document.getElementById('accomPopupOverlay');
-    overlay.classList.remove('open');
+    document.getElementById('accomPopupOverlay').classList.remove('open');
     document.body.style.overflow = '';
     accomPopupActive = false;
   }
 
   document.addEventListener('keydown', function(e) {
-    if (!accomPopupActive) return;
-    if (e.key === 'Escape') closeAccomPopupDirect();
-    if (e.key === 'ArrowLeft'  && _accomImages.length > 1) accomGoTo(_accomIdx - 1);
-    if (e.key === 'ArrowRight' && _accomImages.length > 1) accomGoTo(_accomIdx + 1);
+    if (accomPopupActive) {
+      if (e.key === 'Escape') closeAccomPopupDirect();
+      if (e.key === 'ArrowLeft'  && _accomImages.length > 1) accomGoTo(_accomIdx - 1);
+      if (e.key === 'ArrowRight' && _accomImages.length > 1) accomGoTo(_accomIdx + 1);
+    }
   });
 
-  /* ── NOT FOUND STATE ─────────────────────────────────── */
+  /* ── NOT FOUND ────────────────────────────────────────── */
   function showNotFound(msg) {
     document.title = 'Package Not Found – Sere Safari Africa';
     document.getElementById('pageContent').innerHTML = `
@@ -1190,20 +1722,15 @@
           <i class="fa-solid fa-binoculars"></i>
           <h2>Package Not Found</h2>
           <p>${esc(msg)}</p>
-          <a href="../tours.html" class="btn btn-primary">
-            <i class="fa-solid fa-arrow-left"></i> Back to All Tours
-          </a>
+          <a href="../tours.html" class="btn btn-primary"><i class="fa-solid fa-arrow-left"></i> Back to All Tours</a>
         </div>
       </div>
-      <footer>
-        <div class="footer-bot" style="padding:1.4rem 8%">
-          <p>© 2026 Seresafari Africa. All Rights Reserved.</p>
-          <div class="hakuna">Hakuna Matata <i class="fa-solid fa-earth-africa"></i></div>
-        </div>
-      </footer>`;
+      <footer><div class="footer-bot" style="padding:1.4rem 8%">
+        <p>© 2026 Seresafari Africa. All Rights Reserved.</p>
+        <div class="hakuna">Hakuna Matata <i class="fa-solid fa-earth-africa"></i></div>
+      </div></footer>`;
   }
 
-  /* ── BOOT ────────────────────────────────────────────── */
   boot();
   </script>
 </body>
