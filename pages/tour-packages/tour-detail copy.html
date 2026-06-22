@@ -1,169 +1,258 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Loading… – Sere Safari Africa</title>
-  <meta name="description" content=""/>
-  <link rel="stylesheet" href="../../css/main.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <style>
-    /* ── SKELETON ── */
-    .skel {
-      background: linear-gradient(90deg,rgba(87,69,53,.08) 25%,rgba(87,69,53,.16) 50%,rgba(87,69,53,.08) 75%);
-      background-size: 200% 100%;
-      animation: shimmer 1.4s infinite;
-      border-radius: 2px;
-    }
-    @keyframes shimmer { to { background-position: -200% 0; } }
-    .skel-hero { height: 70vh; min-height: 480px; }
-    .skel-block { height: 16px; margin-bottom: .7rem; }
-    .skel-block.w80 { width: 80%; }
-    .skel-block.w60 { width: 60%; }
-    .skel-block.w40 { width: 40%; }
-    .skel-layout { display: grid; grid-template-columns: 1fr 340px; gap: 3rem; padding: 4rem 8%; background: var(--dark2); }
-    @media(max-width:900px) { .skel-layout { grid-template-columns: 1fr; padding: 3rem 5%; } }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Loading… – Seresafari Africa</title>
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      /* ── SKELETON ── */
+      .skel {
+        background: linear-gradient(
+          90deg,
+          rgba(87, 69, 53, 0.08) 25%,
+          rgba(87, 69, 53, 0.16) 50%,
+          rgba(87, 69, 53, 0.08) 75%
+        );
+        background-size: 200% 100%;
+        animation: shimmer 1.4s infinite;
+        border-radius: 2px;
+      }
+      @keyframes shimmer {
+        to {
+          background-position: -200% 0;
+        }
+      }
+      .skel-hero {
+        height: 70vh;
+        min-height: 480px;
+      }
+      .skel-block {
+        height: 16px;
+        margin-bottom: 0.7rem;
+      }
+      .skel-block.w80 {
+        width: 80%;
+      }
+      .skel-block.w60 {
+        width: 60%;
+      }
+      .skel-block.w40 {
+        width: 40%;
+      }
+      .skel-layout {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 3rem;
+        padding: 4rem 8%;
+        background: var(--dark2);
+      }
+      @media (max-width: 900px) {
+        .skel-layout {
+          grid-template-columns: 1fr;
+          padding: 3rem 5%;
+        }
+      }
 
-    /* ── NOT FOUND ── */
-    .not-found {
-      display: flex; flex-direction: column; align-items: center;
-      justify-content: center; min-height: 60vh; text-align: center; padding: 4rem 2rem;
-    }
-    .not-found i { font-size: 3rem; color: var(--gold); opacity: .4; margin-bottom: 1.2rem; }
-    .not-found h2 { font-family: var(--ff-head); font-size: 2rem; color: var(--white); letter-spacing: 2px; margin-bottom: .7rem; }
-    .not-found p { color: var(--text); font-size: .9rem; margin-bottom: 1.5rem; }
-  </style>
-</head>
-<body>
-  <div id="cursor"></div>
-  <div id="cursor-ring"></div>
-  <button id="back-top"><i class="fa-solid fa-chevron-up"></i></button>
+      /* ── NOT FOUND ── */
+      .not-found {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 60vh;
+        text-align: center;
+        padding: 4rem 2rem;
+      }
+      .not-found i {
+        font-size: 3rem;
+        color: var(--gold);
+        opacity: 0.4;
+        margin-bottom: 1.2rem;
+      }
+      .not-found h2 {
+        font-family: var(--ff-head);
+        font-size: 2rem;
+        color: var(--white);
+        letter-spacing: 2px;
+        margin-bottom: 0.7rem;
+      }
+      .not-found p {
+        color: var(--text);
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
+    <button id="back-top"><i class="fa-solid fa-chevron-up"></i></button>
 
-  <nav id="nav">
-    <a href="../../index.html" class="logo"><img src="../../logo2.png" alt="Sere Safari Africa"/></a>
-    <ul class="nav-links">
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../destinations.html">Destinations</a></li>
-      <li><a href="../tours.html" class="active">Tours</a></li>
-      <li><a href="../kilimanjaro.html">Kilimanjaro</a></li>
-      <li><a href="../zanzibar.html">Zanzibar</a></li>
-      <li><a href="../gallery.html">Gallery</a></li>
-      <li><a href="../contact.html" class="nav-book">Enquire Now</a></li>
-    </ul>
-    <button class="ham" id="ham"><span></span><span></span><span></span></button>
-  </nav>
-  <nav class="mob-menu" id="mob-menu">
-    <a href="../../index.html">Home</a>
-    <a href="../../about.html">About</a>
-    <a href="../destinations.html">Destinations</a>
-    <a href="../tours.html">Tours</a>
-    <a href="../kilimanjaro.html">Kilimanjaro</a>
-    <a href="../zanzibar.html">Zanzibar</a>
-    <a href="../gallery.html">Gallery</a>
-    <a href="../contact.html" style="color:var(--gold)">Enquire Now</a>
-  </nav>
+    <nav id="nav">
+      <a href="../../index.html" class="logo"
+        ><img src="../../logo2.png" alt="Seresafari Africa"
+      /></a>
+      <ul class="nav-links">
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../destinations.html">Destinations</a></li>
+        <li><a href="../tours.html" class="active">Tours</a></li>
+        <li><a href="../kilimanjaro.html">Kilimanjaro</a></li>
+        <li><a href="../zanzibar.html">Zanzibar</a></li>
+        <li><a href="../gallery.html">Gallery</a></li>
+        <li><a href="../contact.html" class="nav-book">Enquire Now</a></li>
+      </ul>
+      <button class="ham" id="ham">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <nav class="mob-menu" id="mob-menu">
+      <a href="../../index.html">Home</a>
+      <a href="../../about.html">About</a>
+      <a href="../destinations.html">Destinations</a>
+      <a href="../tours.html">Tours</a>
+      <a href="../kilimanjaro.html">Kilimanjaro</a>
+      <a href="../zanzibar.html">Zanzibar</a>
+      <a href="../gallery.html">Gallery</a>
+      <a href="../contact.html" style="color: var(--gold)">Enquire Now</a>
+    </nav>
 
-  <!-- ══ SKELETON WHILE LOADING ══ -->
-  <div id="pageContent">
-    <div id="skeletonHero" class="skel skel-hero" style="margin-top:var(--nav-h)"></div>
-    <div class="skel-layout" id="skeletonBody">
-      <div>
-        <div class="skel skel-block w80"></div>
-        <div class="skel skel-block w60"></div>
-        <div class="skel skel-block w40"></div>
-        <div class="skel skel-block w80" style="margin-top:1.5rem"></div>
-        <div class="skel skel-block w60"></div>
-        <div class="skel skel-block"></div>
-        <div class="skel skel-block w80" style="margin-top:1.5rem"></div>
-        <div class="skel skel-block w60"></div>
-        <div class="skel skel-block w40"></div>
-      </div>
-      <div>
-        <div class="skel skel-block" style="height:320px"></div>
-        <div class="skel skel-block" style="height:160px;margin-top:1rem"></div>
+    <!-- ══ SKELETON WHILE LOADING ══ -->
+    <div id="pageContent">
+      <div
+        id="skeletonHero"
+        class="skel skel-hero"
+        style="margin-top: var(--nav-h)"
+      ></div>
+      <div class="skel-layout" id="skeletonBody">
+        <div>
+          <div class="skel skel-block w80"></div>
+          <div class="skel skel-block w60"></div>
+          <div class="skel skel-block w40"></div>
+          <div class="skel skel-block w80" style="margin-top: 1.5rem"></div>
+          <div class="skel skel-block w60"></div>
+          <div class="skel skel-block"></div>
+          <div class="skel skel-block w80" style="margin-top: 1.5rem"></div>
+          <div class="skel skel-block w60"></div>
+          <div class="skel skel-block w40"></div>
+        </div>
+        <div>
+          <div class="skel skel-block" style="height: 320px"></div>
+          <div
+            class="skel skel-block"
+            style="height: 160px; margin-top: 1rem"
+          ></div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <a class="wa-btn" href="https://wa.me/255690318461" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
+    <a
+      class="wa-btn"
+      href="https://wa.me/255690318461"
+      target="_blank"
+      rel="noopener"
+      ><i class="fa-brands fa-whatsapp"></i
+    ></a>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="../../js/supabase-config.js"></script>
-  <script src="../../js/main.js"></script>
-  <script>
-  /* ════════════════════════════════════════════════════════
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../js/supabase-config.js"></script>
+    <script src="../../js/main.js"></script>
+    <script>
+      /* ════════════════════════════════════════════════════════
      DYNAMIC TOUR DETAIL PAGE
      URL:  tour-packages/tour-detail.html?slug=classic-safari
      Also supports: classic-safari.html (filename = slug)
   ════════════════════════════════════════════════════════ */
 
-  /* ── GET SLUG ─────────────────────────────────────────── */
-  function getSlug() {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get('slug')) return params.get('slug');
-    // Fallback: filename without .html
-    const file = window.location.pathname.split('/').pop().replace('.html','');
-    return (file && file !== 'tour-detail') ? file : null;
-  }
-
-  /* ── HELPERS ──────────────────────────────────────────── */
-  function esc(s) {
-    return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-  }
-  function safeJSON(v, fb) {
-    if (!v) return fb;
-    if (typeof v === 'object') return v;
-    try { return JSON.parse(v); } catch { return fb; }
-  }
-  function capitalize(s) {
-    return String(s).charAt(0).toUpperCase() + String(s).slice(1);
-  }
-
-  /* ── FETCH + BOOT ─────────────────────────────────────── */
-  async function boot() {
-    const slug = getSlug();
-    if (!slug) { showNotFound('No package slug provided in the URL.'); return; }
-
-    try {
-      const { data, error } = await window._sb
-        .from('packages')
-        .select('*')
-        .eq('slug', slug)
-        .eq('is_active', true)
-        .single();
-
-      if (error || !data) {
-        showNotFound(`Package "${slug}" was not found or is not currently active.`);
-        return;
+      /* ── GET SLUG ─────────────────────────────────────────── */
+      function getSlug() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get("slug")) return params.get("slug");
+        // Fallback: filename without .html
+        const file = window.location.pathname
+          .split("/")
+          .pop()
+          .replace(".html", "");
+        return file && file !== "tour-detail" ? file : null;
       }
-      render(data);
-    } catch(e) {
-      showNotFound('Failed to load package data. Please try again later.');
-      console.error(e);
-    }
-  }
 
-  /* ── RENDER FULL DETAIL PAGE ──────────────────────────── */
-  function render(p) {
-    /* Update <head> meta */
-    document.title = p.meta_title || (p.title + ' – Sere Safari Africa');
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute('content', p.meta_desc || p.short_desc || '');
+      /* ── HELPERS ──────────────────────────────────────────── */
+      function esc(s) {
+        return String(s || "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+      function safeJSON(v, fb) {
+        if (!v) return fb;
+        if (typeof v === "object") return v;
+        try {
+          return JSON.parse(v);
+        } catch {
+          return fb;
+        }
+      }
+      function capitalize(s) {
+        return String(s).charAt(0).toUpperCase() + String(s).slice(1);
+      }
 
-    const inclusions      = safeJSON(p.inclusions, []);
-    const exclusions      = safeJSON(p.exclusions, []);
-    const highlights      = safeJSON(p.highlights, []);
-    const itinerary       = safeJSON(p.itinerary,  []);
-    const accommodation   = safeJSON(p.accommodation, []);
-    const price_tiers     = safeJSON(p.price_tiers, []);
-    const add_ons         = safeJSON(p.add_ons, []);
-    const important_notes = safeJSON(p.important_notes, []);
+      /* ── FETCH + BOOT ─────────────────────────────────────── */
+      async function boot() {
+        const slug = getSlug();
+        if (!slug) {
+          showNotFound("No package slug provided in the URL.");
+          return;
+        }
 
-    const html = `
+        try {
+          const { data, error } = await window._sb
+            .from("packages")
+            .select("*")
+            .eq("slug", slug)
+            .eq("is_active", true)
+            .single();
+
+          if (error || !data) {
+            showNotFound(
+              `Package "${slug}" was not found or is not currently active.`,
+            );
+            return;
+          }
+          render(data);
+        } catch (e) {
+          showNotFound("Failed to load package data. Please try again later.");
+          console.error(e);
+        }
+      }
+
+      /* ── RENDER FULL DETAIL PAGE ──────────────────────────── */
+      function render(p) {
+        /* Update <head> meta */
+        document.title = p.meta_title || p.title + " – Seresafari Africa";
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc)
+          metaDesc.setAttribute("content", p.meta_desc || p.short_desc || "");
+
+        const inclusions = safeJSON(p.inclusions, []);
+        const exclusions = safeJSON(p.exclusions, []);
+        const highlights = safeJSON(p.highlights, []);
+        const itinerary = safeJSON(p.itinerary, []);
+        const accommodation = safeJSON(p.accommodation, []);
+        const price_tiers = safeJSON(p.price_tiers, []);
+        const add_ons = safeJSON(p.add_ons, []);
+        const important_notes = safeJSON(p.important_notes, []);
+
+        const html = `
       <!-- ══ DETAIL HERO ══ -->
       <div class="detail-hero" style="margin-top:var(--nav-h);">
         <div class="detail-hero-bg"
-          style="background-image:url('${esc(p.detail_hero_img||p.hero_image)}');"></div>
+          style="background-image:url('${esc(p.detail_hero_img || p.hero_image)}');"></div>
         <div class="detail-hero-content">
           <div class="breadcrumb" style="margin-bottom:.8rem;">
             <a href="../../index.html">Home</a>
@@ -173,14 +262,14 @@
             ${esc(p.title)}
           </div>
           <div class="detail-badge">
-            <i class="fa-solid ${esc(p.badge_icon||'fa-star')}"></i>
-            ${esc(p.badge_text||'Popular')}
+            <i class="fa-solid ${esc(p.badge_icon || "fa-star")}"></i>
+            ${esc(p.badge_text || "Popular")}
           </div>
           <h1 class="detail-title">${formatTitle(p.title)}</h1>
           <div class="detail-meta-strip">
             <div class="detail-meta-item"><i class="fa-regular fa-calendar"></i><strong>${esc(p.duration_label)}</strong></div>
-            ${p.group_size ? `<div class="detail-meta-item"><i class="fa-solid fa-users"></i><strong>${esc(p.group_size)}</strong></div>` : ''}
-            <div class="detail-meta-item"><i class="fa-solid ${esc(p.tour_type_icon||'fa-car-side')}"></i><strong>${esc(p.tour_type_label)}</strong></div>
+            ${p.group_size ? `<div class="detail-meta-item"><i class="fa-solid fa-users"></i><strong>${esc(p.group_size)}</strong></div>` : ""}
+            <div class="detail-meta-item"><i class="fa-solid ${esc(p.tour_type_icon || "fa-car-side")}"></i><strong>${esc(p.tour_type_label)}</strong></div>
             <div class="detail-meta-item"><i class="fa-solid fa-location-dot"></i><strong>${formatDestTags(p.dest_tags)}</strong></div>
           </div>
         </div>
@@ -192,57 +281,87 @@
         <!-- MAIN CONTENT -->
         <div class="detail-main">
 
-          ${p.overview_html ? `
+          ${
+            p.overview_html
+              ? `
           <div class="detail-block reveal">
             <div class="detail-block-title"><i class="fa-solid fa-circle-info"></i> Tour Overview</div>
             ${p.overview_html}
-          </div>` : `
+          </div>`
+              : `
           <div class="detail-block reveal">
             <div class="detail-block-title"><i class="fa-solid fa-circle-info"></i> Tour Overview</div>
             <p>${esc(p.short_desc)}</p>
-          </div>`}
+          </div>`
+          }
 
-          ${highlights.length ? `
+          ${
+            highlights.length
+              ? `
           <div class="detail-block reveal">
             <div class="detail-block-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Tour Highlights</div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;">
-              ${highlights.map(h => `
+              ${highlights
+                .map(
+                  (h) => `
               <div class="itin-sleep">
                 <i class="fa-solid fa-check"></i> ${esc(h)}
-              </div>`).join('')}
+              </div>`,
+                )
+                .join("")}
             </div>
-          </div>` : ''}
+          </div>`
+              : ""
+          }
 
-          ${itinerary.length ? `
+          ${
+            itinerary.length
+              ? `
           <div class="detail-block reveal">
             <div class="detail-block-title"><i class="fa-solid fa-map-location-dot"></i> Day-by-Day Itinerary</div>
             <div class="itinerary">
-              ${itinerary.map(day => buildDayHTML(day)).join('')}
+              ${itinerary.map((day) => buildDayHTML(day)).join("")}
             </div>
-          </div>` : ''}
+          </div>`
+              : ""
+          }
 
-          ${(inclusions.length || exclusions.length) ? `
+          ${
+            inclusions.length || exclusions.length
+              ? `
           <div class="detail-block reveal">
             <div class="detail-block-title"><i class="fa-solid fa-list-check"></i> Inclusions &amp; Exclusions</div>
             <div class="inc-exc-grid">
-              ${inclusions.length ? `
+              ${
+                inclusions.length
+                  ? `
               <div class="inc-exc-box included">
                 <h4><i class="fa-solid fa-circle-check"></i> What's Included</h4>
                 <ul class="inc-exc-list">
-                  ${inclusions.map(i => `<li><i class="fa-solid fa-check ic"></i>${esc(i)}</li>`).join('')}
+                  ${inclusions.map((i) => `<li><i class="fa-solid fa-check ic"></i>${esc(i)}</li>`).join("")}
                 </ul>
-              </div>` : ''}
-              ${exclusions.length ? `
+              </div>`
+                  : ""
+              }
+              ${
+                exclusions.length
+                  ? `
               <div class="inc-exc-box excluded">
                 <h4><i class="fa-solid fa-circle-xmark"></i> Not Included</h4>
                 <ul class="inc-exc-list">
-                  ${exclusions.map(e => `<li><i class="fa-solid fa-xmark ic"></i>${esc(e)}</li>`).join('')}
+                  ${exclusions.map((e) => `<li><i class="fa-solid fa-xmark ic"></i>${esc(e)}</li>`).join("")}
                 </ul>
-              </div>` : ''}
+              </div>`
+                  : ""
+              }
             </div>
-          </div>` : ''}
+          </div>`
+              : ""
+          }
 
-          ${accommodation.length ? `
+          ${
+            accommodation.length
+              ? `
           <div class="detail-block reveal">
             <div class="detail-block-title"><i class="fa-solid fa-hotel"></i> Accommodation Details</div>
             <p style="margin-bottom:1rem;">All accommodations are carefully selected for their wildlife proximity, comfort, and character. Upgrade options are available — contact us for alternatives.</p>
@@ -252,19 +371,23 @@
                   <tr><th>Night</th><th>Location</th><th>Property</th><th>Level</th><th>Meal Plan</th></tr>
                 </thead>
                 <tbody>
-                  ${accommodation.map(a => `
+                  ${accommodation
+                    .map(
+                      (a) => `
                   <tr>
-                    <td>Night ${esc(String(a.night||''))}</td>
-                    <td>${esc(a.location||'')}</td>
-                    <td>${esc(a.property||'')}</td>
+                    <td>Night ${esc(String(a.night || ""))}</td>
+                    <td>${esc(a.location || "")}</td>
+                    <td>${esc(a.property || "")}</td>
                     <td>
-                      <span class="accom-level level-${esc(a.level||'midrange')}">
-                        <i class="fa-solid ${a.level==='luxury'?'fa-crown':'fa-star'}"></i>
-                        ${capitalize(a.level||'midrange')}
+                      <span class="accom-level level-${esc(a.level || "midrange")}">
+                        <i class="fa-solid ${a.level === "luxury" ? "fa-crown" : "fa-star"}"></i>
+                        ${capitalize(a.level || "midrange")}
                       </span>
                     </td>
-                    <td>${esc(a.meal_plan||'Full Board')}</td>
-                  </tr>`).join('')}
+                    <td>${esc(a.meal_plan || "Full Board")}</td>
+                  </tr>`,
+                    )
+                    .join("")}
                 </tbody>
               </table>
             </div>
@@ -272,11 +395,15 @@
               <i class="fa-solid fa-circle-info"></i>
               Exact properties may vary based on availability. All alternatives are of equivalent or higher standard.
             </div>
-          </div>` : ''}
+          </div>`
+              : ""
+          }
 
-          ${important_notes.length
-            ? buildCustomNotes(important_notes)
-            : buildDefaultNotes()}
+          ${
+            important_notes.length
+              ? buildCustomNotes(important_notes)
+              : buildDefaultNotes()
+          }
 
         </div><!-- /detail-main -->
 
@@ -284,15 +411,21 @@
         <div class="detail-sidebar">
 
           <!-- PRICING -->
-          ${price_tiers.length ? `
+          ${
+            price_tiers.length
+              ? `
           <div class="price-box">
             <div class="price-box-title"><i class="fa-solid fa-tag"></i> Pricing Per Person</div>
             <div class="price-tiers">
-              ${price_tiers.map(t => `
+              ${price_tiers
+                .map(
+                  (t) => `
               <div class="price-tier">
                 <div class="tier-label"><i class="fa-solid fa-users"></i> ${esc(t.label)}</div>
                 <div class="tier-price">${esc(t.price)}</div>
-              </div>`).join('')}
+              </div>`,
+                )
+                .join("")}
             </div>
             <div class="sidebar-note">
               <i class="fa-solid fa-circle-info"></i>
@@ -304,20 +437,22 @@
             <a href="https://wa.me/255690318461" target="_blank" rel="noopener" class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:.7rem;">
               <i class="fa-brands fa-whatsapp"></i> WhatsApp Enquiry
             </a>
-          </div>` : `
+          </div>`
+              : `
           <div class="price-box">
             <div class="price-box-title"><i class="fa-solid fa-tag"></i> Price</div>
             <div style="font-family:var(--ff-head);font-size:1.9rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:.3rem;">
               ${esc(p.price_display)}
             </div>
-            <div style="font-size:.78rem;color:var(--text);margin-bottom:1.4rem;">${esc(p.price_suffix||'')}</div>
+            <div style="font-size:.78rem;color:var(--text);margin-bottom:1.4rem;">${esc(p.price_suffix || "")}</div>
             <a href="../contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">
               <i class="fa-solid fa-paper-plane"></i> Book This Safari
             </a>
             <a href="https://wa.me/255690318461" target="_blank" rel="noopener" class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:.7rem;">
               <i class="fa-brands fa-whatsapp"></i> WhatsApp Enquiry
             </a>
-          </div>`}
+          </div>`
+          }
 
           <!-- BEST TRAVEL TIMES -->
           <div class="price-box">
@@ -339,17 +474,25 @@
           </div>
 
           <!-- ADD-ONS -->
-          ${add_ons.length ? `
+          ${
+            add_ons.length
+              ? `
           <div class="price-box">
             <div class="price-box-title"><i class="fa-solid fa-plus"></i> Optional Add-Ons</div>
             <div style="display:flex;flex-direction:column;gap:.6rem;">
-              ${add_ons.map(a => `
+              ${add_ons
+                .map(
+                  (a) => `
               <div class="price-tier">
                 <div class="tier-label"><i class="fa-solid fa-circle-plus"></i> ${esc(a.label)}</div>
                 <div class="tier-price" style="font-size:.95rem;">${esc(a.price)}</div>
-              </div>`).join('')}
+              </div>`,
+                )
+                .join("")}
             </div>
-          </div>` : ''}
+          </div>`
+              : ""
+          }
 
           <!-- CONTACT -->
           <div class="price-box">
@@ -449,60 +592,72 @@
         </div>
       </footer>`;
 
-    document.getElementById('pageContent').innerHTML = html;
+        document.getElementById("pageContent").innerHTML = html;
 
-    // Load other packages for sidebar + footer links
-    loadOtherPackages(p.slug);
+        // Load other packages for sidebar + footer links
+        loadOtherPackages(p.slug);
 
-    // Re-init scroll reveal if main.js exposes it
-    if (typeof initReveal === 'function') initReveal();
-  }
+        // Re-init scroll reveal if main.js exposes it
+        if (typeof initReveal === "function") initReveal();
+      }
 
-  /* ── BUILD DAY HTML ───────────────────────────────────── */
-  function buildDayHTML(day) {
-    const acts = Array.isArray(day.activities) ? day.activities : [];
-    return `
+      /* ── BUILD DAY HTML ───────────────────────────────────── */
+      function buildDayHTML(day) {
+        const acts = Array.isArray(day.activities) ? day.activities : [];
+        return `
       <div class="itin-day">
         <div class="itin-num">
           <div class="day-label">Day</div>
-          <div class="day-number">${esc(String(day.day||''))}</div>
+          <div class="day-number">${esc(String(day.day || ""))}</div>
         </div>
         <div class="itin-body">
-          <div class="itin-title">${esc(day.title||'')}</div>
-          ${day.route ? `<div class="itin-route"><i class="fa-solid fa-route"></i> ${esc(day.route)}</div>` : ''}
-          <p class="itin-desc">${esc(day.description||'')}</p>
-          ${acts.length ? `
+          <div class="itin-title">${esc(day.title || "")}</div>
+          ${day.route ? `<div class="itin-route"><i class="fa-solid fa-route"></i> ${esc(day.route)}</div>` : ""}
+          <p class="itin-desc">${esc(day.description || "")}</p>
+          ${
+            acts.length
+              ? `
           <div class="itin-activities">
-            ${acts.map(a => `<span class="itin-tag"><i class="fa-solid fa-check"></i> ${esc(a)}</span>`).join('')}
-          </div>` : ''}
-          ${day.accommodation ? `
+            ${acts.map((a) => `<span class="itin-tag"><i class="fa-solid fa-check"></i> ${esc(a)}</span>`).join("")}
+          </div>`
+              : ""
+          }
+          ${
+            day.accommodation
+              ? `
           <div class="itin-sleep">
             <i class="fa-solid fa-bed"></i>
-            <strong>Night ${esc(String(day.day||''))}:</strong>
-            ${esc(day.accommodation)}${day.meal_plan ? ' &nbsp;|&nbsp; ' + esc(day.meal_plan) : ''}
-          </div>` : ''}
+            <strong>Night ${esc(String(day.day || ""))}:</strong>
+            ${esc(day.accommodation)}${day.meal_plan ? " &nbsp;|&nbsp; " + esc(day.meal_plan) : ""}
+          </div>`
+              : ""
+          }
         </div>
       </div>`;
-  }
+      }
 
-  /* ── CUSTOM NOTES (from DB) ───────────────────────────── */
-  function buildCustomNotes(notes) {
-    return `
+      /* ── CUSTOM NOTES (from DB) ───────────────────────────── */
+      function buildCustomNotes(notes) {
+        return `
       <div class="detail-block reveal">
         <div class="detail-block-title"><i class="fa-solid fa-triangle-exclamation"></i> Important Information</div>
         <div class="notes-grid">
-          ${notes.map(n => `
+          ${notes
+            .map(
+              (n) => `
           <div class="note-item">
-            <i class="fa-solid ${esc(n.icon||'fa-circle-info')}"></i>
-            <p><strong>${esc(n.title||'')}${n.title?':':''}</strong> ${esc(n.body||'')}</p>
-          </div>`).join('')}
+            <i class="fa-solid ${esc(n.icon || "fa-circle-info")}"></i>
+            <p><strong>${esc(n.title || "")}${n.title ? ":" : ""}</strong> ${esc(n.body || "")}</p>
+          </div>`,
+            )
+            .join("")}
         </div>
       </div>`;
-  }
+      }
 
-  /* ── DEFAULT NOTES (fallback) ─────────────────────────── */
-  function buildDefaultNotes() {
-    return `
+      /* ── DEFAULT NOTES (fallback) ─────────────────────────── */
+      function buildDefaultNotes() {
+        return `
       <div class="detail-block reveal">
         <div class="detail-block-title"><i class="fa-solid fa-triangle-exclamation"></i> Important Information</div>
         <div class="notes-grid">
@@ -514,74 +669,102 @@
           <div class="note-item"><i class="fa-solid fa-money-bill"></i><p><strong>Tipping:</strong> Tipping is customary and greatly appreciated. Recommended: Driver-Guide $15–20/day, Camp Staff $5–10/day per group. Tips are given directly to staff at the end of the safari.</p></div>
         </div>
       </div>`;
-  }
+      }
 
-  /* ── OTHER PACKAGES (sidebar + footer) ───────────────── */
-  async function loadOtherPackages(currentSlug) {
-    try {
-      const { data } = await window._sb
-        .from('packages')
-        .select('title,slug,detail_url')
-        .eq('is_active', true)
-        .neq('slug', currentSlug)
-        .order('sort_order')
-        .limit(5);
+      /* ── OTHER PACKAGES (sidebar + footer) ───────────────── */
+      async function loadOtherPackages(currentSlug) {
+        try {
+          const { data } = await window._sb
+            .from("packages")
+            .select("title,slug,detail_url")
+            .eq("is_active", true)
+            .neq("slug", currentSlug)
+            .order("sort_order")
+            .limit(5);
 
-      if (!data?.length) return;
+          if (!data?.length) return;
 
-      // Sidebar
-      const box  = document.getElementById('otherToursBox');
-      const list = document.getElementById('otherToursList');
-      if (box && list) {
-        list.innerHTML = data.map(p => `
+          // Sidebar
+          const box = document.getElementById("otherToursBox");
+          const list = document.getElementById("otherToursList");
+          if (box && list) {
+            list.innerHTML = data
+              .map(
+                (p) => `
           <a href="${esc(p.detail_url)}"
             style="display:flex;align-items:center;gap:.7rem;padding:.8rem;background:rgba(255,255,255,.03);border:1px solid rgba(201,150,58,.1);color:var(--cream2);font-size:.8rem;transition:border-color .3s;text-decoration:none"
             onmouseover="this.style.borderColor='rgba(201,150,58,.4)'"
             onmouseout="this.style.borderColor='rgba(201,150,58,.1)'">
             <i class="fa-solid fa-chevron-right" style="color:var(--gold);font-size:.7rem;flex-shrink:0"></i>
             ${esc(p.title)}
-          </a>`).join('');
-        box.style.display = 'block';
+          </a>`,
+              )
+              .join("");
+            box.style.display = "block";
+          }
+
+          // Footer
+          const footerUl = document.getElementById("footerPackageLinks");
+          if (footerUl) {
+            footerUl.innerHTML = data
+              .map(
+                (p) =>
+                  `<li><a href="${esc(p.detail_url)}"><i class="fa-solid fa-chevron-right"></i>${esc(p.title)}</a></li>`,
+              )
+              .join("");
+          }
+        } catch (e) {
+          console.warn("Could not load other packages", e);
+        }
       }
 
-      // Footer
-      const footerUl = document.getElementById('footerPackageLinks');
-      if (footerUl) {
-        footerUl.innerHTML = data.map(p =>
-          `<li><a href="${esc(p.detail_url)}"><i class="fa-solid fa-chevron-right"></i>${esc(p.title)}</a></li>`
-        ).join('');
+      /* ── FORMAT TITLE: last key word in em ───────────────── */
+      function formatTitle(title) {
+        if (!title) return "";
+        const keywords = [
+          "Safari",
+          "Package",
+          "Journey",
+          "Adventure",
+          "Experience",
+          "Climb",
+          "Trek",
+          "Beach",
+        ];
+        const words = title.split(" ");
+        const lastWord = words[words.length - 1];
+        if (keywords.includes(lastWord) && words.length > 1) {
+          return (
+            esc(words.slice(0, -1).join(" ")) +
+            " <em>" +
+            esc(lastWord) +
+            "</em>"
+          );
+        }
+        return esc(title);
       }
-    } catch(e) {
-      console.warn('Could not load other packages', e);
-    }
-  }
 
-  /* ── FORMAT TITLE: last key word in em ───────────────── */
-  function formatTitle(title) {
-    if (!title) return '';
-    const keywords = ['Safari','Package','Journey','Adventure','Experience','Climb','Trek','Beach'];
-    const words = title.split(' ');
-    const lastWord = words[words.length - 1];
-    if (keywords.includes(lastWord) && words.length > 1) {
-      return esc(words.slice(0, -1).join(' ')) + ' <em>' + esc(lastWord) + '</em>';
-    }
-    return esc(title);
-  }
+      /* ── FORMAT DESTINATION TAGS ─────────────────────────── */
+      function formatDestTags(tags) {
+        if (!tags) return "";
+        const map = {
+          serengeti: "Serengeti",
+          ngorongoro: "Ngorongoro",
+          tarangire: "Tarangire",
+          zanzibar: "Zanzibar",
+          kilimanjaro: "Kilimanjaro",
+          manyara: "Lake Manyara",
+        };
+        return tags
+          .split(" ")
+          .map((t) => map[t] || capitalize(t))
+          .join(" · ");
+      }
 
-  /* ── FORMAT DESTINATION TAGS ─────────────────────────── */
-  function formatDestTags(tags) {
-    if (!tags) return '';
-    const map = {
-      serengeti:'Serengeti', ngorongoro:'Ngorongoro', tarangire:'Tarangire',
-      zanzibar:'Zanzibar', kilimanjaro:'Kilimanjaro', manyara:'Lake Manyara'
-    };
-    return tags.split(' ').map(t => map[t]||capitalize(t)).join(' · ');
-  }
-
-  /* ── NOT FOUND STATE ─────────────────────────────────── */
-  function showNotFound(msg) {
-    document.title = 'Package Not Found – Sere Safari Africa';
-    document.getElementById('pageContent').innerHTML = `
+      /* ── NOT FOUND STATE ─────────────────────────────────── */
+      function showNotFound(msg) {
+        document.title = "Package Not Found – Seresafari Africa";
+        document.getElementById("pageContent").innerHTML = `
       <div style="margin-top:var(--nav-h);background:var(--dark2);min-height:80vh">
         <div class="not-found">
           <i class="fa-solid fa-binoculars"></i>
@@ -598,10 +781,10 @@
           <div class="hakuna">Hakuna Matata <i class="fa-solid fa-earth-africa"></i></div>
         </div>
       </footer>`;
-  }
+      }
 
-  /* ── BOOT ────────────────────────────────────────────── */
-  boot();
-  </script>
-</body>
+      /* ── BOOT ────────────────────────────────────────────── */
+      boot();
+    </script>
+  </body>
 </html>

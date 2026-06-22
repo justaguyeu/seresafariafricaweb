@@ -1,1016 +1,1446 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <link rel="canonical" href="https://seresafariafrica.com/community.html" />
-  <link href="favicon/favicon.ico">
-  <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="favicon/android-chrome-512x512.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-  <meta name="description"
-    content="Seresafari Africa's commitment to community — Education Access, Orphan Support, Youth Empowerment and local conservation across Tanzania." />
-  <title>Our Commitment to Community – Sere Safari Africa</title>
-  <link rel="stylesheet" href="css/main.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    /* ── COMMUNITY PAGE EXTRAS ── */
-    .comm-hero-stat {
-      background: rgba(201, 150, 58, .08);
-      border: 1px solid rgba(201, 150, 58, .25);
-      padding: 1.4rem 1.8rem;
-      text-align: center;
-      flex: 1;
-      min-width: 140px;
-    }
-
-    .comm-hero-stat .big {
-      font-family: var(--ff-head);
-      font-size: 2.4rem;
-      font-weight: 700;
-      color: var(--gold);
-      line-height: 1;
-    }
-
-    .comm-hero-stat .lbl {
-      font-size: .68rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--cream2);
-      margin-top: .4rem;
-    }
-
-    /* programme cards */
-    .prog-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .prog-card {
-      background: var(--dark2);
-      border: 1px solid rgba(201, 150, 58, .12);
-      overflow: hidden;
-      transition: border-color .3s, transform .3s;
-    }
-
-    .prog-card:hover {
-      border-color: rgba(201, 150, 58, .45);
-      transform: translateY(-6px);
-    }
-
-    .prog-card-top {
-      position: relative;
-      height: 200px;
-      overflow: hidden;
-    }
-
-    .prog-card-top img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(.65) saturate(1.1);
-      transition: transform .55s;
-    }
-
-    .prog-card:hover .prog-card-top img {
-      transform: scale(1.06);
-    }
-
-    .prog-card-icon {
-      position: absolute;
-      bottom: -22px;
-      left: 1.5rem;
-      width: 44px;
-      height: 44px;
-      background: var(--gold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 2;
-    }
-
-    .prog-card-icon i {
-      color: var(--dark);
-      font-size: 1.1rem;
-    }
-
-    .prog-card-body {
-      padding: 2.2rem 1.6rem 1.6rem;
-    }
-
-    .prog-card-body h3 {
-      font-family: var(--ff-head);
-      font-size: 1.1rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--white);
-      margin-bottom: .6rem;
-    }
-
-    .prog-card-body p {
-      font-size: .84rem;
-      line-height: 1.75;
-      color: var(--text);
-    }
-
-    .prog-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      background: rgba(201, 150, 58, .1);
-      border: 1px solid rgba(201, 150, 58, .25);
-      padding: .22rem .65rem;
-      font-size: .68rem;
-      color: var(--gold);
-      letter-spacing: 1px;
-      margin-top: .9rem;
-    }
-
-    /* impact strip */
-    .impact-strip {
-      background: var(--gold);
-      padding: 4rem 8%;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-    }
-
-    .impact-item {
-      background: var(--gold);
-      text-align: center;
-      padding: 1rem;
-    }
-
-    .impact-num {
-      font-family: var(--ff-head);
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: var(--dark);
-      line-height: 1;
-    }
-
-    .impact-desc {
-      font-size: .72rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--earth);
-      margin-top: .4rem;
-    }
-
-    /* partner logos / org row */
-    .partner-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .partner-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      padding: .55rem 1.2rem;
-      border: 1px solid rgba(201, 150, 58, .25);
-      font-size: .78rem;
-      color: var(--cream2);
-      letter-spacing: .5px;
-    }
-
-    .partner-chip i {
-      color: var(--gold);
-    }
-
-    /* quote pull */
-    .pull-quote {
-      padding: 3rem 4rem;
-      border-left: 3px solid var(--gold);
-      background: rgba(201, 150, 58, .05);
-      margin: 2rem 0;
-    }
-
-    .pull-quote blockquote {
-      font-family: var(--ff-head);
-      font-size: clamp(1.2rem, 2.5vw, 1.65rem);
-      font-weight: 400;
-      letter-spacing: 1px;
-      color: var(--cream);
-      line-height: 1.55;
-      font-style: italic;
-    }
-
-    .pull-quote cite {
-      display: block;
-      margin-top: 1rem;
-      font-size: .78rem;
-      font-style: normal;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-
-    /* how-you-help */
-    .help-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .help-item {
-      display: flex;
-      gap: 1.1rem;
-      align-items: flex-start;
-      padding: 1.3rem 1.4rem;
-      background: var(--dark2);
-      border: 1px solid rgba(201, 150, 58, .12);
-      transition: border-color .3s;
-    }
-
-    .help-item:hover {
-      border-color: rgba(201, 150, 58, .4);
-    }
-
-    .help-icon {
-      width: 46px;
-      height: 46px;
-      flex-shrink: 0;
-      background: rgba(201, 150, 58, .1);
-      border: 1px solid rgba(201, 150, 58, .3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .help-icon i {
-      color: var(--gold);
-      font-size: 1.15rem;
-    }
-
-    .help-title {
-      font-family: var(--ff-head);
-      font-size: .95rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      color: var(--white);
-      margin-bottom: .3rem;
-    }
-
-    .help-desc {
-      font-size: .82rem;
-      line-height: 1.65;
-      color: var(--text);
-    }
-
-    /* timeline */
-    .timeline {
-      position: relative;
-      padding-left: 2.2rem;
-      margin-top: 2rem;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(var(--gold), rgba(201, 150, 58, .1));
-    }
-
-    .tl-item {
-      position: relative;
-      padding: 0 0 2.2rem 1.4rem;
-    }
-
-    .tl-item::before {
-      content: '';
-      position: absolute;
-      left: -2.2rem;
-      top: 4px;
-      width: 10px;
-      height: 10px;
-      background: var(--gold);
-      border-radius: 50%;
-    }
-
-    .tl-year {
-      font-family: var(--ff-head);
-      font-size: .72rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: .3rem;
-    }
-
-    .tl-title {
-      font-family: var(--ff-head);
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      color: var(--white);
-      margin-bottom: .4rem;
-    }
-
-    .tl-desc {
-      font-size: .84rem;
-      line-height: 1.7;
-      color: var(--text);
-    }
-
-    /* photo mosaic */
-    .comm-mosaic {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: 220px 220px;
-      gap: 4px;
-      margin-top: 2.5rem;
-    }
-
-    .comm-mosaic-item {
-      overflow: hidden;
-      position: relative;
-    }
-
-    .comm-mosaic-item:nth-child(1) {
-      grid-row: span 2;
-    }
-
-    .comm-mosaic-item:nth-child(4) {
-      grid-column: span 2;
-    }
-
-    .comm-mosaic-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(.72) saturate(1.1);
-      transition: transform .55s, filter .45s;
-    }
-
-    .comm-mosaic-item:hover img {
-      transform: scale(1.07);
-      filter: brightness(.88) saturate(1.3);
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 1024px) {
-      .prog-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .impact-strip {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2px;
-      }
-
-      .comm-mosaic {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 200px 200px;
-      }
-
-      .comm-mosaic-item:nth-child(4) {
-        grid-column: auto;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .prog-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .help-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .impact-strip {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 3rem 5%;
-      }
-
-      .pull-quote {
-        padding: 2rem 1.5rem;
-      }
-
-      .comm-mosaic {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 180px 180px 180px;
-      }
-
-      .comm-mosaic-item:nth-child(1) {
-        grid-row: auto;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .impact-strip {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .impact-num {
-        font-size: 2rem;
-      }
-
-      .comm-mosaic {
-        grid-template-columns: 1fr 1fr;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="canonical" href="https://seresafariafrica.com/community.html" />
+    <link href="favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="favicon/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="favicon/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="favicon/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="favicon/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="favicon/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="favicon/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="favicon/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="favicon/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="favicon/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="favicon/android-chrome-512x512.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="favicon/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <meta
+      name="description"
+      content="Seresafari Africa's commitment to community — Education Access, Orphan Support, Youth Empowerment and local conservation across Tanzania."
+    />
+    <title>Our Commitment to Community – Seresafari Africa</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      /* ── COMMUNITY PAGE EXTRAS ── */
+      .comm-hero-stat {
+        background: rgba(201, 150, 58, 0.08);
+        border: 1px solid rgba(201, 150, 58, 0.25);
+        padding: 1.4rem 1.8rem;
+        text-align: center;
+        flex: 1;
+        min-width: 140px;
       }
 
       .comm-hero-stat .big {
-        font-size: 1.9rem;
+        font-family: var(--ff-head);
+        font-size: 2.4rem;
+        font-weight: 700;
+        color: var(--gold);
+        line-height: 1;
       }
-    }
-  </style>
-</head>
 
-<body>
-  <div id="cursor"></div>
-  <div id="cursor-ring"></div>
-  <button id="back-top"><i class="fa-solid fa-chevron-up"></i></button>
+      .comm-hero-stat .lbl {
+        font-size: 0.68rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--cream2);
+        margin-top: 0.4rem;
+      }
 
-  <nav id="nav">
-    <a href="index.html" class="logo"><img src="logo2.png" alt="Seresafari Africa" /></a>
-    <ul class="nav-links">
-      <li><a href="about.html">About</a></li>
-      <li><a href="pages/destinations.html">Destinations</a></li>
-      <li><a href="pages/tours.html">Tours</a></li>
-      <li><a href="pages/kilimanjaro.html">Kilimanjaro</a></li>
-      <li><a href="pages/zanzibar.html">Zanzibar</a></li>
-      <li><a href="pages/gallery.html">Gallery</a></li>
-      <li><a href="pages/contact.html" class="nav-book">Enquire Now</a></li>
-    </ul>
-    <button class="ham" id="ham"><span></span><span></span><span></span></button>
-  </nav>
-  <nav class="mob-menu" id="mob-menu">
-    <a href="index.html">Home</a><a href="about.html">About</a>
-    <a href="pages/destinations.html">Destinations</a><a href="pages/tours.html">Tours</a>
-    <a href="pages/kilimanjaro.html">Kilimanjaro</a><a href="pages/zanzibar.html">Zanzibar</a>
-    <a href="pages/gallery.html">Gallery</a><a href="pages/contact.html" style="color:var(--gold)">Enquire Now</a>
-  </nav>
+      /* programme cards */
+      .prog-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-top: 3rem;
+      }
 
-  <!-- PAGE HEADER -->
-  <header class="page-header" style="background-image:url('images/14.webp');">
-    <div class="breadcrumb">
-      <a href="index.html">Home</a><i class="fa-solid fa-chevron-right"></i>
-      <a href="about.html">About</a><i class="fa-solid fa-chevron-right"></i>Community
-    </div>
-    <div class="section-tag"><i class="fa-solid fa-hand-holding-heart"></i> Giving Back</div>
-    <h1 class="section-title" style="font-size:clamp(2.2rem,6vw,4.5rem);">Our <em>Commitment</em><br>to Community</h1>
-    <p class="section-sub" style="max-width:620px;margin:1rem auto 0;">
-      At Seresafari Africa, we believe the most extraordinary safaris are built on a foundation of genuine care —
-      for wildlife, for the land, and above all, for the people who call Tanzania home.
-    </p>
-  </header>
+      .prog-card {
+        background: var(--dark2);
+        border: 1px solid rgba(201, 150, 58, 0.12);
+        overflow: hidden;
+        transition:
+          border-color 0.3s,
+          transform 0.3s;
+      }
 
-  <!-- HERO STATS STRIP -->
-  <div style="background:var(--dark3);padding:2.5rem 8%;">
-    <div style="display:flex;flex-wrap:wrap;gap:1rem;">
-      <div class="comm-hero-stat reveal">
-        <div class="big">500+</div>
-        <div class="lbl">Children Supported</div>
+      .prog-card:hover {
+        border-color: rgba(201, 150, 58, 0.45);
+        transform: translateY(-6px);
+      }
+
+      .prog-card-top {
+        position: relative;
+        height: 200px;
+        overflow: hidden;
+      }
+
+      .prog-card-top img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.65) saturate(1.1);
+        transition: transform 0.55s;
+      }
+
+      .prog-card:hover .prog-card-top img {
+        transform: scale(1.06);
+      }
+
+      .prog-card-icon {
+        position: absolute;
+        bottom: -22px;
+        left: 1.5rem;
+        width: 44px;
+        height: 44px;
+        background: var(--gold);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+      }
+
+      .prog-card-icon i {
+        color: var(--dark);
+        font-size: 1.1rem;
+      }
+
+      .prog-card-body {
+        padding: 2.2rem 1.6rem 1.6rem;
+      }
+
+      .prog-card-body h3 {
+        font-family: var(--ff-head);
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--white);
+        margin-bottom: 0.6rem;
+      }
+
+      .prog-card-body p {
+        font-size: 0.84rem;
+        line-height: 1.75;
+        color: var(--text);
+      }
+
+      .prog-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background: rgba(201, 150, 58, 0.1);
+        border: 1px solid rgba(201, 150, 58, 0.25);
+        padding: 0.22rem 0.65rem;
+        font-size: 0.68rem;
+        color: var(--gold);
+        letter-spacing: 1px;
+        margin-top: 0.9rem;
+      }
+
+      /* impact strip */
+      .impact-strip {
+        background: var(--gold);
+        padding: 4rem 8%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+      }
+
+      .impact-item {
+        background: var(--gold);
+        text-align: center;
+        padding: 1rem;
+      }
+
+      .impact-num {
+        font-family: var(--ff-head);
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: var(--dark);
+        line-height: 1;
+      }
+
+      .impact-desc {
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--earth);
+        margin-top: 0.4rem;
+      }
+
+      /* partner logos / org row */
+      .partner-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .partner-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.55rem 1.2rem;
+        border: 1px solid rgba(201, 150, 58, 0.25);
+        font-size: 0.78rem;
+        color: var(--cream2);
+        letter-spacing: 0.5px;
+      }
+
+      .partner-chip i {
+        color: var(--gold);
+      }
+
+      /* quote pull */
+      .pull-quote {
+        padding: 3rem 4rem;
+        border-left: 3px solid var(--gold);
+        background: rgba(201, 150, 58, 0.05);
+        margin: 2rem 0;
+      }
+
+      .pull-quote blockquote {
+        font-family: var(--ff-head);
+        font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+        font-weight: 400;
+        letter-spacing: 1px;
+        color: var(--cream);
+        line-height: 1.55;
+        font-style: italic;
+      }
+
+      .pull-quote cite {
+        display: block;
+        margin-top: 1rem;
+        font-size: 0.78rem;
+        font-style: normal;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      /* how-you-help */
+      .help-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .help-item {
+        display: flex;
+        gap: 1.1rem;
+        align-items: flex-start;
+        padding: 1.3rem 1.4rem;
+        background: var(--dark2);
+        border: 1px solid rgba(201, 150, 58, 0.12);
+        transition: border-color 0.3s;
+      }
+
+      .help-item:hover {
+        border-color: rgba(201, 150, 58, 0.4);
+      }
+
+      .help-icon {
+        width: 46px;
+        height: 46px;
+        flex-shrink: 0;
+        background: rgba(201, 150, 58, 0.1);
+        border: 1px solid rgba(201, 150, 58, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .help-icon i {
+        color: var(--gold);
+        font-size: 1.15rem;
+      }
+
+      .help-title {
+        font-family: var(--ff-head);
+        font-size: 0.95rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: var(--white);
+        margin-bottom: 0.3rem;
+      }
+
+      .help-desc {
+        font-size: 0.82rem;
+        line-height: 1.65;
+        color: var(--text);
+      }
+
+      /* timeline */
+      .timeline {
+        position: relative;
+        padding-left: 2.2rem;
+        margin-top: 2rem;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(var(--gold), rgba(201, 150, 58, 0.1));
+      }
+
+      .tl-item {
+        position: relative;
+        padding: 0 0 2.2rem 1.4rem;
+      }
+
+      .tl-item::before {
+        content: "";
+        position: absolute;
+        left: -2.2rem;
+        top: 4px;
+        width: 10px;
+        height: 10px;
+        background: var(--gold);
+        border-radius: 50%;
+      }
+
+      .tl-year {
+        font-family: var(--ff-head);
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        color: var(--gold);
+        text-transform: uppercase;
+        margin-bottom: 0.3rem;
+      }
+
+      .tl-title {
+        font-family: var(--ff-head);
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: var(--white);
+        margin-bottom: 0.4rem;
+      }
+
+      .tl-desc {
+        font-size: 0.84rem;
+        line-height: 1.7;
+        color: var(--text);
+      }
+
+      /* photo mosaic */
+      .comm-mosaic {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 220px 220px;
+        gap: 4px;
+        margin-top: 2.5rem;
+      }
+
+      .comm-mosaic-item {
+        overflow: hidden;
+        position: relative;
+      }
+
+      .comm-mosaic-item:nth-child(1) {
+        grid-row: span 2;
+      }
+
+      .comm-mosaic-item:nth-child(4) {
+        grid-column: span 2;
+      }
+
+      .comm-mosaic-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.72) saturate(1.1);
+        transition:
+          transform 0.55s,
+          filter 0.45s;
+      }
+
+      .comm-mosaic-item:hover img {
+        transform: scale(1.07);
+        filter: brightness(0.88) saturate(1.3);
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 1024px) {
+        .prog-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .impact-strip {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 2px;
+        }
+
+        .comm-mosaic {
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-rows: 200px 200px;
+        }
+
+        .comm-mosaic-item:nth-child(4) {
+          grid-column: auto;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .prog-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .help-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .impact-strip {
+          grid-template-columns: repeat(2, 1fr);
+          padding: 3rem 5%;
+        }
+
+        .pull-quote {
+          padding: 2rem 1.5rem;
+        }
+
+        .comm-mosaic {
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: 180px 180px 180px;
+        }
+
+        .comm-mosaic-item:nth-child(1) {
+          grid-row: auto;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .impact-strip {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .impact-num {
+          font-size: 2rem;
+        }
+
+        .comm-mosaic {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .comm-hero-stat .big {
+          font-size: 1.9rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
+    <button id="back-top"><i class="fa-solid fa-chevron-up"></i></button>
+
+    <nav id="nav">
+      <a href="index.html" class="logo"
+        ><img src="logo2.png" alt="Seresafari Africa"
+      /></a>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="pages/destinations.html">Destinations</a></li>
+        <li><a href="pages/tours.html">Tours</a></li>
+        <li><a href="pages/kilimanjaro.html">Kilimanjaro</a></li>
+        <li><a href="pages/zanzibar.html">Zanzibar</a></li>
+        <li><a href="pages/gallery.html">Gallery</a></li>
+        <li><a href="pages/contact.html" class="nav-book">Enquire Now</a></li>
+      </ul>
+      <button class="ham" id="ham">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <nav class="mob-menu" id="mob-menu">
+      <a href="index.html">Home</a><a href="about.html">About</a>
+      <a href="pages/destinations.html">Destinations</a
+      ><a href="pages/tours.html">Tours</a>
+      <a href="pages/kilimanjaro.html">Kilimanjaro</a
+      ><a href="pages/zanzibar.html">Zanzibar</a>
+      <a href="pages/gallery.html">Gallery</a
+      ><a href="pages/contact.html" style="color: var(--gold)">Enquire Now</a>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <header
+      class="page-header"
+      style="background-image: url(&quot;images/14.webp&quot;)"
+    >
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><i class="fa-solid fa-chevron-right"></i>
+        <a href="about.html">About</a
+        ><i class="fa-solid fa-chevron-right"></i>Community
       </div>
-      <div class="comm-hero-stat reveal delay-1">
-        <div class="big">12</div>
-        <div class="lbl">Partner Organisations</div>
+      <div class="section-tag">
+        <i class="fa-solid fa-hand-holding-heart"></i> Giving Back
       </div>
-      <div class="comm-hero-stat reveal delay-2">
-        <div class="big">4</div>
-        <div class="lbl">Active Programmes</div>
-      </div>
-      <div class="comm-hero-stat reveal delay-3">
-        <div class="big">100%</div>
-        <div class="lbl">Locally Funded</div>
-      </div>
-    </div>
-  </div>
+      <h1 class="section-title" style="font-size: clamp(2.2rem, 6vw, 4.5rem)">
+        Our <em>Commitment</em><br />to Community
+      </h1>
+      <p class="section-sub" style="max-width: 620px; margin: 1rem auto 0">
+        At Seresafari Africa, we believe the most extraordinary safaris are
+        built on a foundation of genuine care — for wildlife, for the land, and
+        above all, for the people who call Tanzania home.
+      </p>
+    </header>
 
-  <!-- OUR BELIEF -->
-  <section style="padding:7rem 8%;background:var(--dark2);">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;" class="about-grid">
-
-      <!-- image side -->
-      <div class="about-img-wrap reveal-l">
-        <div class="about-img-inner">
-          <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=900&q=85"
-            alt="Children at school in Tanzania" loading="lazy" />
-          <div class="about-border"></div>
+    <!-- HERO STATS STRIP -->
+    <div style="background: var(--dark3); padding: 2.5rem 8%">
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem">
+        <div class="comm-hero-stat reveal">
+          <div class="big">500+</div>
+          <div class="lbl">Children Supported</div>
         </div>
-        <div class="about-badge">
-          <span class="num"><i class="fa-solid fa-heart" style="font-size:1.4rem;"></i></span>
-          <span class="lbl">With Love</span>
+        <div class="comm-hero-stat reveal delay-1">
+          <div class="big">12</div>
+          <div class="lbl">Partner Organisations</div>
+        </div>
+        <div class="comm-hero-stat reveal delay-2">
+          <div class="big">4</div>
+          <div class="lbl">Active Programmes</div>
+        </div>
+        <div class="comm-hero-stat reveal delay-3">
+          <div class="big">100%</div>
+          <div class="lbl">Locally Funded</div>
         </div>
       </div>
+    </div>
 
-      <!-- text side -->
-      <div class="reveal-r">
-        <div class="section-tag"><i class="fa-solid fa-seedling"></i> Why It Matters</div>
-        <h2 class="section-title">Tourism That <em>Transforms</em></h2>
+    <!-- OUR BELIEF -->
+    <section style="padding: 7rem 8%; background: var(--dark2)">
+      <div
+        style="
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 5rem;
+          align-items: center;
+        "
+        class="about-grid"
+      >
+        <!-- image side -->
+        <div class="about-img-wrap reveal-l">
+          <div class="about-img-inner">
+            <img
+              src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=900&q=85"
+              alt="Children at school in Tanzania"
+              loading="lazy"
+            />
+            <div class="about-border"></div>
+          </div>
+          <div class="about-badge">
+            <span class="num"
+              ><i class="fa-solid fa-heart" style="font-size: 1.4rem"></i
+            ></span>
+            <span class="lbl">With Love</span>
+          </div>
+        </div>
+
+        <!-- text side -->
+        <div class="reveal-r">
+          <div class="section-tag">
+            <i class="fa-solid fa-seedling"></i> Why It Matters
+          </div>
+          <h2 class="section-title">Tourism That <em>Transforms</em></h2>
+          <p class="section-sub">
+            We believe tourism should create meaningful benefits for the
+            communities we work with. Every safari, every mountain climb, every
+            beach extension you book with Seresafari Africa directly contributes
+            to programmes that change lives here in Tanzania.
+          </p>
+          <p class="section-sub" style="margin-top: 1rem">
+            Tanzania is one of the most wildlife-rich nations on Earth, but many
+            families — particularly those in rural areas near the parks — face
+            significant hardship. Children lack access to basic school supplies.
+            Orphans and vulnerable youth in care centres go without adequate
+            nutrition, clothing and educational materials. Young people lack the
+            skills to access employment.
+          </p>
+          <p class="section-sub" style="margin-top: 1rem">
+            We cannot operate in this landscape and turn a blind eye.
+            <strong style="color: var(--gold)"
+              >This is not charity — it is responsibility.</strong
+            >
+            Tanzania gave us everything. We give back with every booking.
+          </p>
+          <div style="margin-top: 2rem">
+            <a href="pages/contact.html" class="btn btn-primary"
+              ><i class="fa-solid fa-hand-holding-heart"></i> Book a Tour &amp;
+              Give Back</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PULL QUOTE -->
+    <div style="padding: 0 8%; background: var(--dark3)">
+      <div class="pull-quote reveal">
+        <blockquote>
+          "Watoto ni mustakabali wetu — Children are our future. When we invest
+          in a child's education today, we are building the Tanzania of
+          tomorrow. Every pencil, every book, every meal matters."
+        </blockquote>
+        <cite>— Seresafari Africa Founding Family, Arusha</cite>
+      </div>
+    </div>
+
+    <!-- IMPACT NUMBERS -->
+    <div class="impact-strip">
+      <div class="impact-item reveal">
+        <div class="impact-num">500+</div>
+        <div class="impact-desc">School Kits Distributed</div>
+      </div>
+      <div class="impact-item reveal delay-1">
+        <div class="impact-num">8</div>
+        <div class="impact-desc">Orphanages Supported</div>
+      </div>
+      <div class="impact-item reveal delay-2">
+        <div class="impact-num">120+</div>
+        <div class="impact-desc">Youth Trained</div>
+      </div>
+      <div class="impact-item reveal delay-3">
+        <div class="impact-num">3</div>
+        <div class="impact-desc">Districts Reached</div>
+      </div>
+    </div>
+
+    <!-- OUR PROGRAMMES -->
+    <section style="padding: 7rem 8%; background: var(--dark)">
+      <div
+        style="text-align: center; max-width: 620px; margin: 0 auto 1rem"
+        class="reveal"
+      >
+        <div class="section-tag">
+          <i class="fa-solid fa-sitemap"></i> What We Do
+        </div>
+        <h2 class="section-title">Our Community <em>Programmes</em></h2>
         <p class="section-sub">
-          We believe tourism should create meaningful benefits for the communities we work with. Every safari,
-          every mountain climb, every beach extension you book with Seresafari Africa directly contributes to
-          programmes that change lives here in Tanzania.
+          Four active programmes, each designed with local leaders, targeting
+          real and urgent needs in the communities surrounding Tanzania's
+          national parks and urban centres.
         </p>
-        <p class="section-sub" style="margin-top:1rem;">
-          Tanzania is one of the most wildlife-rich nations on Earth, but many families — particularly those in
-          rural areas near the parks — face significant hardship. Children lack access to basic school supplies.
-          Orphans and vulnerable youth in care centres go without adequate nutrition, clothing and educational
-          materials. Young people lack the skills to access employment.
-        </p>
-        <p class="section-sub" style="margin-top:1rem;">
-          We cannot operate in this landscape and turn a blind eye. <strong style="color:var(--gold);">This is not
-            charity — it is responsibility.</strong> Tanzania gave us everything. We give back with every booking.
-        </p>
-        <div style="margin-top:2rem;">
-          <a href="pages/contact.html" class="btn btn-primary"><i class="fa-solid fa-hand-holding-heart"></i> Book a
-            Tour &amp; Give Back</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PULL QUOTE -->
-  <div style="padding:0 8%;background:var(--dark3);">
-    <div class="pull-quote reveal">
-      <blockquote>
-        "Watoto ni mustakabali wetu — Children are our future. When we invest in a child's education today,
-        we are building the Tanzania of tomorrow. Every pencil, every book, every meal matters."
-      </blockquote>
-      <cite>— Seresafari Africa Founding Family, Arusha</cite>
-    </div>
-  </div>
-
-  <!-- IMPACT NUMBERS -->
-  <div class="impact-strip">
-    <div class="impact-item reveal">
-      <div class="impact-num">500+</div>
-      <div class="impact-desc">School Kits Distributed</div>
-    </div>
-    <div class="impact-item reveal delay-1">
-      <div class="impact-num">8</div>
-      <div class="impact-desc">Orphanages Supported</div>
-    </div>
-    <div class="impact-item reveal delay-2">
-      <div class="impact-num">120+</div>
-      <div class="impact-desc">Youth Trained</div>
-    </div>
-    <div class="impact-item reveal delay-3">
-      <div class="impact-num">3</div>
-      <div class="impact-desc">Districts Reached</div>
-    </div>
-  </div>
-
-  <!-- OUR PROGRAMMES -->
-  <section style="padding:7rem 8%;background:var(--dark);">
-    <div style="text-align:center;max-width:620px;margin:0 auto 1rem;" class="reveal">
-      <div class="section-tag"><i class="fa-solid fa-sitemap"></i> What We Do</div>
-      <h2 class="section-title">Our Community <em>Programmes</em></h2>
-      <p class="section-sub">Four active programmes, each designed with local leaders, targeting real and urgent needs
-        in the communities surrounding Tanzania's national parks and urban centres.</p>
-    </div>
-
-    <div class="prog-grid">
-
-      <!-- 1. Education Access -->
-      <div class="prog-card reveal">
-        <div class="prog-card-top">
-          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=700&q=80"
-            alt="Education Access Programme" loading="lazy" />
-          <div class="prog-card-icon"><i class="fa-solid fa-book-open"></i></div>
-        </div>
-        <div class="prog-card-body">
-          <h3>Education Access Programme</h3>
-          <p>
-            Many children in rural Tanzania walk hours to school, yet arrive without basic materials — no pen, no
-            exercise book, no pencil. Our Education Access Programme provides comprehensive school kits to children
-            from underserved families in communities around Arusha, Moshi and the Ngorongoro Conservation Area.
-          </p>
-          <p style="margin-top:.8rem;">
-            Each kit includes exercise books, pens, pencils, a ruler, an eraser, crayons, and a school bag.
-            We partner directly with local primary school headteachers to identify the most vulnerable children
-            and distribute kits at the start of every school term.
-          </p>
-          <span class="prog-tag"><i class="fa-solid fa-check"></i> Active · 3 Regions</span>
-        </div>
       </div>
 
-      <!-- 2. Orphan & Vulnerable Children -->
-      <div class="prog-card reveal delay-1">
-        <div class="prog-card-top">
-          <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=700&q=80"
-            alt="Orphan Support Programme" loading="lazy" />
-          <div class="prog-card-icon"><i class="fa-solid fa-child-reaching"></i></div>
-        </div>
-        <div class="prog-card-body">
-          <h3>Orphan &amp; Vulnerable Children Support</h3>
-          <p>
-            Tanzania has hundreds of thousands of orphaned children — watoto yatima — many living in care centres
-            and residential homes run by religious organisations or community volunteers with very limited resources.
-            These centres often struggle to provide adequate food, clothing, bedding and learning materials.
-          </p>
-          <p style="margin-top:.8rem;">
-            We visit partner orphanages and care centres across the Arusha and Kilimanjaro regions quarterly,
-            bringing food parcels, clothing bundles, educational toys, stationery supplies, and toiletries.
-            We also fund basic infrastructure repairs where most urgent.
-          </p>
-          <span class="prog-tag"><i class="fa-solid fa-check"></i> Active · 8 Care Centres</span>
-        </div>
-      </div>
-
-      <!-- 3. Youth Empowerment -->
-      <div class="prog-card reveal delay-2">
-        <div class="prog-card-top">
-          <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=700&q=80"
-            alt="Youth Empowerment Programme" loading="lazy" />
-          <div class="prog-card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-        </div>
-        <div class="prog-card-body">
-          <h3>Youth Empowerment &amp; Skills Training</h3>
-          <p>
-            Young people who complete secondary school but cannot access university face a difficult gap.
-            Through our Youth Empowerment Programme, we run vocational training workshops in partnership with
-            local hospitality schools — covering guiding skills, English language, customer service, basic
-            first aid, and wildlife ecology.
-          </p>
-          <p style="margin-top:.8rem;">
-            Graduates are supported into entry-level roles within Tanzania's tourism industry, creating a
-            pipeline of locally trained professionals who stay in the community and contribute to its growth.
-          </p>
-          <span class="prog-tag"><i class="fa-solid fa-check"></i> Active · 120+ Graduates</span>
-        </div>
-      </div>
-
-      <!-- 4. Women & Families -->
-      <div class="prog-card reveal">
-        <div class="prog-card-top">
-          <img src="https://images.unsplash.com/photo-1607748851687-ba9a10438621?w=700&q=80"
-            alt="Women and Families Programme" loading="lazy" />
-          <div class="prog-card-icon"><i class="fa-solid fa-people-group"></i></div>
-        </div>
-        <div class="prog-card-body">
-          <h3>Women &amp; Family Resilience</h3>
-          <p>
-            Women form the backbone of rural Tanzanian communities, yet often face the greatest economic
-            hardship when breadwinners fall ill or families are disrupted. We support small groups of women
-            — particularly single mothers and widows — through micro-grant funding for income-generating
-            activities like crafts, vegetable farming, and small trade.
-          </p>
-          <p style="margin-top:.8rem;">
-            Guests who purchase locally made Maasai crafts and beadwork through Seresafari Africa directly
-            fund these women's cooperatives. Nothing is marked up — every shilling goes back to the maker.
-          </p>
-          <span class="prog-tag"><i class="fa-solid fa-check"></i> Active · 6 Women's Groups</span>
-        </div>
-      </div>
-
-      <!-- 5. Conservation & Environment -->
-      <div class="prog-card reveal delay-1">
-        <div class="prog-card-top">
-          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=700&q=80"
-            alt="Conservation Programme" loading="lazy" />
-          <div class="prog-card-icon"><i class="fa-solid fa-leaf"></i></div>
-        </div>
-        <div class="prog-card-body">
-          <h3>Conservation &amp; Environmental Education</h3>
-          <p>
-            Without thriving wildlife, there is no tourism. Without tourism, there is no community benefit.
-            We close this loop by funding environmental education in schools near national parks — teaching
-            children why healthy ecosystems matter, what coexistence with wildlife looks like, and how
-            responsible tourism creates dignified livelihoods for their families.
-          </p>
-          <p style="margin-top:.8rem;">
-            We also co-fund anti-poaching community ranger patrols in buffer zones around Tarangire and the
-            Ngorongoro Conservation Area, working directly with Tanzania National Parks Authority (TANAPA).
-          </p>
-          <span class="prog-tag"><i class="fa-solid fa-check"></i> Active · TANAPA Partnership</span>
-        </div>
-      </div>
-
-      <!-- 6. Nutrition & Health -->
-      <div class="prog-card reveal delay-2">
-        <div class="prog-card-top">
-          <img src="https://images.unsplash.com/photo-1609220136736-443140cffec6?w=700&q=80" alt="Nutrition Programme"
-            loading="lazy" />
-          <div class="prog-card-icon"><i class="fa-solid fa-bowl-food"></i></div>
-        </div>
-        <div class="prog-card-body">
-          <h3>Nutrition &amp; Health Access</h3>
-          <p>
-            Malnutrition among young children in Tanzania's rural and peri-urban communities remains a
-            serious challenge. We partner with local health volunteers (Mama Lishe — community nutrition
-            volunteers) to deliver monthly food packages to families with severely malnourished children
-            under five years of age.
-          </p>
-          <p style="margin-top:.8rem;">
-            In addition, we fund annual deworming and basic health screening days at partner primary schools,
-            reaching children who otherwise would not access preventive healthcare. Healthy children learn
-            better. Learning changes everything.
-          </p>
-          <span class="prog-tag"><i class="fa-solid fa-check"></i> Active · Health Volunteers Network</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PHOTO MOSAIC -->
-  <section style="padding:0 8% 7rem;background:var(--dark);">
-    <div class="reveal" style="text-align:center;margin-bottom:0;">
-      <div class="section-tag"><i class="fa-solid fa-images"></i> Moments of Change</div>
-      <h2 class="section-title">Community in <em>Action</em></h2>
-    </div>
-    <div class="comm-mosaic">
-      <div class="comm-mosaic-item">
-        <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=600&q=80"
-          alt="Children in Tanzania classroom" loading="lazy" />
-      </div>
-      <div class="comm-mosaic-item">
-        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80" alt="Orphan support visit"
-          loading="lazy" />
-      </div>
-      <div class="comm-mosaic-item">
-        <img src="https://images.unsplash.com/photo-1607748851687-ba9a10438621?w=600&q=80" alt="Women's cooperative"
-          loading="lazy" />
-      </div>
-      <div class="comm-mosaic-item">
-        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80"
-          alt="School supplies distribution" loading="lazy" />
-      </div>
-      <div class="comm-mosaic-item">
-        <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&q=80" alt="Youth training"
-          loading="lazy" />
-      </div>
-    </div>
-  </section>
-
-  <!-- TIMELINE -->
-  <section style="padding:7rem 8%;background:var(--dark2);">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;">
-      <div class="reveal-l">
-        <div class="section-tag"><i class="fa-solid fa-timeline"></i> Our Journey</div>
-        <h2 class="section-title">Building <em>Impact</em> Year by Year</h2>
-        <p class="section-sub">From a single school-kit drive to a structured multi-programme initiative —
-          our community work has grown steadily alongside our safari business, because we believe one
-          cannot thrive without the other.</p>
-        <div class="timeline" style="margin-top:2.5rem;">
-          <div class="tl-item">
-            <div class="tl-year">Year 1 — The Beginning</div>
-            <div class="tl-title">First School Kit Distribution</div>
-            <p class="tl-desc">Our founder personally delivered the first 40 school kits to a primary school in
-              Arusha's outskirts. The smiles on those children's faces became the foundation of everything that
-              followed.</p>
+      <div class="prog-grid">
+        <!-- 1. Education Access -->
+        <div class="prog-card reveal">
+          <div class="prog-card-top">
+            <img
+              src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=700&q=80"
+              alt="Education Access Programme"
+              loading="lazy"
+            />
+            <div class="prog-card-icon">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
           </div>
-          <div class="tl-item">
-            <div class="tl-year">Year 2 — Expanding Reach</div>
-            <div class="tl-title">First Orphanage Partnership</div>
-            <p class="tl-desc">We formalised our first partnership with a children's home in the Kilimanjaro region,
-              delivering quarterly visits with food, clothing and essential supplies to over 60 resident children.</p>
-          </div>
-          <div class="tl-item">
-            <div class="tl-year">Year 3 — Skills &amp; Livelihoods</div>
-            <div class="tl-title">Youth Empowerment Launched</div>
-            <p class="tl-desc">Our first vocational training cohort of 22 young people completed a 3-month tourism
-              skills programme. Fifteen graduates secured employment in Tanzania's safari industry within six months.
+          <div class="prog-card-body">
+            <h3>Education Access Programme</h3>
+            <p>
+              Many children in rural Tanzania walk hours to school, yet arrive
+              without basic materials — no pen, no exercise book, no pencil. Our
+              Education Access Programme provides comprehensive school kits to
+              children from underserved families in communities around Arusha,
+              Moshi and the Ngorongoro Conservation Area.
             </p>
-          </div>
-          <div class="tl-item">
-            <div class="tl-year">Year 4 — Conservation Link</div>
-            <div class="tl-title">TANAPA Environmental Education Partnership</div>
-            <p class="tl-desc">We signed a formal collaboration agreement with Tanzania National Parks to co-fund
-              environmental education in five primary schools adjacent to Tarangire National Park.</p>
-          </div>
-          <div class="tl-item" style="padding-bottom:0;">
-            <div class="tl-year">Today — Ongoing</div>
-            <div class="tl-title">Growing With Every Booking</div>
-            <p class="tl-desc">Every safari booked with Seresafari Africa automatically contributes a percentage
-              of revenue to our community fund. No extras. No opt-ins. It is simply part of who we are.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- How you help -->
-      <div class="reveal-r">
-        <div class="section-tag"><i class="fa-solid fa-handshake-angle"></i> How You Help</div>
-        <h2 class="section-title">Your Safari <em>Matters</em></h2>
-        <p class="section-sub">When you choose Seresafari Africa, you are not just choosing a great safari.
-          You are choosing to be part of something bigger. Here is exactly how your booking creates impact:</p>
-        <div class="help-grid">
-          <div class="help-item">
-            <div class="help-icon"><i class="fa-solid fa-percent"></i></div>
-            <div>
-              <div class="help-title">% of Every Booking</div>
-              <p class="help-desc">A fixed percentage of every safari payment goes directly into our community fund —
-                automatically, no opt-in required.</p>
-            </div>
-          </div>
-          <div class="help-item">
-            <div class="help-icon"><i class="fa-solid fa-bag-shopping"></i></div>
-            <div>
-              <div class="help-title">Buy Local Crafts</div>
-              <p class="help-desc">Purchasing Maasai crafts and beadwork through us sends 100% of proceeds to women's
-                cooperatives in Arusha.</p>
-            </div>
-          </div>
-          <div class="help-item">
-            <div class="help-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
-            <div>
-              <div class="help-title">Direct Donation</div>
-              <p class="help-desc">Want to give more? We facilitate direct donations to any of our partner programmes —
-                school kits, orphan care or youth training.</p>
-            </div>
-          </div>
-          <div class="help-item">
-            <div class="help-icon"><i class="fa-solid fa-share-nodes"></i></div>
-            <div>
-              <div class="help-title">Share the Story</div>
-              <p class="help-desc">Spreading the word about responsible tourism in Tanzania helps attract like-minded
-                travellers who want to make a difference.</p>
-            </div>
-          </div>
-          <div class="help-item">
-            <div class="help-icon"><i class="fa-solid fa-utensils"></i></div>
-            <div>
-              <div class="help-title">Fair Wages, Always</div>
-              <p class="help-desc">Every cook, porter, guide and camp staff member is paid above the industry minimum.
-                Your money supports dignified livelihoods.</p>
-            </div>
-          </div>
-          <div class="help-item">
-            <div class="help-icon"><i class="fa-solid fa-star"></i></div>
-            <div>
-              <div class="help-title">Leave a Review</div>
-              <p class="help-desc">Every positive review on TripAdvisor and Google helps us win more bookings — which
-                means more impact for communities across Tanzania.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PARTNER ORGANISATIONS -->
-  <section style="padding:5rem 8%;background:var(--dark3);" class="reveal">
-    <div style="text-align:center;margin-bottom:2rem;">
-      <div class="section-tag"><i class="fa-solid fa-network-wired"></i> Who We Work With</div>
-      <h2 class="section-title">Our <em>Partner Organisations</em></h2>
-      <p class="section-sub" style="max-width:560px;margin:0 auto;">
-        We work alongside trusted local organisations, government bodies and community groups to ensure
-        our programmes reach those who need them most, with zero bureaucratic waste.
-      </p>
-    </div>
-    <div class="partner-row" style="justify-content:center;">
-      <div class="partner-chip"><i class="fa-solid fa-building-columns"></i> Tanzania National Parks (TANAPA)</div>
-      <div class="partner-chip"><i class="fa-solid fa-hands-helping"></i> Arusha Children's Home</div>
-      <div class="partner-chip"><i class="fa-solid fa-hands-helping"></i> Kilimanjaro Orphan Centre</div>
-      <div class="partner-chip"><i class="fa-solid fa-school"></i> Rural Primary Schools Network</div>
-      <div class="partner-chip"><i class="fa-solid fa-female"></i> Mama Lishe Nutrition Volunteers</div>
-      <div class="partner-chip"><i class="fa-solid fa-leaf"></i> Ngorongoro Conservation Area Authority</div>
-      <div class="partner-chip"><i class="fa-solid fa-graduation-cap"></i> Arusha Technical College</div>
-      <div class="partner-chip"><i class="fa-solid fa-people-group"></i> Maasai Women's Cooperative Network</div>
-      <div class="partner-chip"><i class="fa-solid fa-hand-holding-medical"></i> Community Health Volunteers</div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="book-section" style="padding:7rem 8%;text-align:center;">
-    <div class="book-bg"></div>
-    <div class="book-inner reveal">
-      <div class="section-tag" style="justify-content:center;"><i class="fa-solid fa-earth-africa"></i> Travel with
-        Purpose</div>
-      <h2
-        style="font-family:var(--ff-head);font-size:clamp(2rem,5vw,3.5rem);font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--white);margin-bottom:1rem;">
-        Book a Safari,<br><em style="color:var(--gold);font-style:normal;">Change a Life</em>
-      </h2>
-      <p style="color:var(--text);max-width:540px;margin:0 auto 2rem;">
-        Every safari you book with us does two things: gives you an unforgettable adventure, and makes a
-        real, measurable difference in the lives of Tanzania's children, youth and families.
-        That is a journey worth taking.
-      </p>
-      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-        <a href="pages/contact.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Plan Your
-          Safari</a>
-        <a href="about.html" class="btn btn-outline"><i class="fa-solid fa-arrow-left"></i> Back to About Us</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">SERE<span>SAFARI</span></a>
-        <p class="footer-tagline">Creating unforgettable safari experiences in the heart of Africa. Expert guides.
-          Hand-picked lodges. 100% locally owned.</p>
-        <div class="footer-social">
-          <a href="https://www.facebook.com/Seresafari/" target="_blank" rel="noopener" class="soc-btn"><i
-              class="fa-brands fa-facebook-f"></i></a>
-          <a href="#" class="soc-btn"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#" class="soc-btn"><i class="fa-brands fa-x-twitter"></i></a>
-          <a href="#" class="soc-btn"><i class="fa-brands fa-youtube"></i></a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Community</h4>
-        <ul class="footer-links">
-          <li><a href="community.html"><i class="fa-solid fa-chevron-right"></i>Our Commitment</a></li>
-          <li><a href="community.html#programmes"><i class="fa-solid fa-chevron-right"></i>Education Access</a></li>
-          <li><a href="community.html#programmes"><i class="fa-solid fa-chevron-right"></i>Orphan Support</a></li>
-          <li><a href="community.html#programmes"><i class="fa-solid fa-chevron-right"></i>Youth Empowerment</a></li>
-          <li><a href="community.html#programmes"><i class="fa-solid fa-chevron-right"></i>Conservation</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <ul class="footer-links">
-          <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i>About Us</a></li>
-          <li><a href="pages/tours.html"><i class="fa-solid fa-chevron-right"></i>Tour Packages</a></li>
-          <li><a href="pages/kilimanjaro.html"><i class="fa-solid fa-chevron-right"></i>Kilimanjaro</a></li>
-          <li><a href="pages/zanzibar.html"><i class="fa-solid fa-chevron-right"></i>Zanzibar</a></li>
-          <li><a href="pages/contact.html"><i class="fa-solid fa-chevron-right"></i>Contact Us</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact Us</h4>
-        <ul class="footer-contact">
-          <li><span class="fc-ico"><i class="fa-solid fa-location-dot"></i></span>Arusha, Tanzania 23100</li>
-          <li><span class="fc-ico"><i class="fa-solid fa-phone"></i></span><a href="tel:+255690318461"
-              style="color:var(--text);">+255 690 318 461</a></li>
-          <li><span class="fc-ico"><i class="fa-brands fa-whatsapp"></i></span><a href="https://wa.me/255690318461"
-              style="color:var(--text);">WhatsApp Chat</a></li>
-          <li><span class="fc-ico"><i class="fa-solid fa-envelope"></i></span><a href="mailto:info@seresafariafrica.com"
-              style="color:var(--text);">info@seresafariafrica.com</a></li>
-          <li><span class="fc-ico"><i class="fa-solid fa-clock"></i></span>Mon–Sat: 8:00 AM – 6:00 PM EAT</li>
-        </ul>
-      </div>
-      <div class="footer-badges">
-        <video class="footer-plane-video" autoplay muted loop playsinline>
-          <source src="images/jeep.mp4" type="video/mp4">
-        </video>
-
-        <div class="footer-badge-row">
-          <p class="badge-label">We Accept</p>
-          <div class="badge-items">
-            <a href="https://shop.directpay.online/paymybills/SERESAFARIAFRICATOURSCOMPANYLIMITED"
-              target="_blank" rel="noopener noreferrer">
-              <img src="images/visa.png" alt="Visa accepted" class="payment-badge">
-            </a>
+            <p style="margin-top: 0.8rem">
+              Each kit includes exercise books, pens, pencils, a ruler, an
+              eraser, crayons, and a school bag. We partner directly with local
+              primary school headteachers to identify the most vulnerable
+              children and distribute kits at the start of every school term.
+            </p>
+            <span class="prog-tag"
+              ><i class="fa-solid fa-check"></i> Active · 3 Regions</span
+            >
           </div>
         </div>
 
-        <div class="footer-badge-row">
-          <p class="badge-label">Find Us On</p>
-          <div class="badge-items">
-            <a href="https://www.tripadvisor.com/Attraction_Review-g297913-d28413189-Reviews-Seresafari_Africa_Tours-Arusha_Arusha_Region.html"
-              target="_blank" rel="noopener" class="review-badge">
-              <img src="images/tripadvisor.svg" alt="TripAdvisor" class="platform-logo">
-            </a>
-            <a href="https://www.getyourguide.com/seresafari-africa-s583425/" target="_blank" rel="noopener" class="review-badge">
-              <img src="images/getyourguide.svg" alt="GetYourGuide" class="platform-logo">
-            </a>
-            <a href="https://www.safarigo.com/operator/seresafari-africa-tours-3208" target="_blank" rel="noopener" class="review-badge">
-              <img src="images/safarigo.png" alt="SafariGo" class="platform-logo">
-            </a>
-            <a href="https://tourist.com/p/15564/seresafari_africa" target="_blank" rel="noopener" class="review-badge">
-              <img src="images/tourist.svg" alt="Tourist.com" class="platform-logo">
-            </a>
-            <a href="https://www.safaribookings.com/p7682" target="_blank" rel="noopener" class="review-badge">
-              <img src="images/safaribookings.png" alt="SafariBookings" class="platform-logo">
-            </a>
+        <!-- 2. Orphan & Vulnerable Children -->
+        <div class="prog-card reveal delay-1">
+          <div class="prog-card-top">
+            <img
+              src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=700&q=80"
+              alt="Orphan Support Programme"
+              loading="lazy"
+            />
+            <div class="prog-card-icon">
+              <i class="fa-solid fa-child-reaching"></i>
+            </div>
+          </div>
+          <div class="prog-card-body">
+            <h3>Orphan &amp; Vulnerable Children Support</h3>
+            <p>
+              Tanzania has hundreds of thousands of orphaned children — watoto
+              yatima — many living in care centres and residential homes run by
+              religious organisations or community volunteers with very limited
+              resources. These centres often struggle to provide adequate food,
+              clothing, bedding and learning materials.
+            </p>
+            <p style="margin-top: 0.8rem">
+              We visit partner orphanages and care centres across the Arusha and
+              Kilimanjaro regions quarterly, bringing food parcels, clothing
+              bundles, educational toys, stationery supplies, and toiletries. We
+              also fund basic infrastructure repairs where most urgent.
+            </p>
+            <span class="prog-tag"
+              ><i class="fa-solid fa-check"></i> Active · 8 Care Centres</span
+            >
+          </div>
+        </div>
+
+        <!-- 3. Youth Empowerment -->
+        <div class="prog-card reveal delay-2">
+          <div class="prog-card-top">
+            <img
+              src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=700&q=80"
+              alt="Youth Empowerment Programme"
+              loading="lazy"
+            />
+            <div class="prog-card-icon">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+          </div>
+          <div class="prog-card-body">
+            <h3>Youth Empowerment &amp; Skills Training</h3>
+            <p>
+              Young people who complete secondary school but cannot access
+              university face a difficult gap. Through our Youth Empowerment
+              Programme, we run vocational training workshops in partnership
+              with local hospitality schools — covering guiding skills, English
+              language, customer service, basic first aid, and wildlife ecology.
+            </p>
+            <p style="margin-top: 0.8rem">
+              Graduates are supported into entry-level roles within Tanzania's
+              tourism industry, creating a pipeline of locally trained
+              professionals who stay in the community and contribute to its
+              growth.
+            </p>
+            <span class="prog-tag"
+              ><i class="fa-solid fa-check"></i> Active · 120+ Graduates</span
+            >
+          </div>
+        </div>
+
+        <!-- 4. Women & Families -->
+        <div class="prog-card reveal">
+          <div class="prog-card-top">
+            <img
+              src="https://images.unsplash.com/photo-1607748851687-ba9a10438621?w=700&q=80"
+              alt="Women and Families Programme"
+              loading="lazy"
+            />
+            <div class="prog-card-icon">
+              <i class="fa-solid fa-people-group"></i>
+            </div>
+          </div>
+          <div class="prog-card-body">
+            <h3>Women &amp; Family Resilience</h3>
+            <p>
+              Women form the backbone of rural Tanzanian communities, yet often
+              face the greatest economic hardship when breadwinners fall ill or
+              families are disrupted. We support small groups of women —
+              particularly single mothers and widows — through micro-grant
+              funding for income-generating activities like crafts, vegetable
+              farming, and small trade.
+            </p>
+            <p style="margin-top: 0.8rem">
+              Guests who purchase locally made Maasai crafts and beadwork
+              through Seresafari Africa directly fund these women's
+              cooperatives. Nothing is marked up — every shilling goes back to
+              the maker.
+            </p>
+            <span class="prog-tag"
+              ><i class="fa-solid fa-check"></i> Active · 6 Women's Groups</span
+            >
+          </div>
+        </div>
+
+        <!-- 5. Conservation & Environment -->
+        <div class="prog-card reveal delay-1">
+          <div class="prog-card-top">
+            <img
+              src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=700&q=80"
+              alt="Conservation Programme"
+              loading="lazy"
+            />
+            <div class="prog-card-icon"><i class="fa-solid fa-leaf"></i></div>
+          </div>
+          <div class="prog-card-body">
+            <h3>Conservation &amp; Environmental Education</h3>
+            <p>
+              Without thriving wildlife, there is no tourism. Without tourism,
+              there is no community benefit. We close this loop by funding
+              environmental education in schools near national parks — teaching
+              children why healthy ecosystems matter, what coexistence with
+              wildlife looks like, and how responsible tourism creates dignified
+              livelihoods for their families.
+            </p>
+            <p style="margin-top: 0.8rem">
+              We also co-fund anti-poaching community ranger patrols in buffer
+              zones around Tarangire and the Ngorongoro Conservation Area,
+              working directly with Tanzania National Parks Authority (TANAPA).
+            </p>
+            <span class="prog-tag"
+              ><i class="fa-solid fa-check"></i> Active · TANAPA
+              Partnership</span
+            >
+          </div>
+        </div>
+
+        <!-- 6. Nutrition & Health -->
+        <div class="prog-card reveal delay-2">
+          <div class="prog-card-top">
+            <img
+              src="https://images.unsplash.com/photo-1609220136736-443140cffec6?w=700&q=80"
+              alt="Nutrition Programme"
+              loading="lazy"
+            />
+            <div class="prog-card-icon">
+              <i class="fa-solid fa-bowl-food"></i>
+            </div>
+          </div>
+          <div class="prog-card-body">
+            <h3>Nutrition &amp; Health Access</h3>
+            <p>
+              Malnutrition among young children in Tanzania's rural and
+              peri-urban communities remains a serious challenge. We partner
+              with local health volunteers (Mama Lishe — community nutrition
+              volunteers) to deliver monthly food packages to families with
+              severely malnourished children under five years of age.
+            </p>
+            <p style="margin-top: 0.8rem">
+              In addition, we fund annual deworming and basic health screening
+              days at partner primary schools, reaching children who otherwise
+              would not access preventive healthcare. Healthy children learn
+              better. Learning changes everything.
+            </p>
+            <span class="prog-tag"
+              ><i class="fa-solid fa-check"></i> Active · Health Volunteers
+              Network</span
+            >
           </div>
         </div>
       </div>
-    </div>
-    <div class="footer-bot">
-      <p>© 2026 Seresafari Africa. All Rights Reserved. · Web by Pamtech</p>
-      <div class="hakuna">Hakuna Matata <i class="fa-solid fa-earth-africa"></i></div>
-      <p>
-        <a href="pages/privacy-policy.html">Privacy Policy</a> ·
-        <a href="pages/terms-of-service.html">Terms of Service</a> ·
-        <a href="pages/travel-insights.html">Travel Insights</a>
-      </p>
-    </div>
-  </footer>
+    </section>
 
-  <a class="wa-btn" href="https://wa.me/255690318461" target="_blank" rel="noopener" aria-label="WhatsApp">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
-  <script src="js/main.js"></script>
-</body>
+    <!-- PHOTO MOSAIC -->
+    <section style="padding: 0 8% 7rem; background: var(--dark)">
+      <div class="reveal" style="text-align: center; margin-bottom: 0">
+        <div class="section-tag">
+          <i class="fa-solid fa-images"></i> Moments of Change
+        </div>
+        <h2 class="section-title">Community in <em>Action</em></h2>
+      </div>
+      <div class="comm-mosaic">
+        <div class="comm-mosaic-item">
+          <img
+            src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=600&q=80"
+            alt="Children in Tanzania classroom"
+            loading="lazy"
+          />
+        </div>
+        <div class="comm-mosaic-item">
+          <img
+            src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80"
+            alt="Orphan support visit"
+            loading="lazy"
+          />
+        </div>
+        <div class="comm-mosaic-item">
+          <img
+            src="https://images.unsplash.com/photo-1607748851687-ba9a10438621?w=600&q=80"
+            alt="Women's cooperative"
+            loading="lazy"
+          />
+        </div>
+        <div class="comm-mosaic-item">
+          <img
+            src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80"
+            alt="School supplies distribution"
+            loading="lazy"
+          />
+        </div>
+        <div class="comm-mosaic-item">
+          <img
+            src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&q=80"
+            alt="Youth training"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
 
+    <!-- TIMELINE -->
+    <section style="padding: 7rem 8%; background: var(--dark2)">
+      <div
+        style="
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 5rem;
+          align-items: start;
+        "
+      >
+        <div class="reveal-l">
+          <div class="section-tag">
+            <i class="fa-solid fa-timeline"></i> Our Journey
+          </div>
+          <h2 class="section-title">Building <em>Impact</em> Year by Year</h2>
+          <p class="section-sub">
+            From a single school-kit drive to a structured multi-programme
+            initiative — our community work has grown steadily alongside our
+            safari business, because we believe one cannot thrive without the
+            other.
+          </p>
+          <div class="timeline" style="margin-top: 2.5rem">
+            <div class="tl-item">
+              <div class="tl-year">Year 1 — The Beginning</div>
+              <div class="tl-title">First School Kit Distribution</div>
+              <p class="tl-desc">
+                Our founder personally delivered the first 40 school kits to a
+                primary school in Arusha's outskirts. The smiles on those
+                children's faces became the foundation of everything that
+                followed.
+              </p>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">Year 2 — Expanding Reach</div>
+              <div class="tl-title">First Orphanage Partnership</div>
+              <p class="tl-desc">
+                We formalised our first partnership with a children's home in
+                the Kilimanjaro region, delivering quarterly visits with food,
+                clothing and essential supplies to over 60 resident children.
+              </p>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">Year 3 — Skills &amp; Livelihoods</div>
+              <div class="tl-title">Youth Empowerment Launched</div>
+              <p class="tl-desc">
+                Our first vocational training cohort of 22 young people
+                completed a 3-month tourism skills programme. Fifteen graduates
+                secured employment in Tanzania's safari industry within six
+                months.
+              </p>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">Year 4 — Conservation Link</div>
+              <div class="tl-title">
+                TANAPA Environmental Education Partnership
+              </div>
+              <p class="tl-desc">
+                We signed a formal collaboration agreement with Tanzania
+                National Parks to co-fund environmental education in five
+                primary schools adjacent to Tarangire National Park.
+              </p>
+            </div>
+            <div class="tl-item" style="padding-bottom: 0">
+              <div class="tl-year">Today — Ongoing</div>
+              <div class="tl-title">Growing With Every Booking</div>
+              <p class="tl-desc">
+                Every safari booked with Seresafari Africa automatically
+                contributes a percentage of revenue to our community fund. No
+                extras. No opt-ins. It is simply part of who we are.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- How you help -->
+        <div class="reveal-r">
+          <div class="section-tag">
+            <i class="fa-solid fa-handshake-angle"></i> How You Help
+          </div>
+          <h2 class="section-title">Your Safari <em>Matters</em></h2>
+          <p class="section-sub">
+            When you choose Seresafari Africa, you are not just choosing a great
+            safari. You are choosing to be part of something bigger. Here is
+            exactly how your booking creates impact:
+          </p>
+          <div class="help-grid">
+            <div class="help-item">
+              <div class="help-icon"><i class="fa-solid fa-percent"></i></div>
+              <div>
+                <div class="help-title">% of Every Booking</div>
+                <p class="help-desc">
+                  A fixed percentage of every safari payment goes directly into
+                  our community fund — automatically, no opt-in required.
+                </p>
+              </div>
+            </div>
+            <div class="help-item">
+              <div class="help-icon">
+                <i class="fa-solid fa-bag-shopping"></i>
+              </div>
+              <div>
+                <div class="help-title">Buy Local Crafts</div>
+                <p class="help-desc">
+                  Purchasing Maasai crafts and beadwork through us sends 100% of
+                  proceeds to women's cooperatives in Arusha.
+                </p>
+              </div>
+            </div>
+            <div class="help-item">
+              <div class="help-icon">
+                <i class="fa-solid fa-hand-holding-dollar"></i>
+              </div>
+              <div>
+                <div class="help-title">Direct Donation</div>
+                <p class="help-desc">
+                  Want to give more? We facilitate direct donations to any of
+                  our partner programmes — school kits, orphan care or youth
+                  training.
+                </p>
+              </div>
+            </div>
+            <div class="help-item">
+              <div class="help-icon">
+                <i class="fa-solid fa-share-nodes"></i>
+              </div>
+              <div>
+                <div class="help-title">Share the Story</div>
+                <p class="help-desc">
+                  Spreading the word about responsible tourism in Tanzania helps
+                  attract like-minded travellers who want to make a difference.
+                </p>
+              </div>
+            </div>
+            <div class="help-item">
+              <div class="help-icon"><i class="fa-solid fa-utensils"></i></div>
+              <div>
+                <div class="help-title">Fair Wages, Always</div>
+                <p class="help-desc">
+                  Every cook, porter, guide and camp staff member is paid above
+                  the industry minimum. Your money supports dignified
+                  livelihoods.
+                </p>
+              </div>
+            </div>
+            <div class="help-item">
+              <div class="help-icon"><i class="fa-solid fa-star"></i></div>
+              <div>
+                <div class="help-title">Leave a Review</div>
+                <p class="help-desc">
+                  Every positive review on TripAdvisor and Google helps us win
+                  more bookings — which means more impact for communities across
+                  Tanzania.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNER ORGANISATIONS -->
+    <section style="padding: 5rem 8%; background: var(--dark3)" class="reveal">
+      <div style="text-align: center; margin-bottom: 2rem">
+        <div class="section-tag">
+          <i class="fa-solid fa-network-wired"></i> Who We Work With
+        </div>
+        <h2 class="section-title">Our <em>Partner Organisations</em></h2>
+        <p class="section-sub" style="max-width: 560px; margin: 0 auto">
+          We work alongside trusted local organisations, government bodies and
+          community groups to ensure our programmes reach those who need them
+          most, with zero bureaucratic waste.
+        </p>
+      </div>
+      <div class="partner-row" style="justify-content: center">
+        <div class="partner-chip">
+          <i class="fa-solid fa-building-columns"></i> Tanzania National Parks
+          (TANAPA)
+        </div>
+        <div class="partner-chip">
+          <i class="fa-solid fa-hands-helping"></i> Arusha Children's Home
+        </div>
+        <div class="partner-chip">
+          <i class="fa-solid fa-hands-helping"></i> Kilimanjaro Orphan Centre
+        </div>
+        <div class="partner-chip">
+          <i class="fa-solid fa-school"></i> Rural Primary Schools Network
+        </div>
+        <div class="partner-chip">
+          <i class="fa-solid fa-female"></i> Mama Lishe Nutrition Volunteers
+        </div>
+        <div class="partner-chip">
+          <i class="fa-solid fa-leaf"></i> Ngorongoro Conservation Area
+          Authority
+        </div>
+        <div class="partner-chip">
+          <i class="fa-solid fa-graduation-cap"></i> Arusha Technical College
+        </div>
+        <div class="partner-chip">
+          <i class="fa-solid fa-people-group"></i> Maasai Women's Cooperative
+          Network
+        </div>
+        <div class="partner-chip">
+          <i class="fa-solid fa-hand-holding-medical"></i> Community Health
+          Volunteers
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="book-section" style="padding: 7rem 8%; text-align: center">
+      <div class="book-bg"></div>
+      <div class="book-inner reveal">
+        <div class="section-tag" style="justify-content: center">
+          <i class="fa-solid fa-earth-africa"></i> Travel with Purpose
+        </div>
+        <h2
+          style="
+            font-family: var(--ff-head);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--white);
+            margin-bottom: 1rem;
+          "
+        >
+          Book a Safari,<br /><em style="color: var(--gold); font-style: normal"
+            >Change a Life</em
+          >
+        </h2>
+        <p style="color: var(--text); max-width: 540px; margin: 0 auto 2rem">
+          Every safari you book with us does two things: gives you an
+          unforgettable adventure, and makes a real, measurable difference in
+          the lives of Tanzania's children, youth and families. That is a
+          journey worth taking.
+        </p>
+        <div
+          style="
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+          "
+        >
+          <a href="pages/contact.html" class="btn btn-primary"
+            ><i class="fa-solid fa-paper-plane"></i> Plan Your Safari</a
+          >
+          <a href="about.html" class="btn btn-outline"
+            ><i class="fa-solid fa-arrow-left"></i> Back to About Us</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">SERE<span>SAFARI</span></a>
+          <p class="footer-tagline">
+            Creating unforgettable safari experiences in the heart of Africa.
+            Expert guides. Hand-picked lodges. 100% locally owned.
+          </p>
+          <div class="footer-social">
+            <a
+              href="https://www.facebook.com/Seresafari/"
+              target="_blank"
+              rel="noopener"
+              class="soc-btn"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+            <a href="#" class="soc-btn"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a href="#" class="soc-btn"
+              ><i class="fa-brands fa-x-twitter"></i
+            ></a>
+            <a href="#" class="soc-btn"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+          <ul class="footer-links">
+            <li>
+              <a href="community.html"
+                ><i class="fa-solid fa-chevron-right"></i>Our Commitment</a
+              >
+            </li>
+            <li>
+              <a href="community.html#programmes"
+                ><i class="fa-solid fa-chevron-right"></i>Education Access</a
+              >
+            </li>
+            <li>
+              <a href="community.html#programmes"
+                ><i class="fa-solid fa-chevron-right"></i>Orphan Support</a
+              >
+            </li>
+            <li>
+              <a href="community.html#programmes"
+                ><i class="fa-solid fa-chevron-right"></i>Youth Empowerment</a
+              >
+            </li>
+            <li>
+              <a href="community.html#programmes"
+                ><i class="fa-solid fa-chevron-right"></i>Conservation</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li>
+              <a href="about.html"
+                ><i class="fa-solid fa-chevron-right"></i>About Us</a
+              >
+            </li>
+            <li>
+              <a href="pages/tours.html"
+                ><i class="fa-solid fa-chevron-right"></i>Tour Packages</a
+              >
+            </li>
+            <li>
+              <a href="pages/kilimanjaro.html"
+                ><i class="fa-solid fa-chevron-right"></i>Kilimanjaro</a
+              >
+            </li>
+            <li>
+              <a href="pages/zanzibar.html"
+                ><i class="fa-solid fa-chevron-right"></i>Zanzibar</a
+              >
+            </li>
+            <li>
+              <a href="pages/contact.html"
+                ><i class="fa-solid fa-chevron-right"></i>Contact Us</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul class="footer-contact">
+            <li>
+              <span class="fc-ico"
+                ><i class="fa-solid fa-location-dot"></i></span
+              >Arusha, Tanzania 23100
+            </li>
+            <li>
+              <span class="fc-ico"><i class="fa-solid fa-phone"></i></span
+              ><a href="tel:+255690318461" style="color: var(--text)"
+                >+255 690 318 461</a
+              >
+            </li>
+            <li>
+              <span class="fc-ico"><i class="fa-brands fa-whatsapp"></i></span
+              ><a href="https://wa.me/255690318461" style="color: var(--text)"
+                >WhatsApp Chat</a
+              >
+            </li>
+            <li>
+              <span class="fc-ico"><i class="fa-solid fa-envelope"></i></span
+              ><a
+                href="mailto:info@seresafariafrica.com"
+                style="color: var(--text)"
+                >info@seresafariafrica.com</a
+              >
+            </li>
+            <li>
+              <span class="fc-ico"><i class="fa-solid fa-clock"></i></span
+              >Mon–Sat: 8:00 AM – 6:00 PM EAT
+            </li>
+          </ul>
+        </div>
+        <div class="footer-badges">
+          <video class="footer-plane-video" autoplay muted loop playsinline>
+            <source src="images/jeep.mp4" type="video/mp4" />
+          </video>
+
+          <div class="footer-badge-row">
+            <p class="badge-label">We Accept</p>
+            <div class="badge-items">
+              <a
+                href="https://shop.directpay.online/paymybills/SERESAFARIAFRICATOURSCOMPANYLIMITED"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="images/visa.png"
+                  alt="Visa accepted"
+                  class="payment-badge"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-badge-row">
+            <p class="badge-label">Find Us On</p>
+            <div class="badge-items">
+              <a
+                href="https://www.tripadvisor.com/Attraction_Review-g297913-d28413189-Reviews-Seresafari_Africa_Tours-Arusha_Arusha_Region.html"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="images/tripadvisor.svg"
+                  alt="TripAdvisor"
+                  class="platform-logo"
+                />
+              </a>
+              <a
+                href="https://www.getyourguide.com/seresafari-africa-s583425/"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="images/getyourguide.svg"
+                  alt="GetYourGuide"
+                  class="platform-logo"
+                />
+              </a>
+              <a
+                href="https://www.safarigo.com/operator/seresafari-africa-tours-3208"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="images/safarigo.png"
+                  alt="SafariGo"
+                  class="platform-logo"
+                />
+              </a>
+              <a
+                href="https://tourist.com/p/15564/seresafari_africa"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="images/tourist.svg"
+                  alt="Tourist.com"
+                  class="platform-logo"
+                />
+              </a>
+              <a
+                href="https://www.safaribookings.com/p7682"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="images/safaribookings.png"
+                  alt="SafariBookings"
+                  class="platform-logo"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bot">
+        <p>© 2026 Seresafari Africa. All Rights Reserved. · Web by Pamtech</p>
+        <div class="hakuna">
+          Hakuna Matata <i class="fa-solid fa-earth-africa"></i>
+        </div>
+        <p>
+          <a href="pages/privacy-policy.html">Privacy Policy</a> ·
+          <a href="pages/terms-of-service.html">Terms of Service</a> ·
+          <a href="pages/travel-insights.html">Travel Insights</a>
+        </p>
+      </div>
+    </footer>
+
+    <a
+      class="wa-btn"
+      href="https://wa.me/255690318461"
+      target="_blank"
+      rel="noopener"
+      aria-label="WhatsApp"
+    >
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <script src="js/main.js"></script>
+    <script src="js/content-protection.js"></script>
+  </body>
 </html>

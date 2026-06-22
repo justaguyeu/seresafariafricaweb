@@ -1,436 +1,874 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <link href="../favicon/favicon.ico">
-  <link rel="apple-touch-icon" sizes="57x57" href="../favicon/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="../favicon/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="../favicon/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="../favicon/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="../favicon/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="../favicon/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="../favicon/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="../favicon/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="../favicon/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="../favicon/android-chrome-512x512.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="../favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="../favicon/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
-  <meta name="description"
-    content="Photo gallery – Sere Safari Africa. Stunning images from Tanzania safaris, Kilimanjaro climbs, Zanzibar beaches, wildlife and cultural experiences." />
-  <title>Gallery – Sere Safari Africa</title>
-  <link rel="stylesheet" href="../css/main.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    .filter-bar {
-      display: flex;
-      gap: .7rem;
-      flex-wrap: wrap;
-      margin-bottom: 2.5rem;
-    }
-
-    .filter-btn {
-      font-family: var(--ff-head);
-      font-size: .75rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: .55rem 1.4rem;
-      border: 1px solid rgba(201, 150, 58, .3);
-      color: var(--text);
-      cursor: none;
-      transition: all var(--trans);
-    }
-
-    .filter-btn:hover,
-    .filter-btn.active {
-      background: var(--gold);
-      color: var(--dark);
-      border-color: var(--gold);
-    }
-
-    .masonry {
-      columns: 4;
-      gap: 6px;
-      column-gap: 6px;
-    }
-
-    .masonry-item {
-      break-inside: avoid;
-      margin-bottom: 6px;
-      position: relative;
-      overflow: hidden;
-      cursor: none;
-    }
-
-    .masonry-item img {
-      width: 100%;
-      display: block;
-      filter: brightness(.7) saturate(.9);
-      transition: transform .55s, filter .55s;
-    }
-
-    .masonry-item:hover img {
-      transform: scale(1.06);
-      filter: brightness(.95) saturate(1.2);
-    }
-
-    .masonry-item .gal-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: .5rem;
-      opacity: 0;
-      transition: opacity .3s;
-      background: rgba(0, 0, 0, .25);
-    }
-
-    .masonry-item:hover .gal-overlay {
-      opacity: 1;
-    }
-
-    .masonry-item .gal-overlay i {
-      color: #fff;
-      font-size: 1.8rem;
-    }
-
-    .masonry-item .gal-label {
-      color: #fff;
-      font-family: var(--ff-head);
-      font-size: .75rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    @media(max-width:1024px) {
-      .masonry {
-        columns: 3;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link href="../favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="../favicon/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="../favicon/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="../favicon/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="../favicon/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="../favicon/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="../favicon/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="../favicon/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="../favicon/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../favicon/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="../favicon/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="../favicon/android-chrome-512x512.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="../favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="../favicon/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../favicon/favicon-16x16.png"
+    />
+    <meta
+      name="description"
+      content="Photo gallery – Seresafari Africa. Stunning images from Tanzania safaris, Kilimanjaro climbs, Zanzibar beaches, wildlife and cultural experiences."
+    />
+    <title>Gallery – Seresafari Africa</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      .filter-bar {
+        display: flex;
+        gap: 0.7rem;
+        flex-wrap: wrap;
+        margin-bottom: 2.5rem;
       }
-    }
 
-    @media(max-width:768px) {
-      .masonry {
-        columns: 2;
+      .filter-btn {
+        font-family: var(--ff-head);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        padding: 0.55rem 1.4rem;
+        border: 1px solid rgba(201, 150, 58, 0.3);
+        color: var(--text);
+        cursor: none;
+        transition: all var(--trans);
       }
-    }
 
-    @media(max-width:480px) {
-      .masonry {
-        columns: 1;
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: var(--gold);
+        color: var(--dark);
+        border-color: var(--gold);
       }
-    }
-  </style>
-</head>
 
-<body>
-  <div id="cursor"></div>
-  <div id="cursor-ring"></div>
-  <button id="back-top"><i class="fa-solid fa-chevron-up"></i></button>
+      .masonry {
+        columns: 4;
+        gap: 6px;
+        column-gap: 6px;
+      }
 
-  <nav id="nav">
-    <a href="../index.html" class="logo"><img src="../logo2.png" alt=""></a>
-    <ul class="nav-links">
-      <li><a href="../about.html">About</a></li>
-      <li><a href="destinations.html">Destinations</a></li>
-      <li><a href="tours.html">Tours</a></li>
-      <li><a href="kilimanjaro.html">Kilimanjaro</a></li>
-      <li><a href="zanzibar.html">Zanzibar</a></li>
-      <li><a href="gallery.html" class="active">Gallery</a></li>
-      <li><a href="contact.html" class="nav-book">Enquire Now</a></li>
-    </ul>
-    <button class="ham" id="ham"><span></span><span></span><span></span></button>
-  </nav>
-  <nav class="mob-menu" id="mob-menu">
-    <a href="../index.html">Home</a><a href="../about.html">About</a><a href="destinations.html">Destinations</a>
-    <a href="tours.html">Tours</a><a href="kilimanjaro.html">Kilimanjaro</a><a href="zanzibar.html">Zanzibar</a>
-    <a href="gallery.html">Gallery</a><a href="contact.html" style="color:var(--gold)">Enquire Now</a>
-  </nav>
+      .masonry-item {
+        break-inside: avoid;
+        margin-bottom: 6px;
+        position: relative;
+        overflow: hidden;
+        cursor: none;
+      }
 
-  <header class="page-header"
-    style="background-image:url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1600&q=85');">
-    <div class="breadcrumb"><a href="../index.html">Home</a><i class="fa-solid fa-chevron-right"></i>Gallery</div>
-    <div class="section-tag"><i class="fa-solid fa-images"></i> Visual Stories</div>
-    <h1 class="section-title" style="font-size:clamp(2.5rem,6vw,4.5rem);">Tanzania Through <em>Our Lens</em></h1>
-    <p class="section-sub" style="max-width:580px;margin:.8rem auto 0;">Every image tells a story — of encounters that
-      take your breath away, landscapes that stretch to eternity, and moments that change how you see the world.</p>
-  </header>
+      .masonry-item img {
+        width: 100%;
+        display: block;
+        filter: brightness(0.7) saturate(0.9);
+        transition:
+          transform 0.55s,
+          filter 0.55s;
+      }
 
-  <!-- GALLERY -->
-  <section style="background:var(--dark2);padding:5rem 5%;">
-    <div class="filter-bar reveal">
-      <button class="filter-btn active" data-filter="all"><i class="fa-solid fa-grip"></i> All</button>
-      <button class="filter-btn" data-filter="wildlife"><i class="fa-solid fa-paw"></i> Wildlife</button>
-      <button class="filter-btn" data-filter="serengeti"><i class="fa-solid fa-sun"></i> Serengeti</button>
-      <button class="filter-btn" data-filter="kilimanjaro"><i class="fa-solid fa-mountain"></i> Kilimanjaro</button>
-      <button class="filter-btn" data-filter="zanzibar"><i class="fa-solid fa-umbrella-beach"></i> Zanzibar</button>
-      <button class="filter-btn" data-filter="culture"><i class="fa-solid fa-people-group"></i> Culture</button>
-    </div>
+      .masonry-item:hover img {
+        transform: scale(1.06);
+        filter: brightness(0.95) saturate(1.2);
+      }
 
-    <div class="masonry" id="gallery-grid">
-      <div class="masonry-item gal-item" data-cat="serengeti wildlife">
-        <img src="../images/gallery/wildlife/5.jpg" alt="Serengeti plains at golden hour" loading="lazy" />
-        <div class="gal-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span class="gal-label">Serengeti
-            Plains</span></div>
-      </div>
-      <div class="masonry-item gal-item" data-cat="wildlife">
-        <img src="../images/gallery/wildlife/17.jpg" alt="African elephant herd Tarangire" loading="lazy" />
-        <div class="gal-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span class="gal-label">Tarangire
-            Elephants</span></div>
-      </div>
-      <div class="masonry-item gal-item" data-cat="zanzibar">
-        <img src="../images/gallery/zanzibar/2.jpg" alt="Zanzibar white sand beach" loading="lazy" />
-        <div class="gal-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span class="gal-label">Zanzibar
-            Beach</span></div>
-      </div>
-      <div class="masonry-item gal-item" data-cat="kilimanjaro">
-        <img src="../images/gallery/kilimanjaro/19.jpg" alt="Mount Kilimanjaro summit" loading="lazy" />
-        <div class="gal-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span class="gal-label">Uhuru
-            Peak</span></div>
-      </div>
-      <div class="masonry-item gal-item" data-cat="wildlife serengeti">
-        <img src="../images/gallery/serengeti/1.jpg" alt="African wildlife safari" loading="lazy" />
-        <div class="gal-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span class="gal-label">Safari
-            Wildlife</span></div>
-      </div>
-      <div class="masonry-item gal-item" data-cat="culture">
-        <img src="../images/gallery/culture/1.jpg" alt="Maasai culture Tanzania" loading="lazy" />
-        <div class="gal-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span class="gal-label">Maasai
-            Culture</span></div>
-      </div>
-      <div class="masonry-item gal-item" data-cat="serengeti wildlife">
-        <img src="../images/gallery/serengeti/10.jpg" alt="Serengeti landscape aerial" loading="lazy" />
-        <div class="gal-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span class="gal-label">Serengeti From
-            Above</span></div>
-      </div>
-      <div class="masonry-item gal-item" data-cat="zanzibar">
-        <img src="../images/gallery/zanzibar/1.jpg" alt="Zanzibar dhow sailing" loading="lazy" />
-        <div class="gal-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span class="gal-label">Dhow
-            Sailing</span></div>
-      </div>
-      <div class="masonry-item gal-item" data-cat="wildlife">
-        <img src="../images/gallery/wildlife/18.jpg" alt="Ngorongoro crater wildlife" loading="lazy" />
-        <div class="gal-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span class="gal-label">Ngorongoro
-            Crater</span></div>
-      </div>
-      <div class="masonry-item gal-item" data-cat="kilimanjaro">
-        <img src="../images/gallery/kilimanjaro/20.webp" alt="Kilimanjaro trekking through forest" loading="lazy" />
-        <div class="gal-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span class="gal-label">Rainforest
-            Zone</span></div>
-      </div>
-      <div class="masonry-item gal-item" data-cat="culture zanzibar">
-        <img src="../images/gallery/kilimanjaro/stone.webp" alt="Stone Town Zanzibar architecture" loading="lazy" />
-        <div class="gal-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span class="gal-label">Stone
-            Town</span></div>
-      </div>
-      <div class="masonry-item gal-item" data-cat="serengeti wildlife">
-        <img src="../images/gallery/wildlife/19.jpg" alt="Lion resting on rock Serengeti" loading="lazy" />
-        <div class="gal-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span class="gal-label">Lion
-            King</span></div>
-      </div>
-      <div class="masonry-item gal-item" data-cat="zanzibar">
-        <img src="../images/gallery/zanzibar/11.jpg" alt="Zanzibar sunset over ocean" loading="lazy" />
-        <div class="gal-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span class="gal-label">Island
-            Sunset</span></div>
-      </div>
-      <div class="masonry-item gal-item" data-cat="wildlife serengeti">
-        <img src="../images/gallery/wildlife/9.jpg" alt="Giraffe at sunset Tanzania" loading="lazy" />
-        <div class="gal-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span class="gal-label">Giraffe at
-            Dusk</span></div>
-      </div>
-      <div class="masonry-item gal-item" data-cat="kilimanjaro">
-        <img src="../images/gallery/kilimanjaro/6.jpg" alt="Kilimanjaro glaciers summit" loading="lazy" />
-        <div class="gal-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span class="gal-label">Summit
-            Glaciers</span></div>
-      </div>
-      <div class="masonry-item gal-item" data-cat="culture">
-        <img src="../images/gallery/culture/4.jpg" alt="Traditional Maasai village Tanzania" loading="lazy" />
-        <div class="gal-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span class="gal-label">Maasai
-            Village</span></div>
-      </div>
-      <div class="masonry-item gal-item" data-cat="wildlife">
-        <img src="../images/gallery/wildlife/6.jpg" alt="Zebra herd Tanzania Serengeti" loading="lazy" />
-        <div class="gal-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span class="gal-label">Zebra
-            Herd</span></div>
-      </div>
-      <div class="masonry-item gal-item" data-cat="zanzibar">
-        <img src="../images/gallery/zanzibar/4.jpg" alt="Zanzibar kite surfing" loading="lazy" />
-        <div class="gal-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span class="gal-label">Paje
-            Watersports</span></div>
-      </div>
-      <div class="masonry-item gal-item" data-cat="serengeti">
-        <img src="../images/gallery/culture/11.jpeg" alt="Serengeti acacia tree sunset" loading="lazy" />
-        <div class="gal-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span class="gal-label">Acacia at
-            Sunset</span></div>
-      </div>
-      <div class="masonry-item gal-item" data-cat="wildlife">
-        <img src="../images/gallery/wildlife/21.jpg" alt="Cheetah on termite mound" loading="lazy" />
-        <div class="gal-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span class="gal-label">Cheetah
-            Lookout</span></div>
-      </div>
-    </div>
-  </section>
+      .masonry-item .gal-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        opacity: 0;
+        transition: opacity 0.3s;
+        background: rgba(0, 0, 0, 0.25);
+      }
 
-  <!-- INSTAGRAM CTA -->
-  <section style="background:var(--gold);padding:4rem 8%;text-align:center;">
-    <div class="reveal">
-      <div
-        style="font-family:var(--ff-head);font-size:.75rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--earth);margin-bottom:.5rem;display:flex;align-items:center;justify-content:center;gap:8px;">
-        <i class="fa-brands fa-instagram"></i> Follow Our Adventures
+      .masonry-item:hover .gal-overlay {
+        opacity: 1;
+      }
+
+      .masonry-item .gal-overlay i {
+        color: #fff;
+        font-size: 1.8rem;
+      }
+
+      .masonry-item .gal-label {
+        color: #fff;
+        font-family: var(--ff-head);
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 1024px) {
+        .masonry {
+          columns: 3;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .masonry {
+          columns: 2;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .masonry {
+          columns: 1;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
+    <button id="back-top"><i class="fa-solid fa-chevron-up"></i></button>
+
+    <nav id="nav">
+      <a href="../index.html" class="logo"><img src="../logo2.png" alt="" /></a>
+      <ul class="nav-links">
+        <li><a href="../about.html">About</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="tours.html">Tours</a></li>
+        <li><a href="kilimanjaro.html">Kilimanjaro</a></li>
+        <li><a href="zanzibar.html">Zanzibar</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="contact.html" class="nav-book">Enquire Now</a></li>
+      </ul>
+      <button class="ham" id="ham">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <nav class="mob-menu" id="mob-menu">
+      <a href="../index.html">Home</a><a href="../about.html">About</a
+      ><a href="destinations.html">Destinations</a>
+      <a href="tours.html">Tours</a><a href="kilimanjaro.html">Kilimanjaro</a
+      ><a href="zanzibar.html">Zanzibar</a> <a href="gallery.html">Gallery</a
+      ><a href="contact.html" style="color: var(--gold)">Enquire Now</a>
+    </nav>
+
+    <header
+      class="page-header"
+      style="
+        background-image: url(&quot;https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1600&q=85&quot;);
+      "
+    >
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a
+        ><i class="fa-solid fa-chevron-right"></i>Gallery
       </div>
-      <h2
-        style="font-family:var(--ff-head);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--dark);margin-bottom:.5rem;">
-        Share Your Safari Moments</h2>
-      <p style="font-size:.95rem;color:var(--earth);max-width:500px;margin:0 auto 1.5rem;">Tag your photos with
-        <strong>#SeresafariAfrica</strong> and follow us on social media for daily wildlife updates, safari tips and
-        travel inspiration from Tanzania.
+      <div class="section-tag">
+        <i class="fa-solid fa-images"></i> Visual Stories
+      </div>
+      <h1 class="section-title" style="font-size: clamp(2.5rem, 6vw, 4.5rem)">
+        Tanzania Through <em>Our Lens</em>
+      </h1>
+      <p class="section-sub" style="max-width: 580px; margin: 0.8rem auto 0">
+        Every image tells a story — of encounters that take your breath away,
+        landscapes that stretch to eternity, and moments that change how you see
+        the world.
       </p>
-      <div style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;">
-        <a href="https://www.facebook.com/Seresafari/" target="_blank" rel="noopener" class="btn"
-          style="background:var(--dark);color:var(--white);clip-path:none;"><i class="fa-brands fa-facebook-f"></i>
-          Facebook</a>
-        <a href="#" class="btn" style="background:var(--dark);color:var(--white);clip-path:none;"><i
-            class="fa-brands fa-instagram"></i> Instagram</a>
-        <a href="#" class="btn" style="background:var(--dark);color:var(--white);clip-path:none;"><i
-            class="fa-brands fa-youtube"></i> YouTube</a>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- CTA -->
-  <section class="book-section">
-    <div class="book-bg"></div>
-    <div class="book-inner reveal">
-      <div class="section-tag" style="justify-content:center;"><i class="fa-solid fa-camera"></i> Your Story Starts Here
+    <!-- GALLERY -->
+    <section style="background: var(--dark2); padding: 5rem 5%">
+      <div class="filter-bar reveal">
+        <button class="filter-btn active" data-filter="all">
+          <i class="fa-solid fa-grip"></i> All
+        </button>
+        <button class="filter-btn" data-filter="wildlife">
+          <i class="fa-solid fa-paw"></i> Wildlife
+        </button>
+        <button class="filter-btn" data-filter="serengeti">
+          <i class="fa-solid fa-sun"></i> Serengeti
+        </button>
+        <button class="filter-btn" data-filter="kilimanjaro">
+          <i class="fa-solid fa-mountain"></i> Kilimanjaro
+        </button>
+        <button class="filter-btn" data-filter="zanzibar">
+          <i class="fa-solid fa-umbrella-beach"></i> Zanzibar
+        </button>
+        <button class="filter-btn" data-filter="culture">
+          <i class="fa-solid fa-people-group"></i> Culture
+        </button>
       </div>
-      <h2>Create Your Own <em>Memories</em></h2>
-      <p>Every image in this gallery was taken on a real Seresafari journey. Your adventure — and your photos — are
-        waiting. Let us help you plan the perfect Tanzania trip today.</p>
-      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-        <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Plan My Safari</a>
-        <a href="tours.html" class="btn btn-outline"><i class="fa-solid fa-compass"></i> Browse Tour Packages</a>
-      </div>
-    </div>
-  </section>
 
-  <footer>
-    <div class="footer-top">
-      <div class="footer-brand"><a href="../index.html" class="logo">SERE<span>SAFARI</span></a>
-        <p class="footer-tagline">Creating unforgettable safari experiences in the heart of Africa. Expert guides.
-          Hand-picked lodges. Hakuna Matata.</p>
-        <div class="footer-social"><a href="https://www.facebook.com/Seresafari/" target="_blank" rel="noopener"
-            class="soc-btn"><i class="fa-brands fa-facebook-f"></i></a><a href="#" class="soc-btn"><i
-              class="fa-brands fa-instagram"></i></a><a href="#" class="soc-btn"><i
-              class="fa-brands fa-x-twitter"></i></a><a href="#" class="soc-btn"><i
-              class="fa-brands fa-youtube"></i></a></div>
-      </div>
-      <div class="footer-col">
-        <h4>Destinations</h4>
-        <ul class="footer-links">
-          <li><a href="destinations.html"><i class="fa-solid fa-chevron-right"></i>Serengeti</a></li>
-          <li><a href="destinations.html"><i class="fa-solid fa-chevron-right"></i>Ngorongoro</a></li>
-          <li><a href="destinations.html"><i class="fa-solid fa-chevron-right"></i>Tarangire</a></li>
-          <li><a href="destinations.html"><i class="fa-solid fa-chevron-right"></i>Lake Manyara</a></li>
-          <li><a href="kilimanjaro.html"><i class="fa-solid fa-chevron-right"></i>Kilimanjaro</a></li>
-          <li><a href="zanzibar.html"><i class="fa-solid fa-chevron-right"></i>Zanzibar</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <ul class="footer-links">
-          <li><a href="../about.html"><i class="fa-solid fa-chevron-right"></i>About Us</a></li>
-          <li><a href="tours.html"><i class="fa-solid fa-chevron-right"></i>Tour Packages</a></li>
-          <li><a href="gallery.html"><i class="fa-solid fa-chevron-right"></i>Photo Gallery</a></li>
-          <li><a href="travel-insights.html"><i class="fa-solid fa-chevron-right"></i>Travel Insights</a></li>
-          <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i>Contact Us</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul class="footer-contact">
-          <li><span class="fc-ico"><i class="fa-solid fa-location-dot"></i></span>Arusha, Tanzania 23100</li>
-          <li><span class="fc-ico"><i class="fa-solid fa-phone"></i></span><a href="tel:+255690318461"
-              style="color:var(--text);">+255 690 318 461</a></li>
-          <li><span class="fc-ico"><i class="fa-solid fa-envelope"></i></span><a href="mailto:info@seresafariafrica.com"
-              style="color:var(--text);">info@seresafariafrica.com</a></li>
-          <li><span class="fc-ico"><i class="fa-solid fa-clock"></i></span>Mon–Sat: 8AM–6PM EAT</li>
-        </ul>
-      </div>
-    <div class="footer-badges">
-        <video class="footer-plane-video" autoplay muted loop playsinline>
-          <source src="../images/jeep.mp4" type="video/mp4">
-        </video>
-
-        <div class="footer-badge-row">
-          <p class="badge-label">We Accept</p>
-          <div class="badge-items">
-            <a href="https://shop.directpay.online/paymybills/SERESAFARIAFRICATOURSCOMPANYLIMITED"
-              target="_blank" rel="noopener noreferrer">
-              <img src="../images/visa.png" alt="Visa accepted" class="payment-badge">
-            </a>
+      <div class="masonry" id="gallery-grid">
+        <div class="masonry-item gal-item" data-cat="serengeti wildlife">
+          <img
+            src="../images/gallery/wildlife/5.jpg"
+            alt="Serengeti plains at golden hour"
+            loading="lazy"
+          />
+          <div class="gal-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i
+            ><span class="gal-label">Serengeti Plains</span>
           </div>
         </div>
-
-        <div class="footer-badge-row">
-          <p class="badge-label">Find Us On</p>
-          <div class="badge-items">
-            <a href="https://www.tripadvisor.com/Attraction_Review-g297913-d28413189-Reviews-Seresafari_Africa_Tours-Arusha_Arusha_Region.html"
-              target="_blank" rel="noopener" class="review-badge">
-              <img src="../images/tripadvisor.svg" alt="TripAdvisor" class="platform-logo">
-            </a>
-            <a href="https://www.getyourguide.com/seresafari-africa-s583425/" target="_blank" rel="noopener" class="review-badge">
-              <img src="../images/getyourguide.svg" alt="GetYourGuide" class="platform-logo">
-            </a>
-            <a href="https://www.safarigo.com/operator/seresafari-africa-tours-3208" target="_blank" rel="noopener" class="review-badge">
-              <img src="../images/safarigo.png" alt="SafariGo" class="platform-logo">
-            </a>
-            <a href="https://tourist.com/p/15564/seresafari_africa" target="_blank" rel="noopener" class="review-badge">
-              <img src="../images/tourist.svg" alt="Tourist.com" class="platform-logo">
-            </a>
-            <a href="https://www.safaribookings.com/p7682" target="_blank" rel="noopener" class="review-badge">
-              <img src="../images/safaribookings.png" alt="SafariBookings" class="platform-logo">
-            </a>
+        <div class="masonry-item gal-item" data-cat="wildlife">
+          <img
+            src="../images/gallery/wildlife/17.jpg"
+            alt="African elephant herd Tarangire"
+            loading="lazy"
+          />
+          <div class="gal-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i
+            ><span class="gal-label">Tarangire Elephants</span>
+          </div>
+        </div>
+        <div class="masonry-item gal-item" data-cat="zanzibar">
+          <img
+            src="../images/gallery/zanzibar/2.jpg"
+            alt="Zanzibar white sand beach"
+            loading="lazy"
+          />
+          <div class="gal-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i
+            ><span class="gal-label">Zanzibar Beach</span>
+          </div>
+        </div>
+        <div class="masonry-item gal-item" data-cat="kilimanjaro">
+          <img
+            src="../images/gallery/kilimanjaro/19.jpg"
+            alt="Mount Kilimanjaro summit"
+            loading="lazy"
+          />
+          <div class="gal-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i
+            ><span class="gal-label">Uhuru Peak</span>
+          </div>
+        </div>
+        <div class="masonry-item gal-item" data-cat="wildlife serengeti">
+          <img
+            src="../images/gallery/serengeti/1.jpg"
+            alt="African wildlife safari"
+            loading="lazy"
+          />
+          <div class="gal-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i
+            ><span class="gal-label">Safari Wildlife</span>
+          </div>
+        </div>
+        <div class="masonry-item gal-item" data-cat="culture">
+          <img
+            src="../images/gallery/culture/1.jpg"
+            alt="Maasai culture Tanzania"
+            loading="lazy"
+          />
+          <div class="gal-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i
+            ><span class="gal-label">Maasai Culture</span>
+          </div>
+        </div>
+        <div class="masonry-item gal-item" data-cat="serengeti wildlife">
+          <img
+            src="../images/gallery/serengeti/10.jpg"
+            alt="Serengeti landscape aerial"
+            loading="lazy"
+          />
+          <div class="gal-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i
+            ><span class="gal-label">Serengeti From Above</span>
+          </div>
+        </div>
+        <div class="masonry-item gal-item" data-cat="zanzibar">
+          <img
+            src="../images/gallery/zanzibar/1.jpg"
+            alt="Zanzibar dhow sailing"
+            loading="lazy"
+          />
+          <div class="gal-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i
+            ><span class="gal-label">Dhow Sailing</span>
+          </div>
+        </div>
+        <div class="masonry-item gal-item" data-cat="wildlife">
+          <img
+            src="../images/gallery/wildlife/18.jpg"
+            alt="Ngorongoro crater wildlife"
+            loading="lazy"
+          />
+          <div class="gal-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i
+            ><span class="gal-label">Ngorongoro Crater</span>
+          </div>
+        </div>
+        <div class="masonry-item gal-item" data-cat="kilimanjaro">
+          <img
+            src="../images/gallery/kilimanjaro/20.webp"
+            alt="Kilimanjaro trekking through forest"
+            loading="lazy"
+          />
+          <div class="gal-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i
+            ><span class="gal-label">Rainforest Zone</span>
+          </div>
+        </div>
+        <div class="masonry-item gal-item" data-cat="culture zanzibar">
+          <img
+            src="../images/gallery/kilimanjaro/stone.webp"
+            alt="Stone Town Zanzibar architecture"
+            loading="lazy"
+          />
+          <div class="gal-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i
+            ><span class="gal-label">Stone Town</span>
+          </div>
+        </div>
+        <div class="masonry-item gal-item" data-cat="serengeti wildlife">
+          <img
+            src="../images/gallery/wildlife/19.jpg"
+            alt="Lion resting on rock Serengeti"
+            loading="lazy"
+          />
+          <div class="gal-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i
+            ><span class="gal-label">Lion King</span>
+          </div>
+        </div>
+        <div class="masonry-item gal-item" data-cat="zanzibar">
+          <img
+            src="../images/gallery/zanzibar/11.jpg"
+            alt="Zanzibar sunset over ocean"
+            loading="lazy"
+          />
+          <div class="gal-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i
+            ><span class="gal-label">Island Sunset</span>
+          </div>
+        </div>
+        <div class="masonry-item gal-item" data-cat="wildlife serengeti">
+          <img
+            src="../images/gallery/wildlife/9.jpg"
+            alt="Giraffe at sunset Tanzania"
+            loading="lazy"
+          />
+          <div class="gal-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i
+            ><span class="gal-label">Giraffe at Dusk</span>
+          </div>
+        </div>
+        <div class="masonry-item gal-item" data-cat="kilimanjaro">
+          <img
+            src="../images/gallery/kilimanjaro/6.jpg"
+            alt="Kilimanjaro glaciers summit"
+            loading="lazy"
+          />
+          <div class="gal-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i
+            ><span class="gal-label">Summit Glaciers</span>
+          </div>
+        </div>
+        <div class="masonry-item gal-item" data-cat="culture">
+          <img
+            src="../images/gallery/culture/4.jpg"
+            alt="Traditional Maasai village Tanzania"
+            loading="lazy"
+          />
+          <div class="gal-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i
+            ><span class="gal-label">Maasai Village</span>
+          </div>
+        </div>
+        <div class="masonry-item gal-item" data-cat="wildlife">
+          <img
+            src="../images/gallery/wildlife/6.jpg"
+            alt="Zebra herd Tanzania Serengeti"
+            loading="lazy"
+          />
+          <div class="gal-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i
+            ><span class="gal-label">Zebra Herd</span>
+          </div>
+        </div>
+        <div class="masonry-item gal-item" data-cat="zanzibar">
+          <img
+            src="../images/gallery/zanzibar/4.jpg"
+            alt="Zanzibar kite surfing"
+            loading="lazy"
+          />
+          <div class="gal-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i
+            ><span class="gal-label">Paje Watersports</span>
+          </div>
+        </div>
+        <div class="masonry-item gal-item" data-cat="serengeti">
+          <img
+            src="../images/gallery/culture/11.jpeg"
+            alt="Serengeti acacia tree sunset"
+            loading="lazy"
+          />
+          <div class="gal-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i
+            ><span class="gal-label">Acacia at Sunset</span>
+          </div>
+        </div>
+        <div class="masonry-item gal-item" data-cat="wildlife">
+          <img
+            src="../images/gallery/wildlife/21.jpg"
+            alt="Cheetah on termite mound"
+            loading="lazy"
+          />
+          <div class="gal-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i
+            ><span class="gal-label">Cheetah Lookout</span>
           </div>
         </div>
       </div>
-    </div>
-    <div class="footer-bot">
-      <p>© 2026 Seresafari Africa. All Rights Reserved. · Web by Pamtech</p>
-      <div class="hakuna">Hakuna Matata <i class="fa-solid fa-earth-africa"></i></div>
-      <p>
-        <a href="privacy-policy.html">Privacy Policy</a> ·
-        <a href="terms-of-service.html">Terms of Service</a> ·
-        <a href="travel-insights.html">Travel Insights</a>
-      </p>
-    </div>
-  </footer>
-  <a class="wa-btn" href="https://wa.me/255690318461" target="_blank" rel="noopener"><i
-      class="fa-brands fa-whatsapp"></i></a>
-  <div id="lightbox" class="lightbox"><button id="lb-close" class="lb-close"><i
-        class="fa-solid fa-xmark"></i></button><img id="lb-img" src="" alt="Gallery image" /></div>
+    </section>
 
-  <script src="../js/main.js"></script>
-  <script>
-    // Gallery filter
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        document.querySelectorAll('.masonry-item').forEach(item => {
-          const cats = item.dataset.cat || '';
-          const show = filter === 'all' || cats.includes(filter);
-          item.style.display = show ? 'block' : 'none';
+    <!-- INSTAGRAM CTA -->
+    <section
+      style="background: var(--gold); padding: 4rem 8%; text-align: center"
+    >
+      <div class="reveal">
+        <div
+          style="
+            font-family: var(--ff-head);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--earth);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+          "
+        >
+          <i class="fa-brands fa-instagram"></i> Follow Our Adventures
+        </div>
+        <h2
+          style="
+            font-family: var(--ff-head);
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+          "
+        >
+          Share Your Safari Moments
+        </h2>
+        <p
+          style="
+            font-size: 0.95rem;
+            color: var(--earth);
+            max-width: 500px;
+            margin: 0 auto 1.5rem;
+          "
+        >
+          Tag your photos with <strong>#SeresafariAfrica</strong> and follow us
+          on social media for daily wildlife updates, safari tips and travel
+          inspiration from Tanzania.
+        </p>
+        <div
+          style="
+            display: flex;
+            gap: 0.8rem;
+            justify-content: center;
+            flex-wrap: wrap;
+          "
+        >
+          <a
+            href="https://www.facebook.com/Seresafari/"
+            target="_blank"
+            rel="noopener"
+            class="btn"
+            style="
+              background: var(--dark);
+              color: var(--white);
+              clip-path: none;
+            "
+            ><i class="fa-brands fa-facebook-f"></i> Facebook</a
+          >
+          <a
+            href="#"
+            class="btn"
+            style="
+              background: var(--dark);
+              color: var(--white);
+              clip-path: none;
+            "
+            ><i class="fa-brands fa-instagram"></i> Instagram</a
+          >
+          <a
+            href="#"
+            class="btn"
+            style="
+              background: var(--dark);
+              color: var(--white);
+              clip-path: none;
+            "
+            ><i class="fa-brands fa-youtube"></i> YouTube</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="book-section">
+      <div class="book-bg"></div>
+      <div class="book-inner reveal">
+        <div class="section-tag" style="justify-content: center">
+          <i class="fa-solid fa-camera"></i> Your Story Starts Here
+        </div>
+        <h2>Create Your Own <em>Memories</em></h2>
+        <p>
+          Every image in this gallery was taken on a real Seresafari journey.
+          Your adventure — and your photos — are waiting. Let us help you plan
+          the perfect Tanzania trip today.
+        </p>
+        <div
+          style="
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+          "
+        >
+          <a href="contact.html" class="btn btn-primary"
+            ><i class="fa-solid fa-paper-plane"></i> Plan My Safari</a
+          >
+          <a href="tours.html" class="btn btn-outline"
+            ><i class="fa-solid fa-compass"></i> Browse Tour Packages</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo">SERE<span>SAFARI</span></a>
+          <p class="footer-tagline">
+            Creating unforgettable safari experiences in the heart of Africa.
+            Expert guides. Hand-picked lodges. Hakuna Matata.
+          </p>
+          <div class="footer-social">
+            <a
+              href="https://www.facebook.com/Seresafari/"
+              target="_blank"
+              rel="noopener"
+              class="soc-btn"
+              ><i class="fa-brands fa-facebook-f"></i></a
+            ><a href="#" class="soc-btn"
+              ><i class="fa-brands fa-instagram"></i></a
+            ><a href="#" class="soc-btn"
+              ><i class="fa-brands fa-x-twitter"></i></a
+            ><a href="#" class="soc-btn"
+              ><i class="fa-brands fa-youtube"></i
+            ></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Destinations</h4>
+          <ul class="footer-links">
+            <li>
+              <a href="destinations.html"
+                ><i class="fa-solid fa-chevron-right"></i>Serengeti</a
+              >
+            </li>
+            <li>
+              <a href="destinations.html"
+                ><i class="fa-solid fa-chevron-right"></i>Ngorongoro</a
+              >
+            </li>
+            <li>
+              <a href="destinations.html"
+                ><i class="fa-solid fa-chevron-right"></i>Tarangire</a
+              >
+            </li>
+            <li>
+              <a href="destinations.html"
+                ><i class="fa-solid fa-chevron-right"></i>Lake Manyara</a
+              >
+            </li>
+            <li>
+              <a href="kilimanjaro.html"
+                ><i class="fa-solid fa-chevron-right"></i>Kilimanjaro</a
+              >
+            </li>
+            <li>
+              <a href="zanzibar.html"
+                ><i class="fa-solid fa-chevron-right"></i>Zanzibar</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li>
+              <a href="../about.html"
+                ><i class="fa-solid fa-chevron-right"></i>About Us</a
+              >
+            </li>
+            <li>
+              <a href="tours.html"
+                ><i class="fa-solid fa-chevron-right"></i>Tour Packages</a
+              >
+            </li>
+            <li>
+              <a href="gallery.html"
+                ><i class="fa-solid fa-chevron-right"></i>Photo Gallery</a
+              >
+            </li>
+            <li>
+              <a href="travel-insights.html"
+                ><i class="fa-solid fa-chevron-right"></i>Travel Insights</a
+              >
+            </li>
+            <li>
+              <a href="contact.html"
+                ><i class="fa-solid fa-chevron-right"></i>Contact Us</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-contact">
+            <li>
+              <span class="fc-ico"
+                ><i class="fa-solid fa-location-dot"></i></span
+              >Arusha, Tanzania 23100
+            </li>
+            <li>
+              <span class="fc-ico"><i class="fa-solid fa-phone"></i></span
+              ><a href="tel:+255690318461" style="color: var(--text)"
+                >+255 690 318 461</a
+              >
+            </li>
+            <li>
+              <span class="fc-ico"><i class="fa-solid fa-envelope"></i></span
+              ><a
+                href="mailto:info@seresafariafrica.com"
+                style="color: var(--text)"
+                >info@seresafariafrica.com</a
+              >
+            </li>
+            <li>
+              <span class="fc-ico"><i class="fa-solid fa-clock"></i></span
+              >Mon–Sat: 8AM–6PM EAT
+            </li>
+          </ul>
+        </div>
+        <div class="footer-badges">
+          <video class="footer-plane-video" autoplay muted loop playsinline>
+            <source src="../images/jeep.mp4" type="video/mp4" />
+          </video>
+
+          <div class="footer-badge-row">
+            <p class="badge-label">We Accept</p>
+            <div class="badge-items">
+              <a
+                href="https://shop.directpay.online/paymybills/SERESAFARIAFRICATOURSCOMPANYLIMITED"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="../images/visa.png"
+                  alt="Visa accepted"
+                  class="payment-badge"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-badge-row">
+            <p class="badge-label">Find Us On</p>
+            <div class="badge-items">
+              <a
+                href="https://www.tripadvisor.com/Attraction_Review-g297913-d28413189-Reviews-Seresafari_Africa_Tours-Arusha_Arusha_Region.html"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="../images/tripadvisor.svg"
+                  alt="TripAdvisor"
+                  class="platform-logo"
+                />
+              </a>
+              <a
+                href="https://www.getyourguide.com/seresafari-africa-s583425/"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="../images/getyourguide.svg"
+                  alt="GetYourGuide"
+                  class="platform-logo"
+                />
+              </a>
+              <a
+                href="https://www.safarigo.com/operator/seresafari-africa-tours-3208"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="../images/safarigo.png"
+                  alt="SafariGo"
+                  class="platform-logo"
+                />
+              </a>
+              <a
+                href="https://tourist.com/p/15564/seresafari_africa"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="../images/tourist.svg"
+                  alt="Tourist.com"
+                  class="platform-logo"
+                />
+              </a>
+              <a
+                href="https://www.safaribookings.com/p7682"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="../images/safaribookings.png"
+                  alt="SafariBookings"
+                  class="platform-logo"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bot">
+        <p>© 2026 Seresafari Africa. All Rights Reserved. · Web by Pamtech</p>
+        <div class="hakuna">
+          Hakuna Matata <i class="fa-solid fa-earth-africa"></i>
+        </div>
+        <p>
+          <a href="privacy-policy.html">Privacy Policy</a> ·
+          <a href="terms-of-service.html">Terms of Service</a> ·
+          <a href="travel-insights.html">Travel Insights</a>
+        </p>
+      </div>
+    </footer>
+    <a
+      class="wa-btn"
+      href="https://wa.me/255690318461"
+      target="_blank"
+      rel="noopener"
+      ><i class="fa-brands fa-whatsapp"></i
+    ></a>
+    <div id="lightbox" class="lightbox">
+      <button id="lb-close" class="lb-close">
+        <i class="fa-solid fa-xmark"></i></button
+      ><img id="lb-img" src="" alt="Gallery image" />
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script>
+      // Gallery filter
+      document.querySelectorAll(".filter-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document
+            .querySelectorAll(".filter-btn")
+            .forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          const filter = btn.dataset.filter;
+          document.querySelectorAll(".masonry-item").forEach((item) => {
+            const cats = item.dataset.cat || "";
+            const show = filter === "all" || cats.includes(filter);
+            item.style.display = show ? "block" : "none";
+          });
         });
       });
-    });
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>

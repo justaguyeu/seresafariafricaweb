@@ -1,596 +1,1905 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link
+      rel="canonical"
+      href="https://seresafariafrica.com/pages/contact.html"
+    />
+    <link href="../favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="../favicon/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="../favicon/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="../favicon/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="../favicon/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="../favicon/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="../favicon/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="../favicon/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="../favicon/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../favicon/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="../favicon/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="../favicon/android-chrome-512x512.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="../favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="../favicon/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../favicon/favicon-16x16.png"
+    />
+    <meta
+      name="description"
+      content="Contact Seresafari Africa – book your Tanzania safari, Kilimanjaro climb or Zanzibar holiday. Based in Arusha, Tanzania."
+    />
+    <title>Contact & Book – Seresafari Africa</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      .tr-card {
+        flex: 0 0 calc(33.333% - 1.1rem);
+        min-width: 300px;
+        background: var(--dark3);
+        border: 1px solid rgba(201, 150, 58, 0.18);
+        border-radius: 2px;
+        padding: 2rem 1.8rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+        transition:
+          border-color 0.3s,
+          transform 0.3s;
+        cursor: default;
+      }
+      .tr-card:hover {
+        border-color: var(--gold);
+        transform: translateY(-4px);
+      }
+      .tr-header {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+      }
+      .tr-avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--gold);
+        color: var(--dark);
+        font-family: var(--ff-head);
+        font-weight: 700;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .tr-name {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--cream2);
+      }
+      .tr-loc {
+        font-size: 0.75rem;
+        color: var(--text);
+        margin-top: 2px;
+      }
+      .tr-logo {
+        width: 90px;
+        margin-left: auto;
+        opacity: 0.7;
+        flex-shrink: 0;
+      }
+      .tr-stars {
+        color: #00aa6c;
+        font-size: 1rem;
+        letter-spacing: 2px;
+      }
+      .tr-title {
+        font-family: var(--ff-head);
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1.3;
+      }
+      .tr-text {
+        font-size: 0.83rem;
+        color: var(--text);
+        line-height: 1.7;
+        flex: 1;
+      }
+      .tr-date {
+        font-size: 0.75rem;
+        color: var(--text);
+        opacity: 0.7;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .tr-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--dark);
+        border: 1px solid rgba(201, 150, 58, 0.3);
+        color: var(--gold);
+        font-size: 0.9rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          background 0.2s,
+          border-color 0.2s;
+        z-index: 10;
+      }
+      .tr-arrow:hover {
+        background: var(--gold);
+        color: var(--dark);
+        border-color: var(--gold);
+      }
+      .tr-arrow:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+      .tr-prev {
+        left: -22px;
+      }
+      .tr-next {
+        right: -22px;
+      }
+      .tr-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(201, 150, 58, 0.25);
+        border: none;
+        cursor: pointer;
+        transition:
+          background 0.3s,
+          transform 0.3s;
+      }
+      .tr-dot.active {
+        background: var(--gold);
+        transform: scale(1.4);
+      }
+      @media (max-width: 1024px) {
+        .tr-card {
+          flex: 0 0 calc(50% - 0.8rem);
+        }
+      }
+      @media (max-width: 640px) {
+        .tr-card {
+          flex: 0 0 calc(100%);
+        }
+        .tr-prev {
+          left: -10px;
+        }
+        .tr-next {
+          right: -10px;
+        }
+      }
+    </style>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <link rel="canonical" href="https://seresafariafrica.com/pages/contact.html" />
-  <link href="../favicon/favicon.ico">
-  <link rel="apple-touch-icon" sizes="57x57" href="../favicon/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="../favicon/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="../favicon/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="../favicon/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="../favicon/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="../favicon/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="../favicon/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="../favicon/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="../favicon/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="../favicon/android-chrome-512x512.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="../favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="../favicon/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
-  <meta name="description"
-    content="Contact Sere Safari Africa – book your Tanzania safari, Kilimanjaro climb or Zanzibar holiday. Based in Arusha, Tanzania." />
-  <title>Contact & Book – Sere Safari Africa</title>
-  <link rel="stylesheet" href="../css/main.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-  .tr-card{flex:0 0 calc(33.333% - 1.1rem);min-width:300px;background:var(--dark3);border:1px solid rgba(201,150,58,.18);border-radius:2px;padding:2rem 1.8rem;display:flex;flex-direction:column;gap:.9rem;transition:border-color .3s,transform .3s;cursor:default;}
-  .tr-card:hover{border-color:var(--gold);transform:translateY(-4px);}
-  .tr-header{display:flex;align-items:center;gap:.9rem;}
-  .tr-avatar{width:44px;height:44px;border-radius:50%;background:var(--gold);color:var(--dark);font-family:var(--ff-head);font-weight:700;font-size:1.2rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-  .tr-name{font-size:.85rem;font-weight:600;color:var(--cream2);}
-  .tr-loc{font-size:.75rem;color:var(--text);margin-top:2px;}
-  .tr-logo{width:90px;margin-left:auto;opacity:.7;flex-shrink:0;}
-  .tr-stars{color:#00aa6c;font-size:1rem;letter-spacing:2px;}
-  .tr-title{font-family:var(--ff-head);font-size:.95rem;font-weight:700;color:var(--white);line-height:1.3;}
-  .tr-text{font-size:.83rem;color:var(--text);line-height:1.7;flex:1;}
-  .tr-date{font-size:.75rem;color:var(--text);opacity:.7;display:flex;align-items:center;gap:.4rem;}
-  .tr-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:var(--dark);border:1px solid rgba(201,150,58,.3);color:var(--gold);font-size:.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s;z-index:10;}
-  .tr-arrow:hover{background:var(--gold);color:var(--dark);border-color:var(--gold);}
-  .tr-arrow:disabled{opacity:.3;cursor:not-allowed;}
-  .tr-prev{left:-22px;}.tr-next{right:-22px;}
-  .tr-dot{width:8px;height:8px;border-radius:50%;background:rgba(201,150,58,.25);border:none;cursor:pointer;transition:background .3s,transform .3s;}
-  .tr-dot.active{background:var(--gold);transform:scale(1.4);}
-  @media(max-width:1024px){.tr-card{flex:0 0 calc(50% - .8rem);}}
-  @media(max-width:640px){.tr-card{flex:0 0 calc(100%);}.tr-prev{left:-10px;}.tr-next{right:-10px;}}
-  </style>
-</head>
+  <body>
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
+    <button id="back-top"><i class="fa-solid fa-chevron-up"></i></button>
 
-<body>
-  <div id="cursor"></div>
-  <div id="cursor-ring"></div>
-  <button id="back-top"><i class="fa-solid fa-chevron-up"></i></button>
+    <nav id="nav">
+      <a href="../index.html" class="logo"><img src="../logo2.png" alt="" /></a>
+      <ul class="nav-links">
+        <li><a href="../about.html">About</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="tours.html">Tours</a></li>
+        <li><a href="kilimanjaro.html">Kilimanjaro</a></li>
+        <li><a href="zanzibar.html">Zanzibar</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html" class="nav-book active">Enquire Now</a></li>
+      </ul>
+      <button class="ham" id="ham">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <nav class="mob-menu" id="mob-menu">
+      <a href="../index.html">Home</a><a href="../about.html">About</a
+      ><a href="destinations.html">Destinations</a>
+      <a href="tours.html">Tours</a><a href="kilimanjaro.html">Kilimanjaro</a
+      ><a href="zanzibar.html">Zanzibar</a> <a href="gallery.html">Gallery</a
+      ><a href="contact.html" style="color: var(--gold)">Enquire Now</a>
+    </nav>
 
-  <nav id="nav">
-    <a href="../index.html" class="logo"><img src="../logo2.png" alt=""></a>
-    <ul class="nav-links">
-      <li><a href="../about.html">About</a></li>
-      <li><a href="destinations.html">Destinations</a></li>
-      <li><a href="tours.html">Tours</a></li>
-      <li><a href="kilimanjaro.html">Kilimanjaro</a></li>
-      <li><a href="zanzibar.html">Zanzibar</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="contact.html" class="nav-book active">Enquire Now</a></li>
-    </ul>
-    <button class="ham" id="ham"><span></span><span></span><span></span></button>
-  </nav>
-  <nav class="mob-menu" id="mob-menu">
-    <a href="../index.html">Home</a><a href="../about.html">About</a><a href="destinations.html">Destinations</a>
-    <a href="tours.html">Tours</a><a href="kilimanjaro.html">Kilimanjaro</a><a href="zanzibar.html">Zanzibar</a>
-    <a href="gallery.html">Gallery</a><a href="contact.html" style="color:var(--gold)">Enquire Now</a>
-  </nav>
+    <!-- PAGE HEADER -->
+    <header
+      class="page-header"
+      style="
+        background-image: url(&quot;https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1600&q=85&quot;);
+      "
+    >
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a
+        ><i class="fa-solid fa-chevron-right"></i>Contact
+      </div>
+      <div class="section-tag">
+        <i class="fa-solid fa-paper-plane"></i> Get In Touch
+      </div>
+      <h1 class="section-title" style="font-size: clamp(2.5rem, 6vw, 4.5rem)">
+        Plan Your <em>Adventure</em>
+      </h1>
+      <p class="section-sub" style="max-width: 580px; margin: 0.8rem auto 0">
+        Send us your enquiry and our expert team will design a personalised
+        Tanzania itinerary within 24 hours — completely free, with no
+        obligation.
+      </p>
+    </header>
 
-  <!-- PAGE HEADER -->
-  <header class="page-header"
-    style="background-image:url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1600&q=85');">
-    <div class="breadcrumb"><a href="../index.html">Home</a><i class="fa-solid fa-chevron-right"></i>Contact</div>
-    <div class="section-tag"><i class="fa-solid fa-paper-plane"></i> Get In Touch</div>
-    <h1 class="section-title" style="font-size:clamp(2.5rem,6vw,4.5rem);">Plan Your <em>Adventure</em></h1>
-    <p class="section-sub" style="max-width:580px;margin:.8rem auto 0;">Send us your enquiry and our expert team will
-      design a personalised Tanzania itinerary within 24 hours — completely free, with no obligation.</p>
-  </header>
+    <!-- CONTACT GRID -->
+    <section class="contact-section" style="background: var(--dark2)">
+      <div class="contact-grid">
+        <!-- INFO -->
+        <div class="reveal-l">
+          <div class="section-tag">
+            <i class="fa-solid fa-address-card"></i> Contact Details
+          </div>
+          <h2 class="section-title">Let's Start <em>Planning</em></h2>
+          <p class="section-sub" style="margin-bottom: 2rem">
+            Whether you have a specific itinerary in mind or just a dream of
+            Africa, our team is ready to make it happen. Reach out through any
+            of the channels below — we respond fast.
+          </p>
 
-  <!-- CONTACT GRID -->
-  <section class="contact-section" style="background:var(--dark2);">
-    <div class="contact-grid">
-
-      <!-- INFO -->
-      <div class="reveal-l">
-        <div class="section-tag"><i class="fa-solid fa-address-card"></i> Contact Details</div>
-        <h2 class="section-title">Let's Start <em>Planning</em></h2>
-        <p class="section-sub" style="margin-bottom:2rem;">Whether you have a specific itinerary in mind or just a dream
-          of Africa, our team is ready to make it happen. Reach out through any of the channels below — we respond fast.
-        </p>
-
-        <div class="contact-info">
-          <div class="c-info-item">
-            <div class="c-icon"><i class="fa-solid fa-location-dot"></i></div>
-            <div>
-              <div class="c-label">Our Office</div>
-              <div class="c-value">Arusha, Tanzania 23100<br />Safari Capital of East Africa<br /><small
-                  style="color:var(--text);font-size:.78rem;">Near the entrance to Tanzania's Northern Circuit</small>
+          <div class="contact-info">
+            <div class="c-info-item">
+              <div class="c-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <div class="c-label">Our Office</div>
+                <div class="c-value">
+                  Arusha, Tanzania 23100<br />Safari Capital of East Africa<br /><small
+                    style="color: var(--text); font-size: 0.78rem"
+                    >Near the entrance to Tanzania's Northern Circuit</small
+                  >
+                </div>
               </div>
             </div>
-          </div>
-          <div class="c-info-item">
-            <div class="c-icon"><i class="fa-solid fa-phone"></i></div>
-            <div>
-              <div class="c-label">Phone &amp; WhatsApp</div>
-              <div class="c-value"><a href="tel:+255690318461" style="color:var(--cream2);">+255 690 318
-                  461</a><br /><small style="color:var(--text);font-size:.78rem;">Available Mon–Sat, 8AM–6PM EAT</small>
+            <div class="c-info-item">
+              <div class="c-icon"><i class="fa-solid fa-phone"></i></div>
+              <div>
+                <div class="c-label">Phone &amp; WhatsApp</div>
+                <div class="c-value">
+                  <a href="tel:+255690318461" style="color: var(--cream2)"
+                    >+255 690 318 461</a
+                  ><br /><small style="color: var(--text); font-size: 0.78rem"
+                    >Available Mon–Sat, 8AM–6PM EAT</small
+                  >
+                </div>
               </div>
             </div>
-          </div>
-          <div class="c-info-item">
-            <div class="c-icon"><i class="fa-solid fa-envelope"></i></div>
-            <div>
-              <div class="c-label">Email</div>
-              <div class="c-value"><a href="mailto:info@seresafariafrica.com"
-                  style="color:var(--cream2);">info@seresafariafrica.com</a><br /><small
-                  style="color:var(--text);font-size:.78rem;">We respond within 24 hours</small></div>
+            <div class="c-info-item">
+              <div class="c-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <div class="c-label">Email</div>
+                <div class="c-value">
+                  <a
+                    href="mailto:info@seresafariafrica.com"
+                    style="color: var(--cream2)"
+                    >info@seresafariafrica.com</a
+                  ><br /><small style="color: var(--text); font-size: 0.78rem"
+                    >We respond within 24 hours</small
+                  >
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="c-info-item">
-            <div class="c-icon"><i class="fa-brands fa-whatsapp"></i></div>
-            <div>
-              <div class="c-label">WhatsApp Chat</div>
-              <div class="c-value"><a href="https://wa.me/255690318461" target="_blank" rel="noopener"
-                  style="color:var(--cream2);">Chat with us directly</a><br /><small
-                  style="color:var(--text);font-size:.78rem;">Quickest way to get an instant reply</small></div>
+            <div class="c-info-item">
+              <div class="c-icon"><i class="fa-brands fa-whatsapp"></i></div>
+              <div>
+                <div class="c-label">WhatsApp Chat</div>
+                <div class="c-value">
+                  <a
+                    href="https://wa.me/255690318461"
+                    target="_blank"
+                    rel="noopener"
+                    style="color: var(--cream2)"
+                    >Chat with us directly</a
+                  ><br /><small style="color: var(--text); font-size: 0.78rem"
+                    >Quickest way to get an instant reply</small
+                  >
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="c-info-item">
-            <div class="c-icon"><i class="fa-brands fa-facebook-f"></i></div>
-            <div>
-              <div class="c-label">Follow Us</div>
-              <div class="c-value">
-                <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.3rem;">
-                  <a href="https://www.facebook.com/Seresafari/" target="_blank" rel="noopener" class="soc-btn"><i
-                      class="fa-brands fa-facebook-f"></i></a>
-                  <a href="#" class="soc-btn"><i class="fa-brands fa-instagram"></i></a>
-                  <a href="#" class="soc-btn"><i class="fa-brands fa-x-twitter"></i></a>
-                  <a href="#" class="soc-btn"><i class="fa-brands fa-youtube"></i></a>
-                  <a href="#" class="soc-btn"><i class="fa-brands fa-tripadvisor"></i></a>
+            <div class="c-info-item">
+              <div class="c-icon"><i class="fa-brands fa-facebook-f"></i></div>
+              <div>
+                <div class="c-label">Follow Us</div>
+                <div class="c-value">
+                  <div
+                    style="
+                      display: flex;
+                      gap: 0.6rem;
+                      flex-wrap: wrap;
+                      margin-top: 0.3rem;
+                    "
+                  >
+                    <a
+                      href="https://www.facebook.com/Seresafari/"
+                      target="_blank"
+                      rel="noopener"
+                      class="soc-btn"
+                      ><i class="fa-brands fa-facebook-f"></i
+                    ></a>
+                    <a href="#" class="soc-btn"
+                      ><i class="fa-brands fa-instagram"></i
+                    ></a>
+                    <a href="#" class="soc-btn"
+                      ><i class="fa-brands fa-x-twitter"></i
+                    ></a>
+                    <a href="#" class="soc-btn"
+                      ><i class="fa-brands fa-youtube"></i
+                    ></a>
+                    <a href="#" class="soc-btn"
+                      ><i class="fa-brands fa-tripadvisor"></i
+                    ></a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- WHY BOOK WITH US -->
-        <div style="margin-top:3rem;padding:2rem;background:var(--dark3);border:1px solid rgba(201,150,58,.15);">
+          <!-- WHY BOOK WITH US -->
           <div
-            style="font-family:var(--ff-head);font-size:.85rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:flex;align-items:center;gap:8px;">
-            <i class="fa-solid fa-shield-halved"></i> Why Book Direct With Us
-          </div>
-          <div style="display:flex;flex-direction:column;gap:.8rem;">
-            <div style="display:flex;align-items:center;gap:.8rem;font-size:.83rem;color:var(--cream2);"><i
-                class="fa-solid fa-check-circle" style="color:var(--gold);flex-shrink:0;"></i> No booking fees — pay
-              directly in confidence</div>
-            <div style="display:flex;align-items:center;gap:.8rem;font-size:.83rem;color:var(--cream2);"><i
-                class="fa-solid fa-check-circle" style="color:var(--gold);flex-shrink:0;"></i> 24-hour personalised
-              itinerary response</div>
-            <div style="display:flex;align-items:center;gap:.8rem;font-size:.83rem;color:var(--cream2);"><i
-                class="fa-solid fa-check-circle" style="color:var(--gold);flex-shrink:0;"></i> Flexible payment plans
-              available</div>
-            <div style="display:flex;align-items:center;gap:.8rem;font-size:.83rem;color:var(--cream2);"><i
-                class="fa-solid fa-check-circle" style="color:var(--gold);flex-shrink:0;"></i> Full itinerary
-              customisation at no extra cost</div>
-            <div style="display:flex;align-items:center;gap:.8rem;font-size:.83rem;color:var(--cream2);"><i
-                class="fa-solid fa-check-circle" style="color:var(--gold);flex-shrink:0;"></i> 24/7 in-destination
-              emergency support</div>
-            <div style="display:flex;align-items:center;gap:.8rem;font-size:.83rem;color:var(--cream2);"><i
-                class="fa-solid fa-check-circle" style="color:var(--gold);flex-shrink:0;"></i> 100% locally owned — your
-              money stays in Tanzania</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- FORM -->
-      <div class="reveal-r">
-        <div style="background:var(--dark3);border:1px solid rgba(201,150,58,.15);padding:2.5rem;">
-          <div
-            style="font-family:var(--ff-head);font-size:1.1rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--white);margin-bottom:.4rem;display:flex;align-items:center;gap:10px;">
-            <i class="fa-solid fa-paper-plane" style="color:var(--gold);"></i> Send Your Enquiry
-          </div>
-          <p style="font-size:.82rem;color:var(--text);margin-bottom:2rem;">Fill in as much detail as you can — the more
-            we know, the faster we can design your perfect Tanzania itinerary.</p>
-
-          <form id="book-form" novalidate style="display:flex;flex-direction:column;gap:1rem;">
-
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-              <div>
-                <label
-                  style="font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:5px;margin-bottom:.4rem;"><i
-                    class="fa-solid fa-user"></i> Full Name *</label>
-                <input class="book-input" type="text" name="name" placeholder="Your full name" required
-                  style="width:100%;" />
-              </div>
-              <div>
-                <label
-                  style="font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:5px;margin-bottom:.4rem;"><i
-                    class="fa-solid fa-envelope"></i> Email *</label>
-                <input class="book-input" type="email" name="email" placeholder="your@email.com" required
-                  style="width:100%;" />
-              </div>
-            </div>
-
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-              <div>
-                <label
-                  style="font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:5px;margin-bottom:.4rem;"><i
-                    class="fa-brands fa-whatsapp"></i> WhatsApp / Phone</label>
-                <input class="book-input" type="tel" name="phone" placeholder="+1 234 567 890" style="width:100%;" />
-              </div>
-              <div>
-                <label
-                  style="font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:5px;margin-bottom:.4rem;"><i
-                    class="fa-solid fa-flag"></i> Nationality</label>
-                <input class="book-input" type="text" name="nationality" placeholder="Your country"
-                  style="width:100%;" />
-              </div>
-            </div>
-
-            <div>
-              <label
-                style="font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:5px;margin-bottom:.4rem;"><i
-                  class="fa-solid fa-compass"></i> Tour / Destination of Interest *</label>
-              <select class="book-input book-select" name="destination" required style="width:100%;">
-                <option value="" disabled selected>Select a tour or destination</option>
-                <optgroup label="Safari Tours">
-                  <option>Tanzania Classic Safari (6 Days)</option>
-                  <option>Serengeti &amp; Ngorongoro (3 Days)</option>
-                  <option>Fly-In: Zanzibar to Serengeti (4 Days)</option>
-                  <option>Mid-Range Serengeti Fly-In (2 Days)</option>
-                  <option>Tarangire, Ngorongoro &amp; Manyara (4 Days)</option>
-                  <option>Bush to Beach — Safari + Zanzibar (7 Days)</option>
-                  <option>Ultimate Tanzania Experience (10 Days)</option>
-                  <option>Honeymoon Safari Package</option>
-                </optgroup>
-                <optgroup label="Kilimanjaro">
-                  <option>Machame Route (6–7 Days)</option>
-                  <option>Lemosho Route (7–8 Days)</option>
-                  <option>Rongai Route (6–7 Days)</option>
-                  <option>Marangu Route (5–6 Days)</option>
-                  <option>Umbwe Route (6 Days)</option>
-                </optgroup>
-                <optgroup label="Zanzibar">
-                  <option>Pure Zanzibar Beach Holiday</option>
-                  <option>Zanzibar + Safari Combination</option>
-                </optgroup>
-                <option>Bespoke / Custom Itinerary</option>
-                <option>Not Sure — Please Advise</option>
-              </select>
-            </div>
-
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-              <div>
-                <label
-                  style="font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:5px;margin-bottom:.4rem;"><i
-                    class="fa-regular fa-calendar"></i> Preferred Dates</label>
-                <input class="book-input" type="text" name="dates" placeholder="e.g. June 10–20, 2026"
-                  style="width:100%;" />
-              </div>
-              <div>
-                <label
-                  style="font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:5px;margin-bottom:.4rem;"><i
-                    class="fa-solid fa-users"></i> Number of Travellers</label>
-                <input class="book-input" type="number" name="pax" placeholder="e.g. 2" min="1" style="width:100%;" />
-              </div>
-            </div>
-
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-              <div>
-                <label
-                  style="font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:5px;margin-bottom:.4rem;"><i
-                    class="fa-solid fa-bed"></i> Accommodation Preference</label>
-                <select class="book-input book-select" name="budget" style="width:100%;">
-                  <option value="" disabled selected>Select budget level</option>
-                  <option>Budget (Camping / Basic)</option>
-                  <option>Mid-Range (Tented Camps / Lodges)</option>
-                  <option>Luxury (Premium Lodges &amp; Camps)</option>
-                  <option>Ultra-Luxury (Exclusive Properties)</option>
-                  <option>Mix — Please Advise</option>
-                </select>
-              </div>
-              <div>
-                <label
-                  style="font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:5px;margin-bottom:.4rem;"><i
-                    class="fa-solid fa-heart"></i> Trip Type</label>
-                <select class="book-input book-select" name="trip_type" style="width:100%;">
-                  <option value="" disabled selected>Select trip type</option>
-                  <option>Solo Travel</option>
-                  <option>Couple / Honeymoon</option>
-                  <option>Family with Children</option>
-                  <option>Group of Friends</option>
-                  <option>Corporate / Incentive Group</option>
-                  <option>Photography Safari</option>
-                </select>
-              </div>
-            </div>
-
-            <div>
-              <label
-                style="font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:5px;margin-bottom:.4rem;"><i
-                  class="fa-solid fa-message"></i> Your Message / Special Requirements</label>
-              <textarea class="book-input" name="message"
-                placeholder="Tell us about your dream safari — interests, dietary needs, special occasions, mobility requirements, or any other details that will help us craft the perfect itinerary for you…"
-                rows="5" style="width:100%;resize:vertical;"></textarea>
-            </div>
-
+            style="
+              margin-top: 3rem;
+              padding: 2rem;
+              background: var(--dark3);
+              border: 1px solid rgba(201, 150, 58, 0.15);
+            "
+          >
             <div
-              style="display:flex;align-items:flex-start;gap:.8rem;padding:1rem;background:rgba(201,150,58,.06);border:1px solid rgba(201,150,58,.15);">
-              <i class="fa-solid fa-circle-info" style="color:var(--gold);flex-shrink:0;margin-top:2px;"></i>
-              <p style="font-size:.78rem;color:var(--text);line-height:1.6;">Your enquiry is completely free and comes
-                with no obligation. We will respond within 24 hours with a personalised itinerary proposal tailored
-                specifically to your requirements.</p>
+              style="
+                font-family: var(--ff-head);
+                font-size: 0.85rem;
+                font-weight: 600;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                color: var(--gold);
+                margin-bottom: 1.2rem;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+              "
+            >
+              <i class="fa-solid fa-shield-halved"></i> Why Book Direct With Us
             </div>
+            <div style="display: flex; flex-direction: column; gap: 0.8rem">
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 0.8rem;
+                  font-size: 0.83rem;
+                  color: var(--cream2);
+                "
+              >
+                <i
+                  class="fa-solid fa-check-circle"
+                  style="color: var(--gold); flex-shrink: 0"
+                ></i>
+                No booking fees — pay directly in confidence
+              </div>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 0.8rem;
+                  font-size: 0.83rem;
+                  color: var(--cream2);
+                "
+              >
+                <i
+                  class="fa-solid fa-check-circle"
+                  style="color: var(--gold); flex-shrink: 0"
+                ></i>
+                24-hour personalised itinerary response
+              </div>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 0.8rem;
+                  font-size: 0.83rem;
+                  color: var(--cream2);
+                "
+              >
+                <i
+                  class="fa-solid fa-check-circle"
+                  style="color: var(--gold); flex-shrink: 0"
+                ></i>
+                Flexible payment plans available
+              </div>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 0.8rem;
+                  font-size: 0.83rem;
+                  color: var(--cream2);
+                "
+              >
+                <i
+                  class="fa-solid fa-check-circle"
+                  style="color: var(--gold); flex-shrink: 0"
+                ></i>
+                Full itinerary customisation at no extra cost
+              </div>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 0.8rem;
+                  font-size: 0.83rem;
+                  color: var(--cream2);
+                "
+              >
+                <i
+                  class="fa-solid fa-check-circle"
+                  style="color: var(--gold); flex-shrink: 0"
+                ></i>
+                24/7 in-destination emergency support
+              </div>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 0.8rem;
+                  font-size: 0.83rem;
+                  color: var(--cream2);
+                "
+              >
+                <i
+                  class="fa-solid fa-check-circle"
+                  style="color: var(--gold); flex-shrink: 0"
+                ></i>
+                100% locally owned — your money stays in Tanzania
+              </div>
+            </div>
+          </div>
+        </div>
 
-            <button type="submit" class="btn btn-primary"
-              style="width:100%;justify-content:center;font-size:1rem;padding:1rem;cursor:none;">
-              <i class="fa-solid fa-paper-plane"></i> Send My Enquiry — We'll Respond Within 24 Hours
-            </button>
-          </form>
+        <!-- FORM -->
+        <div class="reveal-r">
+          <div
+            style="
+              background: var(--dark3);
+              border: 1px solid rgba(201, 150, 58, 0.15);
+              padding: 2.5rem;
+            "
+          >
+            <div
+              style="
+                font-family: var(--ff-head);
+                font-size: 1.1rem;
+                font-weight: 700;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                color: var(--white);
+                margin-bottom: 0.4rem;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+              "
+            >
+              <i class="fa-solid fa-paper-plane" style="color: var(--gold)"></i>
+              Send Your Enquiry
+            </div>
+            <p
+              style="
+                font-size: 0.82rem;
+                color: var(--text);
+                margin-bottom: 2rem;
+              "
+            >
+              Fill in as much detail as you can — the more we know, the faster
+              we can design your perfect Tanzania itinerary.
+            </p>
+
+            <form
+              id="book-form"
+              novalidate
+              style="display: flex; flex-direction: column; gap: 1rem"
+            >
+              <div
+                style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem"
+              >
+                <div>
+                  <label
+                    style="
+                      font-size: 0.72rem;
+                      letter-spacing: 1.5px;
+                      text-transform: uppercase;
+                      color: var(--gold);
+                      display: flex;
+                      align-items: center;
+                      gap: 5px;
+                      margin-bottom: 0.4rem;
+                    "
+                    ><i class="fa-solid fa-user"></i> Full Name *</label
+                  >
+                  <input
+                    class="book-input"
+                    type="text"
+                    name="name"
+                    placeholder="Your full name"
+                    required
+                    style="width: 100%"
+                  />
+                </div>
+                <div>
+                  <label
+                    style="
+                      font-size: 0.72rem;
+                      letter-spacing: 1.5px;
+                      text-transform: uppercase;
+                      color: var(--gold);
+                      display: flex;
+                      align-items: center;
+                      gap: 5px;
+                      margin-bottom: 0.4rem;
+                    "
+                    ><i class="fa-solid fa-envelope"></i> Email *</label
+                  >
+                  <input
+                    class="book-input"
+                    type="email"
+                    name="email"
+                    placeholder="your@email.com"
+                    required
+                    style="width: 100%"
+                  />
+                </div>
+              </div>
+
+              <div
+                style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem"
+              >
+                <div>
+                  <label
+                    style="
+                      font-size: 0.72rem;
+                      letter-spacing: 1.5px;
+                      text-transform: uppercase;
+                      color: var(--gold);
+                      display: flex;
+                      align-items: center;
+                      gap: 5px;
+                      margin-bottom: 0.4rem;
+                    "
+                    ><i class="fa-brands fa-whatsapp"></i> WhatsApp /
+                    Phone</label
+                  >
+                  <input
+                    class="book-input"
+                    type="tel"
+                    name="phone"
+                    placeholder="+1 234 567 890"
+                    style="width: 100%"
+                  />
+                </div>
+                <div>
+                  <label
+                    style="
+                      font-size: 0.72rem;
+                      letter-spacing: 1.5px;
+                      text-transform: uppercase;
+                      color: var(--gold);
+                      display: flex;
+                      align-items: center;
+                      gap: 5px;
+                      margin-bottom: 0.4rem;
+                    "
+                    ><i class="fa-solid fa-flag"></i> Nationality</label
+                  >
+                  <input
+                    class="book-input"
+                    type="text"
+                    name="nationality"
+                    placeholder="Your country"
+                    style="width: 100%"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label
+                  style="
+                    font-size: 0.72rem;
+                    letter-spacing: 1.5px;
+                    text-transform: uppercase;
+                    color: var(--gold);
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    margin-bottom: 0.4rem;
+                  "
+                  ><i class="fa-solid fa-compass"></i> Tour / Destination of
+                  Interest *</label
+                >
+                <select
+                  class="book-input book-select"
+                  name="destination"
+                  required
+                  style="width: 100%"
+                >
+                  <option value="" disabled selected>
+                    Select a tour or destination
+                  </option>
+                  <optgroup label="Safari Tours">
+                    <option>Tanzania Classic Safari (6 Days)</option>
+                    <option>Serengeti &amp; Ngorongoro (3 Days)</option>
+                    <option>Fly-In: Zanzibar to Serengeti (4 Days)</option>
+                    <option>Mid-Range Serengeti Fly-In (2 Days)</option>
+                    <option>
+                      Tarangire, Ngorongoro &amp; Manyara (4 Days)
+                    </option>
+                    <option>Bush to Beach — Safari + Zanzibar (7 Days)</option>
+                    <option>Ultimate Tanzania Experience (10 Days)</option>
+                    <option>Honeymoon Safari Package</option>
+                  </optgroup>
+                  <optgroup label="Kilimanjaro">
+                    <option>Machame Route (6–7 Days)</option>
+                    <option>Lemosho Route (7–8 Days)</option>
+                    <option>Rongai Route (6–7 Days)</option>
+                    <option>Marangu Route (5–6 Days)</option>
+                    <option>Umbwe Route (6 Days)</option>
+                  </optgroup>
+                  <optgroup label="Zanzibar">
+                    <option>Pure Zanzibar Beach Holiday</option>
+                    <option>Zanzibar + Safari Combination</option>
+                  </optgroup>
+                  <option>Bespoke / Custom Itinerary</option>
+                  <option>Not Sure — Please Advise</option>
+                </select>
+              </div>
+
+              <div
+                style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem"
+              >
+                <div>
+                  <label
+                    style="
+                      font-size: 0.72rem;
+                      letter-spacing: 1.5px;
+                      text-transform: uppercase;
+                      color: var(--gold);
+                      display: flex;
+                      align-items: center;
+                      gap: 5px;
+                      margin-bottom: 0.4rem;
+                    "
+                    ><i class="fa-regular fa-calendar"></i> Preferred
+                    Dates</label
+                  >
+                  <input
+                    class="book-input"
+                    type="text"
+                    name="dates"
+                    placeholder="e.g. June 10–20, 2026"
+                    style="width: 100%"
+                  />
+                </div>
+                <div>
+                  <label
+                    style="
+                      font-size: 0.72rem;
+                      letter-spacing: 1.5px;
+                      text-transform: uppercase;
+                      color: var(--gold);
+                      display: flex;
+                      align-items: center;
+                      gap: 5px;
+                      margin-bottom: 0.4rem;
+                    "
+                    ><i class="fa-solid fa-users"></i> Number of
+                    Travellers</label
+                  >
+                  <input
+                    class="book-input"
+                    type="number"
+                    name="pax"
+                    placeholder="e.g. 2"
+                    min="1"
+                    style="width: 100%"
+                  />
+                </div>
+              </div>
+
+              <div
+                style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem"
+              >
+                <div>
+                  <label
+                    style="
+                      font-size: 0.72rem;
+                      letter-spacing: 1.5px;
+                      text-transform: uppercase;
+                      color: var(--gold);
+                      display: flex;
+                      align-items: center;
+                      gap: 5px;
+                      margin-bottom: 0.4rem;
+                    "
+                    ><i class="fa-solid fa-bed"></i> Accommodation
+                    Preference</label
+                  >
+                  <select
+                    class="book-input book-select"
+                    name="budget"
+                    style="width: 100%"
+                  >
+                    <option value="" disabled selected>
+                      Select budget level
+                    </option>
+                    <option>Budget (Camping / Basic)</option>
+                    <option>Mid-Range (Tented Camps / Lodges)</option>
+                    <option>Luxury (Premium Lodges &amp; Camps)</option>
+                    <option>Ultra-Luxury (Exclusive Properties)</option>
+                    <option>Mix — Please Advise</option>
+                  </select>
+                </div>
+                <div>
+                  <label
+                    style="
+                      font-size: 0.72rem;
+                      letter-spacing: 1.5px;
+                      text-transform: uppercase;
+                      color: var(--gold);
+                      display: flex;
+                      align-items: center;
+                      gap: 5px;
+                      margin-bottom: 0.4rem;
+                    "
+                    ><i class="fa-solid fa-heart"></i> Trip Type</label
+                  >
+                  <select
+                    class="book-input book-select"
+                    name="trip_type"
+                    style="width: 100%"
+                  >
+                    <option value="" disabled selected>Select trip type</option>
+                    <option>Solo Travel</option>
+                    <option>Couple / Honeymoon</option>
+                    <option>Family with Children</option>
+                    <option>Group of Friends</option>
+                    <option>Corporate / Incentive Group</option>
+                    <option>Photography Safari</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label
+                  style="
+                    font-size: 0.72rem;
+                    letter-spacing: 1.5px;
+                    text-transform: uppercase;
+                    color: var(--gold);
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    margin-bottom: 0.4rem;
+                  "
+                  ><i class="fa-solid fa-message"></i> Your Message / Special
+                  Requirements</label
+                >
+                <textarea
+                  class="book-input"
+                  name="message"
+                  placeholder="Tell us about your dream safari — interests, dietary needs, special occasions, mobility requirements, or any other details that will help us craft the perfect itinerary for you…"
+                  rows="5"
+                  style="width: 100%; resize: vertical"
+                ></textarea>
+              </div>
+
+              <div
+                style="
+                  display: flex;
+                  align-items: flex-start;
+                  gap: 0.8rem;
+                  padding: 1rem;
+                  background: rgba(201, 150, 58, 0.06);
+                  border: 1px solid rgba(201, 150, 58, 0.15);
+                "
+              >
+                <i
+                  class="fa-solid fa-circle-info"
+                  style="color: var(--gold); flex-shrink: 0; margin-top: 2px"
+                ></i>
+                <p
+                  style="
+                    font-size: 0.78rem;
+                    color: var(--text);
+                    line-height: 1.6;
+                  "
+                >
+                  Your enquiry is completely free and comes with no obligation.
+                  We will respond within 24 hours with a personalised itinerary
+                  proposal tailored specifically to your requirements.
+                </p>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-primary"
+                style="
+                  width: 100%;
+                  justify-content: center;
+                  font-size: 1rem;
+                  padding: 1rem;
+                  cursor: none;
+                "
+              >
+                <i class="fa-solid fa-paper-plane"></i> Send My Enquiry — We'll
+                Respond Within 24 Hours
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- MAP + QUICK CONTACT -->
-  <section style="background:var(--dark);padding:7rem 8%;">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
-      <div class="reveal-l">
-        <div class="section-tag"><i class="fa-solid fa-map-location-dot"></i> Find Us</div>
-        <h2 class="section-title">We're Based in <em>Arusha</em></h2>
-        <p class="section-sub" style="margin-bottom:2rem;">Arusha is Tanzania's safari capital — perfectly positioned as
-          the gateway to all of Tanzania's Northern Circuit parks. Just 1 hour from Kilimanjaro International Airport.
+    <!-- MAP + QUICK CONTACT -->
+    <section style="background: var(--dark); padding: 7rem 8%">
+      <div
+        style="
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 4rem;
+          align-items: start;
+        "
+      >
+        <div class="reveal-l">
+          <div class="section-tag">
+            <i class="fa-solid fa-map-location-dot"></i> Find Us
+          </div>
+          <h2 class="section-title">We're Based in <em>Arusha</em></h2>
+          <p class="section-sub" style="margin-bottom: 2rem">
+            Arusha is Tanzania's safari capital — perfectly positioned as the
+            gateway to all of Tanzania's Northern Circuit parks. Just 1 hour
+            from Kilimanjaro International Airport.
+          </p>
+          <!-- Map placeholder -->
+          <div
+            style="
+              width: 100%;
+              height: 340px;
+              background: var(--dark2);
+              border: 1px solid rgba(201, 150, 58, 0.15);
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              gap: 1rem;
+              position: relative;
+              overflow: hidden;
+            "
+          >
+            <div
+              style="
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(
+                  135deg,
+                  var(--dark3) 0%,
+                  var(--dark2) 100%
+                );
+              "
+            ></div>
+            <i
+              class="fa-solid fa-map-location-dot"
+              style="
+                font-size: 3rem;
+                color: var(--gold);
+                position: relative;
+                z-index: 1;
+              "
+            ></i>
+            <div style="position: relative; z-index: 1; text-align: center">
+              <div
+                style="
+                  font-family: var(--ff-head);
+                  font-size: 1rem;
+                  font-weight: 600;
+                  letter-spacing: 2px;
+                  text-transform: uppercase;
+                  color: var(--white);
+                  margin-bottom: 0.4rem;
+                "
+              >
+                Arusha, Tanzania
+              </div>
+              <div style="font-size: 0.82rem; color: var(--text)">
+                Safari Capital of East Africa
+              </div>
+              <a
+                href="https://maps.google.com/?q=Arusha,Tanzania"
+                target="_blank"
+                rel="noopener"
+                style="
+                  display: inline-flex;
+                  align-items: center;
+                  gap: 6px;
+                  margin-top: 1rem;
+                  font-size: 0.78rem;
+                  color: var(--gold);
+                  font-family: var(--ff-head);
+                  letter-spacing: 1px;
+                  text-transform: uppercase;
+                "
+                ><i class="fa-solid fa-external-link"></i> Open in Google
+                Maps</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="reveal-r">
+          <div class="section-tag">
+            <i class="fa-solid fa-clock"></i> Office Hours
+          </div>
+          <h2 class="section-title">When to <em>Reach Us</em></h2>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 0.6rem;
+              margin-bottom: 2.5rem;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem 1.2rem;
+                background: var(--dark2);
+                border: 1px solid rgba(201, 150, 58, 0.1);
+              "
+            >
+              <span
+                style="
+                  font-size: 0.85rem;
+                  color: var(--cream2);
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                "
+                ><i
+                  class="fa-solid fa-calendar-days"
+                  style="color: var(--gold)"
+                ></i>
+                Monday – Friday</span
+              ><span
+                style="
+                  font-family: var(--ff-head);
+                  font-size: 0.9rem;
+                  color: var(--gold);
+                "
+                >8:00 AM – 6:00 PM</span
+              >
+            </div>
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem 1.2rem;
+                background: var(--dark2);
+                border: 1px solid rgba(201, 150, 58, 0.1);
+              "
+            >
+              <span
+                style="
+                  font-size: 0.85rem;
+                  color: var(--cream2);
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                "
+                ><i
+                  class="fa-solid fa-calendar-day"
+                  style="color: var(--gold)"
+                ></i>
+                Saturday</span
+              ><span
+                style="
+                  font-family: var(--ff-head);
+                  font-size: 0.9rem;
+                  color: var(--gold);
+                "
+                >8:00 AM – 2:00 PM</span
+              >
+            </div>
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem 1.2rem;
+                background: var(--dark2);
+                border: 1px solid rgba(201, 150, 58, 0.1);
+              "
+            >
+              <span
+                style="
+                  font-size: 0.85rem;
+                  color: var(--cream2);
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                "
+                ><i class="fa-solid fa-moon" style="color: var(--gold)"></i>
+                Sunday</span
+              ><span
+                style="
+                  font-family: var(--ff-head);
+                  font-size: 0.9rem;
+                  color: var(--text);
+                "
+                >Closed (WhatsApp available)</span
+              >
+            </div>
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem 1.2rem;
+                background: rgba(201, 150, 58, 0.06);
+                border: 1px solid rgba(201, 150, 58, 0.25);
+              "
+            >
+              <span
+                style="
+                  font-size: 0.85rem;
+                  color: var(--cream2);
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                "
+                ><i class="fa-brands fa-whatsapp" style="color: #25d366"></i>
+                WhatsApp Response</span
+              ><span
+                style="
+                  font-family: var(--ff-head);
+                  font-size: 0.9rem;
+                  color: var(--gold);
+                "
+                >Within 2 hours</span
+              >
+            </div>
+          </div>
+
+          <!-- QUICK CONTACT CARDS -->
+          <div style="display: flex; flex-direction: column; gap: 0.8rem">
+            <a
+              href="https://wa.me/255690318461"
+              target="_blank"
+              rel="noopener"
+              style="
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                padding: 1.2rem 1.5rem;
+                background: #25d366;
+                text-decoration: none;
+                transition: opacity 0.3s;
+              "
+              onmouseover="this.style.opacity = '.9'"
+              onmouseout="this.style.opacity = '1'"
+            >
+              <i
+                class="fa-brands fa-whatsapp"
+                style="color: #fff; font-size: 1.5rem; flex-shrink: 0"
+              ></i>
+              <div>
+                <div
+                  style="
+                    font-family: var(--ff-head);
+                    font-size: 0.9rem;
+                    font-weight: 700;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    color: #fff;
+                  "
+                >
+                  Chat on WhatsApp
+                </div>
+                <div
+                  style="font-size: 0.78rem; color: rgba(255, 255, 255, 0.8)"
+                >
+                  Quickest way to get instant answers
+                </div>
+              </div>
+              <i
+                class="fa-solid fa-arrow-right"
+                style="color: #fff; margin-left: auto"
+              ></i>
+            </a>
+            <a
+              href="tel:+255690318461"
+              style="
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                padding: 1.2rem 1.5rem;
+                background: var(--dark2);
+                border: 1px solid rgba(201, 150, 58, 0.2);
+                text-decoration: none;
+                transition: border-color 0.3s;
+              "
+              onmouseover="this.style.borderColor = 'var(--gold)'"
+              onmouseout="this.style.borderColor = 'rgba(201,150,58,.2)'"
+            >
+              <i
+                class="fa-solid fa-phone"
+                style="color: var(--gold); font-size: 1.3rem; flex-shrink: 0"
+              ></i>
+              <div>
+                <div
+                  style="
+                    font-family: var(--ff-head);
+                    font-size: 0.9rem;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    color: var(--white);
+                  "
+                >
+                  +255 690 318 461
+                </div>
+                <div style="font-size: 0.78rem; color: var(--text)">
+                  Call us direct during office hours
+                </div>
+              </div>
+              <i
+                class="fa-solid fa-arrow-right"
+                style="color: var(--gold); margin-left: auto"
+              ></i>
+            </a>
+            <a
+              href="mailto:info@seresafariafrica.com"
+              style="
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                padding: 1.2rem 1.5rem;
+                background: var(--dark2);
+                border: 1px solid rgba(201, 150, 58, 0.2);
+                text-decoration: none;
+                transition: border-color 0.3s;
+              "
+              onmouseover="this.style.borderColor = 'var(--gold)'"
+              onmouseout="this.style.borderColor = 'rgba(201,150,58,.2)'"
+            >
+              <i
+                class="fa-solid fa-envelope"
+                style="color: var(--gold); font-size: 1.3rem; flex-shrink: 0"
+              ></i>
+              <div>
+                <div
+                  style="
+                    font-family: var(--ff-head);
+                    font-size: 0.9rem;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    color: var(--white);
+                  "
+                >
+                  info@seresafariafrica.com
+                </div>
+                <div style="font-size: 0.78rem; color: var(--text)">
+                  Response within 24 hours
+                </div>
+              </div>
+              <i
+                class="fa-solid fa-arrow-right"
+                style="color: var(--gold); margin-left: auto"
+              ></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS — TripAdvisor Carousel -->
+    <section
+      class="test-section"
+      style="background: var(--dark2); overflow: hidden"
+    >
+      <div style="text-align: center" class="reveal">
+        <div class="section-tag">
+          <i class="fa-brands fa-tripadvisor"></i> Verified TripAdvisor Reviews
+        </div>
+        <h2 class="section-title">Real Stories, <em>Real Magic</em></h2>
+        <p class="section-sub" style="max-width: 480px; margin: 0 auto">
+          Over 1,000 happy travellers have experienced Tanzania with Seresafari.
+          Here's what some of them said.
         </p>
-        <!-- Map placeholder -->
         <div
-          style="width:100%;height:340px;background:var(--dark2);border:1px solid rgba(201,150,58,.15);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;position:relative;overflow:hidden;">
-          <div style="position:absolute;inset:0;background:linear-gradient(135deg,var(--dark3) 0%,var(--dark2) 100%);">
-          </div>
-          <i class="fa-solid fa-map-location-dot"
-            style="font-size:3rem;color:var(--gold);position:relative;z-index:1;"></i>
-          <div style="position:relative;z-index:1;text-align:center;">
-            <div
-              style="font-family:var(--ff-head);font-size:1rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--white);margin-bottom:.4rem;">
-              Arusha, Tanzania</div>
-            <div style="font-size:.82rem;color:var(--text);">Safari Capital of East Africa</div>
-            <a href="https://maps.google.com/?q=Arusha,Tanzania" target="_blank" rel="noopener"
-              style="display:inline-flex;align-items:center;gap:6px;margin-top:1rem;font-size:.78rem;color:var(--gold);font-family:var(--ff-head);letter-spacing:1px;text-transform:uppercase;"><i
-                class="fa-solid fa-external-link"></i> Open in Google Maps</a>
-          </div>
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.2rem;
+            flex-wrap: wrap;
+          "
+        >
+          <span
+            style="
+              font-size: 1.6rem;
+              font-weight: 800;
+              color: var(--gold);
+              font-family: var(--ff-head);
+            "
+            >5.0</span
+          >
+          <span style="color: #00aa6c; font-size: 1.4rem">●●●●●</span>
+          <span style="font-size: 0.82rem; color: var(--text)"
+            >Excellent · 5.0 / 5.0 on
+            <strong style="color: var(--cream2)">TripAdvisor</strong></span
+          >
         </div>
       </div>
-      <div class="reveal-r">
-        <div class="section-tag"><i class="fa-solid fa-clock"></i> Office Hours</div>
-        <h2 class="section-title">When to <em>Reach Us</em></h2>
-        <div style="display:flex;flex-direction:column;gap:.6rem;margin-bottom:2.5rem;">
-          <div
-            style="display:flex;justify-content:space-between;align-items:center;padding:1rem 1.2rem;background:var(--dark2);border:1px solid rgba(201,150,58,.1);">
-            <span style="font-size:.85rem;color:var(--cream2);display:flex;align-items:center;gap:8px;"><i
-                class="fa-solid fa-calendar-days" style="color:var(--gold);"></i> Monday – Friday</span><span
-              style="font-family:var(--ff-head);font-size:.9rem;color:var(--gold);">8:00 AM – 6:00 PM</span>
-          </div>
-          <div
-            style="display:flex;justify-content:space-between;align-items:center;padding:1rem 1.2rem;background:var(--dark2);border:1px solid rgba(201,150,58,.1);">
-            <span style="font-size:.85rem;color:var(--cream2);display:flex;align-items:center;gap:8px;"><i
-                class="fa-solid fa-calendar-day" style="color:var(--gold);"></i> Saturday</span><span
-              style="font-family:var(--ff-head);font-size:.9rem;color:var(--gold);">8:00 AM – 2:00 PM</span>
-          </div>
-          <div
-            style="display:flex;justify-content:space-between;align-items:center;padding:1rem 1.2rem;background:var(--dark2);border:1px solid rgba(201,150,58,.1);">
-            <span style="font-size:.85rem;color:var(--cream2);display:flex;align-items:center;gap:8px;"><i
-                class="fa-solid fa-moon" style="color:var(--gold);"></i> Sunday</span><span
-              style="font-family:var(--ff-head);font-size:.9rem;color:var(--text);">Closed (WhatsApp available)</span>
-          </div>
-          <div
-            style="display:flex;justify-content:space-between;align-items:center;padding:1rem 1.2rem;background:rgba(201,150,58,.06);border:1px solid rgba(201,150,58,.25);">
-            <span style="font-size:.85rem;color:var(--cream2);display:flex;align-items:center;gap:8px;"><i
-                class="fa-brands fa-whatsapp" style="color:#25D366;"></i> WhatsApp Response</span><span
-              style="font-family:var(--ff-head);font-size:.9rem;color:var(--gold);">Within 2 hours</span>
-          </div>
-        </div>
 
-        <!-- QUICK CONTACT CARDS -->
-        <div style="display:flex;flex-direction:column;gap:.8rem;">
-          <a href="https://wa.me/255690318461" target="_blank" rel="noopener"
-            style="display:flex;align-items:center;gap:1rem;padding:1.2rem 1.5rem;background:#25D366;text-decoration:none;transition:opacity .3s;"
-            onmouseover="this.style.opacity='.9'" onmouseout="this.style.opacity='1'">
-            <i class="fa-brands fa-whatsapp" style="color:#fff;font-size:1.5rem;flex-shrink:0;"></i>
-            <div>
-              <div
-                style="font-family:var(--ff-head);font-size:.9rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#fff;">
-                Chat on WhatsApp</div>
-              <div style="font-size:.78rem;color:rgba(255,255,255,.8);">Quickest way to get instant answers</div>
+      <div style="position: relative; margin-top: 3rem" class="reveal">
+        <div id="trCarouselViewport2" style="overflow: hidden; width: 100%">
+          <div
+            id="trCarouselTrack2"
+            style="
+              display: flex;
+              gap: 1.6rem;
+              transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+              will-change: transform;
+              padding: 0 0 1rem;
+            "
+          >
+            <div class="tr-card">
+              <div class="tr-header">
+                <div class="tr-avatar">M</div>
+                <div>
+                  <div class="tr-name">Michal_Kycia</div>
+                  <div class="tr-loc">
+                    <i class="fa-solid fa-location-dot"></i> Poland
+                  </div>
+                </div>
+                <img
+                  src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg"
+                  alt="TripAdvisor"
+                  class="tr-logo"
+                />
+              </div>
+              <div class="tr-stars">★★★★★</div>
+              <div class="tr-title">"Unforgettable Safari Experience"</div>
+              <p class="tr-text">
+                We had an incredible safari with Seresafari Africa! Everything
+                was seamless — our guide was knowledgeable, friendly, and
+                skilled at spotting wildlife. We saw lions, elephants, giraffes,
+                zebras, and even a leopard! Absolutely exceptional service from
+                start to finish.
+              </p>
+              <div class="tr-date">
+                <i class="fa-regular fa-calendar"></i> April 2025
+              </div>
             </div>
-            <i class="fa-solid fa-arrow-right" style="color:#fff;margin-left:auto;"></i>
-          </a>
-          <a href="tel:+255690318461"
-            style="display:flex;align-items:center;gap:1rem;padding:1.2rem 1.5rem;background:var(--dark2);border:1px solid rgba(201,150,58,.2);text-decoration:none;transition:border-color .3s;"
-            onmouseover="this.style.borderColor='var(--gold)'"
-            onmouseout="this.style.borderColor='rgba(201,150,58,.2)'">
-            <i class="fa-solid fa-phone" style="color:var(--gold);font-size:1.3rem;flex-shrink:0;"></i>
-            <div>
-              <div
-                style="font-family:var(--ff-head);font-size:.9rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--white);">
-                +255 690 318 461</div>
-              <div style="font-size:.78rem;color:var(--text);">Call us direct during office hours</div>
+            <div class="tr-card">
+              <div class="tr-header">
+                <div class="tr-avatar">A</div>
+                <div>
+                  <div class="tr-name">Adventure_Seeker22</div>
+                  <div class="tr-loc">
+                    <i class="fa-solid fa-location-dot"></i> United Kingdom
+                  </div>
+                </div>
+                <img
+                  src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg"
+                  alt="TripAdvisor"
+                  class="tr-logo"
+                />
+              </div>
+              <div class="tr-stars">★★★★★</div>
+              <div class="tr-title">"Best Safari Company in Tanzania!"</div>
+              <p class="tr-text">
+                I absolutely loved my experience with Seresafari Africa. A 7-day
+                trip to Tarangire, Ngorongoro, and Serengeti, ending in Zanzibar
+                — amazing service, good food, and unforgettable wildlife
+                moments. Will definitely be back!
+              </p>
+              <div class="tr-date">
+                <i class="fa-regular fa-calendar"></i> March 2025
+              </div>
             </div>
-            <i class="fa-solid fa-arrow-right" style="color:var(--gold);margin-left:auto;"></i>
-          </a>
-          <a href="mailto:info@seresafariafrica.com"
-            style="display:flex;align-items:center;gap:1rem;padding:1.2rem 1.5rem;background:var(--dark2);border:1px solid rgba(201,150,58,.2);text-decoration:none;transition:border-color .3s;"
-            onmouseover="this.style.borderColor='var(--gold)'"
-            onmouseout="this.style.borderColor='rgba(201,150,58,.2)'">
-            <i class="fa-solid fa-envelope" style="color:var(--gold);font-size:1.3rem;flex-shrink:0;"></i>
-            <div>
-              <div
-                style="font-family:var(--ff-head);font-size:.9rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--white);">
-                info@seresafariafrica.com</div>
-              <div style="font-size:.78rem;color:var(--text);">Response within 24 hours</div>
+            <div class="tr-card">
+              <div class="tr-header">
+                <div class="tr-avatar">J</div>
+                <div>
+                  <div class="tr-name">JourneyLover_JP</div>
+                  <div class="tr-loc">
+                    <i class="fa-solid fa-location-dot"></i> Japan
+                  </div>
+                </div>
+                <img
+                  src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg"
+                  alt="TripAdvisor"
+                  class="tr-logo"
+                />
+              </div>
+              <div class="tr-stars">★★★★★</div>
+              <div class="tr-title">"Outstanding and Professional Team"</div>
+              <p class="tr-text">
+                Outstanding service from a highly professional and enthusiastic
+                team. The entire experience was enjoyable, well-organised, and
+                memorable. The Ngorongoro Crater, Serengeti, and balloon safari
+                were all incredible. Seresafari is simply the best!
+              </p>
+              <div class="tr-date">
+                <i class="fa-regular fa-calendar"></i> February 2025
+              </div>
             </div>
-            <i class="fa-solid fa-arrow-right" style="color:var(--gold);margin-left:auto;"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS — TripAdvisor Carousel -->
-  <section class="test-section" style="background:var(--dark2);overflow:hidden;">
-    <div style="text-align:center;" class="reveal">
-      <div class="section-tag"><i class="fa-brands fa-tripadvisor"></i> Verified TripAdvisor Reviews</div>
-      <h2 class="section-title">Real Stories, <em>Real Magic</em></h2>
-      <p class="section-sub" style="max-width:480px;margin:0 auto;">Over 1,000 happy travellers have experienced Tanzania with Seresafari. Here's what some of them said.</p>
-      <div style="display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:1.2rem;flex-wrap:wrap;">
-        <span style="font-size:1.6rem;font-weight:800;color:var(--gold);font-family:var(--ff-head);">5.0</span>
-        <span style="color:#00aa6c;font-size:1.4rem;">●●●●●</span>
-        <span style="font-size:.82rem;color:var(--text);">Excellent · 5.0 / 5.0 on <strong style="color:var(--cream2);">TripAdvisor</strong></span>
-      </div>
-    </div>
-
-    <div style="position:relative;margin-top:3rem;" class="reveal">
-      <div id="trCarouselViewport2" style="overflow:hidden;width:100%;">
-        <div id="trCarouselTrack2" style="display:flex;gap:1.6rem;transition:transform .5s cubic-bezier(.4,0,.2,1);will-change:transform;padding:0 0 1rem;">
-          <div class="tr-card"><div class="tr-header"><div class="tr-avatar">M</div><div><div class="tr-name">Michal_Kycia</div><div class="tr-loc"><i class="fa-solid fa-location-dot"></i> Poland</div></div><img src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" alt="TripAdvisor" class="tr-logo"></div><div class="tr-stars">★★★★★</div><div class="tr-title">"Unforgettable Safari Experience"</div><p class="tr-text">We had an incredible safari with Seresafari Africa! Everything was seamless — our guide was knowledgeable, friendly, and skilled at spotting wildlife. We saw lions, elephants, giraffes, zebras, and even a leopard! Absolutely exceptional service from start to finish.</p><div class="tr-date"><i class="fa-regular fa-calendar"></i> April 2025</div></div>
-          <div class="tr-card"><div class="tr-header"><div class="tr-avatar">A</div><div><div class="tr-name">Adventure_Seeker22</div><div class="tr-loc"><i class="fa-solid fa-location-dot"></i> United Kingdom</div></div><img src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" alt="TripAdvisor" class="tr-logo"></div><div class="tr-stars">★★★★★</div><div class="tr-title">"Best Safari Company in Tanzania!"</div><p class="tr-text">I absolutely loved my experience with Seresafari Africa. A 7-day trip to Tarangire, Ngorongoro, and Serengeti, ending in Zanzibar — amazing service, good food, and unforgettable wildlife moments. Will definitely be back!</p><div class="tr-date"><i class="fa-regular fa-calendar"></i> March 2025</div></div>
-          <div class="tr-card"><div class="tr-header"><div class="tr-avatar">J</div><div><div class="tr-name">JourneyLover_JP</div><div class="tr-loc"><i class="fa-solid fa-location-dot"></i> Japan</div></div><img src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" alt="TripAdvisor" class="tr-logo"></div><div class="tr-stars">★★★★★</div><div class="tr-title">"Outstanding and Professional Team"</div><p class="tr-text">Outstanding service from a highly professional and enthusiastic team. The entire experience was enjoyable, well-organised, and memorable. The Ngorongoro Crater, Serengeti, and balloon safari were all incredible. Seresafari is simply the best!</p><div class="tr-date"><i class="fa-regular fa-calendar"></i> February 2025</div></div>
-          <div class="tr-card"><div class="tr-header"><div class="tr-avatar">S</div><div><div class="tr-name">Stanley_Photo</div><div class="tr-loc"><i class="fa-solid fa-location-dot"></i> United States</div></div><img src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" alt="TripAdvisor" class="tr-logo"></div><div class="tr-stars">★★★★★</div><div class="tr-title">"Perfect for Photography Safari"</div><p class="tr-text">We embarked on the Bush to Beach trip — four unforgettable days in Tarangire, Serengeti and Ngorongoro. Our guide Stanley was exceptional. As a wildlife photographer, I was thrilled he always knew the perfect vantage points at every opportunity.</p><div class="tr-date"><i class="fa-regular fa-calendar"></i> January 2025</div></div>
-          <div class="tr-card"><div class="tr-header"><div class="tr-avatar">E</div><div><div class="tr-name">EuroTraveller_BE</div><div class="tr-loc"><i class="fa-solid fa-location-dot"></i> Belgium</div></div><img src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" alt="TripAdvisor" class="tr-logo"></div><div class="tr-stars">★★★★★</div><div class="tr-title">"Genuine Warm People, Amazing Safari"</div><p class="tr-text">This company provides a great time on safari. The best part is the people who form Seresafari — very nice, genuine, warm humans. We were greeted the night before and all logistics explained clearly. Perfect in every single way. Hakuna Matata!</p><div class="tr-date"><i class="fa-regular fa-calendar"></i> December 2024</div></div>
-          <div class="tr-card"><div class="tr-header"><div class="tr-avatar">K</div><div><div class="tr-name">KiliClimber_NL</div><div class="tr-loc"><i class="fa-solid fa-location-dot"></i> Netherlands</div></div><img src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" alt="TripAdvisor" class="tr-logo"></div><div class="tr-stars">★★★★★</div><div class="tr-title">"Reached Uhuru Peak — Life Changing!"</div><p class="tr-text">The Kilimanjaro climb was the hardest and most rewarding thing I've ever done. Our Seresafari guides were professional, patient and encouraging every single step. Reaching Uhuru Peak at sunrise was a life-changing moment I will never forget.</p><div class="tr-date"><i class="fa-regular fa-calendar"></i> November 2024</div></div>
-          <div class="tr-card"><div class="tr-header"><div class="tr-avatar">R</div><div><div class="tr-name">RomanticsOnTour</div><div class="tr-loc"><i class="fa-solid fa-location-dot"></i> Australia</div></div><img src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" alt="TripAdvisor" class="tr-logo"></div><div class="tr-stars">★★★★★</div><div class="tr-title">"Honeymoon Safari — Absolutely Perfect"</div><p class="tr-text">We booked a honeymoon safari and it was everything we dreamed of and more. From the warm airport welcome to the stunning Serengeti sunsets, every detail was flawless. Our guide went above and beyond. Highly recommend Seresafari!</p><div class="tr-date"><i class="fa-regular fa-calendar"></i> October 2024</div></div>
-          <div class="tr-card"><div class="tr-header"><div class="tr-avatar">C</div><div><div class="tr-name">Carlos_Aventura</div><div class="tr-loc"><i class="fa-solid fa-location-dot"></i> Spain</div></div><img src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" alt="TripAdvisor" class="tr-logo"></div><div class="tr-stars">★★★★★</div><div class="tr-title">"100% Recommend — Exceeded All Expectations"</div><p class="tr-text">From the first email response to the final farewell at the airport, Seresafari exceeded all expectations. The Great Migration crossing was jaw-dropping. Our guide's knowledge made every game drive incredibly enriching.</p><div class="tr-date"><i class="fa-regular fa-calendar"></i> September 2024</div></div>
-        </div>
-      </div>
-      <button id="trPrev2" class="tr-arrow tr-prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
-      <button id="trNext2" class="tr-arrow tr-next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
-      <div id="trDots2" style="display:flex;justify-content:center;gap:.5rem;margin-top:2rem;flex-wrap:wrap;"></div>
-    </div>
-
-    <div style="text-align:center;margin-top:2.5rem;" class="reveal">
-      <a href="https://www.tripadvisor.com/Attraction_Review-g297913-d28413189-Reviews-Seresafari_Africa_Tours-Arusha_Arusha_Region.html"
-         target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
-        <i class="fa-brands fa-tripadvisor"></i> View All Reviews on TripAdvisor
-      </a>
-    </div>
-  </section>
-  <script>
-  (function(){
-    var track=document.getElementById('trCarouselTrack2');
-    var vp=document.getElementById('trCarouselViewport2');
-    var prev=document.getElementById('trPrev2');
-    var next=document.getElementById('trNext2');
-    var dotsEl=document.getElementById('trDots2');
-    if(!track)return;
-    var cards=track.querySelectorAll('.tr-card');
-    var total=cards.length,cur=0,timer=null;
-    function vis(){var w=vp.offsetWidth;if(w<=640)return 1;if(w<=1024)return 2;return 3;}
-    function maxIdx(){return Math.max(0,total-vis());}
-    function buildDots(){dotsEl.innerHTML='';for(var i=0;i<=maxIdx();i++){var d=document.createElement('button');d.className='tr-dot'+(i===cur?' active':'');d.setAttribute('aria-label','Slide '+(i+1));(function(idx){d.addEventListener('click',function(){goTo(idx);reset();});})(i);dotsEl.appendChild(d);}}
-    function goTo(idx){var max=maxIdx();idx=Math.max(0,Math.min(idx,max));cur=idx;var cw=cards[0].offsetWidth+24;track.style.transform='translateX(-'+(cur*cw)+'px)';dotsEl.querySelectorAll('.tr-dot').forEach(function(d,i){d.classList.toggle('active',i===cur);});prev.disabled=cur===0;next.disabled=cur===max;}
-    buildDots();goTo(0);
-    prev.addEventListener('click',function(){goTo(cur-1);reset();});
-    next.addEventListener('click',function(){goTo(cur+1);reset();});
-    function auto(){timer=setInterval(function(){goTo(cur<maxIdx()?cur+1:0);},4500);}
-    function reset(){clearInterval(timer);auto();}
-    auto();
-    var sx=0;
-    track.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
-    track.addEventListener('touchend',function(e){var dx=sx-e.changedTouches[0].clientX;if(Math.abs(dx)>50){goTo(dx>0?cur+1:cur-1);reset();}});
-    window.addEventListener('resize',function(){buildDots();goTo(cur);});
-  })();
-  </script>
-
-  <footer>
-    <div class="footer-top">
-      <div class="footer-brand"><a href="../index.html" class="logo">SERE<span>SAFARI</span></a>
-        <p class="footer-tagline">Creating unforgettable safari experiences in the heart of Africa. Expert guides.
-          Hand-picked lodges. Hakuna Matata.</p>
-        <div class="footer-social"><a href="https://www.facebook.com/Seresafari/" target="_blank" rel="noopener"
-            class="soc-btn"><i class="fa-brands fa-facebook-f"></i></a><a href="#" class="soc-btn"><i
-              class="fa-brands fa-instagram"></i></a><a href="#" class="soc-btn"><i
-              class="fa-brands fa-x-twitter"></i></a><a href="#" class="soc-btn"><i
-              class="fa-brands fa-youtube"></i></a></div>
-      </div>
-      <div class="footer-col">
-        <h4>Destinations</h4>
-        <ul class="footer-links">
-          <li><a href="destinations.html"><i class="fa-solid fa-chevron-right"></i>Serengeti</a></li>
-          <li><a href="destinations.html"><i class="fa-solid fa-chevron-right"></i>Ngorongoro</a></li>
-          <li><a href="destinations.html"><i class="fa-solid fa-chevron-right"></i>Tarangire</a></li>
-          <li><a href="destinations.html"><i class="fa-solid fa-chevron-right"></i>Lake Manyara</a></li>
-          <li><a href="kilimanjaro.html"><i class="fa-solid fa-chevron-right"></i>Kilimanjaro</a></li>
-          <li><a href="zanzibar.html"><i class="fa-solid fa-chevron-right"></i>Zanzibar</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <ul class="footer-links">
-          <li><a href="../about.html"><i class="fa-solid fa-chevron-right"></i>About Us</a></li>
-          <li><a href="tours.html"><i class="fa-solid fa-chevron-right"></i>Tour Packages</a></li>
-          <li><a href="gallery.html"><i class="fa-solid fa-chevron-right"></i>Photo Gallery</a></li>
-          <li><a href="travel-insights.html"><i class="fa-solid fa-chevron-right"></i>Travel Insights</a></li>
-          <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i>Enquire Now</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul class="footer-contact">
-          <li><span class="fc-ico"><i class="fa-solid fa-location-dot"></i></span>Arusha, Tanzania 23100</li>
-          <li><span class="fc-ico"><i class="fa-solid fa-phone"></i></span><a href="tel:+255690318461"
-              style="color:var(--text);">+255 690 318 461</a></li>
-          <li><span class="fc-ico"><i class="fa-solid fa-envelope"></i></span><a href="mailto:info@seresafariafrica.com"
-              style="color:var(--text);">info@seresafariafrica.com</a></li>
-          <li><span class="fc-ico"><i class="fa-solid fa-clock"></i></span>Mon–Sat: 8AM–6PM EAT</li>
-        </ul>
-      </div>
-    
-    <div class="footer-badges">
-        <video class="footer-plane-video" autoplay muted loop playsinline>
-          <source src="../images/jeep.mp4" type="video/mp4">
-        </video>
-
-        <div class="footer-badge-row">
-          <p class="badge-label">We Accept</p>
-          <div class="badge-items">
-            <a href="https://shop.directpay.online/paymybills/SERESAFARIAFRICATOURSCOMPANYLIMITED"
-              target="_blank" rel="noopener noreferrer">
-              <img src="../images/visa.png" alt="Visa accepted" class="payment-badge">
-            </a>
+            <div class="tr-card">
+              <div class="tr-header">
+                <div class="tr-avatar">S</div>
+                <div>
+                  <div class="tr-name">Stanley_Photo</div>
+                  <div class="tr-loc">
+                    <i class="fa-solid fa-location-dot"></i> United States
+                  </div>
+                </div>
+                <img
+                  src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg"
+                  alt="TripAdvisor"
+                  class="tr-logo"
+                />
+              </div>
+              <div class="tr-stars">★★★★★</div>
+              <div class="tr-title">"Perfect for Photography Safari"</div>
+              <p class="tr-text">
+                We embarked on the Bush to Beach trip — four unforgettable days
+                in Tarangire, Serengeti and Ngorongoro. Our guide Stanley was
+                exceptional. As a wildlife photographer, I was thrilled he
+                always knew the perfect vantage points at every opportunity.
+              </p>
+              <div class="tr-date">
+                <i class="fa-regular fa-calendar"></i> January 2025
+              </div>
+            </div>
+            <div class="tr-card">
+              <div class="tr-header">
+                <div class="tr-avatar">E</div>
+                <div>
+                  <div class="tr-name">EuroTraveller_BE</div>
+                  <div class="tr-loc">
+                    <i class="fa-solid fa-location-dot"></i> Belgium
+                  </div>
+                </div>
+                <img
+                  src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg"
+                  alt="TripAdvisor"
+                  class="tr-logo"
+                />
+              </div>
+              <div class="tr-stars">★★★★★</div>
+              <div class="tr-title">"Genuine Warm People, Amazing Safari"</div>
+              <p class="tr-text">
+                This company provides a great time on safari. The best part is
+                the people who form Seresafari — very nice, genuine, warm
+                humans. We were greeted the night before and all logistics
+                explained clearly. Perfect in every single way. Hakuna Matata!
+              </p>
+              <div class="tr-date">
+                <i class="fa-regular fa-calendar"></i> December 2024
+              </div>
+            </div>
+            <div class="tr-card">
+              <div class="tr-header">
+                <div class="tr-avatar">K</div>
+                <div>
+                  <div class="tr-name">KiliClimber_NL</div>
+                  <div class="tr-loc">
+                    <i class="fa-solid fa-location-dot"></i> Netherlands
+                  </div>
+                </div>
+                <img
+                  src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg"
+                  alt="TripAdvisor"
+                  class="tr-logo"
+                />
+              </div>
+              <div class="tr-stars">★★★★★</div>
+              <div class="tr-title">"Reached Uhuru Peak — Life Changing!"</div>
+              <p class="tr-text">
+                The Kilimanjaro climb was the hardest and most rewarding thing
+                I've ever done. Our Seresafari guides were professional, patient
+                and encouraging every single step. Reaching Uhuru Peak at
+                sunrise was a life-changing moment I will never forget.
+              </p>
+              <div class="tr-date">
+                <i class="fa-regular fa-calendar"></i> November 2024
+              </div>
+            </div>
+            <div class="tr-card">
+              <div class="tr-header">
+                <div class="tr-avatar">R</div>
+                <div>
+                  <div class="tr-name">RomanticsOnTour</div>
+                  <div class="tr-loc">
+                    <i class="fa-solid fa-location-dot"></i> Australia
+                  </div>
+                </div>
+                <img
+                  src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg"
+                  alt="TripAdvisor"
+                  class="tr-logo"
+                />
+              </div>
+              <div class="tr-stars">★★★★★</div>
+              <div class="tr-title">
+                "Honeymoon Safari — Absolutely Perfect"
+              </div>
+              <p class="tr-text">
+                We booked a honeymoon safari and it was everything we dreamed of
+                and more. From the warm airport welcome to the stunning
+                Serengeti sunsets, every detail was flawless. Our guide went
+                above and beyond. Highly recommend Seresafari!
+              </p>
+              <div class="tr-date">
+                <i class="fa-regular fa-calendar"></i> October 2024
+              </div>
+            </div>
+            <div class="tr-card">
+              <div class="tr-header">
+                <div class="tr-avatar">C</div>
+                <div>
+                  <div class="tr-name">Carlos_Aventura</div>
+                  <div class="tr-loc">
+                    <i class="fa-solid fa-location-dot"></i> Spain
+                  </div>
+                </div>
+                <img
+                  src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg"
+                  alt="TripAdvisor"
+                  class="tr-logo"
+                />
+              </div>
+              <div class="tr-stars">★★★★★</div>
+              <div class="tr-title">
+                "100% Recommend — Exceeded All Expectations"
+              </div>
+              <p class="tr-text">
+                From the first email response to the final farewell at the
+                airport, Seresafari exceeded all expectations. The Great
+                Migration crossing was jaw-dropping. Our guide's knowledge made
+                every game drive incredibly enriching.
+              </p>
+              <div class="tr-date">
+                <i class="fa-regular fa-calendar"></i> September 2024
+              </div>
+            </div>
           </div>
         </div>
+        <button id="trPrev2" class="tr-arrow tr-prev" aria-label="Previous">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button id="trNext2" class="tr-arrow tr-next" aria-label="Next">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+        <div
+          id="trDots2"
+          style="
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+          "
+        ></div>
+      </div>
 
-        <div class="footer-badge-row">
-          <p class="badge-label">Find Us On</p>
-          <div class="badge-items">
-            <a href="https://www.tripadvisor.com/Attraction_Review-g297913-d28413189-Reviews-Seresafari_Africa_Tours-Arusha_Arusha_Region.html"
-              target="_blank" rel="noopener" class="review-badge">
-              <img src="../images/tripadvisor.svg" alt="TripAdvisor" class="platform-logo">
-            </a>
-            <a href="https://www.getyourguide.com/seresafari-africa-s583425/" target="_blank" rel="noopener" class="review-badge">
-              <img src="../images/getyourguide.svg" alt="GetYourGuide" class="platform-logo">
-            </a>
-            <a href="https://www.safarigo.com/operator/seresafari-africa-tours-3208" target="_blank" rel="noopener" class="review-badge">
-              <img src="../images/safarigo.png" alt="SafariGo" class="platform-logo">
-            </a>
-            <a href="https://tourist.com/p/15564/seresafari_africa" target="_blank" rel="noopener" class="review-badge">
-              <img src="../images/tourist.svg" alt="Tourist.com" class="platform-logo">
-            </a>
-            <a href="https://www.safaribookings.com/p7682" target="_blank" rel="noopener" class="review-badge">
-              <img src="../images/safaribookings.png" alt="SafariBookings" class="platform-logo">
-            </a>
+      <div style="text-align: center; margin-top: 2.5rem" class="reveal">
+        <a
+          href="https://www.tripadvisor.com/Attraction_Review-g297913-d28413189-Reviews-Seresafari_Africa_Tours-Arusha_Arusha_Region.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-ghost"
+        >
+          <i class="fa-brands fa-tripadvisor"></i> View All Reviews on
+          TripAdvisor
+        </a>
+      </div>
+    </section>
+    <script>
+      (function () {
+        var track = document.getElementById("trCarouselTrack2");
+        var vp = document.getElementById("trCarouselViewport2");
+        var prev = document.getElementById("trPrev2");
+        var next = document.getElementById("trNext2");
+        var dotsEl = document.getElementById("trDots2");
+        if (!track) return;
+        var cards = track.querySelectorAll(".tr-card");
+        var total = cards.length,
+          cur = 0,
+          timer = null;
+        function vis() {
+          var w = vp.offsetWidth;
+          if (w <= 640) return 1;
+          if (w <= 1024) return 2;
+          return 3;
+        }
+        function maxIdx() {
+          return Math.max(0, total - vis());
+        }
+        function buildDots() {
+          dotsEl.innerHTML = "";
+          for (var i = 0; i <= maxIdx(); i++) {
+            var d = document.createElement("button");
+            d.className = "tr-dot" + (i === cur ? " active" : "");
+            d.setAttribute("aria-label", "Slide " + (i + 1));
+            (function (idx) {
+              d.addEventListener("click", function () {
+                goTo(idx);
+                reset();
+              });
+            })(i);
+            dotsEl.appendChild(d);
+          }
+        }
+        function goTo(idx) {
+          var max = maxIdx();
+          idx = Math.max(0, Math.min(idx, max));
+          cur = idx;
+          var cw = cards[0].offsetWidth + 24;
+          track.style.transform = "translateX(-" + cur * cw + "px)";
+          dotsEl.querySelectorAll(".tr-dot").forEach(function (d, i) {
+            d.classList.toggle("active", i === cur);
+          });
+          prev.disabled = cur === 0;
+          next.disabled = cur === max;
+        }
+        buildDots();
+        goTo(0);
+        prev.addEventListener("click", function () {
+          goTo(cur - 1);
+          reset();
+        });
+        next.addEventListener("click", function () {
+          goTo(cur + 1);
+          reset();
+        });
+        function auto() {
+          timer = setInterval(function () {
+            goTo(cur < maxIdx() ? cur + 1 : 0);
+          }, 4500);
+        }
+        function reset() {
+          clearInterval(timer);
+          auto();
+        }
+        auto();
+        var sx = 0;
+        track.addEventListener(
+          "touchstart",
+          function (e) {
+            sx = e.touches[0].clientX;
+          },
+          { passive: true },
+        );
+        track.addEventListener("touchend", function (e) {
+          var dx = sx - e.changedTouches[0].clientX;
+          if (Math.abs(dx) > 50) {
+            goTo(dx > 0 ? cur + 1 : cur - 1);
+            reset();
+          }
+        });
+        window.addEventListener("resize", function () {
+          buildDots();
+          goTo(cur);
+        });
+      })();
+    </script>
+
+    <footer>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo">SERE<span>SAFARI</span></a>
+          <p class="footer-tagline">
+            Creating unforgettable safari experiences in the heart of Africa.
+            Expert guides. Hand-picked lodges. Hakuna Matata.
+          </p>
+          <div class="footer-social">
+            <a
+              href="https://www.facebook.com/Seresafari/"
+              target="_blank"
+              rel="noopener"
+              class="soc-btn"
+              ><i class="fa-brands fa-facebook-f"></i></a
+            ><a href="#" class="soc-btn"
+              ><i class="fa-brands fa-instagram"></i></a
+            ><a href="#" class="soc-btn"
+              ><i class="fa-brands fa-x-twitter"></i></a
+            ><a href="#" class="soc-btn"
+              ><i class="fa-brands fa-youtube"></i
+            ></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Destinations</h4>
+          <ul class="footer-links">
+            <li>
+              <a href="destinations.html"
+                ><i class="fa-solid fa-chevron-right"></i>Serengeti</a
+              >
+            </li>
+            <li>
+              <a href="destinations.html"
+                ><i class="fa-solid fa-chevron-right"></i>Ngorongoro</a
+              >
+            </li>
+            <li>
+              <a href="destinations.html"
+                ><i class="fa-solid fa-chevron-right"></i>Tarangire</a
+              >
+            </li>
+            <li>
+              <a href="destinations.html"
+                ><i class="fa-solid fa-chevron-right"></i>Lake Manyara</a
+              >
+            </li>
+            <li>
+              <a href="kilimanjaro.html"
+                ><i class="fa-solid fa-chevron-right"></i>Kilimanjaro</a
+              >
+            </li>
+            <li>
+              <a href="zanzibar.html"
+                ><i class="fa-solid fa-chevron-right"></i>Zanzibar</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li>
+              <a href="../about.html"
+                ><i class="fa-solid fa-chevron-right"></i>About Us</a
+              >
+            </li>
+            <li>
+              <a href="tours.html"
+                ><i class="fa-solid fa-chevron-right"></i>Tour Packages</a
+              >
+            </li>
+            <li>
+              <a href="gallery.html"
+                ><i class="fa-solid fa-chevron-right"></i>Photo Gallery</a
+              >
+            </li>
+            <li>
+              <a href="travel-insights.html"
+                ><i class="fa-solid fa-chevron-right"></i>Travel Insights</a
+              >
+            </li>
+            <li>
+              <a href="contact.html"
+                ><i class="fa-solid fa-chevron-right"></i>Enquire Now</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-contact">
+            <li>
+              <span class="fc-ico"
+                ><i class="fa-solid fa-location-dot"></i></span
+              >Arusha, Tanzania 23100
+            </li>
+            <li>
+              <span class="fc-ico"><i class="fa-solid fa-phone"></i></span
+              ><a href="tel:+255690318461" style="color: var(--text)"
+                >+255 690 318 461</a
+              >
+            </li>
+            <li>
+              <span class="fc-ico"><i class="fa-solid fa-envelope"></i></span
+              ><a
+                href="mailto:info@seresafariafrica.com"
+                style="color: var(--text)"
+                >info@seresafariafrica.com</a
+              >
+            </li>
+            <li>
+              <span class="fc-ico"><i class="fa-solid fa-clock"></i></span
+              >Mon–Sat: 8AM–6PM EAT
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-badges">
+          <video class="footer-plane-video" autoplay muted loop playsinline>
+            <source src="../images/jeep.mp4" type="video/mp4" />
+          </video>
+
+          <div class="footer-badge-row">
+            <p class="badge-label">We Accept</p>
+            <div class="badge-items">
+              <a
+                href="https://shop.directpay.online/paymybills/SERESAFARIAFRICATOURSCOMPANYLIMITED"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="../images/visa.png"
+                  alt="Visa accepted"
+                  class="payment-badge"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-badge-row">
+            <p class="badge-label">Find Us On</p>
+            <div class="badge-items">
+              <a
+                href="https://www.tripadvisor.com/Attraction_Review-g297913-d28413189-Reviews-Seresafari_Africa_Tours-Arusha_Arusha_Region.html"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="../images/tripadvisor.svg"
+                  alt="TripAdvisor"
+                  class="platform-logo"
+                />
+              </a>
+              <a
+                href="https://www.getyourguide.com/seresafari-africa-s583425/"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="../images/getyourguide.svg"
+                  alt="GetYourGuide"
+                  class="platform-logo"
+                />
+              </a>
+              <a
+                href="https://www.safarigo.com/operator/seresafari-africa-tours-3208"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="../images/safarigo.png"
+                  alt="SafariGo"
+                  class="platform-logo"
+                />
+              </a>
+              <a
+                href="https://tourist.com/p/15564/seresafari_africa"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="../images/tourist.svg"
+                  alt="Tourist.com"
+                  class="platform-logo"
+                />
+              </a>
+              <a
+                href="https://www.safaribookings.com/p7682"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="../images/safaribookings.png"
+                  alt="SafariBookings"
+                  class="platform-logo"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="footer-bot">
-      <p>© 2026 Seresafari Africa. All Rights Reserved. · Web by Pamtech</p>
-      <div class="hakuna">Hakuna Matata <i class="fa-solid fa-earth-africa"></i></div>
-      <p>
-        <a href="privacy-policy.html">Privacy Policy</a> ·
-        <a href="terms-of-service.html">Terms of Service</a> ·
-        <a href="travel-insights.html">Travel Insights</a>
-      </p>
-    </div>
-  </footer>
-  <a class="wa-btn" href="https://wa.me/255690318461" target="_blank" rel="noopener"><i
-      class="fa-brands fa-whatsapp"></i></a>
-  <script src="../js/main.js"></script>
-</body>
-
+      <div class="footer-bot">
+        <p>© 2026 Seresafari Africa. All Rights Reserved. · Web by Pamtech</p>
+        <div class="hakuna">
+          Hakuna Matata <i class="fa-solid fa-earth-africa"></i>
+        </div>
+        <p>
+          <a href="privacy-policy.html">Privacy Policy</a> ·
+          <a href="terms-of-service.html">Terms of Service</a> ·
+          <a href="travel-insights.html">Travel Insights</a>
+        </p>
+      </div>
+    </footer>
+    <a
+      class="wa-btn"
+      href="https://wa.me/255690318461"
+      target="_blank"
+      rel="noopener"
+      ><i class="fa-brands fa-whatsapp"></i
+    ></a>
+    <script src="../js/main.js"></script>
+    <script src="../js/content-protection.js"></script>
+  </body>
 </html>

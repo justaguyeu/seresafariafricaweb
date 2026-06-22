@@ -1,194 +1,80 @@
--- ============================================================
---  SERE SAFARI AFRICA — Supabase Schema
---  Run this entire file in your Supabase SQL Editor once.
---  Dashboard → SQL Editor → New Query → Paste → Run
--- ============================================================
-
--- ── 1. PACKAGES TABLE ────────────────────────────────────────
-create table if not exists public.packages (
-  id               uuid primary key default gen_random_uuid(),
-  created_at       timestamptz default now(),
-  updated_at       timestamptz default now(),
-
-  -- Core
-  title            text        not null,
-  slug             text        not null unique,
-  hero_image       text        not null,
-  detail_hero_img  text,
-  badge_text       text        default 'Popular',
-  badge_icon       text        default 'fa-star',
-  sort_order       integer     default 0,
-  is_active        boolean     default true,
-  is_featured      boolean     default false,
-
-  -- Meta shown on card
-  duration_label   text        not null,
-  duration_days    integer,
-  group_size       text        default '2–8 pax',
-  tour_type_label  text        not null,
-  tour_type_icon   text        default 'fa-car-side',
-
-  -- Filter tags (space-separated strings)
-  dest_tags        text        not null,
-  dur_tag          text        not null,
-  type_tags        text        not null,
-
-  -- Pricing
-  base_price       integer     not null default 0,
-  price_display    text        not null,
-  price_suffix     text        default '/ person',
-  detail_url       text        not null,
-  cta_text         text        default 'View Details',
-
-  -- Descriptions
-  short_desc       text        not null,
-  overview_html    text,
-
-  -- JSON arrays
-  inclusions       jsonb       default '[]',
-  exclusions       jsonb       default '[]',
-  highlights       jsonb       default '[]',
-  itinerary        jsonb       default '[]',
-  accommodation    jsonb       default '[]',
-  price_tiers      jsonb       default '[]',
-  add_ons          jsonb       default '[]',
-  important_notes  jsonb       default '[]',
-
-  -- SEO
-  meta_title       text,
-  meta_desc        text
-);
-
--- Auto-update updated_at
-create or replace function public.handle_updated_at()
-returns trigger language plpgsql as $$
-begin
-  new.updated_at = now();
-  return new;
-end;
-$$;
-
-drop trigger if exists set_packages_updated_at on public.packages;
-create trigger set_packages_updated_at
-  before update on public.packages
-  for each row execute procedure public.handle_updated_at();
-
--- ── 2. ROW LEVEL SECURITY ────────────────────────────────────
-alter table public.packages enable row level security;
-
--- Public can read active packages
-create policy "Public can read active packages"
-  on public.packages for select
-  using (is_active = true);
-
--- Authenticated users (admins) can do everything
-create policy "Authenticated users full access"
-  on public.packages for all
-  to authenticated
-  using (true)
-  with check (true);
-
--- ── 3. ADMIN PROFILES TABLE ──────────────────────────────────
--- Stores extra info about admin users (linked to auth.users)
-create table if not exists public.admin_profiles (
-  id          uuid primary key references auth.users(id) on delete cascade,
-  created_at  timestamptz default now(),
-  email       text not null,
-  full_name   text,
-  role        text default 'editor',   -- 'super_admin' | 'editor'
-  is_active   boolean default true,
-  invited_by  uuid references auth.users(id)
-);
-
-alter table public.admin_profiles enable row level security;
-
--- Authenticated users can read all profiles
-create policy "Authenticated users can read profiles"
-  on public.admin_profiles for select
-  to authenticated using (true);
-
--- Only super_admins can insert/update/delete
-create policy "Super admins can manage profiles"
-  on public.admin_profiles for all
-  to authenticated
-  using (
-    exists (
-      select 1 from public.admin_profiles
-      where id = auth.uid() and role = 'super_admin'
-    )
-  )
-  with check (true);
-
--- Users can update their own profile
-create policy "Users can update own profile"
-  on public.admin_profiles for update
-  to authenticated
-  using (id = auth.uid())
-  with check (id = auth.uid());
-
--- ── 4. FUNCTION: INVITE USER ─────────────────────────────────
--- Called from admin dashboard to invite a new editor
--- Note: actual email invite uses Supabase Auth Admin API from backend.
--- This just seeds the profile row so it shows up in the table.
-create or replace function public.upsert_admin_profile(
-  p_email     text,
-  p_full_name text,
-  p_role      text default 'editor'
-)
-returns void language plpgsql security definer as $$
-declare
-  v_user_id uuid;
-begin
-  -- Look up user by email in auth.users
-  select id into v_user_id
-  from auth.users
-  where email = p_email
-  limit 1;
-
-  if v_user_id is null then
-    raise exception 'User % not found in auth.users. Have they accepted their invite?', p_email;
-  end if;
-
-  insert into public.admin_profiles (id, email, full_name, role, invited_by)
-  values (v_user_id, p_email, p_full_name, p_role, auth.uid())
-  on conflict (id) do update
-    set full_name = excluded.full_name,
-        role      = excluded.role;
-end;
-$$;
-
--- ── 5. SEED YOUR FIRST SUPER ADMIN ───────────────────────────
--- After you sign up via the login page, run this with YOUR email:
--- (Replace 'your@email.com' with the email you used to sign up)
---
---   insert into public.admin_profiles (id, email, full_name, role)
---   select id, email, 'Your Name', 'super_admin'
---   from auth.users
---   where email = 'your@email.com';
---
--- ── 6. SAMPLE PACKAGES (optional — remove if not needed) ─────
--- Uncomment to insert the 9 sample packages from tours.html
-/*
-insert into public.packages
-  (title, slug, hero_image, badge_text, badge_icon, duration_label, duration_days, group_size,
-   tour_type_label, tour_type_icon, dest_tags, dur_tag, type_tags, base_price,
-   price_display, price_suffix, detail_url, cta_text, short_desc, is_active, sort_order,
-   inclusions, exclusions)
-values
-(
-  'Tanzania Classic Safari',
-  'classic-safari',
-  '../images/20.webp',
-  'Best Seller', 'fa-fire',
-  '6 Days / 5 Nights', 6, '2–8 pax',
-  'Game Drives', 'fa-car-side',
-  'serengeti ngorongoro tarangire manyara', '6', 'game-drive',
-  1899, 'From $1,899', '/ person',
-  'tour-packages/tour-detail.html?slug=classic-safari',
-  'View Details',
-  'Tarangire, Serengeti, Ngorongoro Crater and Lake Manyara. Two nights in the legendary Serengeti, elephant-rich Tarangire and the magical Ngorongoro Crater. The ultimate Tanzania safari experience.',
-  true, 0,
-  '["Luxury lodge & tented camp accommodation","All meals during safari","Professional English-speaking driver-guide","4WD safari vehicle with pop-up roof","All national park & conservation fees"]',
-  '["International flights & gratuities"]'
-);
-*/
+-- ============================================================ -- Seresafari
+Africa — Supabase Schema -- Run this entire file in your Supabase SQL Editor
+once. -- Dashboard → SQL Editor → New Query → Paste → Run --
+============================================================ -- ── 1. PACKAGES
+TABLE ──────────────────────────────────────── create table if not exists
+public.packages ( id uuid primary key default gen_random_uuid(), created_at
+timestamptz default now(), updated_at timestamptz default now(), -- Core title
+text not null, slug text not null unique, hero_image text not null,
+detail_hero_img text, badge_text text default 'Popular', badge_icon text default
+'fa-star', sort_order integer default 0, is_active boolean default true,
+is_featured boolean default false, -- Meta shown on card duration_label text not
+null, duration_days integer, group_size text default '2–8 pax', tour_type_label
+text not null, tour_type_icon text default 'fa-car-side', -- Filter tags
+(space-separated strings) dest_tags text not null, dur_tag text not null,
+type_tags text not null, -- Pricing base_price integer not null default 0,
+price_display text not null, price_suffix text default '/ person', detail_url
+text not null, cta_text text default 'View Details', -- Descriptions short_desc
+text not null, overview_html text, -- JSON arrays inclusions jsonb default '[]',
+exclusions jsonb default '[]', highlights jsonb default '[]', itinerary jsonb
+default '[]', accommodation jsonb default '[]', price_tiers jsonb default '[]',
+add_ons jsonb default '[]', important_notes jsonb default '[]', -- SEO
+meta_title text, meta_desc text ); -- Auto-update updated_at create or replace
+function public.handle_updated_at() returns trigger language plpgsql as $$ begin
+new.updated_at = now(); return new; end; $$; drop trigger if exists
+set_packages_updated_at on public.packages; create trigger
+set_packages_updated_at before update on public.packages for each row execute
+procedure public.handle_updated_at(); -- ── 2. ROW LEVEL SECURITY
+──────────────────────────────────── alter table public.packages enable row
+level security; -- Public can read active packages create policy "Public can
+read active packages" on public.packages for select using (is_active = true); --
+Authenticated users (admins) can do everything create policy "Authenticated
+users full access" on public.packages for all to authenticated using (true) with
+check (true); -- ── 3. ADMIN PROFILES TABLE ──────────────────────────────────
+-- Stores extra info about admin users (linked to auth.users) create table if
+not exists public.admin_profiles ( id uuid primary key references auth.users(id)
+on delete cascade, created_at timestamptz default now(), email text not null,
+full_name text, role text default 'editor', -- 'super_admin' | 'editor'
+is_active boolean default true, invited_by uuid references auth.users(id) );
+alter table public.admin_profiles enable row level security; -- Authenticated
+users can read all profiles create policy "Authenticated users can read
+profiles" on public.admin_profiles for select to authenticated using (true); --
+Only super_admins can insert/update/delete create policy "Super admins can
+manage profiles" on public.admin_profiles for all to authenticated using (
+exists ( select 1 from public.admin_profiles where id = auth.uid() and role =
+'super_admin' ) ) with check (true); -- Users can update their own profile
+create policy "Users can update own profile" on public.admin_profiles for update
+to authenticated using (id = auth.uid()) with check (id = auth.uid()); -- ── 4.
+FUNCTION: INVITE USER ───────────────────────────────── -- Called from admin
+dashboard to invite a new editor -- Note: actual email invite uses Supabase Auth
+Admin API from backend. -- This just seeds the profile row so it shows up in the
+table. create or replace function public.upsert_admin_profile( p_email text,
+p_full_name text, p_role text default 'editor' ) returns void language plpgsql
+security definer as $$ declare v_user_id uuid; begin -- Look up user by email in
+auth.users select id into v_user_id from auth.users where email = p_email limit
+1; if v_user_id is null then raise exception 'User % not found in auth.users.
+Have they accepted their invite?', p_email; end if; insert into
+public.admin_profiles (id, email, full_name, role, invited_by) values
+(v_user_id, p_email, p_full_name, p_role, auth.uid()) on conflict (id) do update
+set full_name = excluded.full_name, role = excluded.role; end; $$; -- ── 5. SEED
+YOUR FIRST SUPER ADMIN ─────────────────────────── -- After you sign up via the
+login page, run this with YOUR email: -- (Replace 'your@email.com' with the
+email you used to sign up) -- -- insert into public.admin_profiles (id, email,
+full_name, role) -- select id, email, 'Your Name', 'super_admin' -- from
+auth.users -- where email = 'your@email.com'; -- -- ── 6. SAMPLE PACKAGES
+(optional — remove if not needed) ───── -- Uncomment to insert the 9 sample
+packages from tours.html /* insert into public.packages (title, slug,
+hero_image, badge_text, badge_icon, duration_label, duration_days, group_size,
+tour_type_label, tour_type_icon, dest_tags, dur_tag, type_tags, base_price,
+price_display, price_suffix, detail_url, cta_text, short_desc, is_active,
+sort_order, inclusions, exclusions) values ( 'Tanzania Classic Safari',
+'classic-safari', '../images/20.webp', 'Best Seller', 'fa-fire', '6 Days / 5
+Nights', 6, '2–8 pax', 'Game Drives', 'fa-car-side', 'serengeti ngorongoro
+tarangire manyara', '6', 'game-drive', 1899, 'From $1,899', '/ person',
+'tour-packages/tour-detail.html?slug=classic-safari', 'View Details',
+'Tarangire, Serengeti, Ngorongoro Crater and Lake Manyara. Two nights in the
+legendary Serengeti, elephant-rich Tarangire and the magical Ngorongoro Crater.
+The ultimate Tanzania safari experience.', true, 0, '["Luxury lodge & tented
+camp accommodation","All meals during safari","Professional English-speaking
+driver-guide","4WD safari vehicle with pop-up roof","All national park &
+conservation fees"]', '["International flights & gratuities"]' ); */

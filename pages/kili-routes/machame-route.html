@@ -1,698 +1,1418 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link href="../../favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="../../favicon/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="../../favicon/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="../../favicon/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="../../favicon/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="../../favicon/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="../../favicon/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="../../favicon/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="../../favicon/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../favicon/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="../../favicon/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="../../favicon/android-chrome-512x512.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="../../favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../../favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="../../favicon/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../../favicon/favicon-16x16.png"
+    />
+    <meta
+      name="description"
+      content="Machame Route Kilimanjaro – 6-7 Day full itinerary, camp-by-camp breakdown, accommodation, prices and inclusions. Seresafari Africa."
+    />
+    <title>
+      Machame Route – Mount Kilimanjaro (6–7 Days) – Seresafari Africa
+    </title>
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <link href="../../favicon/favicon.ico">
-  <link rel="apple-touch-icon" sizes="57x57" href="../../favicon/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="../../favicon/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="../../favicon/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="../../favicon/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="../../favicon/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="../../favicon/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="../../favicon/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="../../favicon/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../favicon/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="../../favicon/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="../../favicon/android-chrome-512x512.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="../../favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="../../favicon/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon/favicon-16x16.png">
-  <meta name="description"
-    content="Machame Route Kilimanjaro – 6-7 Day full itinerary, camp-by-camp breakdown, accommodation, prices and inclusions. Sere Safari Africa." />
-  <title>Machame Route – Mount Kilimanjaro (6–7 Days) – Sere Safari Africa</title>
-  <link rel="stylesheet" href="../../css/main.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-</head>
+  <body>
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
+    <button id="back-top"><i class="fa-solid fa-chevron-up"></i></button>
+    <nav id="nav">
+      <a href="../../index.html" class="logo"
+        ><img src="../../logo2.png" alt=""
+      /></a>
+      <ul class="nav-links">
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../destinations.html">Destinations</a></li>
+        <li><a href="../tours.html">Tours</a></li>
+        <li><a href="../kilimanjaro.html" class="active">Kilimanjaro</a></li>
+        <li><a href="../zanzibar.html">Zanzibar</a></li>
+        <li><a href="../gallery.html">Gallery</a></li>
+        <li><a href="../contact.html" class="nav-book">Enquire Now</a></li>
+      </ul>
+      <button class="ham" id="ham">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <nav class="mob-menu" id="mob-menu">
+      <a href="../../index.html">Home</a><a href="../../about.html">About</a>
+      <a href="../destinations.html">Destinations</a
+      ><a href="../tours.html">Tours</a>
+      <a href="../kilimanjaro.html">Kilimanjaro</a
+      ><a href="../zanzibar.html">Zanzibar</a>
+      <a href="../gallery.html">Gallery</a
+      ><a href="../contact.html" style="color: var(--gold)">Enquire Now</a>
+    </nav>
 
-<body>
-  <div id="cursor"></div>
-  <div id="cursor-ring"></div>
-  <button id="back-top"><i class="fa-solid fa-chevron-up"></i></button>
-  <nav id="nav">
-    <a href="../../index.html" class="logo"><img src="../../logo2.png" alt=""></a>
-    <ul class="nav-links">
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../destinations.html">Destinations</a></li>
-      <li><a href="../tours.html">Tours</a></li>
-      <li><a href="../kilimanjaro.html" class="active">Kilimanjaro</a></li>
-      <li><a href="../zanzibar.html">Zanzibar</a></li>
-      <li><a href="../gallery.html">Gallery</a></li>
-      <li><a href="../contact.html" class="nav-book">Enquire Now</a></li>
-    </ul>
-    <button class="ham" id="ham"><span></span><span></span><span></span></button>
-  </nav>
-  <nav class="mob-menu" id="mob-menu">
-    <a href="../../index.html">Home</a><a href="../../about.html">About</a>
-    <a href="../destinations.html">Destinations</a><a href="../tours.html">Tours</a>
-    <a href="../kilimanjaro.html">Kilimanjaro</a><a href="../zanzibar.html">Zanzibar</a>
-    <a href="../gallery.html">Gallery</a><a href="../contact.html" style="color:var(--gold)">Enquire Now</a>
-  </nav>
-
-  <div class="detail-hero" style="margin-top:var(--nav-h);">
-    <div class="detail-hero-bg" style="background-image:url('../../images/7.webp');"></div>
-    <div class="detail-hero-content">
-      <div class="breadcrumb" style="margin-bottom:.8rem;"><a href="../../index.html">Home</a><i
-          class="fa-solid fa-chevron-right"></i><a href="../kilimanjaro.html">Kilimanjaro</a><i
-          class="fa-solid fa-chevron-right"></i>Machame Route</div>
-      <div class="detail-badge"><i class="fa-solid fa-star"></i> Most Scenic Route</div>
-      <h1 class="detail-title">Machame <em>Route</em></h1>
-      <div class="detail-meta-strip">
-        <div class="detail-meta-item"><i class="fa-regular fa-calendar"></i><strong>6–7 Days</strong></div>
-        <div class="detail-meta-item"><i class="fa-solid fa-mountain"></i><strong>5,895m — Uhuru Peak</strong></div>
-        <div class="detail-meta-item"><i class="fa-solid fa-gauge-high"></i><strong>Challenging</strong></div>
-        <div class="detail-meta-item"><i class="fa-solid fa-tent"></i><strong>Camping Route</strong></div>
-        <div class="detail-meta-item"><i class="fa-solid fa-trophy"></i><strong>85–90% Summit Rate</strong></div>
+    <div class="detail-hero" style="margin-top: var(--nav-h)">
+      <div
+        class="detail-hero-bg"
+        style="background-image: url(&quot;../../images/7.webp&quot;)"
+      ></div>
+      <div class="detail-hero-content">
+        <div class="breadcrumb" style="margin-bottom: 0.8rem">
+          <a href="../../index.html">Home</a
+          ><i class="fa-solid fa-chevron-right"></i
+          ><a href="../kilimanjaro.html">Kilimanjaro</a
+          ><i class="fa-solid fa-chevron-right"></i>Machame Route
+        </div>
+        <div class="detail-badge">
+          <i class="fa-solid fa-star"></i> Most Scenic Route
+        </div>
+        <h1 class="detail-title">Machame <em>Route</em></h1>
+        <div class="detail-meta-strip">
+          <div class="detail-meta-item">
+            <i class="fa-regular fa-calendar"></i><strong>6–7 Days</strong>
+          </div>
+          <div class="detail-meta-item">
+            <i class="fa-solid fa-mountain"></i
+            ><strong>5,895m — Uhuru Peak</strong>
+          </div>
+          <div class="detail-meta-item">
+            <i class="fa-solid fa-gauge-high"></i><strong>Challenging</strong>
+          </div>
+          <div class="detail-meta-item">
+            <i class="fa-solid fa-tent"></i><strong>Camping Route</strong>
+          </div>
+          <div class="detail-meta-item">
+            <i class="fa-solid fa-trophy"></i
+            ><strong>85–90% Summit Rate</strong>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="detail-layout">
-    <div class="detail-main">
+    <div class="detail-layout">
+      <div class="detail-main">
+        <!-- ROUTE BANNER -->
+        <div class="route-banner reveal">
+          <div class="route-banner-item">
+            <i class="fa-solid fa-route"></i>
+            <div class="route-banner-val">Machame</div>
+            <div class="route-banner-lbl">Route Name</div>
+          </div>
+          <div class="route-banner-item">
+            <i class="fa-regular fa-calendar"></i>
+            <div class="route-banner-val">6–7 Days</div>
+            <div class="route-banner-lbl">Duration</div>
+          </div>
+          <div class="route-banner-item">
+            <i class="fa-solid fa-mountain-sun"></i>
+            <div class="route-banner-val">5,895m</div>
+            <div class="route-banner-lbl">Summit Altitude</div>
+          </div>
+          <div class="route-banner-item">
+            <i class="fa-solid fa-person-hiking"></i>
+            <div class="route-banner-val">56 km</div>
+            <div class="route-banner-lbl">Total Distance</div>
+          </div>
+        </div>
 
-      <!-- ROUTE BANNER -->
-      <div class="route-banner reveal">
-        <div class="route-banner-item"><i class="fa-solid fa-route"></i>
-          <div class="route-banner-val">Machame</div>
-          <div class="route-banner-lbl">Route Name</div>
+        <div class="detail-block reveal">
+          <div class="detail-block-title">
+            <i class="fa-solid fa-circle-info"></i> Route Overview
+          </div>
+          <p>
+            The Machame Route — nicknamed the "Whiskey Route" — is Kilimanjaro's
+            most popular and widely regarded as its most scenic. It approaches
+            the mountain from the south-west, climbing through rich rainforest
+            before ascending across the dramatic Southern Ice Fields toward
+            Uhuru Peak via the Barafu or Lava Tower acclimatisation loop.
+          </p>
+          <p>
+            Machame offers exceptional landscape variety — from dense cloud
+            forest dripping with moss, through giant heather moorland with views
+            of Moshi below, across the alien alpine desert, and up the steep
+            Western Breach or the standard Southern Corridor to the summit
+            crater. Each day presents a completely different ecosystem and
+            visual experience.
+          </p>
+          <p>
+            The route is technically straightforward but physically demanding —
+            steeper and more challenging than Rongai or Marangu. The 7-day
+            option adds a crucial acclimatisation day at Karanga Camp and
+            significantly improves summit success rates. Seresafari recommends
+            the 7-day option for most climbers.
+          </p>
         </div>
-        <div class="route-banner-item"><i class="fa-regular fa-calendar"></i>
-          <div class="route-banner-val">6–7 Days</div>
-          <div class="route-banner-lbl">Duration</div>
+
+        <div class="detail-block reveal">
+          <div class="detail-block-title">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Route Highlights
+          </div>
+          <div
+            style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem"
+          >
+            <div class="itin-sleep">
+              <i class="fa-solid fa-check"></i> Most scenic route on Kilimanjaro
+            </div>
+            <div class="itin-sleep">
+              <i class="fa-solid fa-check"></i> Lava Tower acclimatisation loop
+            </div>
+            <div class="itin-sleep">
+              <i class="fa-solid fa-check"></i> Dramatic Barranco Wall climb
+            </div>
+            <div class="itin-sleep">
+              <i class="fa-solid fa-check"></i> Spectacular Southern Ice Field
+              views
+            </div>
+            <div class="itin-sleep">
+              <i class="fa-solid fa-check"></i> Diverse ecosystems — 5 zones in
+              one climb
+            </div>
+            <div class="itin-sleep">
+              <i class="fa-solid fa-check"></i> Uhuru Peak summit at sunrise
+            </div>
+          </div>
         </div>
-        <div class="route-banner-item"><i class="fa-solid fa-mountain-sun"></i>
-          <div class="route-banner-val">5,895m</div>
-          <div class="route-banner-lbl">Summit Altitude</div>
+
+        <div class="detail-block reveal">
+          <div class="detail-block-title">
+            <i class="fa-solid fa-map-location-dot"></i> Camp-by-Camp Itinerary
+            (7 Days)
+          </div>
+          <div class="itinerary">
+            <div class="itin-day">
+              <div class="itin-num">
+                <div class="day-label">Day</div>
+                <div class="day-number">1</div>
+              </div>
+              <div class="itin-body">
+                <div class="itin-title">
+                  Arusha → Machame Gate → Machame Camp
+                </div>
+                <div class="itin-route">
+                  <i class="fa-solid fa-route"></i> Machame Gate (1,800m) →
+                  Machame Camp (3,100m) | 5–7 hrs trekking | 11 km
+                </div>
+                <p class="itin-desc">
+                  Transfer from Arusha to Machame Gate (approximately 1.5
+                  hours). Complete park registration, meet your mountain crew —
+                  lead guide, assistant guide, cook and porters — and begin
+                  trekking through lush tropical rainforest. The forest canopy
+                  shelters colobus monkeys, blue monkeys and hundreds of bird
+                  species. The trail is well-defined but muddy and steep in
+                  sections. Emerge from the forest above the cloud line as you
+                  approach Machame Camp on the forest edge. Dinner and
+                  acclimatisation briefing from your lead guide.
+                </p>
+                <div class="itin-activities">
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-tree"></i> Rainforest Trek</span
+                  >
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-person-hiking"></i> 5–7 Hours
+                    Walking</span
+                  >
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-frog"></i> Wildlife in Forest</span
+                  >
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-cloud"></i> Above the Cloud
+                    Line</span
+                  >
+                </div>
+                <div class="itin-sleep">
+                  <i class="fa-solid fa-tent"></i>
+                  <strong>Camp:</strong> Machame Camp (3,100m) | All Meals
+                  Provided by Mountain Chef
+                </div>
+              </div>
+            </div>
+
+            <div class="itin-day">
+              <div class="itin-num">
+                <div class="day-label">Day</div>
+                <div class="day-number">2</div>
+              </div>
+              <div class="itin-body">
+                <div class="itin-title">Machame Camp → Shira Camp</div>
+                <div class="itin-route">
+                  <i class="fa-solid fa-route"></i> Machame Camp (3,100m) →
+                  Shira Camp (3,840m) | 5–7 hrs | 5 km
+                </div>
+                <p class="itin-desc">
+                  Trek out of the rainforest and into the heath and moorland
+                  zone — a dramatic transition where giant heather trees and
+                  groundsels replace the forest canopy. The trail climbs steeply
+                  across a rocky ridge with increasingly spectacular views back
+                  over the forest and forward toward Kibo's snow-capped summit.
+                  The Shira Plateau opens ahead — an ancient volcanic crater now
+                  a high-altitude wetland. Arrive at Shira Camp on the plateau
+                  with sweeping 360° views. Altitude begins to be felt here —
+                  drink plenty of water and eat well.
+                </p>
+                <div class="itin-activities">
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-wind"></i> Heath &amp; Moorland
+                    Zone</span
+                  >
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-binoculars"></i> First Kibo Summit
+                    Views</span
+                  >
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-mountain"></i> Shira Plateau
+                    Arrival</span
+                  >
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-droplet"></i> Acclimatisation
+                    Hydration</span
+                  >
+                </div>
+                <div class="itin-sleep">
+                  <i class="fa-solid fa-tent"></i> <strong>Camp:</strong> Shira
+                  Camp (3,840m) | All Meals
+                </div>
+              </div>
+            </div>
+
+            <div class="itin-day">
+              <div class="itin-num">
+                <div class="day-label">Day</div>
+                <div class="day-number">3</div>
+              </div>
+              <div class="itin-body">
+                <div class="itin-title">
+                  Shira Camp → Lava Tower → Barranco Camp (Acclimatisation)
+                </div>
+                <div class="itin-route">
+                  <i class="fa-solid fa-route"></i> Shira (3,840m) → Lava Tower
+                  (4,630m) → Barranco Camp (3,950m) | 7–8 hrs | 10 km
+                </div>
+                <p class="itin-desc">
+                  The critical acclimatisation day — "climb high, sleep low."
+                  Trek across the Shira Plateau and climb to the Lava Tower at
+                  4,630m — the highest you'll reach before summit night. The
+                  Lava Tower is a striking volcanic plug rising 300m from the
+                  plateau, a dramatic and alien landscape. Lunch at the tower
+                  before descending to Barranco Camp — significantly lower in
+                  altitude. This ascent and descent is the most important
+                  acclimatisation strategy on the route, dramatically improving
+                  summit success rates by conditioning your body to altitude
+                  without a permanent high-altitude stay. Arrive at Barranco
+                  Camp in the Barranco Valley with views of the impressive
+                  Barranco Wall ahead.
+                </p>
+                <div class="itin-activities">
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-mountain-sun"></i> Lava Tower
+                    (4,630m)</span
+                  >
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-brain"></i> "Climb High Sleep Low"
+                    Strategy</span
+                  >
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-lungs"></i> Critical Acclimatisation
+                    Day</span
+                  >
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-snowflake"></i> Southern Ice Fields
+                    in View</span
+                  >
+                </div>
+                <div class="itin-sleep">
+                  <i class="fa-solid fa-tent"></i>
+                  <strong>Camp:</strong> Barranco Camp (3,950m) | All Meals
+                </div>
+              </div>
+            </div>
+
+            <div class="itin-day">
+              <div class="itin-num">
+                <div class="day-label">Day</div>
+                <div class="day-number">4</div>
+              </div>
+              <div class="itin-body">
+                <div class="itin-title">Barranco Camp → Karanga Camp</div>
+                <div class="itin-route">
+                  <i class="fa-solid fa-route"></i> Barranco Camp (3,950m) →
+                  Karanga Camp (4,035m) | 4–5 hrs | 5 km
+                </div>
+                <p class="itin-desc">
+                  The famous Barranco Wall climb — a steep but exhilarating
+                  scramble up the 300m wall using both hands and feet on solid
+                  rock. Despite its dramatic appearance, the wall is not
+                  technical and requires no climbing equipment — just confidence
+                  and a head for heights. Your guides assist at every step.
+                  Views from the top of the wall across the Southern Ice Fields
+                  and the Breach Wall are extraordinary. After the wall,
+                  traverse across Kilimanjaro's southern face to Karanga Valley
+                  and climb to Karanga Camp — a well-positioned camp for the
+                  push to Barafu tomorrow.
+                </p>
+                <div class="itin-activities">
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-hand-rock"></i> Barranco Wall
+                    Scramble</span
+                  >
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-panorama"></i> Ice Field
+                    Panoramas</span
+                  >
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-route"></i> Southern Face
+                    Traverse</span
+                  >
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-mountain"></i> Karanga Valley
+                    Crossing</span
+                  >
+                </div>
+                <div class="itin-sleep">
+                  <i class="fa-solid fa-tent"></i>
+                  <strong>Camp:</strong> Karanga Camp (4,035m) | All Meals
+                </div>
+              </div>
+            </div>
+
+            <div class="itin-day">
+              <div class="itin-num">
+                <div class="day-label">Day</div>
+                <div class="day-number">5</div>
+              </div>
+              <div class="itin-body">
+                <div class="itin-title">
+                  Karanga Camp → Barafu Camp (High Camp)
+                </div>
+                <div class="itin-route">
+                  <i class="fa-solid fa-route"></i> Karanga Camp (4,035m) →
+                  Barafu Camp (4,673m) | 4–5 hrs | 4 km
+                </div>
+                <p class="itin-desc">
+                  A short but steep climb from Karanga to Barafu — the high camp
+                  and launch point for the summit push. The trail crosses
+                  increasingly barren alpine desert — nothing but volcanic rock,
+                  scree and dust. Arrive at Barafu by early afternoon. Your
+                  guide will brief you thoroughly on the summit night strategy:
+                  departure time (typically midnight), clothing layering, pace,
+                  and what to expect. Rest and sleep as much as possible between
+                  5 PM and 11 PM — your alarm for summit night will come
+                  quickly. Eat a hot meal and stay warm. The summit is 1,200
+                  vertical metres above your tent.
+                </p>
+                <div class="itin-activities">
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-arrow-up"></i> Steep Alpine Desert
+                    Climb</span
+                  >
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-bed"></i> Rest for Summit Night</span
+                  >
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-clipboard-list"></i> Summit Night
+                    Briefing</span
+                  >
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-utensils"></i> High Energy
+                    Dinner</span
+                  >
+                </div>
+                <div class="itin-sleep">
+                  <i class="fa-solid fa-tent"></i> <strong>Camp:</strong> Barafu
+                  High Camp (4,673m) | All Meals · Depart midnight
+                </div>
+              </div>
+            </div>
+
+            <div class="itin-day">
+              <div class="itin-num">
+                <div class="day-label">Day</div>
+                <div class="day-number">6</div>
+              </div>
+              <div class="itin-body">
+                <div class="itin-title">
+                  SUMMIT NIGHT → Uhuru Peak → Mweka Camp
+                </div>
+                <div class="itin-route">
+                  <i class="fa-solid fa-route"></i> Barafu (4,673m) → Stella
+                  Point (5,739m) → Uhuru Peak (5,895m) → Mweka Camp (3,100m) |
+                  12–16 hrs total
+                </div>
+                <p class="itin-desc">
+                  The night that changes everything. Depart Barafu Camp at
+                  midnight (sometimes as early as 11:30 PM to allow for slower
+                  pacing). The darkness is complete save for headlamps and stars
+                  — the Milky Way above Kilimanjaro is breathtaking. The trail
+                  climbs endlessly upward through loose scree and volcanic rock
+                  — every step deliberate, your guide setting a "pole pole"
+                  (very slow) pace. After 5–6 hours of climbing, the crater rim
+                  at Stella Point (5,739m) appears — the hardest moment of the
+                  night. From Stella Point, a 45-minute walk around the crater
+                  rim leads to Uhuru Peak at 5,895m. Sunrise over Africa from
+                  the highest point on the continent. The emotion of this moment
+                  is indescribable. Allow 30–45 minutes at the summit for photos
+                  and celebration before the long descent. Down from Uhuru to
+                  Barafu for rest and a hot meal, then continue down the Mweka
+                  Route to Mweka Camp. A long but triumphant day.
+                </p>
+                <div class="itin-activities">
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-moon"></i> Midnight Departure</span
+                  >
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-star"></i> Milky Way Above
+                    Africa</span
+                  >
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-flag"></i> Stella Point
+                    (5,739m)</span
+                  >
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-trophy"></i> Uhuru Peak (5,895m) at
+                    Sunrise</span
+                  >
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-person-walking-arrow-right"></i> Long
+                    Descent to Mweka Camp</span
+                  >
+                </div>
+                <div class="itin-sleep">
+                  <i class="fa-solid fa-tent"></i> <strong>Camp:</strong> Mweka
+                  Camp (3,100m) | All Meals — well-earned rest!
+                </div>
+              </div>
+            </div>
+
+            <div class="itin-day">
+              <div class="itin-num">
+                <div class="day-label">Day</div>
+                <div class="day-number">7</div>
+              </div>
+              <div class="itin-body">
+                <div class="itin-title">
+                  Mweka Camp → Mweka Gate → Arusha (Celebration!)
+                </div>
+                <div class="itin-route">
+                  <i class="fa-solid fa-route"></i> Mweka Camp (3,100m) → Mweka
+                  Gate (1,640m) → Arusha | 3–4 hrs descent | 10 km
+                </div>
+                <p class="itin-desc">
+                  The final descent through Kilimanjaro's lush rainforest — a
+                  beautiful and emotional walk as the adrenaline of summit night
+                  fades into deep satisfaction. Colobus monkeys watch from the
+                  canopy as you wind downward through mossy forest. Reach Mweka
+                  Gate where certificates are awarded — your KINAPA Summit
+                  Certificate confirming your ascent. The traditional tipping
+                  ceremony for your mountain crew follows — a heartfelt
+                  gathering where guides and porters perform farewell songs.
+                  Transfer back to Arusha arriving early afternoon. Tonight: a
+                  celebratory dinner, a hot shower, and the knowledge that you
+                  have stood on the Roof of Africa.
+                </p>
+                <div class="itin-activities">
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-tree"></i> Final Rainforest
+                    Descent</span
+                  >
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-certificate"></i> Summit Certificate
+                    Award</span
+                  >
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-music"></i> Porter Farewell
+                    Ceremony</span
+                  >
+                  <span class="itin-tag"
+                    ><i class="fa-solid fa-champagne-glasses"></i> Celebration
+                    in Arusha</span
+                  >
+                </div>
+                <div class="itin-sleep">
+                  <i class="fa-solid fa-hotel"></i>
+                  <strong>End:</strong> Transfer to Arusha Hotel — Summit Dinner
+                  &amp; Celebration
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="route-banner-item"><i class="fa-solid fa-person-hiking"></i>
-          <div class="route-banner-val">56 km</div>
-          <div class="route-banner-lbl">Total Distance</div>
+
+        <div class="detail-block reveal">
+          <div class="detail-block-title">
+            <i class="fa-solid fa-list-check"></i> Inclusions &amp; Exclusions
+          </div>
+          <div class="inc-exc-grid">
+            <div class="inc-exc-box included">
+              <h4><i class="fa-solid fa-circle-check"></i> What's Included</h4>
+              <ul class="inc-exc-list">
+                <li>
+                  <i class="fa-solid fa-check ic"></i>TANAPA-licensed lead guide
+                  (7+ yrs experience)
+                </li>
+                <li>
+                  <i class="fa-solid fa-check ic"></i>Assistant guide (1 per 3
+                  climbers)
+                </li>
+                <li>
+                  <i class="fa-solid fa-check ic"></i>Licensed porters (max 20kg
+                  ethical limit)
+                </li>
+                <li>
+                  <i class="fa-solid fa-check ic"></i>Dedicated mountain chef
+                </li>
+                <li>
+                  <i class="fa-solid fa-check ic"></i>All meals on the mountain
+                  (3 per day)
+                </li>
+                <li>
+                  <i class="fa-solid fa-check ic"></i>High-quality mountain
+                  tents (2-person)
+                </li>
+                <li>
+                  <i class="fa-solid fa-check ic"></i>Dining tent, toilet tent
+                  &amp; camp chairs
+                </li>
+                <li>
+                  <i class="fa-solid fa-check ic"></i>Emergency oxygen &amp;
+                  pulse oximeters
+                </li>
+                <li>
+                  <i class="fa-solid fa-check ic"></i>Comprehensive first aid
+                  kit
+                </li>
+                <li>
+                  <i class="fa-solid fa-check ic"></i>All KINAPA park &amp;
+                  camping fees
+                </li>
+                <li>
+                  <i class="fa-solid fa-check ic"></i>Rescue fees &amp; mountain
+                  rescue fund
+                </li>
+                <li>
+                  <i class="fa-solid fa-check ic"></i>Summit certificates
+                  (KINAPA)
+                </li>
+                <li>
+                  <i class="fa-solid fa-check ic"></i>Transfer Arusha ↔
+                  Machame/Mweka Gate
+                </li>
+                <li>
+                  <i class="fa-solid fa-check ic"></i>Daily health monitoring
+                  (oximeter readings)
+                </li>
+              </ul>
+            </div>
+            <div class="inc-exc-box excluded">
+              <h4><i class="fa-solid fa-circle-xmark"></i> Not Included</h4>
+              <ul class="inc-exc-list">
+                <li>
+                  <i class="fa-solid fa-xmark ic"></i>International flights
+                  to/from Tanzania
+                </li>
+                <li>
+                  <i class="fa-solid fa-xmark ic"></i>Tanzania visa (approx. $50
+                  USD)
+                </li>
+                <li>
+                  <i class="fa-solid fa-xmark ic"></i>Travel &amp; medical
+                  evacuation insurance (mandatory)
+                </li>
+                <li>
+                  <i class="fa-solid fa-xmark ic"></i>Sleeping bag (-15°C
+                  minimum rating)
+                </li>
+                <li>
+                  <i class="fa-solid fa-xmark ic"></i>Personal trekking gear
+                  &amp; clothing
+                </li>
+                <li>
+                  <i class="fa-solid fa-xmark ic"></i>Trekking poles (rental
+                  available, $10 total)
+                </li>
+                <li>
+                  <i class="fa-solid fa-xmark ic"></i>Altitude medication
+                  (Diamox — consult doctor)
+                </li>
+                <li>
+                  <i class="fa-solid fa-xmark ic"></i>Gratuities for guide,
+                  porters &amp; cook
+                </li>
+                <li>
+                  <i class="fa-solid fa-xmark ic"></i>Pre/post climb hotel in
+                  Arusha
+                </li>
+                <li>
+                  <i class="fa-solid fa-xmark ic"></i>Personal snacks &amp;
+                  energy supplements
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-block reveal">
+          <div class="detail-block-title">
+            <i class="fa-solid fa-hotel"></i> Camp-by-Camp Breakdown
+          </div>
+          <div style="overflow-x: auto">
+            <table class="accom-table">
+              <thead>
+                <tr>
+                  <th>Night</th>
+                  <th>Camp Name</th>
+                  <th>Altitude</th>
+                  <th>Eco Zone</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Night 1</td>
+                  <td>Machame Camp</td>
+                  <td>3,100m</td>
+                  <td>Rainforest / Heather Edge</td>
+                  <td>First high altitude night — acclimatise slowly</td>
+                </tr>
+                <tr>
+                  <td>Night 2</td>
+                  <td>Shira Camp</td>
+                  <td>3,840m</td>
+                  <td>Moorland / Shira Plateau</td>
+                  <td>Altitude noticeable — headache common, normal</td>
+                </tr>
+                <tr>
+                  <td>Night 3</td>
+                  <td>Barranco Camp</td>
+                  <td>3,950m</td>
+                  <td>Alpine Desert Edge</td>
+                  <td>After Lava Tower (4,630m) acclimatisation loop</td>
+                </tr>
+                <tr>
+                  <td>Night 4</td>
+                  <td>Karanga Camp</td>
+                  <td>4,035m</td>
+                  <td>Alpine Desert</td>
+                  <td>After famous Barranco Wall scramble</td>
+                </tr>
+                <tr>
+                  <td>Night 5</td>
+                  <td>Barafu High Camp</td>
+                  <td>4,673m</td>
+                  <td>Arctic Zone</td>
+                  <td>Summit launch camp — depart midnight</td>
+                </tr>
+                <tr>
+                  <td>Night 6</td>
+                  <td>Mweka Camp</td>
+                  <td>3,100m</td>
+                  <td>Rainforest</td>
+                  <td>Post-summit descent — deep, well-earned rest</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="detail-block reveal">
+          <div class="detail-block-title">
+            <i class="fa-solid fa-triangle-exclamation"></i> Important
+            Information
+          </div>
+          <div class="notes-grid">
+            <div class="note-item">
+              <i class="fa-solid fa-person-hiking"></i>
+              <p>
+                <strong>Physical requirements:</strong> No technical climbing
+                experience needed, but strong cardiovascular fitness is
+                essential. Train for 3–6 months before the climb with hiking,
+                running or cycling. Day hikes with significant elevation gain
+                are the best preparation.
+              </p>
+            </div>
+            <div class="note-item">
+              <i class="fa-solid fa-lungs"></i>
+              <p>
+                <strong>Altitude sickness:</strong> AMS (Acute Mountain
+                Sickness) affects climbers at any fitness level. Common symptoms
+                include headache, nausea and fatigue. Our guides monitor every
+                climber twice daily with pulse oximeters. Emergency oxygen is
+                carried at all times. We will never pressure climbers to
+                continue if health is at risk.
+              </p>
+            </div>
+            <div class="note-item">
+              <i class="fa-solid fa-shirt"></i>
+              <p>
+                <strong>Essential gear:</strong> Waterproof outer layer, thermal
+                base layers (wool or synthetic), insulating mid-layer, warm
+                gloves (summit nights reach -20°C), balaclava, waterproof boots,
+                headlamp (with extra batteries), sunglasses with UV400
+                protection, and a sleeping bag rated to -15°C minimum.
+              </p>
+            </div>
+            <div class="note-item">
+              <i class="fa-solid fa-syringe"></i>
+              <p>
+                <strong>Altitude medication:</strong> Acetazolamide (Diamox) can
+                help with acclimatisation. Consult your doctor before the climb.
+                Our guides are trained to advise on symptoms but do not
+                prescribe medication. We always carry emergency oxygen and
+                dexamethasone in severe cases.
+              </p>
+            </div>
+            <div class="note-item">
+              <i class="fa-solid fa-money-bill"></i>
+              <p>
+                <strong>Porter tipping:</strong> Tipping is an important part of
+                the mountain crew's income. Recommended amounts: Lead Guide
+                $20–25/day, Assistant Guide $15/day, Cook $15/day, Porters
+                $10/day (per group). Tips are given at the formal farewell
+                ceremony at Mweka Gate.
+              </p>
+            </div>
+            <div class="note-item">
+              <i class="fa-solid fa-shield-halved"></i>
+              <p>
+                <strong>Insurance mandatory:</strong> All Kilimanjaro climbers
+                must carry comprehensive travel insurance with medical
+                evacuation cover. This is non-negotiable. Helicopter evacuation
+                from altitude can cost $10,000–$50,000 without insurance. We
+                verify insurance details before the climb begins.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="detail-block reveal">
-        <div class="detail-block-title"><i class="fa-solid fa-circle-info"></i> Route Overview</div>
-        <p>The Machame Route — nicknamed the "Whiskey Route" — is Kilimanjaro's most popular and widely regarded as its
-          most scenic. It approaches the mountain from the south-west, climbing through rich rainforest before ascending
-          across the dramatic Southern Ice Fields toward Uhuru Peak via the Barafu or Lava Tower acclimatisation loop.
+      <div class="detail-sidebar">
+        <div class="price-box">
+          <div class="price-box-title">
+            <i class="fa-solid fa-tag"></i> Pricing Per Person
+          </div>
+          <div class="price-tiers">
+            <div class="price-tier">
+              <div class="tier-label">
+                <i class="fa-solid fa-user"></i> Solo Climber
+              </div>
+              <div class="tier-price">$2,400 <small>/ person</small></div>
+            </div>
+            <div class="price-tier">
+              <div class="tier-label">
+                <i class="fa-solid fa-users"></i> 2 Climbers
+              </div>
+              <div class="tier-price">$2,100 <small>/ person</small></div>
+            </div>
+            <div class="price-tier">
+              <div class="tier-label">
+                <i class="fa-solid fa-users"></i> 3–4 Climbers
+              </div>
+              <div class="tier-price">$1,900 <small>/ person</small></div>
+            </div>
+            <div class="price-tier">
+              <div class="tier-label">
+                <i class="fa-solid fa-users"></i> 5–6 Climbers
+              </div>
+              <div class="tier-price">$1,750 <small>/ person</small></div>
+            </div>
+            <div class="price-tier">
+              <div class="tier-label">
+                <i class="fa-solid fa-users"></i> 7+ Climbers
+              </div>
+              <div class="tier-price">$1,600 <small>/ person</small></div>
+            </div>
+          </div>
+          <div class="sidebar-note">
+            <i class="fa-solid fa-circle-info"></i>7-day Machame prices shown.
+            6-day option $150 less per person. Includes all guide fees, porter
+            fees, park fees, camping, equipment &amp; meals on mountain.
+          </div>
+          <a
+            href="../contact.html"
+            class="btn btn-primary"
+            style="width: 100%; justify-content: center; margin-top: 1.2rem"
+            ><i class="fa-solid fa-paper-plane"></i> Book Machame Route</a
+          >
+          <a
+            href="https://wa.me/255690318461"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-ghost"
+            style="width: 100%; justify-content: center; margin-top: 0.7rem"
+            ><i class="fa-brands fa-whatsapp"></i> WhatsApp Enquiry</a
+          >
+        </div>
+
+        <div class="price-box">
+          <div class="price-box-title">
+            <i class="fa-solid fa-chart-bar"></i> Route Comparison
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 0.5rem;
+              font-size: 0.82rem;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                padding: 0.6rem 0.8rem;
+                background: rgba(201, 150, 58, 0.06);
+                border: 1px solid rgba(201, 150, 58, 0.15);
+              "
+            >
+              <span style="color: var(--text)">Scenery</span
+              ><span style="color: var(--gold); font-weight: 600">★★★★★</span>
+            </div>
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                padding: 0.6rem 0.8rem;
+                background: rgba(201, 150, 58, 0.06);
+                border: 1px solid rgba(201, 150, 58, 0.15);
+              "
+            >
+              <span style="color: var(--text)">Difficulty</span
+              ><span style="color: #e8944b; font-weight: 600">Challenging</span>
+            </div>
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                padding: 0.6rem 0.8rem;
+                background: rgba(201, 150, 58, 0.06);
+                border: 1px solid rgba(201, 150, 58, 0.15);
+              "
+            >
+              <span style="color: var(--text)">Popularity</span
+              ><span style="color: var(--gold); font-weight: 600"
+                >Most Popular</span
+              >
+            </div>
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                padding: 0.6rem 0.8rem;
+                background: rgba(201, 150, 58, 0.06);
+                border: 1px solid rgba(201, 150, 58, 0.15);
+              "
+            >
+              <span style="color: var(--text)">Summit Rate (7-day)</span
+              ><span style="color: #7eb87a; font-weight: 600">~90%</span>
+            </div>
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                padding: 0.6rem 0.8rem;
+                background: rgba(201, 150, 58, 0.06);
+                border: 1px solid rgba(201, 150, 58, 0.15);
+              "
+            >
+              <span style="color: var(--text)">Accommodation</span
+              ><span style="color: var(--cream2)">Camping</span>
+            </div>
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                padding: 0.6rem 0.8rem;
+                background: rgba(201, 150, 58, 0.06);
+                border: 1px solid rgba(201, 150, 58, 0.15);
+              "
+            >
+              <span style="color: var(--text)">Best For</span
+              ><span style="color: var(--cream2)">Adventure seekers</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-box-title">
+            <i class="fa-solid fa-route"></i> Other Kili Routes
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 0.5rem">
+            <a
+              href="lemosho-route.html"
+              style="
+                display: flex;
+                align-items: center;
+                gap: 0.7rem;
+                padding: 0.8rem;
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(201, 150, 58, 0.1);
+                color: var(--cream2);
+                font-size: 0.8rem;
+                transition: border-color 0.3s;
+              "
+              onmouseover="this.style.borderColor = 'rgba(201,150,58,.4)'"
+              onmouseout="this.style.borderColor = 'rgba(201,150,58,.1)'"
+              ><i
+                class="fa-solid fa-chevron-right"
+                style="color: var(--gold); font-size: 0.7rem"
+              ></i
+              >Lemosho Route (7–8 Days)</a
+            >
+            <a
+              href="rongai-route.html"
+              style="
+                display: flex;
+                align-items: center;
+                gap: 0.7rem;
+                padding: 0.8rem;
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(201, 150, 58, 0.1);
+                color: var(--cream2);
+                font-size: 0.8rem;
+                transition: border-color 0.3s;
+              "
+              onmouseover="this.style.borderColor = 'rgba(201,150,58,.4)'"
+              onmouseout="this.style.borderColor = 'rgba(201,150,58,.1)'"
+              ><i
+                class="fa-solid fa-chevron-right"
+                style="color: var(--gold); font-size: 0.7rem"
+              ></i
+              >Rongai Route (6–7 Days)</a
+            >
+            <a
+              href="marangu-route.html"
+              style="
+                display: flex;
+                align-items: center;
+                gap: 0.7rem;
+                padding: 0.8rem;
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(201, 150, 58, 0.1);
+                color: var(--cream2);
+                font-size: 0.8rem;
+                transition: border-color 0.3s;
+              "
+              onmouseover="this.style.borderColor = 'rgba(201,150,58,.4)'"
+              onmouseout="this.style.borderColor = 'rgba(201,150,58,.1)'"
+              ><i
+                class="fa-solid fa-chevron-right"
+                style="color: var(--gold); font-size: 0.7rem"
+              ></i
+              >Marangu Route (5–6 Days)</a
+            >
+            <a
+              href="umbwe-route.html"
+              style="
+                display: flex;
+                align-items: center;
+                gap: 0.7rem;
+                padding: 0.8rem;
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(201, 150, 58, 0.1);
+                color: var(--cream2);
+                font-size: 0.8rem;
+                transition: border-color 0.3s;
+              "
+              onmouseover="this.style.borderColor = 'rgba(201,150,58,.4)'"
+              onmouseout="this.style.borderColor = 'rgba(201,150,58,.1)'"
+              ><i
+                class="fa-solid fa-chevron-right"
+                style="color: var(--gold); font-size: 0.7rem"
+              ></i
+              >Umbwe Route (6 Days)</a
+            >
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-box-title">
+            <i class="fa-solid fa-phone"></i> Contact Us
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 0.7rem">
+            <a
+              href="tel:+255690318461"
+              style="
+                display: flex;
+                align-items: center;
+                gap: 0.8rem;
+                padding: 0.8rem;
+                background: rgba(201, 150, 58, 0.06);
+                border: 1px solid rgba(201, 150, 58, 0.2);
+                color: var(--cream2);
+                font-size: 0.83rem;
+              "
+              ><i class="fa-solid fa-phone" style="color: var(--gold)"></i>+255
+              690 318 461</a
+            >
+            <a
+              href="mailto:info@seresafariafrica.com"
+              style="
+                display: flex;
+                align-items: center;
+                gap: 0.8rem;
+                padding: 0.8rem;
+                background: rgba(201, 150, 58, 0.06);
+                border: 1px solid rgba(201, 150, 58, 0.2);
+                color: var(--cream2);
+                font-size: 0.83rem;
+              "
+              ><i class="fa-solid fa-envelope" style="color: var(--gold)"></i
+              >info@seresafariafrica.com</a
+            >
+            <a
+              href="https://wa.me/255690318461"
+              target="_blank"
+              rel="noopener"
+              style="
+                display: flex;
+                align-items: center;
+                gap: 0.8rem;
+                padding: 0.8rem;
+                background: #25d366;
+                color: #fff;
+                font-size: 0.83rem;
+                font-weight: 600;
+              "
+              ><i class="fa-brands fa-whatsapp"></i>Chat on WhatsApp</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="book-section" style="padding: 6rem 8%; text-align: center">
+      <div class="book-bg"></div>
+      <div class="book-inner reveal">
+        <div class="section-tag" style="justify-content: center">
+          <i class="fa-solid fa-mountain"></i> Your Summit Awaits
+        </div>
+        <h2
+          style="
+            font-family: var(--ff-head);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--white);
+            margin-bottom: 0.8rem;
+          "
+        >
+          Book the
+          <em style="color: var(--gold); font-style: normal">Machame Route</em>
+        </h2>
+        <p style="color: var(--text); max-width: 500px; margin: 0 auto 2rem">
+          Tell us your preferred dates and group size. We'll confirm
+          availability and send a detailed quote within 24 hours — free.
         </p>
-        <p>Machame offers exceptional landscape variety — from dense cloud forest dripping with moss, through giant
-          heather moorland with views of Moshi below, across the alien alpine desert, and up the steep Western Breach or
-          the standard Southern Corridor to the summit crater. Each day presents a completely different ecosystem and
-          visual experience.</p>
-        <p>The route is technically straightforward but physically demanding — steeper and more challenging than Rongai
-          or Marangu. The 7-day option adds a crucial acclimatisation day at Karanga Camp and significantly improves
-          summit success rates. Seresafari recommends the 7-day option for most climbers.</p>
-      </div>
-
-      <div class="detail-block reveal">
-        <div class="detail-block-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Route Highlights</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;">
-          <div class="itin-sleep"><i class="fa-solid fa-check"></i> Most scenic route on Kilimanjaro</div>
-          <div class="itin-sleep"><i class="fa-solid fa-check"></i> Lava Tower acclimatisation loop</div>
-          <div class="itin-sleep"><i class="fa-solid fa-check"></i> Dramatic Barranco Wall climb</div>
-          <div class="itin-sleep"><i class="fa-solid fa-check"></i> Spectacular Southern Ice Field views</div>
-          <div class="itin-sleep"><i class="fa-solid fa-check"></i> Diverse ecosystems — 5 zones in one climb</div>
-          <div class="itin-sleep"><i class="fa-solid fa-check"></i> Uhuru Peak summit at sunrise</div>
+        <div
+          style="
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+          "
+        >
+          <a href="../contact.html" class="btn btn-primary"
+            ><i class="fa-solid fa-paper-plane"></i> Enquire Now</a
+          >
+          <a href="../kilimanjaro.html" class="btn btn-outline"
+            ><i class="fa-solid fa-arrow-left"></i> All Kili Routes</a
+          >
         </div>
       </div>
+    </section>
 
-      <div class="detail-block reveal">
-        <div class="detail-block-title"><i class="fa-solid fa-map-location-dot"></i> Camp-by-Camp Itinerary (7 Days)
+    <footer>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="../../index.html" class="logo">SERE<span>SAFARI</span></a>
+          <p class="footer-tagline">
+            Creating unforgettable safari experiences in the heart of Africa.
+            Expert guides. Hand-picked lodges. 100% locally owned.
+          </p>
+          <div class="footer-social">
+            <a
+              href="https://www.facebook.com/Seresafari/"
+              target="_blank"
+              rel="noopener"
+              class="soc-btn"
+              ><i class="fa-brands fa-facebook-f"></i></a
+            ><a href="#" class="soc-btn"
+              ><i class="fa-brands fa-instagram"></i></a
+            ><a href="#" class="soc-btn"
+              ><i class="fa-brands fa-x-twitter"></i></a
+            ><a href="#" class="soc-btn"
+              ><i class="fa-brands fa-youtube"></i
+            ></a>
+          </div>
         </div>
-        <div class="itinerary">
-
-          <div class="itin-day">
-            <div class="itin-num">
-              <div class="day-label">Day</div>
-              <div class="day-number">1</div>
-            </div>
-            <div class="itin-body">
-              <div class="itin-title">Arusha → Machame Gate → Machame Camp</div>
-              <div class="itin-route"><i class="fa-solid fa-route"></i> Machame Gate (1,800m) → Machame Camp (3,100m) |
-                5–7 hrs trekking | 11 km</div>
-              <p class="itin-desc">Transfer from Arusha to Machame Gate (approximately 1.5 hours). Complete park
-                registration, meet your mountain crew — lead guide, assistant guide, cook and porters — and begin
-                trekking through lush tropical rainforest. The forest canopy shelters colobus monkeys, blue monkeys and
-                hundreds of bird species. The trail is well-defined but muddy and steep in sections. Emerge from the
-                forest above the cloud line as you approach Machame Camp on the forest edge. Dinner and acclimatisation
-                briefing from your lead guide.</p>
-              <div class="itin-activities">
-                <span class="itin-tag"><i class="fa-solid fa-tree"></i> Rainforest Trek</span>
-                <span class="itin-tag"><i class="fa-solid fa-person-hiking"></i> 5–7 Hours Walking</span>
-                <span class="itin-tag"><i class="fa-solid fa-frog"></i> Wildlife in Forest</span>
-                <span class="itin-tag"><i class="fa-solid fa-cloud"></i> Above the Cloud Line</span>
-              </div>
-              <div class="itin-sleep"><i class="fa-solid fa-tent"></i> <strong>Camp:</strong> Machame Camp (3,100m) |
-                All Meals Provided by Mountain Chef</div>
-            </div>
-          </div>
-
-          <div class="itin-day">
-            <div class="itin-num">
-              <div class="day-label">Day</div>
-              <div class="day-number">2</div>
-            </div>
-            <div class="itin-body">
-              <div class="itin-title">Machame Camp → Shira Camp</div>
-              <div class="itin-route"><i class="fa-solid fa-route"></i> Machame Camp (3,100m) → Shira Camp (3,840m) |
-                5–7 hrs | 5 km</div>
-              <p class="itin-desc">Trek out of the rainforest and into the heath and moorland zone — a dramatic
-                transition where giant heather trees and groundsels replace the forest canopy. The trail climbs steeply
-                across a rocky ridge with increasingly spectacular views back over the forest and forward toward Kibo's
-                snow-capped summit. The Shira Plateau opens ahead — an ancient volcanic crater now a high-altitude
-                wetland. Arrive at Shira Camp on the plateau with sweeping 360° views. Altitude begins to be felt here —
-                drink plenty of water and eat well.</p>
-              <div class="itin-activities">
-                <span class="itin-tag"><i class="fa-solid fa-wind"></i> Heath &amp; Moorland Zone</span>
-                <span class="itin-tag"><i class="fa-solid fa-binoculars"></i> First Kibo Summit Views</span>
-                <span class="itin-tag"><i class="fa-solid fa-mountain"></i> Shira Plateau Arrival</span>
-                <span class="itin-tag"><i class="fa-solid fa-droplet"></i> Acclimatisation Hydration</span>
-              </div>
-              <div class="itin-sleep"><i class="fa-solid fa-tent"></i> <strong>Camp:</strong> Shira Camp (3,840m) | All
-                Meals</div>
-            </div>
-          </div>
-
-          <div class="itin-day">
-            <div class="itin-num">
-              <div class="day-label">Day</div>
-              <div class="day-number">3</div>
-            </div>
-            <div class="itin-body">
-              <div class="itin-title">Shira Camp → Lava Tower → Barranco Camp (Acclimatisation)</div>
-              <div class="itin-route"><i class="fa-solid fa-route"></i> Shira (3,840m) → Lava Tower (4,630m) → Barranco
-                Camp (3,950m) | 7–8 hrs | 10 km</div>
-              <p class="itin-desc">The critical acclimatisation day — "climb high, sleep low." Trek across the Shira
-                Plateau and climb to the Lava Tower at 4,630m — the highest you'll reach before summit night. The Lava
-                Tower is a striking volcanic plug rising 300m from the plateau, a dramatic and alien landscape. Lunch at
-                the tower before descending to Barranco Camp — significantly lower in altitude. This ascent and descent
-                is the most important acclimatisation strategy on the route, dramatically improving summit success rates
-                by conditioning your body to altitude without a permanent high-altitude stay. Arrive at Barranco Camp in
-                the Barranco Valley with views of the impressive Barranco Wall ahead.</p>
-              <div class="itin-activities">
-                <span class="itin-tag"><i class="fa-solid fa-mountain-sun"></i> Lava Tower (4,630m)</span>
-                <span class="itin-tag"><i class="fa-solid fa-brain"></i> "Climb High Sleep Low" Strategy</span>
-                <span class="itin-tag"><i class="fa-solid fa-lungs"></i> Critical Acclimatisation Day</span>
-                <span class="itin-tag"><i class="fa-solid fa-snowflake"></i> Southern Ice Fields in View</span>
-              </div>
-              <div class="itin-sleep"><i class="fa-solid fa-tent"></i> <strong>Camp:</strong> Barranco Camp (3,950m) |
-                All Meals</div>
-            </div>
-          </div>
-
-          <div class="itin-day">
-            <div class="itin-num">
-              <div class="day-label">Day</div>
-              <div class="day-number">4</div>
-            </div>
-            <div class="itin-body">
-              <div class="itin-title">Barranco Camp → Karanga Camp</div>
-              <div class="itin-route"><i class="fa-solid fa-route"></i> Barranco Camp (3,950m) → Karanga Camp (4,035m) |
-                4–5 hrs | 5 km</div>
-              <p class="itin-desc">The famous Barranco Wall climb — a steep but exhilarating scramble up the 300m wall
-                using both hands and feet on solid rock. Despite its dramatic appearance, the wall is not technical and
-                requires no climbing equipment — just confidence and a head for heights. Your guides assist at every
-                step. Views from the top of the wall across the Southern Ice Fields and the Breach Wall are
-                extraordinary. After the wall, traverse across Kilimanjaro's southern face to Karanga Valley and climb
-                to Karanga Camp — a well-positioned camp for the push to Barafu tomorrow.</p>
-              <div class="itin-activities">
-                <span class="itin-tag"><i class="fa-solid fa-hand-rock"></i> Barranco Wall Scramble</span>
-                <span class="itin-tag"><i class="fa-solid fa-panorama"></i> Ice Field Panoramas</span>
-                <span class="itin-tag"><i class="fa-solid fa-route"></i> Southern Face Traverse</span>
-                <span class="itin-tag"><i class="fa-solid fa-mountain"></i> Karanga Valley Crossing</span>
-              </div>
-              <div class="itin-sleep"><i class="fa-solid fa-tent"></i> <strong>Camp:</strong> Karanga Camp (4,035m) |
-                All Meals</div>
-            </div>
-          </div>
-
-          <div class="itin-day">
-            <div class="itin-num">
-              <div class="day-label">Day</div>
-              <div class="day-number">5</div>
-            </div>
-            <div class="itin-body">
-              <div class="itin-title">Karanga Camp → Barafu Camp (High Camp)</div>
-              <div class="itin-route"><i class="fa-solid fa-route"></i> Karanga Camp (4,035m) → Barafu Camp (4,673m) |
-                4–5 hrs | 4 km</div>
-              <p class="itin-desc">A short but steep climb from Karanga to Barafu — the high camp and launch point for
-                the summit push. The trail crosses increasingly barren alpine desert — nothing but volcanic rock, scree
-                and dust. Arrive at Barafu by early afternoon. Your guide will brief you thoroughly on the summit night
-                strategy: departure time (typically midnight), clothing layering, pace, and what to expect. Rest and
-                sleep as much as possible between 5 PM and 11 PM — your alarm for summit night will come quickly. Eat a
-                hot meal and stay warm. The summit is 1,200 vertical metres above your tent.</p>
-              <div class="itin-activities">
-                <span class="itin-tag"><i class="fa-solid fa-arrow-up"></i> Steep Alpine Desert Climb</span>
-                <span class="itin-tag"><i class="fa-solid fa-bed"></i> Rest for Summit Night</span>
-                <span class="itin-tag"><i class="fa-solid fa-clipboard-list"></i> Summit Night Briefing</span>
-                <span class="itin-tag"><i class="fa-solid fa-utensils"></i> High Energy Dinner</span>
-              </div>
-              <div class="itin-sleep"><i class="fa-solid fa-tent"></i> <strong>Camp:</strong> Barafu High Camp (4,673m)
-                | All Meals · Depart midnight</div>
-            </div>
-          </div>
-
-          <div class="itin-day">
-            <div class="itin-num">
-              <div class="day-label">Day</div>
-              <div class="day-number">6</div>
-            </div>
-            <div class="itin-body">
-              <div class="itin-title">SUMMIT NIGHT → Uhuru Peak → Mweka Camp</div>
-              <div class="itin-route"><i class="fa-solid fa-route"></i> Barafu (4,673m) → Stella Point (5,739m) → Uhuru
-                Peak (5,895m) → Mweka Camp (3,100m) | 12–16 hrs total</div>
-              <p class="itin-desc">The night that changes everything. Depart Barafu Camp at midnight (sometimes as early
-                as 11:30 PM to allow for slower pacing). The darkness is complete save for headlamps and stars — the
-                Milky Way above Kilimanjaro is breathtaking. The trail climbs endlessly upward through loose scree and
-                volcanic rock — every step deliberate, your guide setting a "pole pole" (very slow) pace. After 5–6
-                hours of climbing, the crater rim at Stella Point (5,739m) appears — the hardest moment of the night.
-                From Stella Point, a 45-minute walk around the crater rim leads to Uhuru Peak at 5,895m. Sunrise over
-                Africa from the highest point on the continent. The emotion of this moment is indescribable. Allow 30–45
-                minutes at the summit for photos and celebration before the long descent. Down from Uhuru to Barafu for
-                rest and a hot meal, then continue down the Mweka Route to Mweka Camp. A long but triumphant day.</p>
-              <div class="itin-activities">
-                <span class="itin-tag"><i class="fa-solid fa-moon"></i> Midnight Departure</span>
-                <span class="itin-tag"><i class="fa-solid fa-star"></i> Milky Way Above Africa</span>
-                <span class="itin-tag"><i class="fa-solid fa-flag"></i> Stella Point (5,739m)</span>
-                <span class="itin-tag"><i class="fa-solid fa-trophy"></i> Uhuru Peak (5,895m) at Sunrise</span>
-                <span class="itin-tag"><i class="fa-solid fa-person-walking-arrow-right"></i> Long Descent to Mweka
-                  Camp</span>
-              </div>
-              <div class="itin-sleep"><i class="fa-solid fa-tent"></i> <strong>Camp:</strong> Mweka Camp (3,100m) | All
-                Meals — well-earned rest!</div>
-            </div>
-          </div>
-
-          <div class="itin-day">
-            <div class="itin-num">
-              <div class="day-label">Day</div>
-              <div class="day-number">7</div>
-            </div>
-            <div class="itin-body">
-              <div class="itin-title">Mweka Camp → Mweka Gate → Arusha (Celebration!)</div>
-              <div class="itin-route"><i class="fa-solid fa-route"></i> Mweka Camp (3,100m) → Mweka Gate (1,640m) →
-                Arusha | 3–4 hrs descent | 10 km</div>
-              <p class="itin-desc">The final descent through Kilimanjaro's lush rainforest — a beautiful and emotional
-                walk as the adrenaline of summit night fades into deep satisfaction. Colobus monkeys watch from the
-                canopy as you wind downward through mossy forest. Reach Mweka Gate where certificates are awarded — your
-                KINAPA Summit Certificate confirming your ascent. The traditional tipping ceremony for your mountain
-                crew follows — a heartfelt gathering where guides and porters perform farewell songs. Transfer back to
-                Arusha arriving early afternoon. Tonight: a celebratory dinner, a hot shower, and the knowledge that you
-                have stood on the Roof of Africa.</p>
-              <div class="itin-activities">
-                <span class="itin-tag"><i class="fa-solid fa-tree"></i> Final Rainforest Descent</span>
-                <span class="itin-tag"><i class="fa-solid fa-certificate"></i> Summit Certificate Award</span>
-                <span class="itin-tag"><i class="fa-solid fa-music"></i> Porter Farewell Ceremony</span>
-                <span class="itin-tag"><i class="fa-solid fa-champagne-glasses"></i> Celebration in Arusha</span>
-              </div>
-              <div class="itin-sleep"><i class="fa-solid fa-hotel"></i> <strong>End:</strong> Transfer to Arusha Hotel —
-                Summit Dinner &amp; Celebration</div>
-            </div>
-          </div>
-
+        <div class="footer-col">
+          <h4>Kilimanjaro Routes</h4>
+          <ul class="footer-links">
+            <li>
+              <a href="machame-route.html"
+                ><i class="fa-solid fa-chevron-right"></i>Machame Route (6–7
+                Days)</a
+              >
+            </li>
+            <li>
+              <a href="lemosho-route.html"
+                ><i class="fa-solid fa-chevron-right"></i>Lemosho Route (7–8
+                Days)</a
+              >
+            </li>
+            <li>
+              <a href="rongai-route.html"
+                ><i class="fa-solid fa-chevron-right"></i>Rongai Route (6–7
+                Days)</a
+              >
+            </li>
+            <li>
+              <a href="marangu-route.html"
+                ><i class="fa-solid fa-chevron-right"></i>Marangu Route (5–6
+                Days)</a
+              >
+            </li>
+            <li>
+              <a href="umbwe-route.html"
+                ><i class="fa-solid fa-chevron-right"></i>Umbwe Route (6
+                Days)</a
+              >
+            </li>
+          </ul>
         </div>
-      </div>
+        <div class="footer-col">
+          <h4>Tour Packages</h4>
+          <ul class="footer-links">
+            <li>
+              <a href="../tour-packages/classic-safari.html"
+                ><i class="fa-solid fa-chevron-right"></i>Tanzania Classic
+                Safari</a
+              >
+            </li>
+            <li>
+              <a href="../tour-packages/bush-to-beach.html"
+                ><i class="fa-solid fa-chevron-right"></i>Bush to Beach (7
+                Days)</a
+              >
+            </li>
+            <li>
+              <a href="../tours.html"
+                ><i class="fa-solid fa-chevron-right"></i>All Tour Packages</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-contact">
+            <li>
+              <span class="fc-ico"
+                ><i class="fa-solid fa-location-dot"></i></span
+              >Arusha, Tanzania 23100
+            </li>
+            <li>
+              <span class="fc-ico"><i class="fa-solid fa-phone"></i></span
+              ><a href="tel:+255690318461" style="color: var(--text)"
+                >+255 690 318 461</a
+              >
+            </li>
+            <li>
+              <span class="fc-ico"><i class="fa-solid fa-envelope"></i></span
+              ><a
+                href="mailto:info@seresafariafrica.com"
+                style="color: var(--text)"
+                >info@seresafariafrica.com</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="footer-badges">
+          <div class="footer-badge-row">
+            <p class="badge-label">We Accept</p>
 
-      <div class="detail-block reveal">
-        <div class="detail-block-title"><i class="fa-solid fa-list-check"></i> Inclusions &amp; Exclusions</div>
-        <div class="inc-exc-grid">
-          <div class="inc-exc-box included">
-            <h4><i class="fa-solid fa-circle-check"></i> What's Included</h4>
-            <ul class="inc-exc-list">
-              <li><i class="fa-solid fa-check ic"></i>TANAPA-licensed lead guide (7+ yrs experience)</li>
-              <li><i class="fa-solid fa-check ic"></i>Assistant guide (1 per 3 climbers)</li>
-              <li><i class="fa-solid fa-check ic"></i>Licensed porters (max 20kg ethical limit)</li>
-              <li><i class="fa-solid fa-check ic"></i>Dedicated mountain chef</li>
-              <li><i class="fa-solid fa-check ic"></i>All meals on the mountain (3 per day)</li>
-              <li><i class="fa-solid fa-check ic"></i>High-quality mountain tents (2-person)</li>
-              <li><i class="fa-solid fa-check ic"></i>Dining tent, toilet tent &amp; camp chairs</li>
-              <li><i class="fa-solid fa-check ic"></i>Emergency oxygen &amp; pulse oximeters</li>
-              <li><i class="fa-solid fa-check ic"></i>Comprehensive first aid kit</li>
-              <li><i class="fa-solid fa-check ic"></i>All KINAPA park &amp; camping fees</li>
-              <li><i class="fa-solid fa-check ic"></i>Rescue fees &amp; mountain rescue fund</li>
-              <li><i class="fa-solid fa-check ic"></i>Summit certificates (KINAPA)</li>
-              <li><i class="fa-solid fa-check ic"></i>Transfer Arusha ↔ Machame/Mweka Gate</li>
-              <li><i class="fa-solid fa-check ic"></i>Daily health monitoring (oximeter readings)</li>
-            </ul>
+            <div class="badge-items">
+              <a
+                href="https://shop.directpay.online/paymybills/SERESAFARIAFRICATOURSCOMPANYLIMITED"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="../../images/visa.png"
+                  alt="Visa accepted"
+                  class="payment-badge"
+                />
+              </a>
+            </div>
           </div>
-          <div class="inc-exc-box excluded">
-            <h4><i class="fa-solid fa-circle-xmark"></i> Not Included</h4>
-            <ul class="inc-exc-list">
-              <li><i class="fa-solid fa-xmark ic"></i>International flights to/from Tanzania</li>
-              <li><i class="fa-solid fa-xmark ic"></i>Tanzania visa (approx. $50 USD)</li>
-              <li><i class="fa-solid fa-xmark ic"></i>Travel &amp; medical evacuation insurance (mandatory)</li>
-              <li><i class="fa-solid fa-xmark ic"></i>Sleeping bag (-15°C minimum rating)</li>
-              <li><i class="fa-solid fa-xmark ic"></i>Personal trekking gear &amp; clothing</li>
-              <li><i class="fa-solid fa-xmark ic"></i>Trekking poles (rental available, $10 total)</li>
-              <li><i class="fa-solid fa-xmark ic"></i>Altitude medication (Diamox — consult doctor)</li>
-              <li><i class="fa-solid fa-xmark ic"></i>Gratuities for guide, porters &amp; cook</li>
-              <li><i class="fa-solid fa-xmark ic"></i>Pre/post climb hotel in Arusha</li>
-              <li><i class="fa-solid fa-xmark ic"></i>Personal snacks &amp; energy supplements</li>
-            </ul>
+          <div class="footer-badge-row">
+            <p class="badge-label">Find Us On</p>
+            <div class="badge-items">
+              <a
+                href="https://www.tripadvisor.com/Attraction_Review-g297913-d28413189-Reviews-Seresafari_Africa_Tours-Arusha_Arusha_Region.html"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="../../images/tripadvisor.svg"
+                  alt="TripAdvisor"
+                  class="platform-logo"
+                />
+              </a>
+
+              <a
+                href="https://www.getyourguide.com/seresafari-africa-s583425/"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="../../images/getyourguide.svg"
+                  alt="GetYourGuide"
+                  class="platform-logo"
+                />
+              </a>
+
+              <a
+                href="https://www.safarigo.com/operator/seresafari-africa-tours-3208"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="../../images/safarigo.png"
+                  alt="SafariGo"
+                  class="platform-logo"
+                />
+              </a>
+
+              <a
+                href="https://tourist.com/p/15564/seresafari_africa"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="../../images/tourist.svg"
+                  alt="Tourist.com"
+                  class="platform-logo"
+                />
+              </a>
+
+              <a
+                href="https://www.safaribookings.com/p7682"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="../../images/safaribookings.png"
+                  alt="SafariBookings"
+                  class="platform-logo"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="detail-block reveal">
-        <div class="detail-block-title"><i class="fa-solid fa-hotel"></i> Camp-by-Camp Breakdown</div>
-        <div style="overflow-x:auto;">
-          <table class="accom-table">
-            <thead>
-              <tr>
-                <th>Night</th>
-                <th>Camp Name</th>
-                <th>Altitude</th>
-                <th>Eco Zone</th>
-                <th>Notes</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Night 1</td>
-                <td>Machame Camp</td>
-                <td>3,100m</td>
-                <td>Rainforest / Heather Edge</td>
-                <td>First high altitude night — acclimatise slowly</td>
-              </tr>
-              <tr>
-                <td>Night 2</td>
-                <td>Shira Camp</td>
-                <td>3,840m</td>
-                <td>Moorland / Shira Plateau</td>
-                <td>Altitude noticeable — headache common, normal</td>
-              </tr>
-              <tr>
-                <td>Night 3</td>
-                <td>Barranco Camp</td>
-                <td>3,950m</td>
-                <td>Alpine Desert Edge</td>
-                <td>After Lava Tower (4,630m) acclimatisation loop</td>
-              </tr>
-              <tr>
-                <td>Night 4</td>
-                <td>Karanga Camp</td>
-                <td>4,035m</td>
-                <td>Alpine Desert</td>
-                <td>After famous Barranco Wall scramble</td>
-              </tr>
-              <tr>
-                <td>Night 5</td>
-                <td>Barafu High Camp</td>
-                <td>4,673m</td>
-                <td>Arctic Zone</td>
-                <td>Summit launch camp — depart midnight</td>
-              </tr>
-              <tr>
-                <td>Night 6</td>
-                <td>Mweka Camp</td>
-                <td>3,100m</td>
-                <td>Rainforest</td>
-                <td>Post-summit descent — deep, well-earned rest</td>
-              </tr>
-            </tbody>
-          </table>
+      <div class="footer-bot">
+        <p>© 2026 Seresafari Africa. All Rights Reserved. · Web by Pamtech</p>
+        <div class="hakuna">
+          Hakuna Matata <i class="fa-solid fa-earth-africa"></i>
         </div>
+        <p>
+          <a href="../privacy-policy.html">Privacy Policy</a> ·
+          <a href="../terms-of-service.html">Terms of Service</a> ·
+          <a href="../travel-insights.html">Travel Insights</a>
+        </p>
       </div>
-
-      <div class="detail-block reveal">
-        <div class="detail-block-title"><i class="fa-solid fa-triangle-exclamation"></i> Important Information</div>
-        <div class="notes-grid">
-          <div class="note-item"><i class="fa-solid fa-person-hiking"></i>
-            <p><strong>Physical requirements:</strong> No technical climbing experience needed, but strong
-              cardiovascular fitness is essential. Train for 3–6 months before the climb with hiking, running or
-              cycling. Day hikes with significant elevation gain are the best preparation.</p>
-          </div>
-          <div class="note-item"><i class="fa-solid fa-lungs"></i>
-            <p><strong>Altitude sickness:</strong> AMS (Acute Mountain Sickness) affects climbers at any fitness level.
-              Common symptoms include headache, nausea and fatigue. Our guides monitor every climber twice daily with
-              pulse oximeters. Emergency oxygen is carried at all times. We will never pressure climbers to continue if
-              health is at risk.</p>
-          </div>
-          <div class="note-item"><i class="fa-solid fa-shirt"></i>
-            <p><strong>Essential gear:</strong> Waterproof outer layer, thermal base layers (wool or synthetic),
-              insulating mid-layer, warm gloves (summit nights reach -20°C), balaclava, waterproof boots, headlamp (with
-              extra batteries), sunglasses with UV400 protection, and a sleeping bag rated to -15°C minimum.</p>
-          </div>
-          <div class="note-item"><i class="fa-solid fa-syringe"></i>
-            <p><strong>Altitude medication:</strong> Acetazolamide (Diamox) can help with acclimatisation. Consult your
-              doctor before the climb. Our guides are trained to advise on symptoms but do not prescribe medication. We
-              always carry emergency oxygen and dexamethasone in severe cases.</p>
-          </div>
-          <div class="note-item"><i class="fa-solid fa-money-bill"></i>
-            <p><strong>Porter tipping:</strong> Tipping is an important part of the mountain crew's income. Recommended
-              amounts: Lead Guide $20–25/day, Assistant Guide $15/day, Cook $15/day, Porters $10/day (per group). Tips
-              are given at the formal farewell ceremony at Mweka Gate.</p>
-          </div>
-          <div class="note-item"><i class="fa-solid fa-shield-halved"></i>
-            <p><strong>Insurance mandatory:</strong> All Kilimanjaro climbers must carry comprehensive travel insurance
-              with medical evacuation cover. This is non-negotiable. Helicopter evacuation from altitude can cost
-              $10,000–$50,000 without insurance. We verify insurance details before the climb begins.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="detail-sidebar">
-      <div class="price-box">
-        <div class="price-box-title"><i class="fa-solid fa-tag"></i> Pricing Per Person</div>
-        <div class="price-tiers">
-          <div class="price-tier">
-            <div class="tier-label"><i class="fa-solid fa-user"></i> Solo Climber</div>
-            <div class="tier-price">$2,400 <small>/ person</small></div>
-          </div>
-          <div class="price-tier">
-            <div class="tier-label"><i class="fa-solid fa-users"></i> 2 Climbers</div>
-            <div class="tier-price">$2,100 <small>/ person</small></div>
-          </div>
-          <div class="price-tier">
-            <div class="tier-label"><i class="fa-solid fa-users"></i> 3–4 Climbers</div>
-            <div class="tier-price">$1,900 <small>/ person</small></div>
-          </div>
-          <div class="price-tier">
-            <div class="tier-label"><i class="fa-solid fa-users"></i> 5–6 Climbers</div>
-            <div class="tier-price">$1,750 <small>/ person</small></div>
-          </div>
-          <div class="price-tier">
-            <div class="tier-label"><i class="fa-solid fa-users"></i> 7+ Climbers</div>
-            <div class="tier-price">$1,600 <small>/ person</small></div>
-          </div>
-        </div>
-        <div class="sidebar-note"><i class="fa-solid fa-circle-info"></i>7-day Machame prices shown. 6-day option $150
-          less per person. Includes all guide fees, porter fees, park fees, camping, equipment &amp; meals on mountain.
-        </div>
-        <a href="../contact.html" class="btn btn-primary"
-          style="width:100%;justify-content:center;margin-top:1.2rem;"><i class="fa-solid fa-paper-plane"></i> Book
-          Machame Route</a>
-        <a href="https://wa.me/255690318461" target="_blank" rel="noopener" class="btn btn-ghost"
-          style="width:100%;justify-content:center;margin-top:.7rem;"><i class="fa-brands fa-whatsapp"></i> WhatsApp
-          Enquiry</a>
-      </div>
-
-      <div class="price-box">
-        <div class="price-box-title"><i class="fa-solid fa-chart-bar"></i> Route Comparison</div>
-        <div style="display:flex;flex-direction:column;gap:.5rem;font-size:.82rem;">
-          <div
-            style="display:flex;justify-content:space-between;padding:.6rem .8rem;background:rgba(201,150,58,.06);border:1px solid rgba(201,150,58,.15);">
-            <span style="color:var(--text);">Scenery</span><span style="color:var(--gold);font-weight:600;">★★★★★</span>
-          </div>
-          <div
-            style="display:flex;justify-content:space-between;padding:.6rem .8rem;background:rgba(201,150,58,.06);border:1px solid rgba(201,150,58,.15);">
-            <span style="color:var(--text);">Difficulty</span><span
-              style="color:#E8944B;font-weight:600;">Challenging</span>
-          </div>
-          <div
-            style="display:flex;justify-content:space-between;padding:.6rem .8rem;background:rgba(201,150,58,.06);border:1px solid rgba(201,150,58,.15);">
-            <span style="color:var(--text);">Popularity</span><span style="color:var(--gold);font-weight:600;">Most
-              Popular</span>
-          </div>
-          <div
-            style="display:flex;justify-content:space-between;padding:.6rem .8rem;background:rgba(201,150,58,.06);border:1px solid rgba(201,150,58,.15);">
-            <span style="color:var(--text);">Summit Rate (7-day)</span><span
-              style="color:#7EB87A;font-weight:600;">~90%</span>
-          </div>
-          <div
-            style="display:flex;justify-content:space-between;padding:.6rem .8rem;background:rgba(201,150,58,.06);border:1px solid rgba(201,150,58,.15);">
-            <span style="color:var(--text);">Accommodation</span><span style="color:var(--cream2);">Camping</span>
-          </div>
-          <div
-            style="display:flex;justify-content:space-between;padding:.6rem .8rem;background:rgba(201,150,58,.06);border:1px solid rgba(201,150,58,.15);">
-            <span style="color:var(--text);">Best For</span><span style="color:var(--cream2);">Adventure seekers</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="price-box">
-        <div class="price-box-title"><i class="fa-solid fa-route"></i> Other Kili Routes</div>
-        <div style="display:flex;flex-direction:column;gap:.5rem;">
-          <a href="lemosho-route.html"
-            style="display:flex;align-items:center;gap:.7rem;padding:.8rem;background:rgba(255,255,255,.03);border:1px solid rgba(201,150,58,.1);color:var(--cream2);font-size:.8rem;transition:border-color .3s;"
-            onmouseover="this.style.borderColor='rgba(201,150,58,.4)'"
-            onmouseout="this.style.borderColor='rgba(201,150,58,.1)'"><i class="fa-solid fa-chevron-right"
-              style="color:var(--gold);font-size:.7rem;"></i>Lemosho Route (7–8 Days)</a>
-          <a href="rongai-route.html"
-            style="display:flex;align-items:center;gap:.7rem;padding:.8rem;background:rgba(255,255,255,.03);border:1px solid rgba(201,150,58,.1);color:var(--cream2);font-size:.8rem;transition:border-color .3s;"
-            onmouseover="this.style.borderColor='rgba(201,150,58,.4)'"
-            onmouseout="this.style.borderColor='rgba(201,150,58,.1)'"><i class="fa-solid fa-chevron-right"
-              style="color:var(--gold);font-size:.7rem;"></i>Rongai Route (6–7 Days)</a>
-          <a href="marangu-route.html"
-            style="display:flex;align-items:center;gap:.7rem;padding:.8rem;background:rgba(255,255,255,.03);border:1px solid rgba(201,150,58,.1);color:var(--cream2);font-size:.8rem;transition:border-color .3s;"
-            onmouseover="this.style.borderColor='rgba(201,150,58,.4)'"
-            onmouseout="this.style.borderColor='rgba(201,150,58,.1)'"><i class="fa-solid fa-chevron-right"
-              style="color:var(--gold);font-size:.7rem;"></i>Marangu Route (5–6 Days)</a>
-          <a href="umbwe-route.html"
-            style="display:flex;align-items:center;gap:.7rem;padding:.8rem;background:rgba(255,255,255,.03);border:1px solid rgba(201,150,58,.1);color:var(--cream2);font-size:.8rem;transition:border-color .3s;"
-            onmouseover="this.style.borderColor='rgba(201,150,58,.4)'"
-            onmouseout="this.style.borderColor='rgba(201,150,58,.1)'"><i class="fa-solid fa-chevron-right"
-              style="color:var(--gold);font-size:.7rem;"></i>Umbwe Route (6 Days)</a>
-        </div>
-      </div>
-
-      <div class="price-box">
-        <div class="price-box-title"><i class="fa-solid fa-phone"></i> Contact Us</div>
-        <div style="display:flex;flex-direction:column;gap:.7rem;">
-          <a href="tel:+255690318461"
-            style="display:flex;align-items:center;gap:.8rem;padding:.8rem;background:rgba(201,150,58,.06);border:1px solid rgba(201,150,58,.2);color:var(--cream2);font-size:.83rem;"><i
-              class="fa-solid fa-phone" style="color:var(--gold);"></i>+255 690 318 461</a>
-          <a href="mailto:info@seresafariafrica.com"
-            style="display:flex;align-items:center;gap:.8rem;padding:.8rem;background:rgba(201,150,58,.06);border:1px solid rgba(201,150,58,.2);color:var(--cream2);font-size:.83rem;"><i
-              class="fa-solid fa-envelope" style="color:var(--gold);"></i>info@seresafariafrica.com</a>
-          <a href="https://wa.me/255690318461" target="_blank" rel="noopener"
-            style="display:flex;align-items:center;gap:.8rem;padding:.8rem;background:#25D366;color:#fff;font-size:.83rem;font-weight:600;"><i
-              class="fa-brands fa-whatsapp"></i>Chat on WhatsApp</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <section class="book-section" style="padding:6rem 8%;text-align:center;">
-    <div class="book-bg"></div>
-    <div class="book-inner reveal">
-      <div class="section-tag" style="justify-content:center;"><i class="fa-solid fa-mountain"></i> Your Summit Awaits
-      </div>
-      <h2
-        style="font-family:var(--ff-head);font-size:clamp(2rem,5vw,3.5rem);font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--white);margin-bottom:.8rem;">
-        Book the <em style="color:var(--gold);font-style:normal;">Machame Route</em></h2>
-      <p style="color:var(--text);max-width:500px;margin:0 auto 2rem;">Tell us your preferred dates and group size.
-        We'll confirm availability and send a detailed quote within 24 hours — free.</p>
-      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-        <a href="../contact.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Enquire Now</a>
-        <a href="../kilimanjaro.html" class="btn btn-outline"><i class="fa-solid fa-arrow-left"></i> All Kili Routes</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-top">
-      <div class="footer-brand"><a href="../../index.html" class="logo">SERE<span>SAFARI</span></a>
-        <p class="footer-tagline">Creating unforgettable safari experiences in the heart of Africa. Expert guides.
-          Hand-picked lodges. 100% locally owned.</p>
-        <div class="footer-social"><a href="https://www.facebook.com/Seresafari/" target="_blank" rel="noopener"
-            class="soc-btn"><i class="fa-brands fa-facebook-f"></i></a><a href="#" class="soc-btn"><i
-              class="fa-brands fa-instagram"></i></a><a href="#" class="soc-btn"><i
-              class="fa-brands fa-x-twitter"></i></a><a href="#" class="soc-btn"><i
-              class="fa-brands fa-youtube"></i></a></div>
-      </div>
-      <div class="footer-col">
-        <h4>Kilimanjaro Routes</h4>
-        <ul class="footer-links">
-          <li><a href="machame-route.html"><i class="fa-solid fa-chevron-right"></i>Machame Route (6–7 Days)</a></li>
-          <li><a href="lemosho-route.html"><i class="fa-solid fa-chevron-right"></i>Lemosho Route (7–8 Days)</a></li>
-          <li><a href="rongai-route.html"><i class="fa-solid fa-chevron-right"></i>Rongai Route (6–7 Days)</a></li>
-          <li><a href="marangu-route.html"><i class="fa-solid fa-chevron-right"></i>Marangu Route (5–6 Days)</a></li>
-          <li><a href="umbwe-route.html"><i class="fa-solid fa-chevron-right"></i>Umbwe Route (6 Days)</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Tour Packages</h4>
-        <ul class="footer-links">
-          <li><a href="../tour-packages/classic-safari.html"><i class="fa-solid fa-chevron-right"></i>Tanzania Classic
-              Safari</a></li>
-          <li><a href="../tour-packages/bush-to-beach.html"><i class="fa-solid fa-chevron-right"></i>Bush to Beach (7
-              Days)</a></li>
-          <li><a href="../tours.html"><i class="fa-solid fa-chevron-right"></i>All Tour Packages</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul class="footer-contact">
-          <li><span class="fc-ico"><i class="fa-solid fa-location-dot"></i></span>Arusha, Tanzania 23100</li>
-          <li><span class="fc-ico"><i class="fa-solid fa-phone"></i></span><a href="tel:+255690318461"
-              style="color:var(--text);">+255 690 318 461</a></li>
-          <li><span class="fc-ico"><i class="fa-solid fa-envelope"></i></span><a href="mailto:info@seresafariafrica.com"
-              style="color:var(--text);">info@seresafariafrica.com</a></li>
-        </ul>
-      </div>
-    <div class="footer-badges">
-
-        <div class="footer-badge-row">
-  <p class="badge-label">We Accept</p>
-
-  <div class="badge-items">
-    <a href="https://shop.directpay.online/paymybills/SERESAFARIAFRICATOURSCOMPANYLIMITED" 
-       target="_blank" 
-       rel="noopener noreferrer">
-      <img 
-        src="../../images/visa.png" 
-        alt="Visa accepted" 
-        class="payment-badge"
-      >
-    </a>
-  </div>
-</div>
-        <div class="footer-badge-row">
-          <p class="badge-label">Find Us On</p>
-          <div class="badge-items">
-
-            <a href="https://www.tripadvisor.com/Attraction_Review-g297913-d28413189-Reviews-Seresafari_Africa_Tours-Arusha_Arusha_Region.html"
-              target="_blank" rel="noopener" class="review-badge">
-              <img src="../../images/tripadvisor.svg" alt="TripAdvisor" class="platform-logo">
-
-            </a>
-
-            <a href="https://www.getyourguide.com/seresafari-africa-s583425/" target="_blank" rel="noopener"
-              class="review-badge">
-              <img src="../../images/getyourguide.svg" alt="GetYourGuide" class="platform-logo">
-
-            </a>
-
-            <a href="https://www.safarigo.com/operator/seresafari-africa-tours-3208" target="_blank" rel="noopener"
-              class="review-badge">
-              <img src="../../images/safarigo.png" alt="SafariGo" class="platform-logo">
-
-            </a>
-
-            <a href="https://tourist.com/p/15564/seresafari_africa" target="_blank" rel="noopener" class="review-badge">
-              <img src="../../images/tourist.svg" alt="Tourist.com" class="platform-logo">
-
-            </a>
-
-            <a href="https://www.safaribookings.com/p7682" target="_blank" rel="noopener" class="review-badge">
-              <img src="../../images/safaribookings.png" alt="SafariBookings" class="platform-logo">
-
-            </a>
-
-          </div>
-        </div>
-
-      </div>
-    </div>
-    <div class="footer-bot">
-      <p>© 2026 Seresafari Africa. All Rights Reserved. · Web by Pamtech</p>
-      <div class="hakuna">Hakuna Matata <i class="fa-solid fa-earth-africa"></i></div>
-      <p>
-        <a href="../privacy-policy.html">Privacy Policy</a> ·
-        <a href="../terms-of-service.html">Terms of Service</a> ·
-        <a href="../travel-insights.html">Travel Insights</a>
-      </p>
-    </div>
-  </footer>
-  <a class="wa-btn" href="https://wa.me/255690318461" target="_blank" rel="noopener"><i
-      class="fa-brands fa-whatsapp"></i></a>
-  <script src="../../js/main.js"></script>
-</body>
-
+    </footer>
+    <a
+      class="wa-btn"
+      href="https://wa.me/255690318461"
+      target="_blank"
+      rel="noopener"
+      ><i class="fa-brands fa-whatsapp"></i
+    ></a>
+    <script src="../../js/main.js"></script>
+    <script src="../../js/content-protection.js"></script>
+  </body>
 </html>

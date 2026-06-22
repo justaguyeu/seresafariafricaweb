@@ -1,1226 +1,2692 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Admin Dashboard – Sere Safari Africa</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <style>
-  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Admin Dashboard – Seresafari Africa</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap");
 
-  :root {
-    --gold:       #574535;
-    --gold-light: #7A6045;
-    --gold-dim:   rgba(87,69,53,.10);
-    --dark:       #FFFFFF;
-    --dark2:      #F5EDD0;
-    --dark3:      #EDE0C8;
-    --cream:      #574535;
-    --cream2:     #3D2B1A;
-    --text:       #6B5240;
-    --white:      #1A0F07;
-    --ff-head:    'Oswald', sans-serif;
-    --ff-body:    'Poppins', sans-serif;
-    --nav-h:      64px;
-    --surface:    #FAF6EF;
-    --border:     rgba(87,69,53,.15);
-    --border2:    rgba(87,69,53,.10);
-    --red:        #c0392b;
-    --green:      #27ae60;
-    --blue:       #2980b9;
-  }
+      :root {
+        --gold: #574535;
+        --gold-light: #7a6045;
+        --gold-dim: rgba(87, 69, 53, 0.1);
+        --dark: #ffffff;
+        --dark2: #f5edd0;
+        --dark3: #ede0c8;
+        --cream: #574535;
+        --cream2: #3d2b1a;
+        --text: #6b5240;
+        --white: #1a0f07;
+        --ff-head: "Oswald", sans-serif;
+        --ff-body: "Poppins", sans-serif;
+        --nav-h: 64px;
+        --surface: #faf6ef;
+        --border: rgba(87, 69, 53, 0.15);
+        --border2: rgba(87, 69, 53, 0.1);
+        --red: #c0392b;
+        --green: #27ae60;
+        --blue: #2980b9;
+      }
 
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  html{font-size:15px;scroll-behavior:smooth}
-  body{font-family:var(--ff-body);background:var(--dark2);color:var(--text);min-height:100vh;display:flex;flex-direction:column}
-  a{text-decoration:none;color:inherit}
-  img{display:block;max-width:100%}
-  button{font-family:inherit;cursor:pointer}
-  input,select,textarea{font-family:inherit}
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        font-size: 15px;
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--ff-body);
+        background: var(--dark2);
+        color: var(--text);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+      }
+      button {
+        font-family: inherit;
+        cursor: pointer;
+      }
+      input,
+      select,
+      textarea {
+        font-family: inherit;
+      }
 
-  .topbar{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--nav-h);background:var(--gold);display:flex;align-items:center;justify-content:space-between;padding:0 1.8rem;box-shadow:0 2px 16px rgba(87,69,53,.25);}
-  .topbar-brand{display:flex;align-items:center;gap:12px}
-  .topbar-logo{font-family:var(--ff-head);font-size:1.35rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--dark);}
-  .topbar-logo span{color:var(--dark3);}
-  .topbar-badge{background:var(--dark2);color:var(--gold);font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:.2rem .6rem;}
-  .topbar-right{display:flex;align-items:center;gap:1rem}
-  .topbar-user{font-size:.78rem;color:rgba(255,255,255,.8);display:flex;align-items:center;gap:7px;}
-  .topbar-user i{color:var(--dark2);}
-  .topbar-btn{padding:.5rem 1rem;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:var(--dark);font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;display:flex;align-items:center;gap:6px;transition:background .2s;}
-  .topbar-btn:hover{background:rgba(255,255,255,.25);}
+      .topbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 200;
+        height: var(--nav-h);
+        background: var(--gold);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 1.8rem;
+        box-shadow: 0 2px 16px rgba(87, 69, 53, 0.25);
+      }
+      .topbar-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .topbar-logo {
+        font-family: var(--ff-head);
+        font-size: 1.35rem;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--dark);
+      }
+      .topbar-logo span {
+        color: var(--dark3);
+      }
+      .topbar-badge {
+        background: var(--dark2);
+        color: var(--gold);
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        padding: 0.2rem 0.6rem;
+      }
+      .topbar-right {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .topbar-user {
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.8);
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .topbar-user i {
+        color: var(--dark2);
+      }
+      .topbar-btn {
+        padding: 0.5rem 1rem;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: var(--dark);
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: background 0.2s;
+      }
+      .topbar-btn:hover {
+        background: rgba(255, 255, 255, 0.25);
+      }
 
-  .layout{display:flex;padding-top:var(--nav-h);min-height:100vh}
+      .layout {
+        display: flex;
+        padding-top: var(--nav-h);
+        min-height: 100vh;
+      }
 
-  .sidebar{width:240px;flex-shrink:0;background:var(--cream2);min-height:calc(100vh - var(--nav-h));padding:1.4rem 0;position:sticky;top:var(--nav-h);height:calc(100vh - var(--nav-h));overflow-y:auto;}
-  .nav-section{font-size:.62rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(245,237,208,.35);padding:.5rem 1.4rem;margin-top:1rem;}
-  .nav-item{display:flex;align-items:center;gap:10px;padding:.75rem 1.4rem;color:rgba(245,237,208,.65);font-size:.82rem;font-weight:500;cursor:pointer;border-left:3px solid transparent;transition:all .2s;text-decoration:none;}
-  .nav-item i{width:18px;text-align:center;color:rgba(87,69,53,.6);font-size:.9rem;}
-  .nav-item:hover{background:rgba(255,255,255,.06);color:#F5EDD0;}
-  .nav-item.active{background:rgba(87,69,53,.2);color:#F5EDD0;border-left-color:var(--dark2);}
-  .nav-item.active i{color:var(--dark2);}
-  .nav-badge{margin-left:auto;background:var(--dark2);color:var(--gold);font-size:.58rem;font-weight:700;padding:.15rem .5rem;border-radius:100px;}
+      .sidebar {
+        width: 240px;
+        flex-shrink: 0;
+        background: var(--cream2);
+        min-height: calc(100vh - var(--nav-h));
+        padding: 1.4rem 0;
+        position: sticky;
+        top: var(--nav-h);
+        height: calc(100vh - var(--nav-h));
+        overflow-y: auto;
+      }
+      .nav-section {
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: rgba(245, 237, 208, 0.35);
+        padding: 0.5rem 1.4rem;
+        margin-top: 1rem;
+      }
+      .nav-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0.75rem 1.4rem;
+        color: rgba(245, 237, 208, 0.65);
+        font-size: 0.82rem;
+        font-weight: 500;
+        cursor: pointer;
+        border-left: 3px solid transparent;
+        transition: all 0.2s;
+        text-decoration: none;
+      }
+      .nav-item i {
+        width: 18px;
+        text-align: center;
+        color: rgba(87, 69, 53, 0.6);
+        font-size: 0.9rem;
+      }
+      .nav-item:hover {
+        background: rgba(255, 255, 255, 0.06);
+        color: #f5edd0;
+      }
+      .nav-item.active {
+        background: rgba(87, 69, 53, 0.2);
+        color: #f5edd0;
+        border-left-color: var(--dark2);
+      }
+      .nav-item.active i {
+        color: var(--dark2);
+      }
+      .nav-badge {
+        margin-left: auto;
+        background: var(--dark2);
+        color: var(--gold);
+        font-size: 0.58rem;
+        font-weight: 700;
+        padding: 0.15rem 0.5rem;
+        border-radius: 100px;
+      }
 
-  .main{flex:1;padding:2rem;overflow-x:hidden}
-  .page-section{display:none}
-  .page-section.active{display:block}
+      .main {
+        flex: 1;
+        padding: 2rem;
+        overflow-x: hidden;
+      }
+      .page-section {
+        display: none;
+      }
+      .page-section.active {
+        display: block;
+      }
 
-  .page-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.8rem;flex-wrap:wrap;gap:1rem;}
-  .page-hdr h1{font-family:var(--ff-head);font-size:1.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--cream2);}
-  .page-hdr p{font-size:.82rem;color:var(--text);margin-top:.2rem}
+      .page-hdr {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.8rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .page-hdr h1 {
+        font-family: var(--ff-head);
+        font-size: 1.6rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--cream2);
+      }
+      .page-hdr p {
+        font-size: 0.82rem;
+        color: var(--text);
+        margin-top: 0.2rem;
+      }
 
-  .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.8rem;}
-  .stat-box{background:var(--dark);border:1px solid var(--border);padding:1.2rem 1.4rem;border-left:3px solid var(--gold);}
-  .stat-label{font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text);margin-bottom:.5rem}
-  .stat-value{font-family:var(--ff-head);font-size:2.2rem;font-weight:700;color:var(--cream2);line-height:1}
-  .stat-sub{font-size:.72rem;color:var(--gold);margin-top:.3rem;font-weight:500}
+      .stats-row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        margin-bottom: 1.8rem;
+      }
+      .stat-box {
+        background: var(--dark);
+        border: 1px solid var(--border);
+        padding: 1.2rem 1.4rem;
+        border-left: 3px solid var(--gold);
+      }
+      .stat-label {
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--text);
+        margin-bottom: 0.5rem;
+      }
+      .stat-value {
+        font-family: var(--ff-head);
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: var(--cream2);
+        line-height: 1;
+      }
+      .stat-sub {
+        font-size: 0.72rem;
+        color: var(--gold);
+        margin-top: 0.3rem;
+        font-weight: 500;
+      }
 
-  .card{background:var(--dark);border:1px solid var(--border);padding:1.4rem;margin-bottom:1.4rem}
-  .card-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;flex-wrap:wrap;gap:.6rem}
-  .card-title{font-family:var(--ff-head);font-size:1rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--cream2);display:flex;align-items:center;gap:8px}
-  .card-title i{color:var(--gold);}
+      .card {
+        background: var(--dark);
+        border: 1px solid var(--border);
+        padding: 1.4rem;
+        margin-bottom: 1.4rem;
+      }
+      .card-hdr {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.2rem;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+      .card-title {
+        font-family: var(--ff-head);
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--cream2);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .card-title i {
+        color: var(--gold);
+      }
 
-  .tbl-wrap{overflow-x:auto}
-  table{width:100%;border-collapse:collapse}
-  th{text-align:left;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text);padding:.7rem 1rem;border-bottom:2px solid var(--border);white-space:nowrap;}
-  td{padding:.85rem 1rem;border-bottom:1px solid var(--border2);font-size:.82rem;color:var(--text);vertical-align:middle}
-  tr:hover td{background:rgba(87,69,53,.025)}
-  .tbl-img{width:54px;height:40px;object-fit:cover;border:1px solid var(--border)}
-  .tbl-title{font-weight:600;color:var(--cream2)}
-  .tbl-sub{font-size:.72rem;color:var(--text);margin-top:2px}
+      .tbl-wrap {
+        overflow-x: auto;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th {
+        text-align: left;
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--text);
+        padding: 0.7rem 1rem;
+        border-bottom: 2px solid var(--border);
+        white-space: nowrap;
+      }
+      td {
+        padding: 0.85rem 1rem;
+        border-bottom: 1px solid var(--border2);
+        font-size: 0.82rem;
+        color: var(--text);
+        vertical-align: middle;
+      }
+      tr:hover td {
+        background: rgba(87, 69, 53, 0.025);
+      }
+      .tbl-img {
+        width: 54px;
+        height: 40px;
+        object-fit: cover;
+        border: 1px solid var(--border);
+      }
+      .tbl-title {
+        font-weight: 600;
+        color: var(--cream2);
+      }
+      .tbl-sub {
+        font-size: 0.72rem;
+        color: var(--text);
+        margin-top: 2px;
+      }
 
-  .badge{display:inline-flex;align-items:center;gap:4px;padding:.2rem .65rem;font-size:.63rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;border-radius:2px}
-  .badge-green{background:#d4edda;color:#155724}
-  .badge-red{background:#f8d7da;color:#721c24}
-  .badge-yellow{background:#fff3cd;color:#856404}
-  .badge-gold{background:var(--dark2);color:var(--cream2)}
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 0.2rem 0.65rem;
+        font-size: 0.63rem;
+        font-weight: 700;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        border-radius: 2px;
+      }
+      .badge-green {
+        background: #d4edda;
+        color: #155724;
+      }
+      .badge-red {
+        background: #f8d7da;
+        color: #721c24;
+      }
+      .badge-yellow {
+        background: #fff3cd;
+        color: #856404;
+      }
+      .badge-gold {
+        background: var(--dark2);
+        color: var(--cream2);
+      }
 
-  .btn{display:inline-flex;align-items:center;gap:7px;padding:.55rem 1.1rem;font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;border:none;transition:all .2s;white-space:nowrap;cursor:pointer;}
-  .btn-primary{background:var(--cream2);color:var(--dark2)}
-  .btn-primary:hover{background:var(--gold);transform:translateY(-1px)}
-  .btn-gold{background:var(--gold);color:var(--dark2)}
-  .btn-gold:hover{background:var(--gold-light)}
-  .btn-outline{background:transparent;border:1.5px solid var(--gold);color:var(--gold)}
-  .btn-outline:hover{background:var(--gold-dim)}
-  .btn-danger{background:var(--red);color:#fff}
-  .btn-danger:hover{background:#a93226}
-  .btn-sm{padding:.35rem .75rem;font-size:.65rem}
-  .btn-icon{width:32px;height:32px;padding:0;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:1px solid var(--border);color:var(--text);transition:all .2s}
-  .btn-icon:hover{border-color:var(--gold);color:var(--gold)}
-  .btn-icon.edit:hover{border-color:var(--blue);color:var(--blue)}
-  .btn-icon.del:hover{border-color:var(--red);color:var(--red)}
-  .btn-icon.view:hover{border-color:var(--green);color:var(--green)}
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 0.55rem 1.1rem;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        border: none;
+        transition: all 0.2s;
+        white-space: nowrap;
+        cursor: pointer;
+      }
+      .btn-primary {
+        background: var(--cream2);
+        color: var(--dark2);
+      }
+      .btn-primary:hover {
+        background: var(--gold);
+        transform: translateY(-1px);
+      }
+      .btn-gold {
+        background: var(--gold);
+        color: var(--dark2);
+      }
+      .btn-gold:hover {
+        background: var(--gold-light);
+      }
+      .btn-outline {
+        background: transparent;
+        border: 1.5px solid var(--gold);
+        color: var(--gold);
+      }
+      .btn-outline:hover {
+        background: var(--gold-dim);
+      }
+      .btn-danger {
+        background: var(--red);
+        color: #fff;
+      }
+      .btn-danger:hover {
+        background: #a93226;
+      }
+      .btn-sm {
+        padding: 0.35rem 0.75rem;
+        font-size: 0.65rem;
+      }
+      .btn-icon {
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--text);
+        transition: all 0.2s;
+      }
+      .btn-icon:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+      .btn-icon.edit:hover {
+        border-color: var(--blue);
+        color: var(--blue);
+      }
+      .btn-icon.del:hover {
+        border-color: var(--red);
+        color: var(--red);
+      }
+      .btn-icon.view:hover {
+        border-color: var(--green);
+        color: var(--green);
+      }
 
-  .field{margin-bottom:1rem}
-  .field label{display:block;font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cream2);margin-bottom:.4rem}
-  .f-input,.f-select,.f-textarea{width:100%;padding:.7rem .9rem;border:1.5px solid var(--border);background:var(--surface);color:var(--cream2);font-size:.85rem;font-family:inherit;transition:border-color .2s,box-shadow .2s;}
-  .f-input:focus,.f-select:focus,.f-textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-dim);}
-  .f-textarea{resize:vertical;min-height:90px}
-  .field-hint{font-size:.7rem;color:var(--text);margin-top:.3rem}
+      .field {
+        margin-bottom: 1rem;
+      }
+      .field label {
+        display: block;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--cream2);
+        margin-bottom: 0.4rem;
+      }
+      .f-input,
+      .f-select,
+      .f-textarea {
+        width: 100%;
+        padding: 0.7rem 0.9rem;
+        border: 1.5px solid var(--border);
+        background: var(--surface);
+        color: var(--cream2);
+        font-size: 0.85rem;
+        font-family: inherit;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .f-input:focus,
+      .f-select:focus,
+      .f-textarea:focus {
+        outline: none;
+        border-color: var(--gold);
+        box-shadow: 0 0 0 3px var(--gold-dim);
+      }
+      .f-textarea {
+        resize: vertical;
+        min-height: 90px;
+      }
+      .field-hint {
+        font-size: 0.7rem;
+        color: var(--text);
+        margin-top: 0.3rem;
+      }
 
-  .modal-overlay{position:fixed;inset:0;background:rgba(26,15,7,.6);z-index:500;display:flex;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .3s;}
-  .modal-overlay.open{opacity:1;pointer-events:all}
-  .modal{background:var(--dark);width:100%;max-width:920px;position:relative;margin-bottom:2rem;animation:modalIn .3s ease}
-  @keyframes modalIn{from{transform:translateY(-30px);opacity:0}to{transform:none;opacity:1}}
-  .modal-hdr{background:var(--cream2);padding:1.2rem 1.6rem;display:flex;align-items:center;justify-content:space-between;}
-  .modal-hdr h2{font-family:var(--ff-head);font-size:1.1rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dark2);display:flex;align-items:center;gap:10px;}
-  .modal-hdr h2 i{color:var(--dark3)}
-  .modal-close{background:none;border:none;color:rgba(245,237,208,.6);font-size:1.3rem;cursor:pointer;padding:.2rem;transition:color .2s;}
-  .modal-close:hover{color:var(--dark2)}
-  .modal-body{padding:2rem 1.6rem}
-  .modal-footer{padding:1rem 1.6rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:flex-end;gap:.8rem;flex-wrap:wrap;}
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(26, 15, 7, 0.6);
+        z-index: 500;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 2rem 1rem;
+        overflow-y: auto;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+      }
+      .modal-overlay.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+      .modal {
+        background: var(--dark);
+        width: 100%;
+        max-width: 920px;
+        position: relative;
+        margin-bottom: 2rem;
+        animation: modalIn 0.3s ease;
+      }
+      @keyframes modalIn {
+        from {
+          transform: translateY(-30px);
+          opacity: 0;
+        }
+        to {
+          transform: none;
+          opacity: 1;
+        }
+      }
+      .modal-hdr {
+        background: var(--cream2);
+        padding: 1.2rem 1.6rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .modal-hdr h2 {
+        font-family: var(--ff-head);
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--dark2);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .modal-hdr h2 i {
+        color: var(--dark3);
+      }
+      .modal-close {
+        background: none;
+        border: none;
+        color: rgba(245, 237, 208, 0.6);
+        font-size: 1.3rem;
+        cursor: pointer;
+        padding: 0.2rem;
+        transition: color 0.2s;
+      }
+      .modal-close:hover {
+        color: var(--dark2);
+      }
+      .modal-body {
+        padding: 2rem 1.6rem;
+      }
+      .modal-footer {
+        padding: 1rem 1.6rem;
+        border-top: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+      }
 
-  .tabs{display:flex;border-bottom:2px solid var(--border);margin-bottom:1.8rem;overflow-x:auto;gap:0}
-  .tab-btn{padding:.7rem 1.1rem;font-family:var(--ff-head);font-size:.75rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text);border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:color .2s,border-color .2s;}
-  .tab-btn:hover{color:var(--cream2)}
-  .tab-btn.active{color:var(--cream2);border-bottom-color:var(--gold)}
-  .tab-panel{display:none}
-  .tab-panel.active{display:block}
+      .tabs {
+        display: flex;
+        border-bottom: 2px solid var(--border);
+        margin-bottom: 1.8rem;
+        overflow-x: auto;
+        gap: 0;
+      }
+      .tab-btn {
+        padding: 0.7rem 1.1rem;
+        font-family: var(--ff-head);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--text);
+        border: none;
+        background: none;
+        cursor: pointer;
+        border-bottom: 2px solid transparent;
+        margin-bottom: -2px;
+        white-space: nowrap;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .tab-btn:hover {
+        color: var(--cream2);
+      }
+      .tab-btn.active {
+        color: var(--cream2);
+        border-bottom-color: var(--gold);
+      }
+      .tab-panel {
+        display: none;
+      }
+      .tab-panel.active {
+        display: block;
+      }
 
-  .toggle{position:relative;width:40px;height:22px;flex-shrink:0}
-  .toggle input{opacity:0;width:0;height:0}
-  .toggle-slider{position:absolute;inset:0;background:#ccc;border-radius:22px;cursor:pointer;transition:.3s;}
-  .toggle-slider::before{content:'';position:absolute;height:16px;width:16px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.3s;}
-  .toggle input:checked + .toggle-slider{background:var(--gold)}
-  .toggle input:checked + .toggle-slider::before{transform:translateX(18px)}
+      .toggle {
+        position: relative;
+        width: 40px;
+        height: 22px;
+        flex-shrink: 0;
+      }
+      .toggle input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .toggle-slider {
+        position: absolute;
+        inset: 0;
+        background: #ccc;
+        border-radius: 22px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .toggle-slider::before {
+        content: "";
+        position: absolute;
+        height: 16px;
+        width: 16px;
+        left: 3px;
+        bottom: 3px;
+        background: #fff;
+        border-radius: 50%;
+        transition: 0.3s;
+      }
+      .toggle input:checked + .toggle-slider {
+        background: var(--gold);
+      }
+      .toggle input:checked + .toggle-slider::before {
+        transform: translateX(18px);
+      }
 
-  .toast-stack{position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999;display:flex;flex-direction:column;gap:.5rem}
-  .toast{padding:.8rem 1.2rem;font-size:.8rem;font-weight:500;color:#fff;max-width:320px;display:flex;align-items:center;gap:.7rem;box-shadow:0 8px 24px rgba(0,0,0,.2);animation:toastIn .3s ease;}
-  .toast-success{background:var(--green)}
-  .toast-error{background:var(--red)}
-  .toast-info{background:var(--blue)}
-  @keyframes toastIn{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:none}}
+      .toast-stack {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .toast {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #fff;
+        max-width: 320px;
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        animation: toastIn 0.3s ease;
+      }
+      .toast-success {
+        background: var(--green);
+      }
+      .toast-error {
+        background: var(--red);
+      }
+      .toast-info {
+        background: var(--blue);
+      }
+      @keyframes toastIn {
+        from {
+          opacity: 0;
+          transform: translateX(30px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
 
-  .confirm-overlay{position:fixed;inset:0;background:rgba(26,15,7,.65);z-index:600;display:none;align-items:center;justify-content:center;}
-  .confirm-overlay.open{display:flex}
-  .confirm-box{background:var(--dark);padding:2rem;max-width:420px;width:90%;}
-  .confirm-box h3{font-family:var(--ff-head);font-size:1.1rem;font-weight:700;color:var(--cream2);margin-bottom:.7rem}
-  .confirm-box p{font-size:.85rem;color:var(--text);margin-bottom:1.4rem;line-height:1.6}
-  .confirm-btns{display:flex;gap:.7rem;justify-content:flex-end}
+      .confirm-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(26, 15, 7, 0.65);
+        z-index: 600;
+        display: none;
+        align-items: center;
+        justify-content: center;
+      }
+      .confirm-overlay.open {
+        display: flex;
+      }
+      .confirm-box {
+        background: var(--dark);
+        padding: 2rem;
+        max-width: 420px;
+        width: 90%;
+      }
+      .confirm-box h3 {
+        font-family: var(--ff-head);
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--cream2);
+        margin-bottom: 0.7rem;
+      }
+      .confirm-box p {
+        font-size: 0.85rem;
+        color: var(--text);
+        margin-bottom: 1.4rem;
+        line-height: 1.6;
+      }
+      .confirm-btns {
+        display: flex;
+        gap: 0.7rem;
+        justify-content: flex-end;
+      }
 
-  .loading-row td{text-align:center;padding:3rem;color:var(--text)}
-  .spin{display:inline-block;width:24px;height:24px;border:2px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin .7s linear infinite;margin-bottom:.5rem}
-  @keyframes spin{to{transform:rotate(360deg);}}
-  .empty-state{text-align:center;padding:4rem 2rem;color:var(--text)}
-  .empty-state i{font-size:2.5rem;color:var(--gold);opacity:.35;display:block;margin-bottom:1rem}
-  .empty-state h3{font-family:var(--ff-head);font-size:1.1rem;letter-spacing:1px;color:var(--cream2);margin-bottom:.4rem}
+      .loading-row td {
+        text-align: center;
+        padding: 3rem;
+        color: var(--text);
+      }
+      .spin {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        border: 2px solid var(--border);
+        border-top-color: var(--gold);
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+        margin-bottom: 0.5rem;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .empty-state {
+        text-align: center;
+        padding: 4rem 2rem;
+        color: var(--text);
+      }
+      .empty-state i {
+        font-size: 2.5rem;
+        color: var(--gold);
+        opacity: 0.35;
+        display: block;
+        margin-bottom: 1rem;
+      }
+      .empty-state h3 {
+        font-family: var(--ff-head);
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        color: var(--cream2);
+        margin-bottom: 0.4rem;
+      }
 
-  /* ══════════════════════════════════
+      /* ══════════════════════════════════
      GALLERY MANAGER — New styles
   ══════════════════════════════════ */
 
-  /* Category selector cards */
-  .cat-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: .75rem;
-    margin-bottom: 2rem;
-  }
-  .cat-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: .5rem;
-    padding: 1.1rem .5rem;
-    border: 2px solid var(--border);
-    background: var(--surface);
-    cursor: pointer;
-    transition: all .2s;
-    position: relative;
-  }
-  .cat-card i { font-size: 1.5rem; color: var(--text); transition: color .2s; }
-  .cat-card .cat-name {
-    font-family: var(--ff-head);
-    font-size: .7rem;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--text);
-    transition: color .2s;
-  }
-  .cat-card .cat-count {
-    font-size: .65rem;
-    color: var(--text);
-    opacity: .7;
-  }
-  .cat-card:hover { border-color: var(--gold); background: var(--dark2); }
-  .cat-card:hover i, .cat-card:hover .cat-name { color: var(--gold); }
-  .cat-card.active {
-    border-color: var(--gold);
-    background: var(--gold);
-  }
-  .cat-card.active i, .cat-card.active .cat-name, .cat-card.active .cat-count { color: var(--dark2); }
-  .cat-card .cat-active-dot {
-    position: absolute;
-    top: .4rem; right: .4rem;
-    width: 8px; height: 8px;
-    background: var(--green);
-    border-radius: 50%;
-    display: none;
-  }
-  .cat-card.has-images .cat-active-dot { display: block; }
+      /* Category selector cards */
+      .cat-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+      }
+      .cat-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 1.1rem 0.5rem;
+        border: 2px solid var(--border);
+        background: var(--surface);
+        cursor: pointer;
+        transition: all 0.2s;
+        position: relative;
+      }
+      .cat-card i {
+        font-size: 1.5rem;
+        color: var(--text);
+        transition: color 0.2s;
+      }
+      .cat-card .cat-name {
+        font-family: var(--ff-head);
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--text);
+        transition: color 0.2s;
+      }
+      .cat-card .cat-count {
+        font-size: 0.65rem;
+        color: var(--text);
+        opacity: 0.7;
+      }
+      .cat-card:hover {
+        border-color: var(--gold);
+        background: var(--dark2);
+      }
+      .cat-card:hover i,
+      .cat-card:hover .cat-name {
+        color: var(--gold);
+      }
+      .cat-card.active {
+        border-color: var(--gold);
+        background: var(--gold);
+      }
+      .cat-card.active i,
+      .cat-card.active .cat-name,
+      .cat-card.active .cat-count {
+        color: var(--dark2);
+      }
+      .cat-card .cat-active-dot {
+        position: absolute;
+        top: 0.4rem;
+        right: 0.4rem;
+        width: 8px;
+        height: 8px;
+        background: var(--green);
+        border-radius: 50%;
+        display: none;
+      }
+      .cat-card.has-images .cat-active-dot {
+        display: block;
+      }
 
-  /* Drop zone */
-  .gal-drop-zone {
-    border: 2.5px dashed var(--border);
-    background: var(--surface);
-    padding: 3rem 2rem;
-    text-align: center;
-    transition: all .25s;
-    cursor: pointer;
-    position: relative;
-    margin-bottom: 1.5rem;
-  }
-  .gal-drop-zone.dragover {
-    border-color: var(--gold);
-    background: var(--dark2);
-  }
-  .gal-drop-zone input[type=file] {
-    position: absolute; inset: 0; opacity: 0; width: 100%; height: 100%; cursor: pointer;
-  }
-  .gal-drop-zone i { font-size: 2.5rem; color: var(--gold); display: block; margin-bottom: .8rem; }
-  .gal-drop-zone h3 {
-    font-family: var(--ff-head);
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--cream2);
-    margin-bottom: .4rem;
-  }
-  .gal-drop-zone p { font-size: .82rem; color: var(--text); }
-  .gal-drop-zone .drop-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    margin-top: 1rem;
-    padding: .45rem 1.1rem;
-    background: var(--gold);
-    color: var(--dark2);
-    font-size: .72rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    pointer-events: none;
-  }
+      /* Drop zone */
+      .gal-drop-zone {
+        border: 2.5px dashed var(--border);
+        background: var(--surface);
+        padding: 3rem 2rem;
+        text-align: center;
+        transition: all 0.25s;
+        cursor: pointer;
+        position: relative;
+        margin-bottom: 1.5rem;
+      }
+      .gal-drop-zone.dragover {
+        border-color: var(--gold);
+        background: var(--dark2);
+      }
+      .gal-drop-zone input[type="file"] {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+      }
+      .gal-drop-zone i {
+        font-size: 2.5rem;
+        color: var(--gold);
+        display: block;
+        margin-bottom: 0.8rem;
+      }
+      .gal-drop-zone h3 {
+        font-family: var(--ff-head);
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--cream2);
+        margin-bottom: 0.4rem;
+      }
+      .gal-drop-zone p {
+        font-size: 0.82rem;
+        color: var(--text);
+      }
+      .gal-drop-zone .drop-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 1rem;
+        padding: 0.45rem 1.1rem;
+        background: var(--gold);
+        color: var(--dark2);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        pointer-events: none;
+      }
 
-  /* Selected category banner */
-  .cat-banner {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem 1.4rem;
-    background: var(--cream2);
-    margin-bottom: 1.5rem;
-  }
-  .cat-banner i { font-size: 1.3rem; color: var(--dark3); }
-  .cat-banner h3 {
-    font-family: var(--ff-head);
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--dark2);
-    flex: 1;
-  }
-  .cat-banner .cat-pill {
-    background: var(--dark2);
-    color: var(--gold);
-    font-size: .65rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: .25rem .75rem;
-  }
+      /* Selected category banner */
+      .cat-banner {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 1.4rem;
+        background: var(--cream2);
+        margin-bottom: 1.5rem;
+      }
+      .cat-banner i {
+        font-size: 1.3rem;
+        color: var(--dark3);
+      }
+      .cat-banner h3 {
+        font-family: var(--ff-head);
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--dark2);
+        flex: 1;
+      }
+      .cat-banner .cat-pill {
+        background: var(--dark2);
+        color: var(--gold);
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        padding: 0.25rem 0.75rem;
+      }
 
-  /* Queue — images waiting to upload */
-  .upload-queue {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: .75rem;
-    margin-bottom: 1.5rem;
-  }
-  .queue-item {
-    position: relative;
-    border: 1.5px solid var(--border);
-    background: var(--dark);
-    overflow: hidden;
-  }
-  .queue-item img {
-    width: 100%; height: 120px; object-fit: cover; display: block;
-    filter: brightness(.85);
-  }
-  .queue-item .qi-overlay {
-    position: absolute; inset: 0;
-    display: flex; flex-direction: column;
-    justify-content: flex-end;
-    padding: .5rem;
-    background: linear-gradient(to top, rgba(0,0,0,.6) 0%, transparent 60%);
-  }
-  .queue-item .qi-name {
-    font-size: .62rem; color: #fff; font-weight: 500;
-    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-  }
-  .queue-item .qi-status {
-    font-size: .6rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-    margin-top: 2px;
-  }
-  .queue-item .qi-status.pending { color: rgba(255,255,255,.55); }
-  .queue-item .qi-status.uploading { color: #f39c12; }
-  .queue-item .qi-status.done { color: #2ecc71; }
-  .queue-item .qi-status.error { color: #e74c3c; }
-  .queue-item .qi-remove {
-    position: absolute; top: .3rem; right: .3rem;
-    width: 22px; height: 22px;
-    background: rgba(192,57,43,.85);
-    border: none; color: #fff;
-    display: flex; align-items: center; justify-content: center;
-    font-size: .65rem; cursor: pointer;
-    transition: background .15s;
-  }
-  .queue-item .qi-remove:hover { background: var(--red); }
-  .qi-progress {
-    position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
-    background: rgba(255,255,255,.2);
-  }
-  .qi-progress-fill {
-    height: 100%; background: var(--gold); width: 0%;
-    transition: width .3s ease;
-  }
-  .qi-progress-fill.indeterminate {
-    width: 50%;
-    animation: qiIndeterminate 1s ease-in-out infinite;
-  }
-  @keyframes qiIndeterminate { 0%{margin-left:-50%}100%{margin-left:100%} }
+      /* Queue — images waiting to upload */
+      .upload-queue {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+      }
+      .queue-item {
+        position: relative;
+        border: 1.5px solid var(--border);
+        background: var(--dark);
+        overflow: hidden;
+      }
+      .queue-item img {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+        display: block;
+        filter: brightness(0.85);
+      }
+      .queue-item .qi-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 0.5rem;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.6) 0%,
+          transparent 60%
+        );
+      }
+      .queue-item .qi-name {
+        font-size: 0.62rem;
+        color: #fff;
+        font-weight: 500;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .queue-item .qi-status {
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-top: 2px;
+      }
+      .queue-item .qi-status.pending {
+        color: rgba(255, 255, 255, 0.55);
+      }
+      .queue-item .qi-status.uploading {
+        color: #f39c12;
+      }
+      .queue-item .qi-status.done {
+        color: #2ecc71;
+      }
+      .queue-item .qi-status.error {
+        color: #e74c3c;
+      }
+      .queue-item .qi-remove {
+        position: absolute;
+        top: 0.3rem;
+        right: 0.3rem;
+        width: 22px;
+        height: 22px;
+        background: rgba(192, 57, 43, 0.85);
+        border: none;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.65rem;
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+      .queue-item .qi-remove:hover {
+        background: var(--red);
+      }
+      .qi-progress {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: rgba(255, 255, 255, 0.2);
+      }
+      .qi-progress-fill {
+        height: 100%;
+        background: var(--gold);
+        width: 0%;
+        transition: width 0.3s ease;
+      }
+      .qi-progress-fill.indeterminate {
+        width: 50%;
+        animation: qiIndeterminate 1s ease-in-out infinite;
+      }
+      @keyframes qiIndeterminate {
+        0% {
+          margin-left: -50%;
+        }
+        100% {
+          margin-left: 100%;
+        }
+      }
 
-  /* Queue actions bar */
-  .queue-actions {
-    display: flex;
-    align-items: center;
-    gap: .8rem;
-    margin-bottom: 1.5rem;
-    padding: .9rem 1.2rem;
-    background: var(--dark2);
-    border: 1px solid var(--border);
-    flex-wrap: wrap;
-  }
-  .queue-actions .qa-count {
-    font-size: .78rem;
-    color: var(--cream2);
-    font-weight: 600;
-    flex: 1;
-  }
-  .queue-actions .qa-count span { color: var(--gold); }
+      /* Queue actions bar */
+      .queue-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        margin-bottom: 1.5rem;
+        padding: 0.9rem 1.2rem;
+        background: var(--dark2);
+        border: 1px solid var(--border);
+        flex-wrap: wrap;
+      }
+      .queue-actions .qa-count {
+        font-size: 0.78rem;
+        color: var(--cream2);
+        font-weight: 600;
+        flex: 1;
+      }
+      .queue-actions .qa-count span {
+        color: var(--gold);
+      }
 
-  /* Gallery image grid (existing images) */
-  .gal-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: .75rem;
-  }
-  .gal-img-card {
-    position: relative;
-    border: 1.5px solid var(--border);
-    background: var(--dark);
-    overflow: hidden;
-    group: true;
-  }
-  .gal-img-card img {
-    width: 100%; height: 140px; object-fit: cover; display: block;
-    filter: brightness(.8);
-    transition: filter .3s;
-  }
-  .gal-img-card:hover img { filter: brightness(1); }
-  .gal-img-card .gic-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,.65) 0%, transparent 50%);
-    padding: .6rem;
-    display: flex; flex-direction: column; justify-content: flex-end;
-  }
-  .gic-label {
-    font-family: var(--ff-head);
-    font-size: .65rem;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #fff;
-    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-  }
-  .gic-cats {
-    display: flex; flex-wrap: wrap; gap: 2px; margin-top: 3px;
-  }
-  .gic-cat {
-    font-size: .5rem; font-weight: 700; letter-spacing: .8px; text-transform: uppercase;
-    padding: 1px 5px;
-    background: rgba(201,150,58,.7); color: #fff;
-  }
-  .gic-actions {
-    position: absolute; top: .4rem; right: .4rem;
-    display: flex; gap: .3rem;
-    opacity: 0; transition: opacity .2s;
-  }
-  .gal-img-card:hover .gic-actions { opacity: 1; }
-  .gic-btn {
-    width: 26px; height: 26px;
-    display: flex; align-items: center; justify-content: center;
-    border: none; cursor: pointer;
-    font-size: .7rem;
-    transition: all .15s;
-  }
-  .gic-btn.toggle-active { background: rgba(39,174,96,.85); color: #fff; }
-  .gic-btn.toggle-active.inactive { background: rgba(192,57,43,.75); }
-  .gic-btn.delete-btn { background: rgba(192,57,43,.85); color: #fff; }
-  .gic-btn:hover { transform: scale(1.1); }
-  .gic-inactive-badge {
-    position: absolute; top: .4rem; left: .4rem;
-    background: rgba(192,57,43,.85);
-    color: #fff;
-    font-size: .55rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: .15rem .45rem;
-    display: none;
-  }
-  .gal-img-card.is-inactive .gic-inactive-badge { display: block; }
-  .gal-img-card.is-inactive img { filter: brightness(.5) grayscale(.4); }
+      /* Gallery image grid (existing images) */
+      .gal-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 0.75rem;
+      }
+      .gal-img-card {
+        position: relative;
+        border: 1.5px solid var(--border);
+        background: var(--dark);
+        overflow: hidden;
+        group: true;
+      }
+      .gal-img-card img {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+        display: block;
+        filter: brightness(0.8);
+        transition: filter 0.3s;
+      }
+      .gal-img-card:hover img {
+        filter: brightness(1);
+      }
+      .gal-img-card .gic-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.65) 0%,
+          transparent 50%
+        );
+        padding: 0.6rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+      .gic-label {
+        font-family: var(--ff-head);
+        font-size: 0.65rem;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: #fff;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .gic-cats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2px;
+        margin-top: 3px;
+      }
+      .gic-cat {
+        font-size: 0.5rem;
+        font-weight: 700;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        padding: 1px 5px;
+        background: rgba(201, 150, 58, 0.7);
+        color: #fff;
+      }
+      .gic-actions {
+        position: absolute;
+        top: 0.4rem;
+        right: 0.4rem;
+        display: flex;
+        gap: 0.3rem;
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+      .gal-img-card:hover .gic-actions {
+        opacity: 1;
+      }
+      .gic-btn {
+        width: 26px;
+        height: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        cursor: pointer;
+        font-size: 0.7rem;
+        transition: all 0.15s;
+      }
+      .gic-btn.toggle-active {
+        background: rgba(39, 174, 96, 0.85);
+        color: #fff;
+      }
+      .gic-btn.toggle-active.inactive {
+        background: rgba(192, 57, 43, 0.75);
+      }
+      .gic-btn.delete-btn {
+        background: rgba(192, 57, 43, 0.85);
+        color: #fff;
+      }
+      .gic-btn:hover {
+        transform: scale(1.1);
+      }
+      .gic-inactive-badge {
+        position: absolute;
+        top: 0.4rem;
+        left: 0.4rem;
+        background: rgba(192, 57, 43, 0.85);
+        color: #fff;
+        font-size: 0.55rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 0.15rem 0.45rem;
+        display: none;
+      }
+      .gal-img-card.is-inactive .gic-inactive-badge {
+        display: block;
+      }
+      .gal-img-card.is-inactive img {
+        filter: brightness(0.5) grayscale(0.4);
+      }
 
-  /* Edit modal for single image */
-  .img-edit-grid { display: grid; grid-template-columns: 180px 1fr; gap: 1.2rem; align-items: start; }
+      /* Edit modal for single image */
+      .img-edit-grid {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        gap: 1.2rem;
+        align-items: start;
+      }
 
-  /* Order input */
-  .order-input {
-    width: 70px; padding: .4rem .5rem; border: 1.5px solid var(--border);
-    background: var(--surface); font-size: .85rem; font-weight: 600;
-    color: var(--cream2); text-align: center;
-  }
-  .order-input:focus { outline: none; border-color: var(--gold); }
+      /* Order input */
+      .order-input {
+        width: 70px;
+        padding: 0.4rem 0.5rem;
+        border: 1.5px solid var(--border);
+        background: var(--surface);
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--cream2);
+        text-align: center;
+      }
+      .order-input:focus {
+        outline: none;
+        border-color: var(--gold);
+      }
 
-  /* Category multi-checkboxes */
-  .cat-checks { display: flex; flex-wrap: wrap; gap: .5rem; }
-  .cat-check-label {
-    display: flex; align-items: center; gap: .4rem;
-    padding: .35rem .8rem; border: 1.5px solid var(--border);
-    cursor: pointer; font-size: .72rem; font-weight: 600; letter-spacing: 1px;
-    text-transform: uppercase; color: var(--text);
-    transition: all .15s;
-  }
-  .cat-check-label input { display: none; }
-  .cat-check-label.checked {
-    background: var(--gold); border-color: var(--gold); color: var(--dark2);
-  }
-  .cat-check-label:hover { border-color: var(--gold); }
+      /* Category multi-checkboxes */
+      .cat-checks {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .cat-check-label {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.35rem 0.8rem;
+        border: 1.5px solid var(--border);
+        cursor: pointer;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--text);
+        transition: all 0.15s;
+      }
+      .cat-check-label input {
+        display: none;
+      }
+      .cat-check-label.checked {
+        background: var(--gold);
+        border-color: var(--gold);
+        color: var(--dark2);
+      }
+      .cat-check-label:hover {
+        border-color: var(--gold);
+      }
 
-  /* URL paste in gallery */
-  .gal-url-row { display: flex; gap: .5rem; margin-bottom: 1rem; }
-  .gal-url-row input { flex: 1; }
+      /* URL paste in gallery */
+      .gal-url-row {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      .gal-url-row input {
+        flex: 1;
+      }
 
-  /* Stats bar in gallery */
-  .gal-stats {
-    display: flex; gap: 1.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;
-  }
-  .gal-stat { font-size: .78rem; color: var(--text); display: flex; align-items: center; gap: .4rem; }
-  .gal-stat strong { color: var(--cream2); font-weight: 700; }
-  .gal-stat i { color: var(--gold); font-size: .75rem; }
+      /* Stats bar in gallery */
+      .gal-stats {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+      }
+      .gal-stat {
+        font-size: 0.78rem;
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .gal-stat strong {
+        color: var(--cream2);
+        font-weight: 700;
+      }
+      .gal-stat i {
+        color: var(--gold);
+        font-size: 0.75rem;
+      }
 
-  /* Divider */
-  .section-divider {
-    border: none; border-top: 1px solid var(--border);
-    margin: 1.8rem 0;
-  }
+      /* Divider */
+      .section-divider {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 1.8rem 0;
+      }
 
-  /* Sort order bar */
-  .sort-row {
-    display: flex; align-items: center; gap: .8rem;
-    margin-bottom: 1rem; flex-wrap: wrap;
-  }
-  .sort-row label {
-    font-size: .68rem; font-weight: 700; letter-spacing: 1.5px;
-    text-transform: uppercase; color: var(--text);
-  }
+      /* Sort order bar */
+      .sort-row {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+      }
+      .sort-row label {
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--text);
+      }
 
-  @media(max-width:1200px){.cat-grid{grid-template-columns:repeat(3,1fr)}}
-  @media(max-width:900px){
-    .sidebar{display:none}
-    .stats-row{grid-template-columns:1fr 1fr}
-    .cat-grid{grid-template-columns:repeat(3,1fr)}
-    .img-edit-grid{grid-template-columns:1fr}
-  }
-  @media(max-width:600px){
-    .stats-row{grid-template-columns:1fr}
-    .main{padding:1rem}
-    .cat-grid{grid-template-columns:repeat(2,1fr)}
-    .gal-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
-    .upload-queue{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}
-  }
-  </style>
-</head>
-<body>
-
-<header class="topbar">
-  <div class="topbar-brand">
-    <div class="topbar-logo">SERE<span>SAFARI</span></div>
-    <span class="topbar-badge">Admin</span>
-  </div>
-  <div class="topbar-right">
-    <div class="topbar-user"><i class="fa-solid fa-circle-user"></i><span id="adminEmail">—</span></div>
-    <button class="topbar-btn" onclick="window.open('../pages/tours.html','_blank')"><i class="fa-solid fa-globe"></i> View Site</button>
-    <button class="topbar-btn" onclick="signOut()"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</button>
-  </div>
-</header>
-
-<div class="layout">
-  <nav class="sidebar">
-    <div class="nav-section">Main</div>
-    <a class="nav-item active" onclick="showSection('dashboard')"><i class="fa-solid fa-chart-pie"></i> Dashboard</a>
-    <div class="nav-section">Content</div>
-    <a class="nav-item" onclick="showSection('packages')"><i class="fa-solid fa-suitcase"></i> Tour Packages <span class="nav-badge" id="pkgCount">0</span></a>
-    <a class="nav-item" onclick="showSection('gallery')"><i class="fa-solid fa-images"></i> Gallery <span class="nav-badge" id="galCount">0</span></a>
-    <div class="nav-section" id="usersNavSection" style="display:none">Users</div>
-    <a class="nav-item" id="usersNavItem" onclick="showSection('users')" style="display:none"><i class="fa-solid fa-users-gear"></i> Manage Users</a>
-    <div class="nav-section">Account</div>
-    <a class="nav-item" onclick="signOut()"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
-  </nav>
-
-  <main class="main">
-
-    <!-- DASHBOARD -->
-    <section class="page-section active" id="sec-dashboard">
-      <div class="page-hdr">
-        <div>
-          <h1><i class="fa-solid fa-chart-pie" style="color:var(--gold);margin-right:.5rem"></i>Dashboard</h1>
-          <p>Welcome back — your Sere Safari Africa content overview.</p>
+      @media (max-width: 1200px) {
+        .cat-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      @media (max-width: 900px) {
+        .sidebar {
+          display: none;
+        }
+        .stats-row {
+          grid-template-columns: 1fr 1fr;
+        }
+        .cat-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .img-edit-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 600px) {
+        .stats-row {
+          grid-template-columns: 1fr;
+        }
+        .main {
+          padding: 1rem;
+        }
+        .cat-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .gal-grid {
+          grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        }
+        .upload-queue {
+          grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-brand">
+        <div class="topbar-logo">SERE<span>SAFARI</span></div>
+        <span class="topbar-badge">Admin</span>
+      </div>
+      <div class="topbar-right">
+        <div class="topbar-user">
+          <i class="fa-solid fa-circle-user"></i><span id="adminEmail">—</span>
         </div>
-        <button class="btn btn-gold" onclick="showSection('packages');openPackageModal()">
-          <i class="fa-solid fa-plus"></i> New Package
+        <button
+          class="topbar-btn"
+          onclick="window.open('../pages/tours.html', '_blank')"
+        >
+          <i class="fa-solid fa-globe"></i> View Site
+        </button>
+        <button class="topbar-btn" onclick="signOut()">
+          <i class="fa-solid fa-right-from-bracket"></i> Sign Out
         </button>
       </div>
-      <div class="stats-row">
-        <div class="stat-box"><div class="stat-label">Total Packages</div><div class="stat-value" id="dashTotal">—</div><div class="stat-sub">All tours in system</div></div>
-        <div class="stat-box"><div class="stat-label">Active Packages</div><div class="stat-value" id="dashActive">—</div><div class="stat-sub">Shown on website</div></div>
-        <div class="stat-box"><div class="stat-label">Gallery Images</div><div class="stat-value" id="dashGallery">—</div><div class="stat-sub">Active photos</div></div>
-        <div class="stat-box"><div class="stat-label">Lowest Price</div><div class="stat-value" id="dashLowest">—</div><div class="stat-sub">Base price / person</div></div>
-      </div>
-      <div class="card">
-        <div class="card-hdr">
-          <div class="card-title"><i class="fa-solid fa-suitcase"></i> Recent Packages</div>
-          <button class="btn btn-outline btn-sm" onclick="showSection('packages')">View All</button>
-        </div>
-        <div class="tbl-wrap">
-          <table>
-            <thead><tr><th>Package</th><th>Duration</th><th>Price</th><th>Status</th><th>Actions</th></tr></thead>
-            <tbody id="dashRecentTbody"><tr class="loading-row"><td colspan="5"><div class="spin"></div><br>Loading…</td></tr></tbody>
-          </table>
-        </div>
-      </div>
-    </section>
+    </header>
 
-    <!-- PACKAGES -->
-    <section class="page-section" id="sec-packages">
-      <div class="page-hdr">
-        <div>
-          <h1><i class="fa-solid fa-suitcase" style="color:var(--gold);margin-right:.5rem"></i>Tour Packages</h1>
-          <p>Create, edit and manage all safari tour packages.</p>
+    <div class="layout">
+      <nav class="sidebar">
+        <div class="nav-section">Main</div>
+        <a class="nav-item active" onclick="showSection('dashboard')"
+          ><i class="fa-solid fa-chart-pie"></i> Dashboard</a
+        >
+        <div class="nav-section">Content</div>
+        <a class="nav-item" onclick="showSection('packages')"
+          ><i class="fa-solid fa-suitcase"></i> Tour Packages
+          <span class="nav-badge" id="pkgCount">0</span></a
+        >
+        <a class="nav-item" onclick="showSection('gallery')"
+          ><i class="fa-solid fa-images"></i> Gallery
+          <span class="nav-badge" id="galCount">0</span></a
+        >
+        <div class="nav-section" id="usersNavSection" style="display: none">
+          Users
         </div>
-        <button class="btn btn-gold" onclick="openPackageModal()"><i class="fa-solid fa-plus"></i> Add New Package</button>
-      </div>
-      <div style="display:flex;gap:.8rem;margin-bottom:1.2rem;flex-wrap:wrap;">
-        <div style="position:relative;flex:1;min-width:200px">
-          <i class="fa-solid fa-magnifying-glass" style="position:absolute;left:.8rem;top:50%;transform:translateY(-50%);color:var(--text);font-size:.8rem"></i>
-          <input style="width:100%;padding:.65rem .8rem .65rem 2.2rem;border:1.5px solid var(--border);background:var(--surface);font-size:.82rem;color:var(--cream2);" type="text" placeholder="Search packages…" id="pkgSearch" oninput="filterPackages()"/>
-        </div>
-        <select class="f-select" style="width:160px;padding:.65rem .9rem" id="pkgStatusFilter" onchange="filterPackages()">
-          <option value="">All Status</option><option value="true">Active</option><option value="false">Inactive</option>
-        </select>
-      </div>
-      <div class="card" style="padding:0">
-        <div class="tbl-wrap">
-          <table>
-            <thead><tr><th>Image</th><th>Package</th><th>Duration</th><th>Base Price</th><th>Active</th><th>Featured</th><th>Actions</th></tr></thead>
-            <tbody id="pkgTbody"><tr class="loading-row"><td colspan="7"><div class="spin"></div><br>Loading packages…</td></tr></tbody>
-          </table>
-        </div>
-      </div>
-    </section>
+        <a
+          class="nav-item"
+          id="usersNavItem"
+          onclick="showSection('users')"
+          style="display: none"
+          ><i class="fa-solid fa-users-gear"></i> Manage Users</a
+        >
+        <div class="nav-section">Account</div>
+        <a class="nav-item" onclick="signOut()"
+          ><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a
+        >
+      </nav>
 
-    <!-- ═══════════════════════════════════════
-         GALLERY MANAGER
-    ═══════════════════════════════════════ -->
-    <section class="page-section" id="sec-gallery">
-      <div class="page-hdr">
-        <div>
-          <h1><i class="fa-solid fa-images" style="color:var(--gold);margin-right:.5rem"></i>Gallery Manager</h1>
-          <p>Upload and manage photos by category. Select a category, then upload or paste image URLs.</p>
-        </div>
-        <a href="../pages/gallery.html" target="_blank" class="btn btn-outline"><i class="fa-solid fa-eye"></i> View Gallery</a>
-      </div>
-
-      <!-- CATEGORY SELECTOR -->
-      <div class="cat-grid" id="catGrid">
-        <div class="cat-card active" data-cat="all" onclick="selectGalCat(this)">
-          <i class="fa-solid fa-grip"></i>
-          <span class="cat-name">All</span>
-          <span class="cat-count" id="cc-all">0 photos</span>
-          <span class="cat-active-dot"></span>
-        </div>
-        <div class="cat-card" data-cat="wildlife" onclick="selectGalCat(this)">
-          <i class="fa-solid fa-paw"></i>
-          <span class="cat-name">Wildlife</span>
-          <span class="cat-count" id="cc-wildlife">0 photos</span>
-          <span class="cat-active-dot"></span>
-        </div>
-        <div class="cat-card" data-cat="serengeti" onclick="selectGalCat(this)">
-          <i class="fa-solid fa-sun"></i>
-          <span class="cat-name">Serengeti</span>
-          <span class="cat-count" id="cc-serengeti">0 photos</span>
-          <span class="cat-active-dot"></span>
-        </div>
-        <div class="cat-card" data-cat="kilimanjaro" onclick="selectGalCat(this)">
-          <i class="fa-solid fa-mountain"></i>
-          <span class="cat-name">Kilimanjaro</span>
-          <span class="cat-count" id="cc-kilimanjaro">0 photos</span>
-          <span class="cat-active-dot"></span>
-        </div>
-        <div class="cat-card" data-cat="zanzibar" onclick="selectGalCat(this)">
-          <i class="fa-solid fa-umbrella-beach"></i>
-          <span class="cat-name">Zanzibar</span>
-          <span class="cat-count" id="cc-zanzibar">0 photos</span>
-          <span class="cat-active-dot"></span>
-        </div>
-        <div class="cat-card" data-cat="culture" onclick="selectGalCat(this)">
-          <i class="fa-solid fa-people-group"></i>
-          <span class="cat-name">Culture</span>
-          <span class="cat-count" id="cc-culture">0 photos</span>
-          <span class="cat-active-dot"></span>
-        </div>
-      </div>
-
-      <!-- UPLOAD AREA (hidden when "all" is selected) -->
-      <div id="galUploadArea">
-        <div class="cat-banner" id="galCatBanner">
-          <i class="fa-solid fa-paw" id="galCatBannerIcon"></i>
-          <h3 id="galCatBannerTitle">Select a category above to upload</h3>
-          <span class="cat-pill" id="galCatBannerPill">—</span>
-        </div>
-
-        <!-- Drop zone -->
-        <div class="gal-drop-zone" id="galDropZone"
-          ondragover="galDragOver(event)"
-          ondragleave="galDragLeave(event)"
-          ondrop="galDrop(event)">
-          <input type="file" id="galFileInput" accept="image/*" multiple onchange="galHandleFiles(event)"/>
-          <i class="fa-solid fa-cloud-arrow-up"></i>
-          <h3>Drop images here or tap to browse</h3>
-          <p>JPG · PNG · WEBP · max 10 MB each · multiple files supported</p>
-          <span class="drop-chip"><i class="fa-solid fa-mobile-screen"></i> Choose Photos</span>
-        </div>
-
-        <!-- OR paste URL -->
-        <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:1rem;font-size:.72rem;color:var(--text)">
-          <span style="flex:1;height:1px;background:var(--border)"></span>
-          <span>or paste image URL</span>
-          <span style="flex:1;height:1px;background:var(--border)"></span>
-        </div>
-        <div class="gal-url-row">
-          <input class="f-input" type="url" id="galPasteUrl" placeholder="https://images.unsplash.com/…"/>
-          <input class="f-input" type="text" id="galPasteLabel" placeholder="Label (optional)" style="max-width:200px"/>
-          <button class="btn btn-outline" onclick="galAddUrl()"><i class="fa-solid fa-plus"></i> Add URL</button>
-        </div>
-
-        <!-- Upload queue -->
-        <div id="galQueueWrap" style="display:none">
-          <div class="queue-actions">
-            <div class="qa-count">
-              <span id="queueCountText">0</span> image(s) ready · <span id="queueDoneText">0</span> uploaded
+      <main class="main">
+        <!-- DASHBOARD -->
+        <section class="page-section active" id="sec-dashboard">
+          <div class="page-hdr">
+            <div>
+              <h1>
+                <i
+                  class="fa-solid fa-chart-pie"
+                  style="color: var(--gold); margin-right: 0.5rem"
+                ></i
+                >Dashboard
+              </h1>
+              <p>Welcome back — your Seresafari Africa content overview.</p>
             </div>
-            <button class="btn btn-danger btn-sm" onclick="clearQueue()"><i class="fa-solid fa-trash"></i> Clear All</button>
-            <button class="btn btn-gold" id="uploadAllBtn" onclick="uploadAllQueue()">
-              <i class="fa-solid fa-cloud-arrow-up"></i> Upload All to Gallery
+            <button
+              class="btn btn-gold"
+              onclick="
+                showSection('packages');
+                openPackageModal();
+              "
+            >
+              <i class="fa-solid fa-plus"></i> New Package
             </button>
           </div>
-          <div class="upload-queue" id="uploadQueue"></div>
-        </div>
-      </div>
-
-      <hr class="section-divider">
-
-      <!-- EXISTING IMAGES -->
-      <div class="card-hdr" style="margin-bottom:1rem">
-        <div class="card-title"><i class="fa-solid fa-photo-film"></i> <span id="galExistingTitle">All Gallery Images</span></div>
-        <div style="display:flex;gap:.6rem;align-items:center;flex-wrap:wrap">
-          <div class="gal-stats">
-            <div class="gal-stat"><i class="fa-solid fa-circle-check"></i> <strong id="galActiveCount">0</strong> active</div>
-            <div class="gal-stat"><i class="fa-solid fa-circle-xmark"></i> <strong id="galHiddenCount">0</strong> hidden</div>
+          <div class="stats-row">
+            <div class="stat-box">
+              <div class="stat-label">Total Packages</div>
+              <div class="stat-value" id="dashTotal">—</div>
+              <div class="stat-sub">All tours in system</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label">Active Packages</div>
+              <div class="stat-value" id="dashActive">—</div>
+              <div class="stat-sub">Shown on website</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label">Gallery Images</div>
+              <div class="stat-value" id="dashGallery">—</div>
+              <div class="stat-sub">Active photos</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label">Lowest Price</div>
+              <div class="stat-value" id="dashLowest">—</div>
+              <div class="stat-sub">Base price / person</div>
+            </div>
           </div>
-          <button class="btn btn-outline btn-sm" onclick="loadGalleryImages()"><i class="fa-solid fa-rotate"></i> Refresh</button>
-        </div>
-      </div>
+          <div class="card">
+            <div class="card-hdr">
+              <div class="card-title">
+                <i class="fa-solid fa-suitcase"></i> Recent Packages
+              </div>
+              <button
+                class="btn btn-outline btn-sm"
+                onclick="showSection('packages')"
+              >
+                View All
+              </button>
+            </div>
+            <div class="tbl-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Package</th>
+                    <th>Duration</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="dashRecentTbody">
+                  <tr class="loading-row">
+                    <td colspan="5">
+                      <div class="spin"></div>
+                      <br />Loading…
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
 
-      <div id="galGridWrap">
-        <div class="empty-state">
-          <i class="fa-solid fa-images"></i>
-          <h3>No images yet</h3>
-          <p>Select a category above and upload your first photo.</p>
-        </div>
-      </div>
-    </section>
+        <!-- PACKAGES -->
+        <section class="page-section" id="sec-packages">
+          <div class="page-hdr">
+            <div>
+              <h1>
+                <i
+                  class="fa-solid fa-suitcase"
+                  style="color: var(--gold); margin-right: 0.5rem"
+                ></i
+                >Tour Packages
+              </h1>
+              <p>Create, edit and manage all safari tour packages.</p>
+            </div>
+            <button class="btn btn-gold" onclick="openPackageModal()">
+              <i class="fa-solid fa-plus"></i> Add New Package
+            </button>
+          </div>
+          <div
+            style="
+              display: flex;
+              gap: 0.8rem;
+              margin-bottom: 1.2rem;
+              flex-wrap: wrap;
+            "
+          >
+            <div style="position: relative; flex: 1; min-width: 200px">
+              <i
+                class="fa-solid fa-magnifying-glass"
+                style="
+                  position: absolute;
+                  left: 0.8rem;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  color: var(--text);
+                  font-size: 0.8rem;
+                "
+              ></i>
+              <input
+                style="
+                  width: 100%;
+                  padding: 0.65rem 0.8rem 0.65rem 2.2rem;
+                  border: 1.5px solid var(--border);
+                  background: var(--surface);
+                  font-size: 0.82rem;
+                  color: var(--cream2);
+                "
+                type="text"
+                placeholder="Search packages…"
+                id="pkgSearch"
+                oninput="filterPackages()"
+              />
+            </div>
+            <select
+              class="f-select"
+              style="width: 160px; padding: 0.65rem 0.9rem"
+              id="pkgStatusFilter"
+              onchange="filterPackages()"
+            >
+              <option value="">All Status</option>
+              <option value="true">Active</option>
+              <option value="false">Inactive</option>
+            </select>
+          </div>
+          <div class="card" style="padding: 0">
+            <div class="tbl-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Image</th>
+                    <th>Package</th>
+                    <th>Duration</th>
+                    <th>Base Price</th>
+                    <th>Active</th>
+                    <th>Featured</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="pkgTbody">
+                  <tr class="loading-row">
+                    <td colspan="7">
+                      <div class="spin"></div>
+                      <br />Loading packages…
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
 
-    <!-- USERS -->
-    <section class="page-section" id="sec-users">
-      <div class="page-hdr">
-        <div>
-          <h1><i class="fa-solid fa-users-gear" style="color:var(--gold);margin-right:.5rem"></i>Manage Users</h1>
-          <p>Invite editors and manage admin access to the dashboard.</p>
-        </div>
-        <button class="btn btn-gold" onclick="openUserModal()"><i class="fa-solid fa-user-plus"></i> Invite User</button>
-      </div>
-      <div style="background:var(--dark2);border:1px solid var(--border);border-left:3px solid var(--gold);padding:1rem 1.2rem;font-size:.8rem;color:var(--cream2);margin-bottom:1.4rem;display:flex;gap:.8rem;align-items:flex-start;line-height:1.5">
-        <i class="fa-solid fa-circle-info" style="color:var(--gold);margin-top:2px;flex-shrink:0"></i>
-        <div><strong>How invitations work:</strong> Enter the user's email address. Supabase will send them a magic-link invitation email. Once they click it and set a password, their profile will appear here.</div>
-      </div>
-      <div class="card" style="padding:0">
-        <div class="tbl-wrap">
-          <table>
-            <thead><tr><th>User</th><th>Email</th><th>Role</th><th>Status</th><th>Joined</th><th>Actions</th></tr></thead>
-            <tbody id="usersTbody"><tr class="loading-row"><td colspan="6"><div class="spin"></div><br>Loading users…</td></tr></tbody>
-          </table>
-        </div>
-      </div>
-    </section>
+        <!-- ═══════════════════════════════════════
+         GALLERY MANAGER
+    ═══════════════════════════════════════ -->
+        <section class="page-section" id="sec-gallery">
+          <div class="page-hdr">
+            <div>
+              <h1>
+                <i
+                  class="fa-solid fa-images"
+                  style="color: var(--gold); margin-right: 0.5rem"
+                ></i
+                >Gallery Manager
+              </h1>
+              <p>
+                Upload and manage photos by category. Select a category, then
+                upload or paste image URLs.
+              </p>
+            </div>
+            <a
+              href="../pages/gallery.html"
+              target="_blank"
+              class="btn btn-outline"
+              ><i class="fa-solid fa-eye"></i> View Gallery</a
+            >
+          </div>
 
-  </main>
-</div>
+          <!-- CATEGORY SELECTOR -->
+          <div class="cat-grid" id="catGrid">
+            <div
+              class="cat-card active"
+              data-cat="all"
+              onclick="selectGalCat(this)"
+            >
+              <i class="fa-solid fa-grip"></i>
+              <span class="cat-name">All</span>
+              <span class="cat-count" id="cc-all">0 photos</span>
+              <span class="cat-active-dot"></span>
+            </div>
+            <div
+              class="cat-card"
+              data-cat="wildlife"
+              onclick="selectGalCat(this)"
+            >
+              <i class="fa-solid fa-paw"></i>
+              <span class="cat-name">Wildlife</span>
+              <span class="cat-count" id="cc-wildlife">0 photos</span>
+              <span class="cat-active-dot"></span>
+            </div>
+            <div
+              class="cat-card"
+              data-cat="serengeti"
+              onclick="selectGalCat(this)"
+            >
+              <i class="fa-solid fa-sun"></i>
+              <span class="cat-name">Serengeti</span>
+              <span class="cat-count" id="cc-serengeti">0 photos</span>
+              <span class="cat-active-dot"></span>
+            </div>
+            <div
+              class="cat-card"
+              data-cat="kilimanjaro"
+              onclick="selectGalCat(this)"
+            >
+              <i class="fa-solid fa-mountain"></i>
+              <span class="cat-name">Kilimanjaro</span>
+              <span class="cat-count" id="cc-kilimanjaro">0 photos</span>
+              <span class="cat-active-dot"></span>
+            </div>
+            <div
+              class="cat-card"
+              data-cat="zanzibar"
+              onclick="selectGalCat(this)"
+            >
+              <i class="fa-solid fa-umbrella-beach"></i>
+              <span class="cat-name">Zanzibar</span>
+              <span class="cat-count" id="cc-zanzibar">0 photos</span>
+              <span class="cat-active-dot"></span>
+            </div>
+            <div
+              class="cat-card"
+              data-cat="culture"
+              onclick="selectGalCat(this)"
+            >
+              <i class="fa-solid fa-people-group"></i>
+              <span class="cat-name">Culture</span>
+              <span class="cat-count" id="cc-culture">0 photos</span>
+              <span class="cat-active-dot"></span>
+            </div>
+          </div>
 
-<!-- PACKAGE MODAL (simplified — same structure as original) -->
-<div class="modal-overlay" id="pkgModal">
-  <div class="modal">
-    <div class="modal-hdr">
-      <h2><i class="fa-solid fa-suitcase"></i> <span id="modalTitle">New Package</span></h2>
-      <button class="modal-close" onclick="closeModal('pkgModal')">&times;</button>
+          <!-- UPLOAD AREA (hidden when "all" is selected) -->
+          <div id="galUploadArea">
+            <div class="cat-banner" id="galCatBanner">
+              <i class="fa-solid fa-paw" id="galCatBannerIcon"></i>
+              <h3 id="galCatBannerTitle">Select a category above to upload</h3>
+              <span class="cat-pill" id="galCatBannerPill">—</span>
+            </div>
+
+            <!-- Drop zone -->
+            <div
+              class="gal-drop-zone"
+              id="galDropZone"
+              ondragover="galDragOver(event)"
+              ondragleave="galDragLeave(event)"
+              ondrop="galDrop(event)"
+            >
+              <input
+                type="file"
+                id="galFileInput"
+                accept="image/*"
+                multiple
+                onchange="galHandleFiles(event)"
+              />
+              <i class="fa-solid fa-cloud-arrow-up"></i>
+              <h3>Drop images here or tap to browse</h3>
+              <p>
+                JPG · PNG · WEBP · max 10 MB each · multiple files supported
+              </p>
+              <span class="drop-chip"
+                ><i class="fa-solid fa-mobile-screen"></i> Choose Photos</span
+              >
+            </div>
+
+            <!-- OR paste URL -->
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 0.6rem;
+                margin-bottom: 1rem;
+                font-size: 0.72rem;
+                color: var(--text);
+              "
+            >
+              <span
+                style="flex: 1; height: 1px; background: var(--border)"
+              ></span>
+              <span>or paste image URL</span>
+              <span
+                style="flex: 1; height: 1px; background: var(--border)"
+              ></span>
+            </div>
+            <div class="gal-url-row">
+              <input
+                class="f-input"
+                type="url"
+                id="galPasteUrl"
+                placeholder="https://images.unsplash.com/…"
+              />
+              <input
+                class="f-input"
+                type="text"
+                id="galPasteLabel"
+                placeholder="Label (optional)"
+                style="max-width: 200px"
+              />
+              <button class="btn btn-outline" onclick="galAddUrl()">
+                <i class="fa-solid fa-plus"></i> Add URL
+              </button>
+            </div>
+
+            <!-- Upload queue -->
+            <div id="galQueueWrap" style="display: none">
+              <div class="queue-actions">
+                <div class="qa-count">
+                  <span id="queueCountText">0</span> image(s) ready ·
+                  <span id="queueDoneText">0</span> uploaded
+                </div>
+                <button class="btn btn-danger btn-sm" onclick="clearQueue()">
+                  <i class="fa-solid fa-trash"></i> Clear All
+                </button>
+                <button
+                  class="btn btn-gold"
+                  id="uploadAllBtn"
+                  onclick="uploadAllQueue()"
+                >
+                  <i class="fa-solid fa-cloud-arrow-up"></i> Upload All to
+                  Gallery
+                </button>
+              </div>
+              <div class="upload-queue" id="uploadQueue"></div>
+            </div>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- EXISTING IMAGES -->
+          <div class="card-hdr" style="margin-bottom: 1rem">
+            <div class="card-title">
+              <i class="fa-solid fa-photo-film"></i>
+              <span id="galExistingTitle">All Gallery Images</span>
+            </div>
+            <div
+              style="
+                display: flex;
+                gap: 0.6rem;
+                align-items: center;
+                flex-wrap: wrap;
+              "
+            >
+              <div class="gal-stats">
+                <div class="gal-stat">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <strong id="galActiveCount">0</strong> active
+                </div>
+                <div class="gal-stat">
+                  <i class="fa-solid fa-circle-xmark"></i>
+                  <strong id="galHiddenCount">0</strong> hidden
+                </div>
+              </div>
+              <button
+                class="btn btn-outline btn-sm"
+                onclick="loadGalleryImages()"
+              >
+                <i class="fa-solid fa-rotate"></i> Refresh
+              </button>
+            </div>
+          </div>
+
+          <div id="galGridWrap">
+            <div class="empty-state">
+              <i class="fa-solid fa-images"></i>
+              <h3>No images yet</h3>
+              <p>Select a category above and upload your first photo.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- USERS -->
+        <section class="page-section" id="sec-users">
+          <div class="page-hdr">
+            <div>
+              <h1>
+                <i
+                  class="fa-solid fa-users-gear"
+                  style="color: var(--gold); margin-right: 0.5rem"
+                ></i
+                >Manage Users
+              </h1>
+              <p>Invite editors and manage admin access to the dashboard.</p>
+            </div>
+            <button class="btn btn-gold" onclick="openUserModal()">
+              <i class="fa-solid fa-user-plus"></i> Invite User
+            </button>
+          </div>
+          <div
+            style="
+              background: var(--dark2);
+              border: 1px solid var(--border);
+              border-left: 3px solid var(--gold);
+              padding: 1rem 1.2rem;
+              font-size: 0.8rem;
+              color: var(--cream2);
+              margin-bottom: 1.4rem;
+              display: flex;
+              gap: 0.8rem;
+              align-items: flex-start;
+              line-height: 1.5;
+            "
+          >
+            <i
+              class="fa-solid fa-circle-info"
+              style="color: var(--gold); margin-top: 2px; flex-shrink: 0"
+            ></i>
+            <div>
+              <strong>How invitations work:</strong> Enter the user's email
+              address. Supabase will send them a magic-link invitation email.
+              Once they click it and set a password, their profile will appear
+              here.
+            </div>
+          </div>
+          <div class="card" style="padding: 0">
+            <div class="tbl-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>User</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Joined</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="usersTbody">
+                  <tr class="loading-row">
+                    <td colspan="6">
+                      <div class="spin"></div>
+                      <br />Loading users…
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
-    <div class="modal-body">
-      <div class="field"><label>Package Title <span style="color:var(--gold)">*</span></label><input class="f-input" type="text" id="f_title" placeholder="e.g. Tanzania Classic Safari"/></div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
-        <div class="field"><label>URL Slug</label><input class="f-input" type="text" id="f_slug"/></div>
-        <div class="field"><label>Base Price (USD)</label><input class="f-input" type="number" id="f_base_price" placeholder="1899"/></div>
-        <div class="field"><label>Duration Label</label><input class="f-input" type="text" id="f_duration_label" placeholder="6 Days / 5 Nights"/></div>
-        <div class="field"><label>Price Display</label><input class="f-input" type="text" id="f_price_display" placeholder="From $1,899"/></div>
-        <div class="field"><label>Hero Image URL</label><input class="f-input" type="url" id="f_hero_image" placeholder="https://…"/></div>
-        <div class="field"><label>Detail Page URL</label><input class="f-input" type="text" id="f_detail_url" placeholder="tour-packages/tour-detail.html?slug=…"/></div>
-      </div>
-      <div class="field"><label>Short Description</label><textarea class="f-textarea" id="f_short_desc" rows="3"></textarea></div>
-      <div style="display:flex;align-items:center;gap:1.5rem;padding-top:.5rem">
-        <label style="margin:0;display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:var(--cream2)">
-          <label class="toggle"><input type="checkbox" id="f_is_active" checked/><span class="toggle-slider"></span></label> Active
-        </label>
-        <label style="margin:0;display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:var(--cream2)">
-          <label class="toggle"><input type="checkbox" id="f_is_featured"/><span class="toggle-slider"></span></label> Featured
-        </label>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-outline" onclick="closeModal('pkgModal')">Cancel</button>
-      <button class="btn btn-gold" onclick="savePackage()" id="saveBtn">
-        <i class="fa-solid fa-floppy-disk"></i> <span id="saveBtnText">Save Package</span>
-      </button>
-    </div>
-  </div>
-</div>
 
-<!-- GALLERY IMAGE EDIT MODAL -->
-<div class="modal-overlay" id="galEditModal">
-  <div class="modal" style="max-width:600px">
-    <div class="modal-hdr">
-      <h2><i class="fa-solid fa-pen-to-square"></i> Edit Gallery Image</h2>
-      <button class="modal-close" onclick="closeModal('galEditModal')">&times;</button>
-    </div>
-    <div class="modal-body">
-      <div class="img-edit-grid">
-        <img id="gePreviewImg" src="" alt="" style="width:100%;height:130px;object-fit:cover;border:1px solid var(--border)"/>
-        <div>
-          <div class="field"><label>Label / Caption</label><input class="f-input" type="text" id="ge_label" placeholder="e.g. Serengeti Sunrise"/></div>
-          <div class="field"><label>Alt Text (SEO)</label><input class="f-input" type="text" id="ge_alt" placeholder="e.g. Lion resting in Serengeti savannah"/></div>
+    <!-- PACKAGE MODAL (simplified — same structure as original) -->
+    <div class="modal-overlay" id="pkgModal">
+      <div class="modal">
+        <div class="modal-hdr">
+          <h2>
+            <i class="fa-solid fa-suitcase"></i>
+            <span id="modalTitle">New Package</span>
+          </h2>
+          <button class="modal-close" onclick="closeModal('pkgModal')">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
           <div class="field">
-            <label>Sort Order</label>
-            <input class="order-input" type="number" id="ge_sort" min="0" value="0"/>
-            <div class="field-hint">Lower = appears first in gallery</div>
+            <label
+              >Package Title <span style="color: var(--gold)">*</span></label
+            ><input
+              class="f-input"
+              type="text"
+              id="f_title"
+              placeholder="e.g. Tanzania Classic Safari"
+            />
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem">
+            <div class="field">
+              <label>URL Slug</label
+              ><input class="f-input" type="text" id="f_slug" />
+            </div>
+            <div class="field">
+              <label>Base Price (USD)</label
+              ><input
+                class="f-input"
+                type="number"
+                id="f_base_price"
+                placeholder="1899"
+              />
+            </div>
+            <div class="field">
+              <label>Duration Label</label
+              ><input
+                class="f-input"
+                type="text"
+                id="f_duration_label"
+                placeholder="6 Days / 5 Nights"
+              />
+            </div>
+            <div class="field">
+              <label>Price Display</label
+              ><input
+                class="f-input"
+                type="text"
+                id="f_price_display"
+                placeholder="From $1,899"
+              />
+            </div>
+            <div class="field">
+              <label>Hero Image URL</label
+              ><input
+                class="f-input"
+                type="url"
+                id="f_hero_image"
+                placeholder="https://…"
+              />
+            </div>
+            <div class="field">
+              <label>Detail Page URL</label
+              ><input
+                class="f-input"
+                type="text"
+                id="f_detail_url"
+                placeholder="tour-packages/tour-detail.html?slug=…"
+              />
+            </div>
+          </div>
+          <div class="field">
+            <label>Short Description</label
+            ><textarea class="f-textarea" id="f_short_desc" rows="3"></textarea>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 1.5rem;
+              padding-top: 0.5rem;
+            "
+          >
+            <label
+              style="
+                margin: 0;
+                display: flex;
+                align-items: center;
+                gap: 0.7rem;
+                font-size: 0.82rem;
+                color: var(--cream2);
+              "
+            >
+              <label class="toggle"
+                ><input type="checkbox" id="f_is_active" checked /><span
+                  class="toggle-slider"
+                ></span
+              ></label>
+              Active
+            </label>
+            <label
+              style="
+                margin: 0;
+                display: flex;
+                align-items: center;
+                gap: 0.7rem;
+                font-size: 0.82rem;
+                color: var(--cream2);
+              "
+            >
+              <label class="toggle"
+                ><input type="checkbox" id="f_is_featured" /><span
+                  class="toggle-slider"
+                ></span
+              ></label>
+              Featured
+            </label>
           </div>
         </div>
-      </div>
-      <div class="field" style="margin-top:.8rem">
-        <label>Categories — select all that apply</label>
-        <div class="cat-checks" id="geCatChecks">
-          <label class="cat-check-label" data-cat="wildlife" onclick="toggleGeCat(this)"><input type="checkbox" value="wildlife"/> Wildlife</label>
-          <label class="cat-check-label" data-cat="serengeti" onclick="toggleGeCat(this)"><input type="checkbox" value="serengeti"/> Serengeti</label>
-          <label class="cat-check-label" data-cat="kilimanjaro" onclick="toggleGeCat(this)"><input type="checkbox" value="kilimanjaro"/> Kilimanjaro</label>
-          <label class="cat-check-label" data-cat="zanzibar" onclick="toggleGeCat(this)"><input type="checkbox" value="zanzibar"/> Zanzibar</label>
-          <label class="cat-check-label" data-cat="culture" onclick="toggleGeCat(this)"><input type="checkbox" value="culture"/> Culture</label>
+        <div class="modal-footer">
+          <button class="btn btn-outline" onclick="closeModal('pkgModal')">
+            Cancel
+          </button>
+          <button class="btn btn-gold" onclick="savePackage()" id="saveBtn">
+            <i class="fa-solid fa-floppy-disk"></i>
+            <span id="saveBtnText">Save Package</span>
+          </button>
         </div>
-        <div class="field-hint">Images can belong to multiple categories.</div>
-      </div>
-      <div class="field">
-        <label style="display:flex;align-items:center;gap:.7rem">
-          <label class="toggle"><input type="checkbox" id="ge_active" checked/><span class="toggle-slider"></span></label>
-          Active (shown on gallery page)
-        </label>
       </div>
     </div>
-    <div class="modal-footer">
-      <button class="btn btn-outline" onclick="closeModal('galEditModal')">Cancel</button>
-      <button class="btn btn-gold" onclick="saveGalEdit()" id="geSaveBtn">
-        <i class="fa-solid fa-floppy-disk"></i> Save Changes
-      </button>
-    </div>
-  </div>
-</div>
 
-<!-- USER MODAL -->
-<div class="modal-overlay" id="userModal">
-  <div class="modal" style="max-width:500px">
-    <div class="modal-hdr">
-      <h2><i class="fa-solid fa-user-plus"></i> <span id="userModalTitle">Invite User</span></h2>
-      <button class="modal-close" onclick="closeModal('userModal')">&times;</button>
-    </div>
-    <div class="modal-body">
-      <div class="field"><label>Full Name</label><input class="f-input" type="text" id="u_name" placeholder="e.g. Jane Doe"/></div>
-      <div class="field"><label>Email Address <span style="color:var(--gold)">*</span></label><input class="f-input" type="email" id="u_email" placeholder="jane@seresafariafrica.com"/></div>
-      <div class="field">
-        <label>Role</label>
-        <select class="f-select" id="u_role">
-          <option value="editor">Editor — can add/edit/delete packages</option>
-          <option value="super_admin">Super Admin — full access</option>
-        </select>
+    <!-- GALLERY IMAGE EDIT MODAL -->
+    <div class="modal-overlay" id="galEditModal">
+      <div class="modal" style="max-width: 600px">
+        <div class="modal-hdr">
+          <h2><i class="fa-solid fa-pen-to-square"></i> Edit Gallery Image</h2>
+          <button class="modal-close" onclick="closeModal('galEditModal')">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="img-edit-grid">
+            <img
+              id="gePreviewImg"
+              src=""
+              alt=""
+              style="
+                width: 100%;
+                height: 130px;
+                object-fit: cover;
+                border: 1px solid var(--border);
+              "
+            />
+            <div>
+              <div class="field">
+                <label>Label / Caption</label
+                ><input
+                  class="f-input"
+                  type="text"
+                  id="ge_label"
+                  placeholder="e.g. Serengeti Sunrise"
+                />
+              </div>
+              <div class="field">
+                <label>Alt Text (SEO)</label
+                ><input
+                  class="f-input"
+                  type="text"
+                  id="ge_alt"
+                  placeholder="e.g. Lion resting in Serengeti savannah"
+                />
+              </div>
+              <div class="field">
+                <label>Sort Order</label>
+                <input
+                  class="order-input"
+                  type="number"
+                  id="ge_sort"
+                  min="0"
+                  value="0"
+                />
+                <div class="field-hint">Lower = appears first in gallery</div>
+              </div>
+            </div>
+          </div>
+          <div class="field" style="margin-top: 0.8rem">
+            <label>Categories — select all that apply</label>
+            <div class="cat-checks" id="geCatChecks">
+              <label
+                class="cat-check-label"
+                data-cat="wildlife"
+                onclick="toggleGeCat(this)"
+                ><input type="checkbox" value="wildlife" /> Wildlife</label
+              >
+              <label
+                class="cat-check-label"
+                data-cat="serengeti"
+                onclick="toggleGeCat(this)"
+                ><input type="checkbox" value="serengeti" /> Serengeti</label
+              >
+              <label
+                class="cat-check-label"
+                data-cat="kilimanjaro"
+                onclick="toggleGeCat(this)"
+                ><input type="checkbox" value="kilimanjaro" />
+                Kilimanjaro</label
+              >
+              <label
+                class="cat-check-label"
+                data-cat="zanzibar"
+                onclick="toggleGeCat(this)"
+                ><input type="checkbox" value="zanzibar" /> Zanzibar</label
+              >
+              <label
+                class="cat-check-label"
+                data-cat="culture"
+                onclick="toggleGeCat(this)"
+                ><input type="checkbox" value="culture" /> Culture</label
+              >
+            </div>
+            <div class="field-hint">
+              Images can belong to multiple categories.
+            </div>
+          </div>
+          <div class="field">
+            <label style="display: flex; align-items: center; gap: 0.7rem">
+              <label class="toggle"
+                ><input type="checkbox" id="ge_active" checked /><span
+                  class="toggle-slider"
+                ></span
+              ></label>
+              Active (shown on gallery page)
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline" onclick="closeModal('galEditModal')">
+            Cancel
+          </button>
+          <button class="btn btn-gold" onclick="saveGalEdit()" id="geSaveBtn">
+            <i class="fa-solid fa-floppy-disk"></i> Save Changes
+          </button>
+        </div>
       </div>
     </div>
-    <div class="modal-footer">
-      <button class="btn btn-outline" onclick="closeModal('userModal')">Cancel</button>
-      <button class="btn btn-gold" onclick="saveUser()"><i class="fa-solid fa-paper-plane"></i> Send Invite</button>
+
+    <!-- USER MODAL -->
+    <div class="modal-overlay" id="userModal">
+      <div class="modal" style="max-width: 500px">
+        <div class="modal-hdr">
+          <h2>
+            <i class="fa-solid fa-user-plus"></i>
+            <span id="userModalTitle">Invite User</span>
+          </h2>
+          <button class="modal-close" onclick="closeModal('userModal')">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="field">
+            <label>Full Name</label
+            ><input
+              class="f-input"
+              type="text"
+              id="u_name"
+              placeholder="e.g. Jane Doe"
+            />
+          </div>
+          <div class="field">
+            <label
+              >Email Address <span style="color: var(--gold)">*</span></label
+            ><input
+              class="f-input"
+              type="email"
+              id="u_email"
+              placeholder="jane@seresafariafrica.com"
+            />
+          </div>
+          <div class="field">
+            <label>Role</label>
+            <select class="f-select" id="u_role">
+              <option value="editor">
+                Editor — can add/edit/delete packages
+              </option>
+              <option value="super_admin">Super Admin — full access</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline" onclick="closeModal('userModal')">
+            Cancel
+          </button>
+          <button class="btn btn-gold" onclick="saveUser()">
+            <i class="fa-solid fa-paper-plane"></i> Send Invite
+          </button>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<!-- CONFIRM -->
-<div class="confirm-overlay" id="confirmOverlay">
-  <div class="confirm-box">
-    <h3 id="confirmTitle">Are you sure?</h3>
-    <p id="confirmMsg">This cannot be undone.</p>
-    <div class="confirm-btns">
-      <button class="btn btn-outline" onclick="closeConfirm()">Cancel</button>
-      <button class="btn btn-danger" id="confirmOkBtn">Confirm</button>
+    <!-- CONFIRM -->
+    <div class="confirm-overlay" id="confirmOverlay">
+      <div class="confirm-box">
+        <h3 id="confirmTitle">Are you sure?</h3>
+        <p id="confirmMsg">This cannot be undone.</p>
+        <div class="confirm-btns">
+          <button class="btn btn-outline" onclick="closeConfirm()">
+            Cancel
+          </button>
+          <button class="btn btn-danger" id="confirmOkBtn">Confirm</button>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<div class="toast-stack" id="toastStack"></div>
+    <div class="toast-stack" id="toastStack"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="../js/supabase-config.js"></script>
-<script>
-/* ════════════════════════════════════════
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/supabase-config.js"></script>
+    <script>
+      /* ════════════════════════════════════════
    GLOBALS
 ════════════════════════════════════════ */
-const STORAGE_BUCKET   = 'package-images';
-const GAL_BUCKET       = 'gallery-images';
-const GAL_TABLE        = 'gallery_images';
+      const STORAGE_BUCKET = "package-images";
+      const GAL_BUCKET = "gallery-images";
+      const GAL_TABLE = "gallery_images";
 
-const CAT_META = {
-  all:         { icon: 'fa-grip',          label: 'All Photos' },
-  wildlife:    { icon: 'fa-paw',           label: 'Wildlife' },
-  serengeti:   { icon: 'fa-sun',           label: 'Serengeti' },
-  kilimanjaro: { icon: 'fa-mountain',      label: 'Kilimanjaro' },
-  zanzibar:    { icon: 'fa-umbrella-beach',label: 'Zanzibar' },
-  culture:     { icon: 'fa-people-group',  label: 'Culture' },
-};
+      const CAT_META = {
+        all: { icon: "fa-grip", label: "All Photos" },
+        wildlife: { icon: "fa-paw", label: "Wildlife" },
+        serengeti: { icon: "fa-sun", label: "Serengeti" },
+        kilimanjaro: { icon: "fa-mountain", label: "Kilimanjaro" },
+        zanzibar: { icon: "fa-umbrella-beach", label: "Zanzibar" },
+        culture: { icon: "fa-people-group", label: "Culture" },
+      };
 
-let allPackages    = [];
-let allGalImages   = [];   // full gallery from DB
-let galQueue       = [];   // [{id, file, url, name, label, status}]
-let activeGalCat   = 'all';
-let editingPkgId   = null;
-let editingGalId   = null;
-let currentRole    = 'editor';
-let pendingDeleteId = null;
-let pendingDeleteType = null; // 'pkg' | 'gal'
+      let allPackages = [];
+      let allGalImages = []; // full gallery from DB
+      let galQueue = []; // [{id, file, url, name, label, status}]
+      let activeGalCat = "all";
+      let editingPkgId = null;
+      let editingGalId = null;
+      let currentRole = "editor";
+      let pendingDeleteId = null;
+      let pendingDeleteType = null; // 'pkg' | 'gal'
 
-/* ── AUTH ── */
-(async () => {
-  const { data } = await window._sb.auth.getSession();
-  if (!data.session) { window.location.href = 'admin-login.html'; return; }
-  document.getElementById('adminEmail').textContent = data.session.user.email;
-  try {
-    const { data: prof } = await window._sb.from('admin_profiles').select('role').eq('id', data.session.user.id).single();
-    currentRole = prof?.role || 'editor';
-    if (currentRole === 'super_admin') {
-      document.getElementById('usersNavSection').style.display = '';
-      document.getElementById('usersNavItem').style.display = '';
-    }
-  } catch(e){}
-  loadAll();
-  loadGalleryImages();
-})();
+      /* ── AUTH ── */
+      (async () => {
+        const { data } = await window._sb.auth.getSession();
+        if (!data.session) {
+          window.location.href = "admin-login.html";
+          return;
+        }
+        document.getElementById("adminEmail").textContent =
+          data.session.user.email;
+        try {
+          const { data: prof } = await window._sb
+            .from("admin_profiles")
+            .select("role")
+            .eq("id", data.session.user.id)
+            .single();
+          currentRole = prof?.role || "editor";
+          if (currentRole === "super_admin") {
+            document.getElementById("usersNavSection").style.display = "";
+            document.getElementById("usersNavItem").style.display = "";
+          }
+        } catch (e) {}
+        loadAll();
+        loadGalleryImages();
+      })();
 
-/* ── NAVIGATION ── */
-function showSection(name) {
-  document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-  document.getElementById('sec-' + name)?.classList.add('active');
-  document.querySelectorAll('.nav-item').forEach(n => {
-    if (n.getAttribute('onclick')?.includes("'" + name + "'")) n.classList.add('active');
-  });
-  if (name === 'packages') renderPackageTable(allPackages);
-  if (name === 'gallery')  renderGalGrid();
-  if (name === 'users')    loadUsers();
-}
-async function signOut() { await window._sb.auth.signOut(); window.location.href = 'admin-login.html'; }
+      /* ── NAVIGATION ── */
+      function showSection(name) {
+        document
+          .querySelectorAll(".page-section")
+          .forEach((s) => s.classList.remove("active"));
+        document
+          .querySelectorAll(".nav-item")
+          .forEach((n) => n.classList.remove("active"));
+        document.getElementById("sec-" + name)?.classList.add("active");
+        document.querySelectorAll(".nav-item").forEach((n) => {
+          if (n.getAttribute("onclick")?.includes("'" + name + "'"))
+            n.classList.add("active");
+        });
+        if (name === "packages") renderPackageTable(allPackages);
+        if (name === "gallery") renderGalGrid();
+        if (name === "users") loadUsers();
+      }
+      async function signOut() {
+        await window._sb.auth.signOut();
+        window.location.href = "admin-login.html";
+      }
 
-/* ════════════════════════════════════════
+      /* ════════════════════════════════════════
    PACKAGES — minimal CRUD
 ════════════════════════════════════════ */
-async function loadAll() {
-  try {
-    const { data, error } = await window._sb.from('packages').select('*').order('sort_order');
-    if (error) throw error;
-    allPackages = data || [];
-    updateDashStats();
-    renderDashRecent();
-    renderPackageTable(allPackages);
-    document.getElementById('pkgCount').textContent = allPackages.length;
-  } catch(e) { toast('Failed to load packages: ' + e.message, 'error'); }
-}
+      async function loadAll() {
+        try {
+          const { data, error } = await window._sb
+            .from("packages")
+            .select("*")
+            .order("sort_order");
+          if (error) throw error;
+          allPackages = data || [];
+          updateDashStats();
+          renderDashRecent();
+          renderPackageTable(allPackages);
+          document.getElementById("pkgCount").textContent = allPackages.length;
+        } catch (e) {
+          toast("Failed to load packages: " + e.message, "error");
+        }
+      }
 
-function updateDashStats() {
-  const act  = allPackages.filter(p => p.is_active).length;
-  const prc  = allPackages.map(p => p.base_price).filter(Boolean);
-  document.getElementById('dashTotal').textContent  = allPackages.length;
-  document.getElementById('dashActive').textContent = act;
-  document.getElementById('dashLowest').textContent = prc.length ? '$' + Math.min(...prc).toLocaleString() : '—';
-  document.getElementById('dashGallery').textContent = allGalImages.filter(g => g.is_active).length;
-}
+      function updateDashStats() {
+        const act = allPackages.filter((p) => p.is_active).length;
+        const prc = allPackages.map((p) => p.base_price).filter(Boolean);
+        document.getElementById("dashTotal").textContent = allPackages.length;
+        document.getElementById("dashActive").textContent = act;
+        document.getElementById("dashLowest").textContent = prc.length
+          ? "$" + Math.min(...prc).toLocaleString()
+          : "—";
+        document.getElementById("dashGallery").textContent =
+          allGalImages.filter((g) => g.is_active).length;
+      }
 
-function renderDashRecent() {
-  const tbody = document.getElementById('dashRecentTbody');
-  const rows  = allPackages.slice(0, 5);
-  if (!rows.length) {
-    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:2rem;color:var(--text)">No packages yet.</td></tr>';
-    return;
-  }
-  tbody.innerHTML = rows.map(p =>
-    '<tr><td><div class="tbl-title">' + esc(p.title) + '</div></td>' +
-    '<td>' + esc(p.duration_label) + '</td>' +
-    '<td style="color:var(--gold);font-weight:600">' + esc(p.price_display) + '</td>' +
-    '<td>' + (p.is_active ? '<span class="badge badge-green">Active</span>' : '<span class="badge badge-red">Inactive</span>') + '</td>' +
-    '<td><button class="btn-icon edit" onclick="openPackageModal(\'' + p.id + '\')"><i class="fa-solid fa-pen"></i></button></td></tr>'
-  ).join('');
-}
+      function renderDashRecent() {
+        const tbody = document.getElementById("dashRecentTbody");
+        const rows = allPackages.slice(0, 5);
+        if (!rows.length) {
+          tbody.innerHTML =
+            '<tr><td colspan="5" style="text-align:center;padding:2rem;color:var(--text)">No packages yet.</td></tr>';
+          return;
+        }
+        tbody.innerHTML = rows
+          .map(
+            (p) =>
+              '<tr><td><div class="tbl-title">' +
+              esc(p.title) +
+              "</div></td>" +
+              "<td>" +
+              esc(p.duration_label) +
+              "</td>" +
+              '<td style="color:var(--gold);font-weight:600">' +
+              esc(p.price_display) +
+              "</td>" +
+              "<td>" +
+              (p.is_active
+                ? '<span class="badge badge-green">Active</span>'
+                : '<span class="badge badge-red">Inactive</span>') +
+              "</td>" +
+              '<td><button class="btn-icon edit" onclick="openPackageModal(\'' +
+              p.id +
+              '\')"><i class="fa-solid fa-pen"></i></button></td></tr>',
+          )
+          .join("");
+      }
 
-function renderPackageTable(pkgs) {
-  const tbody = document.getElementById('pkgTbody');
-  if (!pkgs.length) {
-    tbody.innerHTML = '<tr><td colspan="7"><div class="empty-state"><i class="fa-solid fa-suitcase"></i><h3>No packages found</h3></div></td></tr>';
-    return;
-  }
-  tbody.innerHTML = pkgs.map(p =>
-    '<tr>' +
-    '<td><img class="tbl-img" src="' + esc(p.hero_image) + '" alt="" onerror="this.src=\'https://placehold.co/54x40/574535/F5EDD0?text=IMG\'"/></td>' +
-    '<td><div class="tbl-title">' + esc(p.title) + '</div><div class="tbl-sub">' + esc(p.slug) + '</div></td>' +
-    '<td>' + esc(p.duration_label) + '</td>' +
-    '<td style="color:var(--gold);font-weight:600">' + esc(p.price_display) + '</td>' +
-    '<td><label class="toggle"><input type="checkbox" ' + (p.is_active ? 'checked' : '') + ' onchange="togglePkgField(\'' + p.id + '\',\'is_active\',this.checked)"/><span class="toggle-slider"></span></label></td>' +
-    '<td><label class="toggle"><input type="checkbox" ' + (p.is_featured ? 'checked' : '') + ' onchange="togglePkgField(\'' + p.id + '\',\'is_featured\',this.checked)"/><span class="toggle-slider"></span></label></td>' +
-    '<td><div style="display:flex;gap:.4rem">' +
-    '<button class="btn-icon edit" onclick="openPackageModal(\'' + p.id + '\')"><i class="fa-solid fa-pen"></i></button>' +
-    '<button class="btn-icon del" onclick="confirmDeletePkg(\'' + p.id + '\',\'' + esc(p.title).replace(/'/g, "\\'") + '\')"><i class="fa-solid fa-trash"></i></button>' +
-    '</div></td></tr>'
-  ).join('');
-}
+      function renderPackageTable(pkgs) {
+        const tbody = document.getElementById("pkgTbody");
+        if (!pkgs.length) {
+          tbody.innerHTML =
+            '<tr><td colspan="7"><div class="empty-state"><i class="fa-solid fa-suitcase"></i><h3>No packages found</h3></div></td></tr>';
+          return;
+        }
+        tbody.innerHTML = pkgs
+          .map(
+            (p) =>
+              "<tr>" +
+              '<td><img class="tbl-img" src="' +
+              esc(p.hero_image) +
+              '" alt="" onerror="this.src=\'https://placehold.co/54x40/574535/F5EDD0?text=IMG\'"/></td>' +
+              '<td><div class="tbl-title">' +
+              esc(p.title) +
+              '</div><div class="tbl-sub">' +
+              esc(p.slug) +
+              "</div></td>" +
+              "<td>" +
+              esc(p.duration_label) +
+              "</td>" +
+              '<td style="color:var(--gold);font-weight:600">' +
+              esc(p.price_display) +
+              "</td>" +
+              '<td><label class="toggle"><input type="checkbox" ' +
+              (p.is_active ? "checked" : "") +
+              " onchange=\"togglePkgField('" +
+              p.id +
+              "','is_active',this.checked)\"/><span class=\"toggle-slider\"></span></label></td>" +
+              '<td><label class="toggle"><input type="checkbox" ' +
+              (p.is_featured ? "checked" : "") +
+              " onchange=\"togglePkgField('" +
+              p.id +
+              "','is_featured',this.checked)\"/><span class=\"toggle-slider\"></span></label></td>" +
+              '<td><div style="display:flex;gap:.4rem">' +
+              '<button class="btn-icon edit" onclick="openPackageModal(\'' +
+              p.id +
+              '\')"><i class="fa-solid fa-pen"></i></button>' +
+              '<button class="btn-icon del" onclick="confirmDeletePkg(\'' +
+              p.id +
+              "','" +
+              esc(p.title).replace(/'/g, "\\'") +
+              '\')"><i class="fa-solid fa-trash"></i></button>' +
+              "</div></td></tr>",
+          )
+          .join("");
+      }
 
-function filterPackages() {
-  const q  = document.getElementById('pkgSearch').value.toLowerCase();
-  const st = document.getElementById('pkgStatusFilter').value;
-  renderPackageTable(allPackages.filter(p =>
-    (!q || p.title.toLowerCase().includes(q) || (p.slug || '').includes(q)) &&
-    (!st || String(p.is_active) === st)
-  ));
-}
+      function filterPackages() {
+        const q = document.getElementById("pkgSearch").value.toLowerCase();
+        const st = document.getElementById("pkgStatusFilter").value;
+        renderPackageTable(
+          allPackages.filter(
+            (p) =>
+              (!q ||
+                p.title.toLowerCase().includes(q) ||
+                (p.slug || "").includes(q)) &&
+              (!st || String(p.is_active) === st),
+          ),
+        );
+      }
 
-async function togglePkgField(id, field, value) {
-  const { error } = await window._sb.from('packages').update({ [field]: value }).eq('id', id);
-  if (error) { toast('Update failed: ' + error.message, 'error'); return; }
-  const pkg = allPackages.find(p => p.id === id);
-  if (pkg) pkg[field] = value;
-  updateDashStats();
-}
+      async function togglePkgField(id, field, value) {
+        const { error } = await window._sb
+          .from("packages")
+          .update({ [field]: value })
+          .eq("id", id);
+        if (error) {
+          toast("Update failed: " + error.message, "error");
+          return;
+        }
+        const pkg = allPackages.find((p) => p.id === id);
+        if (pkg) pkg[field] = value;
+        updateDashStats();
+      }
 
-function openPackageModal(id) {
-  editingPkgId = id || null;
-  document.getElementById('modalTitle').textContent  = id ? 'Edit Package' : 'New Package';
-  document.getElementById('saveBtnText').textContent = id ? 'Update Package' : 'Save Package';
-  ['f_title','f_slug','f_base_price','f_duration_label','f_price_display',
-   'f_hero_image','f_detail_url','f_short_desc'].forEach(fid => {
-    const el = document.getElementById(fid); if (el) el.value = '';
-  });
-  document.getElementById('f_is_active').checked   = true;
-  document.getElementById('f_is_featured').checked = false;
-  if (id) {
-    const p = allPackages.find(x => x.id === id);
-    if (p) {
-      document.getElementById('f_title').value         = p.title || '';
-      document.getElementById('f_slug').value          = p.slug || '';
-      document.getElementById('f_base_price').value    = p.base_price || '';
-      document.getElementById('f_duration_label').value= p.duration_label || '';
-      document.getElementById('f_price_display').value = p.price_display || '';
-      document.getElementById('f_hero_image').value    = p.hero_image || '';
-      document.getElementById('f_detail_url').value    = p.detail_url || '';
-      document.getElementById('f_short_desc').value    = p.short_desc || '';
-      document.getElementById('f_is_active').checked   = !!p.is_active;
-      document.getElementById('f_is_featured').checked = !!p.is_featured;
-    }
-  }
-  document.getElementById('pkgModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
+      function openPackageModal(id) {
+        editingPkgId = id || null;
+        document.getElementById("modalTitle").textContent = id
+          ? "Edit Package"
+          : "New Package";
+        document.getElementById("saveBtnText").textContent = id
+          ? "Update Package"
+          : "Save Package";
+        [
+          "f_title",
+          "f_slug",
+          "f_base_price",
+          "f_duration_label",
+          "f_price_display",
+          "f_hero_image",
+          "f_detail_url",
+          "f_short_desc",
+        ].forEach((fid) => {
+          const el = document.getElementById(fid);
+          if (el) el.value = "";
+        });
+        document.getElementById("f_is_active").checked = true;
+        document.getElementById("f_is_featured").checked = false;
+        if (id) {
+          const p = allPackages.find((x) => x.id === id);
+          if (p) {
+            document.getElementById("f_title").value = p.title || "";
+            document.getElementById("f_slug").value = p.slug || "";
+            document.getElementById("f_base_price").value = p.base_price || "";
+            document.getElementById("f_duration_label").value =
+              p.duration_label || "";
+            document.getElementById("f_price_display").value =
+              p.price_display || "";
+            document.getElementById("f_hero_image").value = p.hero_image || "";
+            document.getElementById("f_detail_url").value = p.detail_url || "";
+            document.getElementById("f_short_desc").value = p.short_desc || "";
+            document.getElementById("f_is_active").checked = !!p.is_active;
+            document.getElementById("f_is_featured").checked = !!p.is_featured;
+          }
+        }
+        document.getElementById("pkgModal").classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
 
-async function savePackage() {
-  const title = document.getElementById('f_title').value.trim();
-  if (!title) { toast('Package title is required', 'error'); return; }
-  const btn = document.getElementById('saveBtn');
-  btn.disabled = true;
-  document.getElementById('saveBtnText').textContent = 'Saving…';
-  const payload = {
-    title,
-    slug:           document.getElementById('f_slug').value.trim(),
-    base_price:     parseInt(document.getElementById('f_base_price').value) || 0,
-    duration_label: document.getElementById('f_duration_label').value.trim(),
-    price_display:  document.getElementById('f_price_display').value.trim(),
-    hero_image:     document.getElementById('f_hero_image').value.trim(),
-    detail_url:     document.getElementById('f_detail_url').value.trim(),
-    short_desc:     document.getElementById('f_short_desc').value.trim(),
-    is_active:      document.getElementById('f_is_active').checked,
-    is_featured:    document.getElementById('f_is_featured').checked,
-  };
-  try {
-    if (editingPkgId) {
-      const { data, error } = await window._sb.from('packages').update(payload).eq('id', editingPkgId).select().single();
-      if (error) throw error;
-      const idx = allPackages.findIndex(p => p.id === editingPkgId);
-      if (idx !== -1) allPackages[idx] = data;
-      toast('Package updated!', 'success');
-    } else {
-      const { data, error } = await window._sb.from('packages').insert(payload).select().single();
-      if (error) throw error;
-      allPackages.push(data);
-      toast('Package created!', 'success');
-    }
-    closeModal('pkgModal');
-    updateDashStats(); renderDashRecent(); renderPackageTable(allPackages);
-    document.getElementById('pkgCount').textContent = allPackages.length;
-  } catch(e) {
-    toast('Save failed: ' + e.message, 'error');
-  } finally {
-    btn.disabled = false;
-    document.getElementById('saveBtnText').textContent = editingPkgId ? 'Update Package' : 'Save Package';
-  }
-}
+      async function savePackage() {
+        const title = document.getElementById("f_title").value.trim();
+        if (!title) {
+          toast("Package title is required", "error");
+          return;
+        }
+        const btn = document.getElementById("saveBtn");
+        btn.disabled = true;
+        document.getElementById("saveBtnText").textContent = "Saving…";
+        const payload = {
+          title,
+          slug: document.getElementById("f_slug").value.trim(),
+          base_price:
+            parseInt(document.getElementById("f_base_price").value) || 0,
+          duration_label: document
+            .getElementById("f_duration_label")
+            .value.trim(),
+          price_display: document
+            .getElementById("f_price_display")
+            .value.trim(),
+          hero_image: document.getElementById("f_hero_image").value.trim(),
+          detail_url: document.getElementById("f_detail_url").value.trim(),
+          short_desc: document.getElementById("f_short_desc").value.trim(),
+          is_active: document.getElementById("f_is_active").checked,
+          is_featured: document.getElementById("f_is_featured").checked,
+        };
+        try {
+          if (editingPkgId) {
+            const { data, error } = await window._sb
+              .from("packages")
+              .update(payload)
+              .eq("id", editingPkgId)
+              .select()
+              .single();
+            if (error) throw error;
+            const idx = allPackages.findIndex((p) => p.id === editingPkgId);
+            if (idx !== -1) allPackages[idx] = data;
+            toast("Package updated!", "success");
+          } else {
+            const { data, error } = await window._sb
+              .from("packages")
+              .insert(payload)
+              .select()
+              .single();
+            if (error) throw error;
+            allPackages.push(data);
+            toast("Package created!", "success");
+          }
+          closeModal("pkgModal");
+          updateDashStats();
+          renderDashRecent();
+          renderPackageTable(allPackages);
+          document.getElementById("pkgCount").textContent = allPackages.length;
+        } catch (e) {
+          toast("Save failed: " + e.message, "error");
+        } finally {
+          btn.disabled = false;
+          document.getElementById("saveBtnText").textContent = editingPkgId
+            ? "Update Package"
+            : "Save Package";
+        }
+      }
 
-function confirmDeletePkg(id, title) {
-  pendingDeleteId   = id;
-  pendingDeleteType = 'pkg';
-  document.getElementById('confirmTitle').textContent = 'Delete Package?';
-  document.getElementById('confirmMsg').textContent   = 'Permanently delete "' + title + '"? This cannot be undone.';
-  document.getElementById('confirmOkBtn').textContent = 'Delete';
-  document.getElementById('confirmOkBtn').onclick     = doDelete;
-  document.getElementById('confirmOverlay').classList.add('open');
-}
+      function confirmDeletePkg(id, title) {
+        pendingDeleteId = id;
+        pendingDeleteType = "pkg";
+        document.getElementById("confirmTitle").textContent = "Delete Package?";
+        document.getElementById("confirmMsg").textContent =
+          'Permanently delete "' + title + '"? This cannot be undone.';
+        document.getElementById("confirmOkBtn").textContent = "Delete";
+        document.getElementById("confirmOkBtn").onclick = doDelete;
+        document.getElementById("confirmOverlay").classList.add("open");
+      }
 
-async function doDelete() {
-  if (pendingDeleteType === 'pkg') {
-    const { error } = await window._sb.from('packages').delete().eq('id', pendingDeleteId);
-    closeConfirm();
-    if (error) { toast('Delete failed: ' + error.message, 'error'); return; }
-    allPackages = allPackages.filter(p => p.id !== pendingDeleteId);
-    updateDashStats(); renderDashRecent(); renderPackageTable(allPackages);
-    document.getElementById('pkgCount').textContent = allPackages.length;
-    toast('Package deleted.', 'success');
-  } else if (pendingDeleteType === 'gal') {
-    const { error } = await window._sb.from(GAL_TABLE).delete().eq('id', pendingDeleteId);
-    closeConfirm();
-    if (error) { toast('Delete failed: ' + error.message, 'error'); return; }
-    allGalImages = allGalImages.filter(g => g.id !== pendingDeleteId);
-    updateCatCounts(); renderGalGrid(); updateDashStats();
-    toast('Image deleted.', 'success');
-  }
-}
+      async function doDelete() {
+        if (pendingDeleteType === "pkg") {
+          const { error } = await window._sb
+            .from("packages")
+            .delete()
+            .eq("id", pendingDeleteId);
+          closeConfirm();
+          if (error) {
+            toast("Delete failed: " + error.message, "error");
+            return;
+          }
+          allPackages = allPackages.filter((p) => p.id !== pendingDeleteId);
+          updateDashStats();
+          renderDashRecent();
+          renderPackageTable(allPackages);
+          document.getElementById("pkgCount").textContent = allPackages.length;
+          toast("Package deleted.", "success");
+        } else if (pendingDeleteType === "gal") {
+          const { error } = await window._sb
+            .from(GAL_TABLE)
+            .delete()
+            .eq("id", pendingDeleteId);
+          closeConfirm();
+          if (error) {
+            toast("Delete failed: " + error.message, "error");
+            return;
+          }
+          allGalImages = allGalImages.filter((g) => g.id !== pendingDeleteId);
+          updateCatCounts();
+          renderGalGrid();
+          updateDashStats();
+          toast("Image deleted.", "success");
+        }
+      }
 
-/* ════════════════════════════════════════
+      /* ════════════════════════════════════════
    GALLERY MANAGER
 ════════════════════════════════════════ */
 
-/* Load from Supabase */
-async function loadGalleryImages() {
-  try {
-    const { data, error } = await window._sb
-      .from(GAL_TABLE)
-      .select('id,url,alt_text,categories,label,sort_order,is_active')
-      .order('sort_order');
-    if (error) throw error;
-    allGalImages = data || [];
-    updateCatCounts();
-    renderGalGrid();
-    updateDashStats();
-    document.getElementById('galCount').textContent = allGalImages.length;
-  } catch(e) {
-    toast('Gallery load error: ' + e.message, 'error');
-  }
-}
+      /* Load from Supabase */
+      async function loadGalleryImages() {
+        try {
+          const { data, error } = await window._sb
+            .from(GAL_TABLE)
+            .select("id,url,alt_text,categories,label,sort_order,is_active")
+            .order("sort_order");
+          if (error) throw error;
+          allGalImages = data || [];
+          updateCatCounts();
+          renderGalGrid();
+          updateDashStats();
+          document.getElementById("galCount").textContent = allGalImages.length;
+        } catch (e) {
+          toast("Gallery load error: " + e.message, "error");
+        }
+      }
 
-/* Category counts */
-function updateCatCounts() {
-  const cats = ['wildlife','serengeti','kilimanjaro','zanzibar','culture'];
-  document.getElementById('cc-all').textContent = allGalImages.length + ' photos';
-  cats.forEach(cat => {
-    const count = allGalImages.filter(g => (g.categories || '').split(' ').includes(cat)).length;
-    const el = document.getElementById('cc-' + cat);
-    if (el) el.textContent = count + ' photo' + (count !== 1 ? 's' : '');
-    // dot indicator
-    const card = document.querySelector('.cat-card[data-cat="' + cat + '"]');
-    if (card) card.classList.toggle('has-images', count > 0);
-  });
-  document.querySelector('.cat-card[data-cat="all"]').classList.toggle('has-images', allGalImages.length > 0);
+      /* Category counts */
+      function updateCatCounts() {
+        const cats = [
+          "wildlife",
+          "serengeti",
+          "kilimanjaro",
+          "zanzibar",
+          "culture",
+        ];
+        document.getElementById("cc-all").textContent =
+          allGalImages.length + " photos";
+        cats.forEach((cat) => {
+          const count = allGalImages.filter((g) =>
+            (g.categories || "").split(" ").includes(cat),
+          ).length;
+          const el = document.getElementById("cc-" + cat);
+          if (el) el.textContent = count + " photo" + (count !== 1 ? "s" : "");
+          // dot indicator
+          const card = document.querySelector(
+            '.cat-card[data-cat="' + cat + '"]',
+          );
+          if (card) card.classList.toggle("has-images", count > 0);
+        });
+        document
+          .querySelector('.cat-card[data-cat="all"]')
+          .classList.toggle("has-images", allGalImages.length > 0);
 
-  // Active/hidden counts
-  const shown  = allGalImages.filter(g => g.is_active !== false).length;
-  const hidden = allGalImages.length - shown;
-  document.getElementById('galActiveCount').textContent = shown;
-  document.getElementById('galHiddenCount').textContent = hidden;
-}
+        // Active/hidden counts
+        const shown = allGalImages.filter((g) => g.is_active !== false).length;
+        const hidden = allGalImages.length - shown;
+        document.getElementById("galActiveCount").textContent = shown;
+        document.getElementById("galHiddenCount").textContent = hidden;
+      }
 
-/* Select category */
-function selectGalCat(card) {
-  document.querySelectorAll('.cat-card').forEach(c => c.classList.remove('active'));
-  card.classList.add('active');
-  activeGalCat = card.dataset.cat;
+      /* Select category */
+      function selectGalCat(card) {
+        document
+          .querySelectorAll(".cat-card")
+          .forEach((c) => c.classList.remove("active"));
+        card.classList.add("active");
+        activeGalCat = card.dataset.cat;
 
-  const meta = CAT_META[activeGalCat] || CAT_META.all;
+        const meta = CAT_META[activeGalCat] || CAT_META.all;
 
-  // Banner
-  document.getElementById('galCatBannerIcon').className = 'fa-solid ' + meta.icon;
-  document.getElementById('galCatBannerTitle').textContent = activeGalCat === 'all'
-    ? 'Select a specific category above to upload images'
-    : 'Uploading to: ' + meta.label;
-  document.getElementById('galCatBannerPill').textContent = meta.label;
+        // Banner
+        document.getElementById("galCatBannerIcon").className =
+          "fa-solid " + meta.icon;
+        document.getElementById("galCatBannerTitle").textContent =
+          activeGalCat === "all"
+            ? "Select a specific category above to upload images"
+            : "Uploading to: " + meta.label;
+        document.getElementById("galCatBannerPill").textContent = meta.label;
 
-  // Show/hide upload area
-  const uploadArea = document.getElementById('galUploadArea');
-  const dropZone   = document.getElementById('galDropZone');
-  const urlRow     = uploadArea.querySelector('.gal-url-row');
-  const orLine     = uploadArea.querySelector('div[style*="or paste"]');
+        // Show/hide upload area
+        const uploadArea = document.getElementById("galUploadArea");
+        const dropZone = document.getElementById("galDropZone");
+        const urlRow = uploadArea.querySelector(".gal-url-row");
+        const orLine = uploadArea.querySelector('div[style*="or paste"]');
 
-  const canUpload = activeGalCat !== 'all';
-  dropZone.style.opacity       = canUpload ? '1' : '.4';
-  dropZone.style.pointerEvents = canUpload ? '' : 'none';
-  if (urlRow) { urlRow.style.opacity = canUpload ? '1' : '.4'; urlRow.style.pointerEvents = canUpload ? '' : 'none'; }
+        const canUpload = activeGalCat !== "all";
+        dropZone.style.opacity = canUpload ? "1" : ".4";
+        dropZone.style.pointerEvents = canUpload ? "" : "none";
+        if (urlRow) {
+          urlRow.style.opacity = canUpload ? "1" : ".4";
+          urlRow.style.pointerEvents = canUpload ? "" : "none";
+        }
 
-  // existing title
-  document.getElementById('galExistingTitle').textContent = activeGalCat === 'all'
-    ? 'All Gallery Images' : meta.label + ' Images';
+        // existing title
+        document.getElementById("galExistingTitle").textContent =
+          activeGalCat === "all"
+            ? "All Gallery Images"
+            : meta.label + " Images";
 
-  renderGalGrid();
-}
+        renderGalGrid();
+      }
 
-/* Render existing images grid */
-function renderGalGrid() {
-  const wrap = document.getElementById('galGridWrap');
-  const filtered = activeGalCat === 'all'
-    ? allGalImages
-    : allGalImages.filter(g => (g.categories || '').split(' ').includes(activeGalCat));
+      /* Render existing images grid */
+      function renderGalGrid() {
+        const wrap = document.getElementById("galGridWrap");
+        const filtered =
+          activeGalCat === "all"
+            ? allGalImages
+            : allGalImages.filter((g) =>
+                (g.categories || "").split(" ").includes(activeGalCat),
+              );
 
-  if (!filtered.length) {
-    wrap.innerHTML = `
+        if (!filtered.length) {
+          wrap.innerHTML = `
       <div class="empty-state">
         <i class="fa-solid fa-images"></i>
-        <h3>No images ${activeGalCat === 'all' ? 'yet' : 'in this category'}</h3>
-        <p>${activeGalCat === 'all' ? 'Upload your first photo above.' : 'Select this category and upload photos above.'}</p>
+        <h3>No images ${activeGalCat === "all" ? "yet" : "in this category"}</h3>
+        <p>${activeGalCat === "all" ? "Upload your first photo above." : "Select this category and upload photos above."}</p>
       </div>`;
-    return;
-  }
+          return;
+        }
 
-  wrap.innerHTML = '<div class="gal-grid">' + filtered.map(img => `
-    <div class="gal-img-card ${img.is_active === false ? 'is-inactive' : ''}" data-id="${img.id}">
-      <img src="${esc(img.url)}" alt="${esc(img.alt_text || '')}" loading="lazy"
+        wrap.innerHTML =
+          '<div class="gal-grid">' +
+          filtered
+            .map(
+              (img) => `
+    <div class="gal-img-card ${img.is_active === false ? "is-inactive" : ""}" data-id="${img.id}">
+      <img src="${esc(img.url)}" alt="${esc(img.alt_text || "")}" loading="lazy"
         onerror="this.src='https://placehold.co/180x140/574535/F5EDD0?text=IMG'"/>
       <div class="gic-overlay">
-        <div class="gic-label">${esc(img.label || '—')}</div>
+        <div class="gic-label">${esc(img.label || "—")}</div>
         <div class="gic-cats">
-          ${(img.categories || '').split(' ').filter(Boolean).map(c =>
-            '<span class="gic-cat">' + esc(c) + '</span>'
-          ).join('')}
+          ${(img.categories || "")
+            .split(" ")
+            .filter(Boolean)
+            .map((c) => '<span class="gic-cat">' + esc(c) + "</span>")
+            .join("")}
         </div>
       </div>
       <div class="gic-actions">
-        <button class="gic-btn toggle-active ${img.is_active === false ? 'inactive' : ''}"
+        <button class="gic-btn toggle-active ${img.is_active === false ? "inactive" : ""}"
           onclick="toggleGalActive('${img.id}',${img.is_active !== false})"
-          title="${img.is_active !== false ? 'Hide from gallery' : 'Show in gallery'}">
-          <i class="fa-solid ${img.is_active !== false ? 'fa-eye' : 'fa-eye-slash'}"></i>
+          title="${img.is_active !== false ? "Hide from gallery" : "Show in gallery"}">
+          <i class="fa-solid ${img.is_active !== false ? "fa-eye" : "fa-eye-slash"}"></i>
         </button>
         <button class="gic-btn" style="background:rgba(41,128,185,.85);color:#fff"
           onclick="openGalEdit('${img.id}')" title="Edit">
@@ -1232,349 +2698,528 @@ function renderGalGrid() {
       </div>
       <div class="gic-inactive-badge">Hidden</div>
     </div>
-  `).join('') + '</div>';
-}
+  `,
+            )
+            .join("") +
+          "</div>";
+      }
 
-/* Toggle active */
-async function toggleGalActive(id, currentlyActive) {
-  const newVal = !currentlyActive;
-  const { error } = await window._sb.from(GAL_TABLE).update({ is_active: newVal }).eq('id', id);
-  if (error) { toast('Update failed: ' + error.message, 'error'); return; }
-  const img = allGalImages.find(g => g.id === id);
-  if (img) img.is_active = newVal;
-  updateCatCounts(); renderGalGrid(); updateDashStats();
-  toast('Image ' + (newVal ? 'shown' : 'hidden') + ' in gallery.', 'success');
-}
+      /* Toggle active */
+      async function toggleGalActive(id, currentlyActive) {
+        const newVal = !currentlyActive;
+        const { error } = await window._sb
+          .from(GAL_TABLE)
+          .update({ is_active: newVal })
+          .eq("id", id);
+        if (error) {
+          toast("Update failed: " + error.message, "error");
+          return;
+        }
+        const img = allGalImages.find((g) => g.id === id);
+        if (img) img.is_active = newVal;
+        updateCatCounts();
+        renderGalGrid();
+        updateDashStats();
+        toast(
+          "Image " + (newVal ? "shown" : "hidden") + " in gallery.",
+          "success",
+        );
+      }
 
-/* Delete gallery image */
-function confirmDeleteGal(id) {
-  pendingDeleteId   = id;
-  pendingDeleteType = 'gal';
-  document.getElementById('confirmTitle').textContent = 'Delete Image?';
-  document.getElementById('confirmMsg').textContent   = 'Permanently remove this image from the gallery? This cannot be undone.';
-  document.getElementById('confirmOkBtn').textContent = 'Delete';
-  document.getElementById('confirmOkBtn').onclick     = doDelete;
-  document.getElementById('confirmOverlay').classList.add('open');
-}
+      /* Delete gallery image */
+      function confirmDeleteGal(id) {
+        pendingDeleteId = id;
+        pendingDeleteType = "gal";
+        document.getElementById("confirmTitle").textContent = "Delete Image?";
+        document.getElementById("confirmMsg").textContent =
+          "Permanently remove this image from the gallery? This cannot be undone.";
+        document.getElementById("confirmOkBtn").textContent = "Delete";
+        document.getElementById("confirmOkBtn").onclick = doDelete;
+        document.getElementById("confirmOverlay").classList.add("open");
+      }
 
-/* Edit modal */
-function openGalEdit(id) {
-  editingGalId = id;
-  const img = allGalImages.find(g => g.id === id);
-  if (!img) return;
-  document.getElementById('gePreviewImg').src = img.url;
-  document.getElementById('ge_label').value   = img.label || '';
-  document.getElementById('ge_alt').value     = img.alt_text || '';
-  document.getElementById('ge_sort').value    = img.sort_order || 0;
-  document.getElementById('ge_active').checked = img.is_active !== false;
+      /* Edit modal */
+      function openGalEdit(id) {
+        editingGalId = id;
+        const img = allGalImages.find((g) => g.id === id);
+        if (!img) return;
+        document.getElementById("gePreviewImg").src = img.url;
+        document.getElementById("ge_label").value = img.label || "";
+        document.getElementById("ge_alt").value = img.alt_text || "";
+        document.getElementById("ge_sort").value = img.sort_order || 0;
+        document.getElementById("ge_active").checked = img.is_active !== false;
 
-  // Reset cat checkboxes
-  document.querySelectorAll('#geCatChecks .cat-check-label').forEach(lbl => {
-    const cat = lbl.dataset.cat;
-    const chk = (img.categories || '').split(' ').includes(cat);
-    lbl.classList.toggle('checked', chk);
-    lbl.querySelector('input').checked = chk;
-  });
+        // Reset cat checkboxes
+        document
+          .querySelectorAll("#geCatChecks .cat-check-label")
+          .forEach((lbl) => {
+            const cat = lbl.dataset.cat;
+            const chk = (img.categories || "").split(" ").includes(cat);
+            lbl.classList.toggle("checked", chk);
+            lbl.querySelector("input").checked = chk;
+          });
 
-  document.getElementById('galEditModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
+        document.getElementById("galEditModal").classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
 
-function toggleGeCat(lbl) {
-  lbl.classList.toggle('checked');
-  lbl.querySelector('input').checked = lbl.classList.contains('checked');
-}
+      function toggleGeCat(lbl) {
+        lbl.classList.toggle("checked");
+        lbl.querySelector("input").checked = lbl.classList.contains("checked");
+      }
 
-async function saveGalEdit() {
-  const cats = [...document.querySelectorAll('#geCatChecks .cat-check-label.checked')]
-    .map(l => l.dataset.cat).join(' ');
-  const payload = {
-    label:      document.getElementById('ge_label').value.trim(),
-    alt_text:   document.getElementById('ge_alt').value.trim(),
-    sort_order: parseInt(document.getElementById('ge_sort').value) || 0,
-    categories: cats,
-    is_active:  document.getElementById('ge_active').checked,
-  };
-  const btn = document.getElementById('geSaveBtn');
-  btn.disabled = true;
-  try {
-    const { data, error } = await window._sb.from(GAL_TABLE).update(payload).eq('id', editingGalId).select().single();
-    if (error) throw error;
-    const idx = allGalImages.findIndex(g => g.id === editingGalId);
-    if (idx !== -1) allGalImages[idx] = data;
-    closeModal('galEditModal');
-    updateCatCounts(); renderGalGrid(); updateDashStats();
-    toast('Image updated!', 'success');
-  } catch(e) {
-    toast('Save failed: ' + e.message, 'error');
-  } finally { btn.disabled = false; }
-}
+      async function saveGalEdit() {
+        const cats = [
+          ...document.querySelectorAll("#geCatChecks .cat-check-label.checked"),
+        ]
+          .map((l) => l.dataset.cat)
+          .join(" ");
+        const payload = {
+          label: document.getElementById("ge_label").value.trim(),
+          alt_text: document.getElementById("ge_alt").value.trim(),
+          sort_order: parseInt(document.getElementById("ge_sort").value) || 0,
+          categories: cats,
+          is_active: document.getElementById("ge_active").checked,
+        };
+        const btn = document.getElementById("geSaveBtn");
+        btn.disabled = true;
+        try {
+          const { data, error } = await window._sb
+            .from(GAL_TABLE)
+            .update(payload)
+            .eq("id", editingGalId)
+            .select()
+            .single();
+          if (error) throw error;
+          const idx = allGalImages.findIndex((g) => g.id === editingGalId);
+          if (idx !== -1) allGalImages[idx] = data;
+          closeModal("galEditModal");
+          updateCatCounts();
+          renderGalGrid();
+          updateDashStats();
+          toast("Image updated!", "success");
+        } catch (e) {
+          toast("Save failed: " + e.message, "error");
+        } finally {
+          btn.disabled = false;
+        }
+      }
 
-/* ════════════════════════════════════════
+      /* ════════════════════════════════════════
    UPLOAD QUEUE
 ════════════════════════════════════════ */
 
-function galHandleFiles(e) {
-  if (activeGalCat === 'all') { toast('Select a specific category first', 'error'); return; }
-  [...e.target.files].forEach(f => addToQueue(f, null));
-  e.target.value = '';
-}
+      function galHandleFiles(e) {
+        if (activeGalCat === "all") {
+          toast("Select a specific category first", "error");
+          return;
+        }
+        [...e.target.files].forEach((f) => addToQueue(f, null));
+        e.target.value = "";
+      }
 
-function galDragOver(e) { e.preventDefault(); document.getElementById('galDropZone').classList.add('dragover'); }
-function galDragLeave(e) { document.getElementById('galDropZone').classList.remove('dragover'); }
-function galDrop(e) {
-  e.preventDefault();
-  document.getElementById('galDropZone').classList.remove('dragover');
-  if (activeGalCat === 'all') { toast('Select a specific category first', 'error'); return; }
-  [...e.dataTransfer.files].forEach(f => { if (f.type.startsWith('image/')) addToQueue(f, null); });
-}
+      function galDragOver(e) {
+        e.preventDefault();
+        document.getElementById("galDropZone").classList.add("dragover");
+      }
+      function galDragLeave(e) {
+        document.getElementById("galDropZone").classList.remove("dragover");
+      }
+      function galDrop(e) {
+        e.preventDefault();
+        document.getElementById("galDropZone").classList.remove("dragover");
+        if (activeGalCat === "all") {
+          toast("Select a specific category first", "error");
+          return;
+        }
+        [...e.dataTransfer.files].forEach((f) => {
+          if (f.type.startsWith("image/")) addToQueue(f, null);
+        });
+      }
 
-function galAddUrl() {
-  if (activeGalCat === 'all') { toast('Select a specific category first', 'error'); return; }
-  const url   = document.getElementById('galPasteUrl').value.trim();
-  const label = document.getElementById('galPasteLabel').value.trim();
-  if (!url || !url.startsWith('http')) { toast('Enter a valid https:// URL', 'error'); return; }
-  addToQueue(null, url, label);
-  document.getElementById('galPasteUrl').value   = '';
-  document.getElementById('galPasteLabel').value = '';
-}
+      function galAddUrl() {
+        if (activeGalCat === "all") {
+          toast("Select a specific category first", "error");
+          return;
+        }
+        const url = document.getElementById("galPasteUrl").value.trim();
+        const label = document.getElementById("galPasteLabel").value.trim();
+        if (!url || !url.startsWith("http")) {
+          toast("Enter a valid https:// URL", "error");
+          return;
+        }
+        addToQueue(null, url, label);
+        document.getElementById("galPasteUrl").value = "";
+        document.getElementById("galPasteLabel").value = "";
+      }
 
-let queueIdCounter = 0;
+      let queueIdCounter = 0;
 
-function addToQueue(file, url, label = '') {
-  const id       = ++queueIdCounter;
-  const isFile   = !!file;
-  const previewUrl = isFile ? URL.createObjectURL(file) : url;
-  const name     = isFile ? file.name : (label || url.split('/').pop().split('?')[0].slice(0, 40));
+      function addToQueue(file, url, label = "") {
+        const id = ++queueIdCounter;
+        const isFile = !!file;
+        const previewUrl = isFile ? URL.createObjectURL(file) : url;
+        const name = isFile
+          ? file.name
+          : label || url.split("/").pop().split("?")[0].slice(0, 40);
 
-  galQueue.push({ id, file, url: isFile ? null : url, previewUrl, name, label, status: 'pending' });
-  renderQueue();
-}
+        galQueue.push({
+          id,
+          file,
+          url: isFile ? null : url,
+          previewUrl,
+          name,
+          label,
+          status: "pending",
+        });
+        renderQueue();
+      }
 
-function renderQueue() {
-  const wrap = document.getElementById('galQueueWrap');
-  wrap.style.display = galQueue.length ? '' : 'none';
+      function renderQueue() {
+        const wrap = document.getElementById("galQueueWrap");
+        wrap.style.display = galQueue.length ? "" : "none";
 
-  document.getElementById('queueCountText').textContent = galQueue.length;
-  document.getElementById('queueDoneText').textContent  = galQueue.filter(q => q.status === 'done').length;
+        document.getElementById("queueCountText").textContent = galQueue.length;
+        document.getElementById("queueDoneText").textContent = galQueue.filter(
+          (q) => q.status === "done",
+        ).length;
 
-  document.getElementById('uploadQueue').innerHTML = galQueue.map(item => `
+        document.getElementById("uploadQueue").innerHTML = galQueue
+          .map(
+            (item) => `
     <div class="queue-item" id="qi-${item.id}">
       <img src="${esc(item.previewUrl)}" alt=""/>
       <div class="qi-overlay">
         <div class="qi-name">${esc(item.name)}</div>
         <div class="qi-status ${item.status}">${statusLabel(item.status)}</div>
       </div>
-      ${item.status === 'pending'
-        ? `<button class="qi-remove" onclick="removeFromQueue(${item.id})"><i class="fa-solid fa-xmark"></i></button>`
-        : ''}
+      ${
+        item.status === "pending"
+          ? `<button class="qi-remove" onclick="removeFromQueue(${item.id})"><i class="fa-solid fa-xmark"></i></button>`
+          : ""
+      }
       <div class="qi-progress">
-        <div class="qi-progress-fill ${item.status === 'uploading' ? 'indeterminate' : ''}" id="qipf-${item.id}"
-          style="width:${item.status === 'done' ? '100' : item.status === 'error' ? '0' : '0'}%"></div>
+        <div class="qi-progress-fill ${item.status === "uploading" ? "indeterminate" : ""}" id="qipf-${item.id}"
+          style="width:${item.status === "done" ? "100" : item.status === "error" ? "0" : "0"}%"></div>
       </div>
     </div>
-  `).join('');
-}
-
-function statusLabel(s) {
-  return s === 'pending' ? 'Ready' : s === 'uploading' ? 'Uploading…' : s === 'done' ? '✓ Saved' : '✗ Error';
-}
-
-function removeFromQueue(id) {
-  galQueue = galQueue.filter(q => q.id !== id);
-  renderQueue();
-}
-
-function clearQueue() {
-  galQueue = galQueue.filter(q => q.status === 'uploading');
-  renderQueue();
-}
-
-async function uploadAllQueue() {
-  const pending = galQueue.filter(q => q.status === 'pending');
-  if (!pending.length) { toast('Nothing to upload — all items are done or uploading.', 'info'); return; }
-  if (activeGalCat === 'all') { toast('Select a category first', 'error'); return; }
-
-  document.getElementById('uploadAllBtn').disabled = true;
-
-  for (const item of pending) {
-    await uploadQueueItem(item);
-  }
-
-  document.getElementById('uploadAllBtn').disabled = false;
-
-  // refresh DB
-  await loadGalleryImages();
-  const done = galQueue.filter(q => q.status === 'done').length;
-  toast(done + ' image(s) added to gallery!', 'success');
-
-  // auto-clear done items after 2s
-  setTimeout(() => {
-    galQueue = galQueue.filter(q => q.status !== 'done');
-    renderQueue();
-  }, 2000);
-}
-
-async function uploadQueueItem(item) {
-  item.status = 'uploading';
-  renderQueue();
-
-  try {
-    let publicUrl = item.url; // if pasted URL, use directly
-
-    if (item.file) {
-      // Upload file to Supabase Storage
-      if (item.file.size > 10 * 1024 * 1024) throw new Error('File too large (max 10 MB)');
-      const safeName = item.file.name.replace(/[^a-z0-9._-]/gi, '_').toLowerCase();
-      const filePath = activeGalCat + '/' + Date.now() + '-' + Math.random().toString(36).slice(2,6) + '-' + safeName;
-
-      const { error: upErr } = await window._sb.storage
-        .from(GAL_BUCKET)
-        .upload(filePath, item.file, { cacheControl: '3600', upsert: false, contentType: item.file.type });
-
-      if (upErr) {
-        // Fallback: try the package-images bucket if gallery-images doesn't exist
-        const { error: upErr2 } = await window._sb.storage
-          .from(STORAGE_BUCKET)
-          .upload('gallery/' + filePath, item.file, { cacheControl: '3600', upsert: false, contentType: item.file.type });
-        if (upErr2) throw new Error('Storage error: ' + (upErr2.message || 'Check bucket permissions'));
-        const { data: d2 } = window._sb.storage.from(STORAGE_BUCKET).getPublicUrl('gallery/' + filePath);
-        publicUrl = d2?.publicUrl;
-      } else {
-        const { data: urlData } = window._sb.storage.from(GAL_BUCKET).getPublicUrl(filePath);
-        publicUrl = urlData?.publicUrl;
+  `,
+          )
+          .join("");
       }
 
-      if (!publicUrl) throw new Error('Could not get public URL from storage');
-    }
+      function statusLabel(s) {
+        return s === "pending"
+          ? "Ready"
+          : s === "uploading"
+            ? "Uploading…"
+            : s === "done"
+              ? "✓ Saved"
+              : "✗ Error";
+      }
 
-    // Insert into gallery_images table
-    const payload = {
-      url:        publicUrl,
-      label:      item.label || item.name.replace(/\.[^.]+$/, '').replace(/[-_]+/g, ' '),
-      alt_text:   item.label || '',
-      categories: activeGalCat,
-      sort_order: allGalImages.length + galQueue.indexOf(item),
-      is_active:  true,
-    };
+      function removeFromQueue(id) {
+        galQueue = galQueue.filter((q) => q.id !== id);
+        renderQueue();
+      }
 
-    const { data: row, error: dbErr } = await window._sb
-      .from(GAL_TABLE)
-      .insert(payload)
-      .select()
-      .single();
+      function clearQueue() {
+        galQueue = galQueue.filter((q) => q.status === "uploading");
+        renderQueue();
+      }
 
-    if (dbErr) throw new Error('DB error: ' + dbErr.message);
+      async function uploadAllQueue() {
+        const pending = galQueue.filter((q) => q.status === "pending");
+        if (!pending.length) {
+          toast("Nothing to upload — all items are done or uploading.", "info");
+          return;
+        }
+        if (activeGalCat === "all") {
+          toast("Select a category first", "error");
+          return;
+        }
 
-    allGalImages.push(row);
-    item.status = 'done';
+        document.getElementById("uploadAllBtn").disabled = true;
 
-  } catch(e) {
-    item.status = 'error';
-    console.error('Upload error for', item.name, ':', e);
-    toast('Failed: ' + item.name + ' — ' + e.message, 'error');
-  }
+        for (const item of pending) {
+          await uploadQueueItem(item);
+        }
 
-  renderQueue();
-}
+        document.getElementById("uploadAllBtn").disabled = false;
 
-/* ════════════════════════════════════════
+        // refresh DB
+        await loadGalleryImages();
+        const done = galQueue.filter((q) => q.status === "done").length;
+        toast(done + " image(s) added to gallery!", "success");
+
+        // auto-clear done items after 2s
+        setTimeout(() => {
+          galQueue = galQueue.filter((q) => q.status !== "done");
+          renderQueue();
+        }, 2000);
+      }
+
+      async function uploadQueueItem(item) {
+        item.status = "uploading";
+        renderQueue();
+
+        try {
+          let publicUrl = item.url; // if pasted URL, use directly
+
+          if (item.file) {
+            // Upload file to Supabase Storage
+            if (item.file.size > 10 * 1024 * 1024)
+              throw new Error("File too large (max 10 MB)");
+            const safeName = item.file.name
+              .replace(/[^a-z0-9._-]/gi, "_")
+              .toLowerCase();
+            const filePath =
+              activeGalCat +
+              "/" +
+              Date.now() +
+              "-" +
+              Math.random().toString(36).slice(2, 6) +
+              "-" +
+              safeName;
+
+            const { error: upErr } = await window._sb.storage
+              .from(GAL_BUCKET)
+              .upload(filePath, item.file, {
+                cacheControl: "3600",
+                upsert: false,
+                contentType: item.file.type,
+              });
+
+            if (upErr) {
+              // Fallback: try the package-images bucket if gallery-images doesn't exist
+              const { error: upErr2 } = await window._sb.storage
+                .from(STORAGE_BUCKET)
+                .upload("gallery/" + filePath, item.file, {
+                  cacheControl: "3600",
+                  upsert: false,
+                  contentType: item.file.type,
+                });
+              if (upErr2)
+                throw new Error(
+                  "Storage error: " +
+                    (upErr2.message || "Check bucket permissions"),
+                );
+              const { data: d2 } = window._sb.storage
+                .from(STORAGE_BUCKET)
+                .getPublicUrl("gallery/" + filePath);
+              publicUrl = d2?.publicUrl;
+            } else {
+              const { data: urlData } = window._sb.storage
+                .from(GAL_BUCKET)
+                .getPublicUrl(filePath);
+              publicUrl = urlData?.publicUrl;
+            }
+
+            if (!publicUrl)
+              throw new Error("Could not get public URL from storage");
+          }
+
+          // Insert into gallery_images table
+          const payload = {
+            url: publicUrl,
+            label:
+              item.label ||
+              item.name.replace(/\.[^.]+$/, "").replace(/[-_]+/g, " "),
+            alt_text: item.label || "",
+            categories: activeGalCat,
+            sort_order: allGalImages.length + galQueue.indexOf(item),
+            is_active: true,
+          };
+
+          const { data: row, error: dbErr } = await window._sb
+            .from(GAL_TABLE)
+            .insert(payload)
+            .select()
+            .single();
+
+          if (dbErr) throw new Error("DB error: " + dbErr.message);
+
+          allGalImages.push(row);
+          item.status = "done";
+        } catch (e) {
+          item.status = "error";
+          console.error("Upload error for", item.name, ":", e);
+          toast("Failed: " + item.name + " — " + e.message, "error");
+        }
+
+        renderQueue();
+      }
+
+      /* ════════════════════════════════════════
    USERS
 ════════════════════════════════════════ */
-let allUsers = [];
+      let allUsers = [];
 
-async function loadUsers() {
-  const tbody = document.getElementById('usersTbody');
-  tbody.innerHTML = '<tr class="loading-row"><td colspan="6"><div class="spin"></div><br>Loading…</td></tr>';
-  try {
-    const { data, error } = await window._sb.from('admin_profiles').select('*').order('created_at');
-    if (error) throw error;
-    allUsers = data || [];
-    renderUsersTable(allUsers);
-  } catch(e) {
-    toast('Failed to load users: ' + e.message, 'error');
-  }
-}
+      async function loadUsers() {
+        const tbody = document.getElementById("usersTbody");
+        tbody.innerHTML =
+          '<tr class="loading-row"><td colspan="6"><div class="spin"></div><br>Loading…</td></tr>';
+        try {
+          const { data, error } = await window._sb
+            .from("admin_profiles")
+            .select("*")
+            .order("created_at");
+          if (error) throw error;
+          allUsers = data || [];
+          renderUsersTable(allUsers);
+        } catch (e) {
+          toast("Failed to load users: " + e.message, "error");
+        }
+      }
 
-function renderUsersTable(users) {
-  const tbody = document.getElementById('usersTbody');
-  if (!users.length) {
-    tbody.innerHTML = '<tr><td colspan="6"><div class="empty-state"><i class="fa-solid fa-users"></i><h3>No users found</h3></div></td></tr>';
-    return;
-  }
-  tbody.innerHTML = users.map(u =>
-    '<tr>' +
-    '<td><div class="tbl-title">' + esc(u.full_name || '—') + '</div></td>' +
-    '<td>' + esc(u.email) + '</td>' +
-    '<td><span style="display:inline-flex;align-items:center;gap:4px;padding:.18rem .6rem;font-size:.62rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;border-radius:100px;' +
-      (u.role === 'super_admin' ? 'background:#3d1a6e;color:#d5aaff' : 'background:#1a3d6e;color:#aac5ff') + '">' +
-      (u.role === 'super_admin' ? 'Super Admin' : 'Editor') + '</span></td>' +
-    '<td>' + (u.is_active ? '<span class="badge badge-green">Active</span>' : '<span class="badge badge-red">Inactive</span>') + '</td>' +
-    '<td>' + new Date(u.created_at).toLocaleDateString('en-GB', {day:'2-digit',month:'short',year:'numeric'}) + '</td>' +
-    '<td><button class="btn-icon del" onclick="confirmDeactivateUser(\'' + u.id + '\',\'' + esc(u.email) + '\',' + u.is_active + ')"><i class="fa-solid ' + (u.is_active ? 'fa-user-slash' : 'fa-user-check') + '"></i></button></td></tr>'
-  ).join('');
-}
+      function renderUsersTable(users) {
+        const tbody = document.getElementById("usersTbody");
+        if (!users.length) {
+          tbody.innerHTML =
+            '<tr><td colspan="6"><div class="empty-state"><i class="fa-solid fa-users"></i><h3>No users found</h3></div></td></tr>';
+          return;
+        }
+        tbody.innerHTML = users
+          .map(
+            (u) =>
+              "<tr>" +
+              '<td><div class="tbl-title">' +
+              esc(u.full_name || "—") +
+              "</div></td>" +
+              "<td>" +
+              esc(u.email) +
+              "</td>" +
+              '<td><span style="display:inline-flex;align-items:center;gap:4px;padding:.18rem .6rem;font-size:.62rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;border-radius:100px;' +
+              (u.role === "super_admin"
+                ? "background:#3d1a6e;color:#d5aaff"
+                : "background:#1a3d6e;color:#aac5ff") +
+              '">' +
+              (u.role === "super_admin" ? "Super Admin" : "Editor") +
+              "</span></td>" +
+              "<td>" +
+              (u.is_active
+                ? '<span class="badge badge-green">Active</span>'
+                : '<span class="badge badge-red">Inactive</span>') +
+              "</td>" +
+              "<td>" +
+              new Date(u.created_at).toLocaleDateString("en-GB", {
+                day: "2-digit",
+                month: "short",
+                year: "numeric",
+              }) +
+              "</td>" +
+              '<td><button class="btn-icon del" onclick="confirmDeactivateUser(\'' +
+              u.id +
+              "','" +
+              esc(u.email) +
+              "'," +
+              u.is_active +
+              ')"><i class="fa-solid ' +
+              (u.is_active ? "fa-user-slash" : "fa-user-check") +
+              '"></i></button></td></tr>',
+          )
+          .join("");
+      }
 
-function openUserModal() {
-  document.getElementById('u_name').value  = '';
-  document.getElementById('u_email').value = '';
-  document.getElementById('u_role').value  = 'editor';
-  document.getElementById('userModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
+      function openUserModal() {
+        document.getElementById("u_name").value = "";
+        document.getElementById("u_email").value = "";
+        document.getElementById("u_role").value = "editor";
+        document.getElementById("userModal").classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
 
-async function saveUser() {
-  const email = document.getElementById('u_email').value.trim();
-  if (!email) { toast('Email is required', 'error'); return; }
-  toast('Invite functionality requires service role key — create user in Supabase Dashboard → Auth → Users.', 'info');
-  closeModal('userModal');
-}
+      async function saveUser() {
+        const email = document.getElementById("u_email").value.trim();
+        if (!email) {
+          toast("Email is required", "error");
+          return;
+        }
+        toast(
+          "Invite functionality requires service role key — create user in Supabase Dashboard → Auth → Users.",
+          "info",
+        );
+        closeModal("userModal");
+      }
 
-function confirmDeactivateUser(id, email, isActive) {
-  pendingDeleteId   = id;
-  pendingDeleteType = 'user';
-  document.getElementById('confirmTitle').textContent = isActive ? 'Deactivate User?' : 'Re-activate User?';
-  document.getElementById('confirmMsg').textContent   = (isActive ? 'Deactivate' : 'Re-activate') + ' "' + email + '"?';
-  document.getElementById('confirmOkBtn').textContent = isActive ? 'Deactivate' : 'Re-activate';
-  document.getElementById('confirmOkBtn').onclick     = () => toggleUserActive(id, !isActive);
-  document.getElementById('confirmOverlay').classList.add('open');
-}
+      function confirmDeactivateUser(id, email, isActive) {
+        pendingDeleteId = id;
+        pendingDeleteType = "user";
+        document.getElementById("confirmTitle").textContent = isActive
+          ? "Deactivate User?"
+          : "Re-activate User?";
+        document.getElementById("confirmMsg").textContent =
+          (isActive ? "Deactivate" : "Re-activate") + ' "' + email + '"?';
+        document.getElementById("confirmOkBtn").textContent = isActive
+          ? "Deactivate"
+          : "Re-activate";
+        document.getElementById("confirmOkBtn").onclick = () =>
+          toggleUserActive(id, !isActive);
+        document.getElementById("confirmOverlay").classList.add("open");
+      }
 
-async function toggleUserActive(id, state) {
-  closeConfirm();
-  const { error } = await window._sb.from('admin_profiles').update({ is_active: state }).eq('id', id);
-  if (error) { toast('Failed: ' + error.message, 'error'); return; }
-  const u = allUsers.find(u => u.id === id);
-  if (u) u.is_active = state;
-  renderUsersTable(allUsers);
-  toast('User ' + (state ? 're-activated' : 'deactivated') + '.', 'success');
-}
+      async function toggleUserActive(id, state) {
+        closeConfirm();
+        const { error } = await window._sb
+          .from("admin_profiles")
+          .update({ is_active: state })
+          .eq("id", id);
+        if (error) {
+          toast("Failed: " + error.message, "error");
+          return;
+        }
+        const u = allUsers.find((u) => u.id === id);
+        if (u) u.is_active = state;
+        renderUsersTable(allUsers);
+        toast(
+          "User " + (state ? "re-activated" : "deactivated") + ".",
+          "success",
+        );
+      }
 
-/* ════════════════════════════════════════
+      /* ════════════════════════════════════════
    SHARED UTILITIES
 ════════════════════════════════════════ */
-function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow = ''; }
-function closeConfirm() { document.getElementById('confirmOverlay').classList.remove('open'); pendingDeleteId = null; }
+      function closeModal(id) {
+        document.getElementById(id).classList.remove("open");
+        document.body.style.overflow = "";
+      }
+      function closeConfirm() {
+        document.getElementById("confirmOverlay").classList.remove("open");
+        pendingDeleteId = null;
+      }
 
-function toast(msg, type = 'info') {
-  const stack = document.getElementById('toastStack');
-  const div   = document.createElement('div');
-  div.className = 'toast toast-' + type;
-  div.innerHTML = '<i class="fa-solid ' + (type === 'success' ? 'fa-circle-check' : type === 'error' ? 'fa-circle-exclamation' : 'fa-circle-info') + '"></i>' + msg;
-  stack.appendChild(div);
-  setTimeout(() => div.remove(), 5000);
-}
+      function toast(msg, type = "info") {
+        const stack = document.getElementById("toastStack");
+        const div = document.createElement("div");
+        div.className = "toast toast-" + type;
+        div.innerHTML =
+          '<i class="fa-solid ' +
+          (type === "success"
+            ? "fa-circle-check"
+            : type === "error"
+              ? "fa-circle-exclamation"
+              : "fa-circle-info") +
+          '"></i>' +
+          msg;
+        stack.appendChild(div);
+        setTimeout(() => div.remove(), 5000);
+      }
 
-function esc(s) {
-  return String(s || '').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-}
+      function esc(s) {
+        return String(s || "")
+          .replace(/&/g, "&amp;")
+          .replace(/"/g, "&quot;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+      }
 
-// Close modals on backdrop click
-['pkgModal','galEditModal','userModal'].forEach(id => {
-  document.getElementById(id).addEventListener('click', function(e) {
-    if (e.target === this) closeModal(id);
-  });
-});
-</script>
-</body>
+      // Close modals on backdrop click
+      ["pkgModal", "galEditModal", "userModal"].forEach((id) => {
+        document.getElementById(id).addEventListener("click", function (e) {
+          if (e.target === this) closeModal(id);
+        });
+      });
+    </script>
+  </body>
 </html>

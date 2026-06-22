@@ -1,722 +1,1482 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link
+      rel="canonical"
+      href="https://seresafariafrica.com/pages/destinations.html"
+    />
+    <link href="../favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="../favicon/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="../favicon/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="../favicon/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="../favicon/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="../favicon/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="../favicon/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="../favicon/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="../favicon/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../favicon/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="../favicon/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="../favicon/android-chrome-512x512.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="../favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="../favicon/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../favicon/favicon-16x16.png"
+    />
+    <meta
+      name="description"
+      content="Explore Tanzania's most iconic destinations – Serengeti, Ngorongoro Crater, Tarangire, Lake Manyara, Kilimanjaro and Zanzibar with Seresafari Africa."
+    />
+    <title>Destinations – Seresafari Africa</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <link rel="canonical" href="https://seresafariafrica.com/pages/destinations.html" />
-   <link href="../favicon/favicon.ico">
-  <link rel="apple-touch-icon" sizes="57x57" href="../favicon/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="../favicon/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="../favicon/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="../favicon/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="../favicon/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="../favicon/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="../favicon/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="../favicon/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="../favicon/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="../favicon/android-chrome-512x512.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="../favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="../favicon/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
-  <meta name="description"
-    content="Explore Tanzania's most iconic destinations – Serengeti, Ngorongoro Crater, Tarangire, Lake Manyara, Kilimanjaro and Zanzibar with Sere Safari Africa." />
-  <title>Destinations – Sere Safari Africa</title>
-  <link rel="stylesheet" href="../css/main.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+      /* ── DESTINATION GRID BADGES ───────────────────────────── */
+      .dest-badge {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 5px 11px;
+        border-radius: 50px;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        backdrop-filter: blur(6px);
+        z-index: 2;
+        pointer-events: none;
+        font-family: var(--ff-head);
+      }
 
-  <style>
-    /* ── DESTINATION GRID BADGES ───────────────────────────── */
-    .dest-badge {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 5px 11px;
-      border-radius: 50px;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      backdrop-filter: blur(6px);
-      z-index: 2;
-      pointer-events: none;
-      font-family: var(--ff-head);
-    }
+      .badge-fire {
+        background: rgba(220, 60, 30, 0.88);
+        color: #fff;
+      }
+      .badge-gold {
+        background: rgba(180, 130, 20, 0.92);
+        color: #fff;
+      }
+      .badge-green {
+        background: rgba(30, 120, 60, 0.88);
+        color: #fff;
+      }
+      .badge-blue {
+        background: rgba(20, 100, 190, 0.88);
+        color: #fff;
+      }
+      .badge-purple {
+        background: rgba(100, 40, 180, 0.88);
+        color: #fff;
+      }
+      .badge-teal {
+        background: rgba(0, 130, 130, 0.88);
+        color: #fff;
+      }
 
-    .badge-fire   { background: rgba(220, 60, 30, 0.88);  color: #fff; }
-    .badge-gold   { background: rgba(180, 130, 20, 0.92); color: #fff; }
-    .badge-green  { background: rgba(30, 120, 60, 0.88);  color: #fff; }
-    .badge-blue   { background: rgba(20, 100, 190, 0.88); color: #fff; }
-    .badge-purple { background: rgba(100, 40, 180, 0.88); color: #fff; }
-    .badge-teal   { background: rgba(0, 130, 130, 0.88);  color: #fff; }
+      /* ── DETAIL CARD BADGES ────────────────────────────────── */
+      .card-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 4px 10px;
+        border-radius: 50px;
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        font-family: var(--ff-head);
+        margin-bottom: 0.6rem;
+      }
 
-    /* ── DETAIL CARD BADGES ────────────────────────────────── */
-    .card-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 4px 10px;
-      border-radius: 50px;
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      font-family: var(--ff-head);
-      margin-bottom: 0.6rem;
-    }
+      .card-badge-fire {
+        background: rgba(220, 60, 30, 0.12);
+        color: #c43a1a;
+        border: 1px solid rgba(220, 60, 30, 0.3);
+      }
+      .card-badge-gold {
+        background: rgba(180, 130, 20, 0.12);
+        color: #9a7010;
+        border: 1px solid rgba(180, 130, 20, 0.3);
+      }
+      .card-badge-green {
+        background: rgba(30, 120, 60, 0.12);
+        color: #1a7a40;
+        border: 1px solid rgba(30, 120, 60, 0.3);
+      }
+      .card-badge-blue {
+        background: rgba(20, 100, 190, 0.12);
+        color: #1460be;
+        border: 1px solid rgba(20, 100, 190, 0.3);
+      }
+      .card-badge-purple {
+        background: rgba(100, 40, 180, 0.12);
+        color: #6428b4;
+        border: 1px solid rgba(100, 40, 180, 0.3);
+      }
+      .card-badge-teal {
+        background: rgba(0, 130, 130, 0.12);
+        color: #008282;
+        border: 1px solid rgba(0, 130, 130, 0.3);
+      }
 
-    .card-badge-fire   { background: rgba(220,60,30,.12);  color: #c43a1a; border: 1px solid rgba(220,60,30,.3); }
-    .card-badge-gold   { background: rgba(180,130,20,.12); color: #9a7010; border: 1px solid rgba(180,130,20,.3); }
-    .card-badge-green  { background: rgba(30,120,60,.12);  color: #1a7a40; border: 1px solid rgba(30,120,60,.3); }
-    .card-badge-blue   { background: rgba(20,100,190,.12); color: #1460be; border: 1px solid rgba(20,100,190,.3); }
-    .card-badge-purple { background: rgba(100,40,180,.12); color: #6428b4; border: 1px solid rgba(100,40,180,.3); }
-    .card-badge-teal   { background: rgba(0,130,130,.12);  color: #008282; border: 1px solid rgba(0,130,130,.3); }
+      /* ── LOAD MORE SYSTEM ──────────────────────────────────── */
+      .dest-full-card {
+        transition:
+          opacity 0.4s ease,
+          transform 0.4s ease,
+          border-color var(--trans);
+      }
 
-    /* ── LOAD MORE SYSTEM ──────────────────────────────────── */
-    .dest-full-card {
-      transition: opacity 0.4s ease, transform 0.4s ease, border-color var(--trans);
-    }
+      .dest-full-card.hidden-card {
+        display: none;
+      }
 
-    .dest-full-card.hidden-card {
-      display: none;
-    }
+      .dest-full-card.fade-in {
+        animation: cardFadeIn 0.5s ease forwards;
+      }
 
-    .dest-full-card.fade-in {
-      animation: cardFadeIn 0.5s ease forwards;
-    }
+      @keyframes cardFadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-    @keyframes cardFadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+      .load-more-wrap {
+        text-align: center;
+        margin-top: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+      }
 
-    .load-more-wrap {
-      text-align: center;
-      margin-top: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.8rem;
-    }
+      .load-more-count {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--text);
+        font-family: var(--ff-head);
+      }
 
-    .load-more-count {
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--text);
-      font-family: var(--ff-head);
-    }
+      .load-more-count span {
+        color: var(--gold);
+        font-weight: 700;
+      }
 
-    .load-more-count span {
-      color: var(--gold);
-      font-weight: 700;
-    }
+      #load-more-btn {
+        position: relative;
+        overflow: hidden;
+      }
 
-    #load-more-btn {
-      position: relative;
-      overflow: hidden;
-    }
+      #load-more-btn .btn-inner {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: transform 0.3s;
+      }
 
-    #load-more-btn .btn-inner {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: transform 0.3s;
-    }
+      #load-more-btn:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
 
-    #load-more-btn:disabled {
-      opacity: 0.4;
-      cursor: not-allowed;
-      pointer-events: none;
-    }
+      /* ── SHOW LESS BUTTON ──────────────────────────────────── */
+      #show-less-btn {
+        display: none;
+      }
 
-    /* ── SHOW LESS BUTTON ──────────────────────────────────── */
-    #show-less-btn {
-      display: none;
-    }
+      /* ── PROGRESS BAR ──────────────────────────────────────── */
+      .load-progress-bar {
+        width: 200px;
+        height: 2px;
+        background: rgba(87, 69, 53, 0.15);
+        border-radius: 2px;
+        overflow: hidden;
+      }
 
-    /* ── PROGRESS BAR ──────────────────────────────────────── */
-    .load-progress-bar {
-      width: 200px;
-      height: 2px;
-      background: rgba(87, 69, 53, 0.15);
-      border-radius: 2px;
-      overflow: hidden;
-    }
+      .load-progress-fill {
+        height: 100%;
+        background: var(--gold);
+        border-radius: 2px;
+        transition: width 0.4s ease;
+      }
+    </style>
+  </head>
 
-    .load-progress-fill {
-      height: 100%;
-      background: var(--gold);
-      border-radius: 2px;
-      transition: width 0.4s ease;
-    }
-  </style>
-</head>
+  <body>
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
+    <button id="back-top"><i class="fa-solid fa-chevron-up"></i></button>
 
-<body>
-  <div id="cursor"></div>
-  <div id="cursor-ring"></div>
-  <button id="back-top"><i class="fa-solid fa-chevron-up"></i></button>
-
-  <!-- NAV -->
-  <nav id="nav">
-    <a href="../index.html" class="logo">
-      <img src="../logo2.png" alt="">
-    </a>
-    <ul class="nav-links">
-      <li><a href="../about.html">About</a></li>
-      <li><a href="destinations.html" class="active">Destinations</a></li>
-      <li><a href="tours.html">Tours</a></li>
-      <li><a href="kilimanjaro.html">Kilimanjaro</a></li>
-      <li><a href="zanzibar.html">Zanzibar</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="contact.html" class="nav-book">Enquire Now</a></li>
-    </ul>
-    <button class="ham" id="ham"><span></span><span></span><span></span></button>
-  </nav>
-  <nav class="mob-menu" id="mob-menu">
-    <a href="../index.html">Home</a><a href="../about.html">About</a>
-    <a href="destinations.html">Destinations</a><a href="tours.html">Tours</a>
-    <a href="kilimanjaro.html">Kilimanjaro</a><a href="zanzibar.html">Zanzibar</a>
-    <a href="gallery.html">Gallery</a><a href="contact.html" style="color:var(--gold)">Enquire Now</a>
-  </nav>
-
-  <!-- PAGE HEADER -->
-  <header class="page-header" style="background-image:url('../images/16.webp');">
-    <div class="breadcrumb"><a href="../index.html">Home</a><i class="fa-solid fa-chevron-right"></i>Destinations</div>
-    <div class="section-tag">Where We Take You</div>
-    <h1 class="section-title" style="font-size:clamp(2.5rem,6vw,4.5rem);">Iconic <em>Destinations</em></h1>
-    <p class="section-sub" style="max-width:600px;margin:.8rem auto 0;">Five legendary national parks and conservation
-      areas, one extraordinary island — each a world entirely unto itself, waiting to be explored.</p>
-  </header>
-
-  <!-- DESTINATIONS GRID OVERVIEW -->
-  <section class="dest-section" style="background:var(--dark2);">
-    <div class="dest-header reveal">
-      <div>
-        <div class="section-tag">Tanzania's Crown Jewels</div>
-        <h2 class="section-title">All <em>Destinations</em></h2>
-      </div>
-      <p class="section-sub" style="max-width:400px;">Every park. Every landscape. Every story — explored in-depth
-        below.</p>
-    </div>
-    <div class="dest-grid reveal">
-
-      <!-- SERENGETI — spans 2 cols -->
-      <a href="../pages/destinations/serengeti.html" style="text-decoration:none;" class="dest-card">
-        <img src="../images/3.webp" alt="Serengeti" loading="lazy" />
-        <div class="dest-badge badge-fire"><i class="fa-solid fa-fire"></i> Most Popular</div>
-        <div class="dest-info">
-          <div class="dest-name">Serengeti National Park</div>
-          <div class="dest-region"><i class="fa-solid fa-location-dot"></i> Northern Tanzania · UNESCO World Heritage</div>
-          <div class="dest-desc">Endless plains teeming with wildlife. Witness the Great Migration — over 1.5 million
-            wildebeest, zebras and gazelles in Earth's greatest natural spectacle, year after remarkable year.</div>
-        </div>
-        <div class="dest-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+    <!-- NAV -->
+    <nav id="nav">
+      <a href="../index.html" class="logo">
+        <img src="../logo2.png" alt="" />
       </a>
+      <ul class="nav-links">
+        <li><a href="../about.html">About</a></li>
+        <li><a href="destinations.html" class="active">Destinations</a></li>
+        <li><a href="tours.html">Tours</a></li>
+        <li><a href="kilimanjaro.html">Kilimanjaro</a></li>
+        <li><a href="zanzibar.html">Zanzibar</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html" class="nav-book">Enquire Now</a></li>
+      </ul>
+      <button class="ham" id="ham">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <nav class="mob-menu" id="mob-menu">
+      <a href="../index.html">Home</a><a href="../about.html">About</a>
+      <a href="destinations.html">Destinations</a><a href="tours.html">Tours</a>
+      <a href="kilimanjaro.html">Kilimanjaro</a
+      ><a href="zanzibar.html">Zanzibar</a> <a href="gallery.html">Gallery</a
+      ><a href="contact.html" style="color: var(--gold)">Enquire Now</a>
+    </nav>
 
-      <!-- NGORONGORO -->
-      <a href="../pages/destinations/ngorongoro.html" style="text-decoration:none;" class="dest-card">
-        <img src="../images/4.webp" alt="Ngorongoro" loading="lazy" />
-        <div class="dest-badge badge-gold"><i class="fa-solid fa-crown"></i> Must Visit</div>
-        <div class="dest-info">
-          <div class="dest-name">Ngorongoro Crater</div>
-          <div class="dest-region"><i class="fa-solid fa-location-dot"></i> Conservation Area · UNESCO Heritage</div>
-          <div class="dest-desc">Africa's largest intact caldera housing over 25,000 mammals. Spot all of the Big Five
-            in a single extraordinary day on the crater floor.</div>
+    <!-- PAGE HEADER -->
+    <header
+      class="page-header"
+      style="background-image: url(&quot;../images/16.webp&quot;)"
+    >
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a
+        ><i class="fa-solid fa-chevron-right"></i>Destinations
+      </div>
+      <div class="section-tag">Where We Take You</div>
+      <h1 class="section-title" style="font-size: clamp(2.5rem, 6vw, 4.5rem)">
+        Iconic <em>Destinations</em>
+      </h1>
+      <p class="section-sub" style="max-width: 600px; margin: 0.8rem auto 0">
+        Five legendary national parks and conservation areas, one extraordinary
+        island — each a world entirely unto itself, waiting to be explored.
+      </p>
+    </header>
+
+    <!-- DESTINATIONS GRID OVERVIEW -->
+    <section class="dest-section" style="background: var(--dark2)">
+      <div class="dest-header reveal">
+        <div>
+          <div class="section-tag">Tanzania's Crown Jewels</div>
+          <h2 class="section-title">All <em>Destinations</em></h2>
         </div>
-        <div class="dest-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-      </a>
-
-      <!-- TARANGIRE -->
-      <a href="../pages/destinations/tarangire.html" style="text-decoration:none;" class="dest-card">
-        <img src="../images/5.webp" alt="Tarangire" loading="lazy" />
-        <div class="dest-badge badge-green"><i class="fa-solid fa-gem"></i> Hidden Gem</div>
-        <div class="dest-info">
-          <div class="dest-name">Tarangire National Park</div>
-          <div class="dest-region"><i class="fa-solid fa-location-dot"></i> Northern Tanzania</div>
-          <div class="dest-desc">Ancient baobabs and Africa's largest elephant herds roam alongside the life-giving
-            Tarangire River in this spectacular and often under-visited park.</div>
-        </div>
-        <div class="dest-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-      </a>
-
-      <!-- LAKE MANYARA -->
-      <a href="../pages/destinations/lake-manyara.html" style="text-decoration:none;" class="dest-card">
-        <img src="../images/6.webp" alt="Lake Manyara" loading="lazy" />
-        <div class="dest-badge badge-blue"><i class="fa-solid fa-binoculars"></i> Birdwatcher's Paradise</div>
-        <div class="dest-info">
-          <div class="dest-name">Lake Manyara</div>
-          <div class="dest-region"><i class="fa-solid fa-location-dot"></i> Rift Valley · Northern Tanzania</div>
-          <div class="dest-desc">Famous for tree-climbing lions and vast flocks of pink flamingos. Over 400 bird species
-            thrive in this compact yet extraordinarily diverse park.</div>
-        </div>
-        <div class="dest-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-      </a>
-
-      <!-- KILIMANJARO -->
-      <a href="../pages/destinations/kilimanjaro-destination.html" style="text-decoration:none;" class="dest-card">
-        <img src="../images/7.webp" alt="Kilimanjaro" loading="lazy" />
-        <div class="dest-badge badge-purple"><i class="fa-solid fa-mountain-sun"></i> Bucket List</div>
-        <div class="dest-info">
-          <div class="dest-name">Kilimanjaro National Park</div>
-          <div class="dest-region"><i class="fa-solid fa-location-dot"></i> Roof of Africa · 5,895 m</div>
-          <div class="dest-desc">Africa's highest peak, crowned in glaciers — a bucket-list climb through five
-            ecological zones to the legendary Uhuru Peak at dawn.</div>
-        </div>
-        <div class="dest-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- DETAILED DESTINATION CARDS -->
-  <section style="background:var(--dark);padding:7rem 8%;">
-    <div style="text-align:center;max-width:600px;margin:0 auto 3.5rem;" class="reveal">
-      <div class="section-tag">In-Depth Profiles</div>
-      <h2 class="section-title">Know Your <em>Destination</em></h2>
-      <p class="section-sub">Everything you need to know before you go — wildlife, best times, what to expect.</p>
-    </div>
-    <div class="dest-cards-grid" id="dest-cards-container">
-
-      <!-- CARD 1 · SERENGETI · visible by default -->
-      <div class="dest-full-card reveal" data-card="1">
-        <div class="card-img"><img src="../images/17.webp" alt="Serengeti National Park" loading="lazy" /></div>
-        <div class="card-body">
-          <div class="card-badge card-badge-fire"><i class="fa-solid fa-fire"></i> Most Popular</div>
-          <div class="card-meta">
-            <span><i class="fa-solid fa-location-dot"></i> Northern Tanzania</span>
-            <span><i class="fa-solid fa-star"></i> UNESCO Heritage</span>
-          </div>
-          <a href="../pages/destinations/serengeti.html" style="text-decoration:none;color:var(--white);">
-            <h3 style="transition:color .3s;" onmouseover="this.style.color='var(--gold)'"
-              onmouseout="this.style.color='var(--white)'">Serengeti National Park <i
-                class="fa-solid fa-arrow-up-right-from-square" style="font-size:.7rem;opacity:.6;"></i></h3>
-          </a>
-          <p>Tanzania's most celebrated park covers 14,763 km² of endless golden savannah, acacia woodland and rocky
-            kopjes. Home to the world-famous Great Migration and all of the Big Five.</p>
-          <div class="card-facts">
-            <div class="card-fact"><i class="fa-solid fa-calendar-days"></i> Best time: June–October &amp; Jan–Feb (calving)</div>
-            <div class="card-fact"><i class="fa-solid fa-paw"></i> Wildlife: Wildebeest, lion, leopard, cheetah, elephant, buffalo, rhino</div>
-            <div class="card-fact"><i class="fa-solid fa-binoculars"></i> Experience: Great Migration, balloon safaris, game drives</div>
-            <div class="card-fact"><i class="fa-solid fa-bed"></i> Stay: Tented camps inside the park for best wildlife access</div>
-          </div>
-          <a href="../pages/destinations/serengeti.html" class="btn btn-ghost" style="margin-top:1.2rem;width:100%;justify-content:center;">
-            <i class="fa-solid fa-binoculars"></i> Explore Serengeti
-          </a>
-        </div>
+        <p class="section-sub" style="max-width: 400px">
+          Every park. Every landscape. Every story — explored in-depth below.
+        </p>
       </div>
+      <div class="dest-grid reveal">
+        <!-- SERENGETI — spans 2 cols -->
+        <a
+          href="../pages/destinations/serengeti.html"
+          style="text-decoration: none"
+          class="dest-card"
+        >
+          <img src="../images/3.webp" alt="Serengeti" loading="lazy" />
+          <div class="dest-badge badge-fire">
+            <i class="fa-solid fa-fire"></i> Most Popular
+          </div>
+          <div class="dest-info">
+            <div class="dest-name">Serengeti National Park</div>
+            <div class="dest-region">
+              <i class="fa-solid fa-location-dot"></i> Northern Tanzania ·
+              UNESCO World Heritage
+            </div>
+            <div class="dest-desc">
+              Endless plains teeming with wildlife. Witness the Great Migration
+              — over 1.5 million wildebeest, zebras and gazelles in Earth's
+              greatest natural spectacle, year after remarkable year.
+            </div>
+          </div>
+          <div class="dest-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        </a>
 
-      <!-- CARD 2 · NGORONGORO · visible by default -->
-      <div class="dest-full-card reveal delay-1" data-card="2">
-        <div class="card-img"><img src="../images/4.webp" alt="Ngorongoro Crater" loading="lazy" /></div>
-        <div class="card-body">
-          <div class="card-badge card-badge-gold"><i class="fa-solid fa-crown"></i> Must Visit</div>
-          <div class="card-meta">
-            <span><i class="fa-solid fa-location-dot"></i> Conservation Area</span>
-            <span><i class="fa-solid fa-star"></i> UNESCO Heritage</span>
+        <!-- NGORONGORO -->
+        <a
+          href="../pages/destinations/ngorongoro.html"
+          style="text-decoration: none"
+          class="dest-card"
+        >
+          <img src="../images/4.webp" alt="Ngorongoro" loading="lazy" />
+          <div class="dest-badge badge-gold">
+            <i class="fa-solid fa-crown"></i> Must Visit
           </div>
-          <a href="../pages/destinations/ngorongoro.html" style="text-decoration:none;color:var(--white);">
-            <h3 style="transition:color .3s;" onmouseover="this.style.color='var(--gold)'"
-              onmouseout="this.style.color='var(--white)'">Ngorongoro Crater <i
-                class="fa-solid fa-arrow-up-right-from-square" style="font-size:.7rem;opacity:.6;"></i></h3>
-          </a>
-          <p>The world's largest intact volcanic caldera, 19 km across and 600 m deep, supporting over 25,000 mammals
-            including one of Africa's densest lion populations and rare black rhino.</p>
-          <div class="card-facts">
-            <div class="card-fact"><i class="fa-solid fa-calendar-days"></i> Best time: Year-round — wildlife density consistently exceptional</div>
-            <div class="card-fact"><i class="fa-solid fa-paw"></i> Wildlife: All Big Five including rare black rhino, flamingos</div>
-            <div class="card-fact"><i class="fa-solid fa-binoculars"></i> Experience: Full-day crater floor game drive, Maasai visits</div>
-            <div class="card-fact"><i class="fa-solid fa-bed"></i> Stay: Crater rim lodges with spectacular sunrise views</div>
+          <div class="dest-info">
+            <div class="dest-name">Ngorongoro Crater</div>
+            <div class="dest-region">
+              <i class="fa-solid fa-location-dot"></i> Conservation Area ·
+              UNESCO Heritage
+            </div>
+            <div class="dest-desc">
+              Africa's largest intact caldera housing over 25,000 mammals. Spot
+              all of the Big Five in a single extraordinary day on the crater
+              floor.
+            </div>
           </div>
-          <a href="../pages/destinations/ngorongoro.html" class="btn btn-ghost" style="margin-top:1.2rem;width:100%;justify-content:center;">
-            <i class="fa-solid fa-binoculars"></i> Explore Ngorongoro
-          </a>
-        </div>
-      </div>
+          <div class="dest-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        </a>
 
-      <!-- CARD 3 · TARANGIRE · visible by default -->
-      <div class="dest-full-card reveal delay-2" data-card="3">
-        <div class="card-img"><img src="../images/18.webp" alt="Tarangire National Park" loading="lazy" /></div>
-        <div class="card-body">
-          <div class="card-badge card-badge-green"><i class="fa-solid fa-gem"></i> Hidden Gem</div>
-          <div class="card-meta">
-            <span><i class="fa-solid fa-location-dot"></i> Northern Tanzania</span>
-            <span><i class="fa-solid fa-elephant"></i> Elephant Capital</span>
+        <!-- TARANGIRE -->
+        <a
+          href="../pages/destinations/tarangire.html"
+          style="text-decoration: none"
+          class="dest-card"
+        >
+          <img src="../images/5.webp" alt="Tarangire" loading="lazy" />
+          <div class="dest-badge badge-green">
+            <i class="fa-solid fa-gem"></i> Hidden Gem
           </div>
-          <a href="../pages/destinations/tarangire.html" style="text-decoration:none;color:var(--white);">
-            <h3 style="transition:color .3s;" onmouseover="this.style.color='var(--gold)'"
-              onmouseout="this.style.color='var(--white)'">Tarangire National Park <i
-                class="fa-solid fa-arrow-up-right-from-square" style="font-size:.7rem;opacity:.6;"></i></h3>
-          </a>
-          <p>Tanzania's hidden gem — ancient baobab trees, seasonal swamps, and Africa's largest elephant herds
-            (often 300+ in a single group) with far fewer tourists than the Serengeti.</p>
-          <div class="card-facts">
-            <div class="card-fact"><i class="fa-solid fa-calendar-days"></i> Best time: June–October (dry season, peak wildlife concentration)</div>
-            <div class="card-fact"><i class="fa-solid fa-paw"></i> Wildlife: Elephants, lions, leopards, oryx, wildebeest, zebra</div>
-            <div class="card-fact"><i class="fa-solid fa-binoculars"></i> Experience: Baobab landscapes, walking safaris, night drives</div>
-            <div class="card-fact"><i class="fa-solid fa-bed"></i> Stay: Tented camps near the river for best elephant sightings</div>
+          <div class="dest-info">
+            <div class="dest-name">Tarangire National Park</div>
+            <div class="dest-region">
+              <i class="fa-solid fa-location-dot"></i> Northern Tanzania
+            </div>
+            <div class="dest-desc">
+              Ancient baobabs and Africa's largest elephant herds roam alongside
+              the life-giving Tarangire River in this spectacular and often
+              under-visited park.
+            </div>
           </div>
-          <a href="../pages/destinations/tarangire.html" class="btn btn-ghost" style="margin-top:1.2rem;width:100%;justify-content:center;">
-            <i class="fa-solid fa-binoculars"></i> Explore Tarangire
-          </a>
-        </div>
-      </div>
+          <div class="dest-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        </a>
 
-      <!-- CARD 4 · LAKE MANYARA · hidden initially -->
-      <div class="dest-full-card reveal hidden-card" data-card="4">
-        <div class="card-img"><img src="../images/19.webp" alt="Lake Manyara" loading="lazy" /></div>
-        <div class="card-body">
-          <div class="card-badge card-badge-blue"><i class="fa-solid fa-binoculars"></i> Birdwatcher's Paradise</div>
-          <div class="card-meta">
-            <span><i class="fa-solid fa-location-dot"></i> Rift Valley</span>
-            <span><i class="fa-solid fa-feather"></i> 400+ Bird Species</span>
+        <!-- LAKE MANYARA -->
+        <a
+          href="../pages/destinations/lake-manyara.html"
+          style="text-decoration: none"
+          class="dest-card"
+        >
+          <img src="../images/6.webp" alt="Lake Manyara" loading="lazy" />
+          <div class="dest-badge badge-blue">
+            <i class="fa-solid fa-binoculars"></i> Birdwatcher's Paradise
           </div>
-          <a href="../pages/destinations/lake-manyara.html" style="text-decoration:none;color:var(--white);">
-            <h3 style="transition:color .3s;" onmouseover="this.style.color='var(--gold)'"
-              onmouseout="this.style.color='var(--white)'">Lake Manyara <i
-                class="fa-solid fa-arrow-up-right-from-square" style="font-size:.7rem;opacity:.6;"></i></h3>
-          </a>
-          <p>Compact but incredibly diverse — famous for tree-climbing lions, vast flamingo flocks, hippos, and over
-            400 bird species along the dramatic Rift Valley escarpment.</p>
-          <div class="card-facts">
-            <div class="card-fact"><i class="fa-solid fa-calendar-days"></i> Best time: June–October; flamingos best Nov–June</div>
-            <div class="card-fact"><i class="fa-solid fa-paw"></i> Wildlife: Tree-climbing lions, flamingos, elephants, hippos</div>
-            <div class="card-fact"><i class="fa-solid fa-binoculars"></i> Experience: Birdwatching, forest drives, tree-climbing lion search</div>
-            <div class="card-fact"><i class="fa-solid fa-bed"></i> Stay: Lodges on the escarpment with panoramic lake views</div>
+          <div class="dest-info">
+            <div class="dest-name">Lake Manyara</div>
+            <div class="dest-region">
+              <i class="fa-solid fa-location-dot"></i> Rift Valley · Northern
+              Tanzania
+            </div>
+            <div class="dest-desc">
+              Famous for tree-climbing lions and vast flocks of pink flamingos.
+              Over 400 bird species thrive in this compact yet extraordinarily
+              diverse park.
+            </div>
           </div>
-          <a href="../pages/destinations/lake-manyara.html" class="btn btn-ghost" style="margin-top:1.2rem;width:100%;justify-content:center;">
-            <i class="fa-solid fa-binoculars"></i> Explore Lake Manyara
-          </a>
-        </div>
-      </div>
+          <div class="dest-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        </a>
 
-      <!-- CARD 5 · ZANZIBAR · hidden initially -->
-      <div class="dest-full-card reveal delay-1 hidden-card" data-card="5">
-        <div class="card-img"><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=700&q=80"
-            alt="Zanzibar" loading="lazy" /></div>
-        <div class="card-body">
-          <div class="card-badge card-badge-teal"><i class="fa-solid fa-umbrella-beach"></i> Beach Paradise</div>
-          <div class="card-meta">
-            <span><i class="fa-solid fa-location-dot"></i> Indian Ocean Island</span>
-            <span><i class="fa-solid fa-umbrella-beach"></i> Beach Paradise</span>
+        <!-- KILIMANJARO -->
+        <a
+          href="../pages/destinations/kilimanjaro-destination.html"
+          style="text-decoration: none"
+          class="dest-card"
+        >
+          <img src="../images/7.webp" alt="Kilimanjaro" loading="lazy" />
+          <div class="dest-badge badge-purple">
+            <i class="fa-solid fa-mountain-sun"></i> Bucket List
           </div>
-          <a href="../pages/destinations/zanzibar-destination.html" style="text-decoration:none;color:var(--white);">
-            <h3 style="transition:color .3s;" onmouseover="this.style.color='var(--gold)'"
-              onmouseout="this.style.color='var(--white)'">Zanzibar Archipelago <i
-                class="fa-solid fa-arrow-up-right-from-square" style="font-size:.7rem;opacity:.6;"></i></h3>
-          </a>
-          <p>Turquoise Indian Ocean waters, powder-white beaches, UNESCO Stone Town, coral reefs sheltering sea turtles
-            and whale sharks — the perfect safari extension.</p>
-          <div class="card-facts">
-            <div class="card-fact"><i class="fa-solid fa-calendar-days"></i> Best time: June–October &amp; December–February</div>
-            <div class="card-fact"><i class="fa-solid fa-fish"></i> Activities: Diving, snorkelling, spice tours, Stone Town walks</div>
-            <div class="card-fact"><i class="fa-solid fa-binoculars"></i> Highlights: Sea turtles, whale sharks, coral reefs, sunsets</div>
-            <div class="card-fact"><i class="fa-solid fa-bed"></i> Stay: Boutique beach resorts from Nungwi to Paje</div>
+          <div class="dest-info">
+            <div class="dest-name">Kilimanjaro National Park</div>
+            <div class="dest-region">
+              <i class="fa-solid fa-location-dot"></i> Roof of Africa · 5,895 m
+            </div>
+            <div class="dest-desc">
+              Africa's highest peak, crowned in glaciers — a bucket-list climb
+              through five ecological zones to the legendary Uhuru Peak at dawn.
+            </div>
           </div>
-          <a href="../pages/destinations/zanzibar-destination.html" class="btn btn-ghost" style="margin-top:1.2rem;width:100%;justify-content:center;">
-            <i class="fa-solid fa-umbrella-beach"></i> Explore Zanzibar
-          </a>
-        </div>
-      </div>
-
-      <!-- CARD 6 · KILIMANJARO · hidden initially -->
-      <div class="dest-full-card reveal delay-2 hidden-card" data-card="6">
-        <div class="card-img"><img src="../images/7.webp" alt="Mount Kilimanjaro" loading="lazy" /></div>
-        <div class="card-body">
-          <div class="card-badge card-badge-purple"><i class="fa-solid fa-mountain-sun"></i> Bucket List</div>
-          <div class="card-meta">
-            <span><i class="fa-solid fa-location-dot"></i> Northern Tanzania</span>
-            <span><i class="fa-solid fa-mountain"></i> 5,895 m Summit</span>
-          </div>
-          <a href="../pages/destinations/kilimanjaro-destination.html" style="text-decoration:none;color:var(--white);">
-            <h3 style="transition:color .3s;" onmouseover="this.style.color='var(--gold)'"
-              onmouseout="this.style.color='var(--white)'">Mount Kilimanjaro <i
-                class="fa-solid fa-arrow-up-right-from-square" style="font-size:.7rem;opacity:.6;"></i></h3>
-          </a>
-          <p>Africa's highest point — a bucket-list trek through five ecological zones to Uhuru Peak at 5,895 m.
-            No technical climbing required. A 95% summit success rate with our expert guides.</p>
-          <div class="card-facts">
-            <div class="card-fact"><i class="fa-solid fa-calendar-days"></i> Best time: January–March &amp; June–October</div>
-            <div class="card-fact"><i class="fa-solid fa-person-hiking"></i> Routes: Machame, Lemosho, Rongai, Marangu, Umbwe</div>
-            <div class="card-fact"><i class="fa-solid fa-trophy"></i> Duration: 5–9 days depending on route</div>
-            <div class="card-fact"><i class="fa-solid fa-shield-halved"></i> Success rate: 95% with Seresafari's expert guides</div>
-          </div>
-          <a href="../pages/destinations/kilimanjaro-destination.html" class="btn btn-ghost" style="margin-top:1.2rem;width:100%;justify-content:center;">
-            <i class="fa-solid fa-mountain"></i> Explore Kilimanjaro
-          </a>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- LOAD MORE / SHOW LESS -->
-    <div class="load-more-wrap reveal" id="load-more-wrap">
-      <div class="load-progress-bar">
-        <div class="load-progress-fill" id="load-progress-fill" style="width:50%;"></div>
-      </div>
-      <p class="load-more-count" id="load-more-count">Showing <span id="shown-count">3</span> of <span id="total-count">6</span> destinations</p>
-      <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
-        <button class="btn btn-ghost" id="load-more-btn">
-          <span class="btn-inner"><i class="fa-solid fa-plus"></i> Load More Destinations</span>
-        </button>
-        <button class="btn btn-outline" id="show-less-btn">
-          <span class="btn-inner"><i class="fa-solid fa-chevron-up"></i> Show Less</span>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- BEST TIME TO VISIT -->
-  <section style="background:var(--earth);padding:7rem 8%;">
-    <div style="text-align:center;max-width:600px;margin:0 auto 3.5rem;" class="reveal">
-      <div class="section-tag">Plan Smarter</div>
-      <h2 class="section-title">Best Time to <em>Visit Tanzania</em></h2>
-      <p class="section-sub">Tanzania is a year-round destination. Each season offers unique wildlife experiences —
-        here's how to choose your perfect timing.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;" class="reveal">
-      <div style="background:var(--dark2);padding:2rem;border:1px solid rgba(201,150,58,.15);">
-        <div style="color:var(--gold);font-size:1.8rem;margin-bottom:1rem;"><i class="fa-solid fa-sun"></i></div>
-        <div style="font-family:var(--ff-head);font-size:1rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--white);margin-bottom:.5rem;">June – October</div>
-        <div style="font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;">Dry Season · Peak Safari</div>
-        <p style="font-size:.83rem;line-height:1.7;color:var(--text);">The best time for wildlife viewing. Animals
-          congregate around water sources, vegetation is low for easier spotting, and the Great Migration river crossings
-          happen in the Mara River (July–September).</p>
-      </div>
-      <div style="background:var(--dark2);padding:2rem;border:1px solid rgba(201,150,58,.15);">
-        <div style="color:var(--gold);font-size:1.8rem;margin-bottom:1rem;"><i class="fa-solid fa-cloud-sun-rain"></i></div>
-        <div style="font-family:var(--ff-head);font-size:1rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--white);margin-bottom:.5rem;">November – December</div>
-        <div style="font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;">Short Rains · Green Season</div>
-        <p style="font-size:.83rem;line-height:1.7;color:var(--text);">Short rains bring lush green landscapes and fewer
-          crowds. Excellent birdwatching as migratory species arrive. Prices are lower and lodges less busy.</p>
-      </div>
-      <div style="background:var(--dark2);padding:2rem;border:1px solid rgba(201,150,58,.15);">
-        <div style="color:var(--gold);font-size:1.8rem;margin-bottom:1rem;"><i class="fa-solid fa-baby"></i></div>
-        <div style="font-family:var(--ff-head);font-size:1rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--white);margin-bottom:.5rem;">January – February</div>
-        <div style="font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;">Calving Season · Predator Action</div>
-        <p style="font-size:.83rem;line-height:1.7;color:var(--text);">The Great Wildebeest Calving season unfolds on
-          the Southern Serengeti. Up to 8,000 calves born each day, attracting an extraordinary concentration of
-          predators.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="book-section" style="padding:7rem 8%;text-align:center;">
-    <div class="book-bg"></div>
-    <div class="book-inner reveal">
-      <div class="section-tag" style="justify-content:center;">Ready to Go?</div>
-      <h2 style="font-family:var(--ff-head);font-size:clamp(2rem,5vw,3.5rem);font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--white);margin-bottom:.8rem;">
-        Plan Your <em style="color:var(--gold);font-style:normal;">Tanzania Adventure</em></h2>
-      <p style="color:var(--text);max-width:520px;margin:0 auto 2rem;">Our expert team will craft a personalised
-        itinerary combining your favourite destinations — completely tailored to your timeline, budget and travel style.</p>
-      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-        <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Send an Enquiry</a>
-        <a href="tours.html" class="btn btn-outline"><i class="fa-solid fa-compass"></i> Browse All Tours</a>
-      </div>
-      <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
-        <a href="../community.html" class="btn btn-outline">
-          <i class="fa-solid fa-hand-holding-heart"></i> Our Community Commitment
+          <div class="dest-arrow"><i class="fa-solid fa-arrow-right"></i></div>
         </a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="../index.html" class="logo">SERE<span>SAFARI</span></a>
-        <p class="footer-tagline">Creating unforgettable safari experiences in the heart of Africa. Expert guides.
-          Hand-picked lodges. Hakuna Matata.</p>
-        <div class="footer-social">
-          <a href="https://www.facebook.com/Seresafari/" target="_blank" rel="noopener" class="soc-btn"><i
-              class="fa-brands fa-facebook-f"></i></a>
-          <a href="#" class="soc-btn"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#" class="soc-btn"><i class="fa-brands fa-x-twitter"></i></a>
-          <a href="#" class="soc-btn"><i class="fa-brands fa-youtube"></i></a>
-        </div>
+    <!-- DETAILED DESTINATION CARDS -->
+    <section style="background: var(--dark); padding: 7rem 8%">
+      <div
+        style="text-align: center; max-width: 600px; margin: 0 auto 3.5rem"
+        class="reveal"
+      >
+        <div class="section-tag">In-Depth Profiles</div>
+        <h2 class="section-title">Know Your <em>Destination</em></h2>
+        <p class="section-sub">
+          Everything you need to know before you go — wildlife, best times, what
+          to expect.
+        </p>
       </div>
-      <div class="footer-col">
-        <h4>Destinations</h4>
-        <ul class="footer-links">
-          <li><a href="serengeti.html"><i class="fa-solid fa-chevron-right"></i>Serengeti National Park</a></li>
-          <li><a href="ngorongoro.html"><i class="fa-solid fa-chevron-right"></i>Ngorongoro Crater</a></li>
-          <li><a href="tarangire.html"><i class="fa-solid fa-chevron-right"></i>Tarangire National Park</a></li>
-          <li><a href="lake-manyara.html"><i class="fa-solid fa-chevron-right"></i>Lake Manyara</a></li>
-          <li><a href="kilimanjaro-destination.html"><i class="fa-solid fa-chevron-right"></i>Mount Kilimanjaro</a></li>
-          <li><a href="zanzibar-destination.html"><i class="fa-solid fa-chevron-right"></i>Zanzibar Island</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Our Tours</h4>
-        <ul class="footer-links">
-          <li><a href="tours.html"><i class="fa-solid fa-chevron-right"></i>Tanzania Classic Safari</a></li>
-          <li><a href="tours.html"><i class="fa-solid fa-chevron-right"></i>Serengeti &amp; Ngorongoro</a></li>
-          <li><a href="tours.html"><i class="fa-solid fa-chevron-right"></i>Fly-In Luxury Safari</a></li>
-          <li><a href="kilimanjaro.html"><i class="fa-solid fa-chevron-right"></i>Kilimanjaro Climbs</a></li>
-          <li><a href="zanzibar.html"><i class="fa-solid fa-chevron-right"></i>Zanzibar Beach Holidays</a></li>
-          <li><a href="tours.html"><i class="fa-solid fa-chevron-right"></i>Bespoke Private Safari</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact Us</h4>
-        <ul class="footer-contact">
-          <li><span class="fc-ico"><i class="fa-solid fa-location-dot"></i></span>Arusha, Tanzania 23100<br />Safari Capital of East Africa</li>
-          <li><span class="fc-ico"><i class="fa-solid fa-phone"></i></span><a href="tel:+255690318461" style="color:var(--text);">+255 690 318 461</a></li>
-          <li><span class="fc-ico"><i class="fa-solid fa-envelope"></i></span><a href="mailto:info@seresafariafrica.com" style="color:var(--text);">info@seresafariafrica.com</a></li>
-          <li><span class="fc-ico"><i class="fa-solid fa-globe"></i></span>seresafariafrica.com</li>
-          <li><span class="fc-ico"><i class="fa-solid fa-clock"></i></span>Mon–Sat: 8:00 AM – 6:00 PM EAT</li>
-        </ul>
-      </div>
-      <div class="footer-badges">
-        <video class="footer-plane-video" autoplay muted loop playsinline>
-          <source src="../images/jeep.mp4" type="video/mp4">
-        </video>
-        <div class="footer-badge-row">
-          <p class="badge-label">We Accept</p>
-          <div class="badge-items">
-            <a href="https://shop.directpay.online/paymybills/SERESAFARIAFRICATOURSCOMPANYLIMITED"
-              target="_blank" rel="noopener noreferrer">
-              <img src="../images/visa.png" alt="Visa accepted" class="payment-badge">
+      <div class="dest-cards-grid" id="dest-cards-container">
+        <!-- CARD 1 · SERENGETI · visible by default -->
+        <div class="dest-full-card reveal" data-card="1">
+          <div class="card-img">
+            <img
+              src="../images/17.webp"
+              alt="Serengeti National Park"
+              loading="lazy"
+            />
+          </div>
+          <div class="card-body">
+            <div class="card-badge card-badge-fire">
+              <i class="fa-solid fa-fire"></i> Most Popular
+            </div>
+            <div class="card-meta">
+              <span
+                ><i class="fa-solid fa-location-dot"></i> Northern
+                Tanzania</span
+              >
+              <span><i class="fa-solid fa-star"></i> UNESCO Heritage</span>
+            </div>
+            <a
+              href="../pages/destinations/serengeti.html"
+              style="text-decoration: none; color: var(--white)"
+            >
+              <h3
+                style="transition: color 0.3s"
+                onmouseover="this.style.color = 'var(--gold)'"
+                onmouseout="this.style.color = 'var(--white)'"
+              >
+                Serengeti National Park
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square"
+                  style="font-size: 0.7rem; opacity: 0.6"
+                ></i>
+              </h3>
+            </a>
+            <p>
+              Tanzania's most celebrated park covers 14,763 km² of endless
+              golden savannah, acacia woodland and rocky kopjes. Home to the
+              world-famous Great Migration and all of the Big Five.
+            </p>
+            <div class="card-facts">
+              <div class="card-fact">
+                <i class="fa-solid fa-calendar-days"></i> Best time:
+                June–October &amp; Jan–Feb (calving)
+              </div>
+              <div class="card-fact">
+                <i class="fa-solid fa-paw"></i> Wildlife: Wildebeest, lion,
+                leopard, cheetah, elephant, buffalo, rhino
+              </div>
+              <div class="card-fact">
+                <i class="fa-solid fa-binoculars"></i> Experience: Great
+                Migration, balloon safaris, game drives
+              </div>
+              <div class="card-fact">
+                <i class="fa-solid fa-bed"></i> Stay: Tented camps inside the
+                park for best wildlife access
+              </div>
+            </div>
+            <a
+              href="../pages/destinations/serengeti.html"
+              class="btn btn-ghost"
+              style="margin-top: 1.2rem; width: 100%; justify-content: center"
+            >
+              <i class="fa-solid fa-binoculars"></i> Explore Serengeti
             </a>
           </div>
         </div>
-        <div class="footer-badge-row">
-          <p class="badge-label">Find Us On</p>
-          <div class="badge-items">
-            <a href="https://www.tripadvisor.com/Attraction_Review-g297913-d28413189-Reviews-Seresafari_Africa_Tours-Arusha_Arusha_Region.html"
-              target="_blank" rel="noopener" class="review-badge">
-              <img src="../images/tripadvisor.svg" alt="TripAdvisor" class="platform-logo">
+
+        <!-- CARD 2 · NGORONGORO · visible by default -->
+        <div class="dest-full-card reveal delay-1" data-card="2">
+          <div class="card-img">
+            <img
+              src="../images/4.webp"
+              alt="Ngorongoro Crater"
+              loading="lazy"
+            />
+          </div>
+          <div class="card-body">
+            <div class="card-badge card-badge-gold">
+              <i class="fa-solid fa-crown"></i> Must Visit
+            </div>
+            <div class="card-meta">
+              <span
+                ><i class="fa-solid fa-location-dot"></i> Conservation
+                Area</span
+              >
+              <span><i class="fa-solid fa-star"></i> UNESCO Heritage</span>
+            </div>
+            <a
+              href="../pages/destinations/ngorongoro.html"
+              style="text-decoration: none; color: var(--white)"
+            >
+              <h3
+                style="transition: color 0.3s"
+                onmouseover="this.style.color = 'var(--gold)'"
+                onmouseout="this.style.color = 'var(--white)'"
+              >
+                Ngorongoro Crater
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square"
+                  style="font-size: 0.7rem; opacity: 0.6"
+                ></i>
+              </h3>
             </a>
-            <a href="https://www.getyourguide.com/seresafari-africa-s583425/" target="_blank" rel="noopener" class="review-badge">
-              <img src="../images/getyourguide.svg" alt="GetYourGuide" class="platform-logo">
+            <p>
+              The world's largest intact volcanic caldera, 19 km across and 600
+              m deep, supporting over 25,000 mammals including one of Africa's
+              densest lion populations and rare black rhino.
+            </p>
+            <div class="card-facts">
+              <div class="card-fact">
+                <i class="fa-solid fa-calendar-days"></i> Best time: Year-round
+                — wildlife density consistently exceptional
+              </div>
+              <div class="card-fact">
+                <i class="fa-solid fa-paw"></i> Wildlife: All Big Five including
+                rare black rhino, flamingos
+              </div>
+              <div class="card-fact">
+                <i class="fa-solid fa-binoculars"></i> Experience: Full-day
+                crater floor game drive, Maasai visits
+              </div>
+              <div class="card-fact">
+                <i class="fa-solid fa-bed"></i> Stay: Crater rim lodges with
+                spectacular sunrise views
+              </div>
+            </div>
+            <a
+              href="../pages/destinations/ngorongoro.html"
+              class="btn btn-ghost"
+              style="margin-top: 1.2rem; width: 100%; justify-content: center"
+            >
+              <i class="fa-solid fa-binoculars"></i> Explore Ngorongoro
             </a>
-            <a href="https://www.safarigo.com/operator/seresafari-africa-tours-3208" target="_blank" rel="noopener" class="review-badge">
-              <img src="../images/safarigo.png" alt="SafariGo" class="platform-logo">
+          </div>
+        </div>
+
+        <!-- CARD 3 · TARANGIRE · visible by default -->
+        <div class="dest-full-card reveal delay-2" data-card="3">
+          <div class="card-img">
+            <img
+              src="../images/18.webp"
+              alt="Tarangire National Park"
+              loading="lazy"
+            />
+          </div>
+          <div class="card-body">
+            <div class="card-badge card-badge-green">
+              <i class="fa-solid fa-gem"></i> Hidden Gem
+            </div>
+            <div class="card-meta">
+              <span
+                ><i class="fa-solid fa-location-dot"></i> Northern
+                Tanzania</span
+              >
+              <span><i class="fa-solid fa-elephant"></i> Elephant Capital</span>
+            </div>
+            <a
+              href="../pages/destinations/tarangire.html"
+              style="text-decoration: none; color: var(--white)"
+            >
+              <h3
+                style="transition: color 0.3s"
+                onmouseover="this.style.color = 'var(--gold)'"
+                onmouseout="this.style.color = 'var(--white)'"
+              >
+                Tarangire National Park
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square"
+                  style="font-size: 0.7rem; opacity: 0.6"
+                ></i>
+              </h3>
             </a>
-            <a href="https://tourist.com/p/15564/seresafari_africa" target="_blank" rel="noopener" class="review-badge">
-              <img src="../images/tourist.svg" alt="Tourist.com" class="platform-logo">
+            <p>
+              Tanzania's hidden gem — ancient baobab trees, seasonal swamps, and
+              Africa's largest elephant herds (often 300+ in a single group)
+              with far fewer tourists than the Serengeti.
+            </p>
+            <div class="card-facts">
+              <div class="card-fact">
+                <i class="fa-solid fa-calendar-days"></i> Best time:
+                June–October (dry season, peak wildlife concentration)
+              </div>
+              <div class="card-fact">
+                <i class="fa-solid fa-paw"></i> Wildlife: Elephants, lions,
+                leopards, oryx, wildebeest, zebra
+              </div>
+              <div class="card-fact">
+                <i class="fa-solid fa-binoculars"></i> Experience: Baobab
+                landscapes, walking safaris, night drives
+              </div>
+              <div class="card-fact">
+                <i class="fa-solid fa-bed"></i> Stay: Tented camps near the
+                river for best elephant sightings
+              </div>
+            </div>
+            <a
+              href="../pages/destinations/tarangire.html"
+              class="btn btn-ghost"
+              style="margin-top: 1.2rem; width: 100%; justify-content: center"
+            >
+              <i class="fa-solid fa-binoculars"></i> Explore Tarangire
             </a>
-            <a href="https://www.safaribookings.com/p7682" target="_blank" rel="noopener" class="review-badge">
-              <img src="../images/safaribookings.png" alt="SafariBookings" class="platform-logo">
+          </div>
+        </div>
+
+        <!-- CARD 4 · LAKE MANYARA · hidden initially -->
+        <div class="dest-full-card reveal hidden-card" data-card="4">
+          <div class="card-img">
+            <img src="../images/19.webp" alt="Lake Manyara" loading="lazy" />
+          </div>
+          <div class="card-body">
+            <div class="card-badge card-badge-blue">
+              <i class="fa-solid fa-binoculars"></i> Birdwatcher's Paradise
+            </div>
+            <div class="card-meta">
+              <span><i class="fa-solid fa-location-dot"></i> Rift Valley</span>
+              <span><i class="fa-solid fa-feather"></i> 400+ Bird Species</span>
+            </div>
+            <a
+              href="../pages/destinations/lake-manyara.html"
+              style="text-decoration: none; color: var(--white)"
+            >
+              <h3
+                style="transition: color 0.3s"
+                onmouseover="this.style.color = 'var(--gold)'"
+                onmouseout="this.style.color = 'var(--white)'"
+              >
+                Lake Manyara
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square"
+                  style="font-size: 0.7rem; opacity: 0.6"
+                ></i>
+              </h3>
+            </a>
+            <p>
+              Compact but incredibly diverse — famous for tree-climbing lions,
+              vast flamingo flocks, hippos, and over 400 bird species along the
+              dramatic Rift Valley escarpment.
+            </p>
+            <div class="card-facts">
+              <div class="card-fact">
+                <i class="fa-solid fa-calendar-days"></i> Best time:
+                June–October; flamingos best Nov–June
+              </div>
+              <div class="card-fact">
+                <i class="fa-solid fa-paw"></i> Wildlife: Tree-climbing lions,
+                flamingos, elephants, hippos
+              </div>
+              <div class="card-fact">
+                <i class="fa-solid fa-binoculars"></i> Experience: Birdwatching,
+                forest drives, tree-climbing lion search
+              </div>
+              <div class="card-fact">
+                <i class="fa-solid fa-bed"></i> Stay: Lodges on the escarpment
+                with panoramic lake views
+              </div>
+            </div>
+            <a
+              href="../pages/destinations/lake-manyara.html"
+              class="btn btn-ghost"
+              style="margin-top: 1.2rem; width: 100%; justify-content: center"
+            >
+              <i class="fa-solid fa-binoculars"></i> Explore Lake Manyara
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 5 · ZANZIBAR · hidden initially -->
+        <div class="dest-full-card reveal delay-1 hidden-card" data-card="5">
+          <div class="card-img">
+            <img
+              src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=700&q=80"
+              alt="Zanzibar"
+              loading="lazy"
+            />
+          </div>
+          <div class="card-body">
+            <div class="card-badge card-badge-teal">
+              <i class="fa-solid fa-umbrella-beach"></i> Beach Paradise
+            </div>
+            <div class="card-meta">
+              <span
+                ><i class="fa-solid fa-location-dot"></i> Indian Ocean
+                Island</span
+              >
+              <span
+                ><i class="fa-solid fa-umbrella-beach"></i> Beach Paradise</span
+              >
+            </div>
+            <a
+              href="../pages/destinations/zanzibar-destination.html"
+              style="text-decoration: none; color: var(--white)"
+            >
+              <h3
+                style="transition: color 0.3s"
+                onmouseover="this.style.color = 'var(--gold)'"
+                onmouseout="this.style.color = 'var(--white)'"
+              >
+                Zanzibar Archipelago
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square"
+                  style="font-size: 0.7rem; opacity: 0.6"
+                ></i>
+              </h3>
+            </a>
+            <p>
+              Turquoise Indian Ocean waters, powder-white beaches, UNESCO Stone
+              Town, coral reefs sheltering sea turtles and whale sharks — the
+              perfect safari extension.
+            </p>
+            <div class="card-facts">
+              <div class="card-fact">
+                <i class="fa-solid fa-calendar-days"></i> Best time:
+                June–October &amp; December–February
+              </div>
+              <div class="card-fact">
+                <i class="fa-solid fa-fish"></i> Activities: Diving,
+                snorkelling, spice tours, Stone Town walks
+              </div>
+              <div class="card-fact">
+                <i class="fa-solid fa-binoculars"></i> Highlights: Sea turtles,
+                whale sharks, coral reefs, sunsets
+              </div>
+              <div class="card-fact">
+                <i class="fa-solid fa-bed"></i> Stay: Boutique beach resorts
+                from Nungwi to Paje
+              </div>
+            </div>
+            <a
+              href="../pages/destinations/zanzibar-destination.html"
+              class="btn btn-ghost"
+              style="margin-top: 1.2rem; width: 100%; justify-content: center"
+            >
+              <i class="fa-solid fa-umbrella-beach"></i> Explore Zanzibar
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 6 · KILIMANJARO · hidden initially -->
+        <div class="dest-full-card reveal delay-2 hidden-card" data-card="6">
+          <div class="card-img">
+            <img
+              src="../images/7.webp"
+              alt="Mount Kilimanjaro"
+              loading="lazy"
+            />
+          </div>
+          <div class="card-body">
+            <div class="card-badge card-badge-purple">
+              <i class="fa-solid fa-mountain-sun"></i> Bucket List
+            </div>
+            <div class="card-meta">
+              <span
+                ><i class="fa-solid fa-location-dot"></i> Northern
+                Tanzania</span
+              >
+              <span><i class="fa-solid fa-mountain"></i> 5,895 m Summit</span>
+            </div>
+            <a
+              href="../pages/destinations/kilimanjaro-destination.html"
+              style="text-decoration: none; color: var(--white)"
+            >
+              <h3
+                style="transition: color 0.3s"
+                onmouseover="this.style.color = 'var(--gold)'"
+                onmouseout="this.style.color = 'var(--white)'"
+              >
+                Mount Kilimanjaro
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square"
+                  style="font-size: 0.7rem; opacity: 0.6"
+                ></i>
+              </h3>
+            </a>
+            <p>
+              Africa's highest point — a bucket-list trek through five
+              ecological zones to Uhuru Peak at 5,895 m. No technical climbing
+              required. A 95% summit success rate with our expert guides.
+            </p>
+            <div class="card-facts">
+              <div class="card-fact">
+                <i class="fa-solid fa-calendar-days"></i> Best time:
+                January–March &amp; June–October
+              </div>
+              <div class="card-fact">
+                <i class="fa-solid fa-person-hiking"></i> Routes: Machame,
+                Lemosho, Rongai, Marangu, Umbwe
+              </div>
+              <div class="card-fact">
+                <i class="fa-solid fa-trophy"></i> Duration: 5–9 days depending
+                on route
+              </div>
+              <div class="card-fact">
+                <i class="fa-solid fa-shield-halved"></i> Success rate: 95% with
+                Seresafari's expert guides
+              </div>
+            </div>
+            <a
+              href="../pages/destinations/kilimanjaro-destination.html"
+              class="btn btn-ghost"
+              style="margin-top: 1.2rem; width: 100%; justify-content: center"
+            >
+              <i class="fa-solid fa-mountain"></i> Explore Kilimanjaro
             </a>
           </div>
         </div>
       </div>
+
+      <!-- LOAD MORE / SHOW LESS -->
+      <div class="load-more-wrap reveal" id="load-more-wrap">
+        <div class="load-progress-bar">
+          <div
+            class="load-progress-fill"
+            id="load-progress-fill"
+            style="width: 50%"
+          ></div>
+        </div>
+        <p class="load-more-count" id="load-more-count">
+          Showing <span id="shown-count">3</span> of
+          <span id="total-count">6</span> destinations
+        </p>
+        <div
+          style="
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+          "
+        >
+          <button class="btn btn-ghost" id="load-more-btn">
+            <span class="btn-inner"
+              ><i class="fa-solid fa-plus"></i> Load More Destinations</span
+            >
+          </button>
+          <button class="btn btn-outline" id="show-less-btn">
+            <span class="btn-inner"
+              ><i class="fa-solid fa-chevron-up"></i> Show Less</span
+            >
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- BEST TIME TO VISIT -->
+    <section style="background: var(--earth); padding: 7rem 8%">
+      <div
+        style="text-align: center; max-width: 600px; margin: 0 auto 3.5rem"
+        class="reveal"
+      >
+        <div class="section-tag">Plan Smarter</div>
+        <h2 class="section-title">Best Time to <em>Visit Tanzania</em></h2>
+        <p class="section-sub">
+          Tanzania is a year-round destination. Each season offers unique
+          wildlife experiences — here's how to choose your perfect timing.
+        </p>
+      </div>
+      <div
+        style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem"
+        class="reveal"
+      >
+        <div
+          style="
+            background: var(--dark2);
+            padding: 2rem;
+            border: 1px solid rgba(201, 150, 58, 0.15);
+          "
+        >
+          <div
+            style="color: var(--gold); font-size: 1.8rem; margin-bottom: 1rem"
+          >
+            <i class="fa-solid fa-sun"></i>
+          </div>
+          <div
+            style="
+              font-family: var(--ff-head);
+              font-size: 1rem;
+              font-weight: 700;
+              letter-spacing: 2px;
+              text-transform: uppercase;
+              color: var(--white);
+              margin-bottom: 0.5rem;
+            "
+          >
+            June – October
+          </div>
+          <div
+            style="
+              font-size: 0.75rem;
+              letter-spacing: 2px;
+              text-transform: uppercase;
+              color: var(--gold);
+              margin-bottom: 0.8rem;
+            "
+          >
+            Dry Season · Peak Safari
+          </div>
+          <p style="font-size: 0.83rem; line-height: 1.7; color: var(--text)">
+            The best time for wildlife viewing. Animals congregate around water
+            sources, vegetation is low for easier spotting, and the Great
+            Migration river crossings happen in the Mara River (July–September).
+          </p>
+        </div>
+        <div
+          style="
+            background: var(--dark2);
+            padding: 2rem;
+            border: 1px solid rgba(201, 150, 58, 0.15);
+          "
+        >
+          <div
+            style="color: var(--gold); font-size: 1.8rem; margin-bottom: 1rem"
+          >
+            <i class="fa-solid fa-cloud-sun-rain"></i>
+          </div>
+          <div
+            style="
+              font-family: var(--ff-head);
+              font-size: 1rem;
+              font-weight: 700;
+              letter-spacing: 2px;
+              text-transform: uppercase;
+              color: var(--white);
+              margin-bottom: 0.5rem;
+            "
+          >
+            November – December
+          </div>
+          <div
+            style="
+              font-size: 0.75rem;
+              letter-spacing: 2px;
+              text-transform: uppercase;
+              color: var(--gold);
+              margin-bottom: 0.8rem;
+            "
+          >
+            Short Rains · Green Season
+          </div>
+          <p style="font-size: 0.83rem; line-height: 1.7; color: var(--text)">
+            Short rains bring lush green landscapes and fewer crowds. Excellent
+            birdwatching as migratory species arrive. Prices are lower and
+            lodges less busy.
+          </p>
+        </div>
+        <div
+          style="
+            background: var(--dark2);
+            padding: 2rem;
+            border: 1px solid rgba(201, 150, 58, 0.15);
+          "
+        >
+          <div
+            style="color: var(--gold); font-size: 1.8rem; margin-bottom: 1rem"
+          >
+            <i class="fa-solid fa-baby"></i>
+          </div>
+          <div
+            style="
+              font-family: var(--ff-head);
+              font-size: 1rem;
+              font-weight: 700;
+              letter-spacing: 2px;
+              text-transform: uppercase;
+              color: var(--white);
+              margin-bottom: 0.5rem;
+            "
+          >
+            January – February
+          </div>
+          <div
+            style="
+              font-size: 0.75rem;
+              letter-spacing: 2px;
+              text-transform: uppercase;
+              color: var(--gold);
+              margin-bottom: 0.8rem;
+            "
+          >
+            Calving Season · Predator Action
+          </div>
+          <p style="font-size: 0.83rem; line-height: 1.7; color: var(--text)">
+            The Great Wildebeest Calving season unfolds on the Southern
+            Serengeti. Up to 8,000 calves born each day, attracting an
+            extraordinary concentration of predators.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="book-section" style="padding: 7rem 8%; text-align: center">
+      <div class="book-bg"></div>
+      <div class="book-inner reveal">
+        <div class="section-tag" style="justify-content: center">
+          Ready to Go?
+        </div>
+        <h2
+          style="
+            font-family: var(--ff-head);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--white);
+            margin-bottom: 0.8rem;
+          "
+        >
+          Plan Your
+          <em style="color: var(--gold); font-style: normal"
+            >Tanzania Adventure</em
+          >
+        </h2>
+        <p style="color: var(--text); max-width: 520px; margin: 0 auto 2rem">
+          Our expert team will craft a personalised itinerary combining your
+          favourite destinations — completely tailored to your timeline, budget
+          and travel style.
+        </p>
+        <div
+          style="
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+          "
+        >
+          <a href="contact.html" class="btn btn-primary"
+            ><i class="fa-solid fa-paper-plane"></i> Send an Enquiry</a
+          >
+          <a href="tours.html" class="btn btn-outline"
+            ><i class="fa-solid fa-compass"></i> Browse All Tours</a
+          >
+        </div>
+        <div
+          style="
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+          "
+        >
+          <a href="../community.html" class="btn btn-outline">
+            <i class="fa-solid fa-hand-holding-heart"></i> Our Community
+            Commitment
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo">SERE<span>SAFARI</span></a>
+          <p class="footer-tagline">
+            Creating unforgettable safari experiences in the heart of Africa.
+            Expert guides. Hand-picked lodges. Hakuna Matata.
+          </p>
+          <div class="footer-social">
+            <a
+              href="https://www.facebook.com/Seresafari/"
+              target="_blank"
+              rel="noopener"
+              class="soc-btn"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+            <a href="#" class="soc-btn"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a href="#" class="soc-btn"
+              ><i class="fa-brands fa-x-twitter"></i
+            ></a>
+            <a href="#" class="soc-btn"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Destinations</h4>
+          <ul class="footer-links">
+            <li>
+              <a href="serengeti.html"
+                ><i class="fa-solid fa-chevron-right"></i>Serengeti National
+                Park</a
+              >
+            </li>
+            <li>
+              <a href="ngorongoro.html"
+                ><i class="fa-solid fa-chevron-right"></i>Ngorongoro Crater</a
+              >
+            </li>
+            <li>
+              <a href="tarangire.html"
+                ><i class="fa-solid fa-chevron-right"></i>Tarangire National
+                Park</a
+              >
+            </li>
+            <li>
+              <a href="lake-manyara.html"
+                ><i class="fa-solid fa-chevron-right"></i>Lake Manyara</a
+              >
+            </li>
+            <li>
+              <a href="kilimanjaro-destination.html"
+                ><i class="fa-solid fa-chevron-right"></i>Mount Kilimanjaro</a
+              >
+            </li>
+            <li>
+              <a href="zanzibar-destination.html"
+                ><i class="fa-solid fa-chevron-right"></i>Zanzibar Island</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Our Tours</h4>
+          <ul class="footer-links">
+            <li>
+              <a href="tours.html"
+                ><i class="fa-solid fa-chevron-right"></i>Tanzania Classic
+                Safari</a
+              >
+            </li>
+            <li>
+              <a href="tours.html"
+                ><i class="fa-solid fa-chevron-right"></i>Serengeti &amp;
+                Ngorongoro</a
+              >
+            </li>
+            <li>
+              <a href="tours.html"
+                ><i class="fa-solid fa-chevron-right"></i>Fly-In Luxury
+                Safari</a
+              >
+            </li>
+            <li>
+              <a href="kilimanjaro.html"
+                ><i class="fa-solid fa-chevron-right"></i>Kilimanjaro Climbs</a
+              >
+            </li>
+            <li>
+              <a href="zanzibar.html"
+                ><i class="fa-solid fa-chevron-right"></i>Zanzibar Beach
+                Holidays</a
+              >
+            </li>
+            <li>
+              <a href="tours.html"
+                ><i class="fa-solid fa-chevron-right"></i>Bespoke Private
+                Safari</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul class="footer-contact">
+            <li>
+              <span class="fc-ico"
+                ><i class="fa-solid fa-location-dot"></i></span
+              >Arusha, Tanzania 23100<br />Safari Capital of East Africa
+            </li>
+            <li>
+              <span class="fc-ico"><i class="fa-solid fa-phone"></i></span
+              ><a href="tel:+255690318461" style="color: var(--text)"
+                >+255 690 318 461</a
+              >
+            </li>
+            <li>
+              <span class="fc-ico"><i class="fa-solid fa-envelope"></i></span
+              ><a
+                href="mailto:info@seresafariafrica.com"
+                style="color: var(--text)"
+                >info@seresafariafrica.com</a
+              >
+            </li>
+            <li>
+              <span class="fc-ico"><i class="fa-solid fa-globe"></i></span
+              >seresafariafrica.com
+            </li>
+            <li>
+              <span class="fc-ico"><i class="fa-solid fa-clock"></i></span
+              >Mon–Sat: 8:00 AM – 6:00 PM EAT
+            </li>
+          </ul>
+        </div>
+        <div class="footer-badges">
+          <video class="footer-plane-video" autoplay muted loop playsinline>
+            <source src="../images/jeep.mp4" type="video/mp4" />
+          </video>
+          <div class="footer-badge-row">
+            <p class="badge-label">We Accept</p>
+            <div class="badge-items">
+              <a
+                href="https://shop.directpay.online/paymybills/SERESAFARIAFRICATOURSCOMPANYLIMITED"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="../images/visa.png"
+                  alt="Visa accepted"
+                  class="payment-badge"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="footer-badge-row">
+            <p class="badge-label">Find Us On</p>
+            <div class="badge-items">
+              <a
+                href="https://www.tripadvisor.com/Attraction_Review-g297913-d28413189-Reviews-Seresafari_Africa_Tours-Arusha_Arusha_Region.html"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="../images/tripadvisor.svg"
+                  alt="TripAdvisor"
+                  class="platform-logo"
+                />
+              </a>
+              <a
+                href="https://www.getyourguide.com/seresafari-africa-s583425/"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="../images/getyourguide.svg"
+                  alt="GetYourGuide"
+                  class="platform-logo"
+                />
+              </a>
+              <a
+                href="https://www.safarigo.com/operator/seresafari-africa-tours-3208"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="../images/safarigo.png"
+                  alt="SafariGo"
+                  class="platform-logo"
+                />
+              </a>
+              <a
+                href="https://tourist.com/p/15564/seresafari_africa"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="../images/tourist.svg"
+                  alt="Tourist.com"
+                  class="platform-logo"
+                />
+              </a>
+              <a
+                href="https://www.safaribookings.com/p7682"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="../images/safaribookings.png"
+                  alt="SafariBookings"
+                  class="platform-logo"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bot">
+        <p>© 2026 Seresafari Africa. All Rights Reserved. · Web by Pamtech</p>
+        <div class="hakuna">
+          Hakuna Matata <i class="fa-solid fa-earth-africa"></i>
+        </div>
+        <p>
+          <a href="privacy-policy.html">Privacy Policy</a> ·
+          <a href="terms-of-service.html">Terms of Service</a> ·
+          <a href="travel-insights.html">Travel Insights</a>
+        </p>
+      </div>
+    </footer>
+
+    <a
+      class="wa-btn"
+      href="https://wa.me/255690318461"
+      target="_blank"
+      rel="noopener"
+      aria-label="WhatsApp"
+      ><i class="fa-brands fa-whatsapp"></i
+    ></a>
+    <div id="lightbox" class="lightbox">
+      <button id="lb-close" class="lb-close">
+        <i class="fa-solid fa-xmark"></i></button
+      ><img id="lb-img" src="" alt="" />
     </div>
-    <div class="footer-bot">
-      <p>© 2026 Seresafari Africa. All Rights Reserved. · Web by Pamtech</p>
-      <div class="hakuna">Hakuna Matata <i class="fa-solid fa-earth-africa"></i></div>
-      <p>
-        <a href="privacy-policy.html">Privacy Policy</a> ·
-        <a href="terms-of-service.html">Terms of Service</a> ·
-        <a href="travel-insights.html">Travel Insights</a>
-      </p>
-    </div>
-  </footer>
+    <script src="../js/main.js"></script>
 
-  <a class="wa-btn" href="https://wa.me/255690318461" target="_blank" rel="noopener" aria-label="WhatsApp"><i
-      class="fa-brands fa-whatsapp"></i></a>
-  <div id="lightbox" class="lightbox"><button id="lb-close" class="lb-close"><i
-        class="fa-solid fa-xmark"></i></button><img id="lb-img" src="" alt="" /></div>
-  <script src="../js/main.js"></script>
+    <!-- LOAD MORE SCRIPT -->
+    <script>
+      (function () {
+        const CARDS_PER_BATCH = 3; // how many cards to reveal per click
+        const INITIAL_SHOWN = 3; // cards visible on first load
 
-  <!-- LOAD MORE SCRIPT -->
-  <script>
-    (function () {
-      const CARDS_PER_BATCH = 3;   // how many cards to reveal per click
-      const INITIAL_SHOWN   = 3;   // cards visible on first load
+        const allCards = Array.from(
+          document.querySelectorAll("#dest-cards-container .dest-full-card"),
+        );
+        const totalCards = allCards.length;
+        let shownCount = INITIAL_SHOWN;
 
-      const allCards     = Array.from(document.querySelectorAll('#dest-cards-container .dest-full-card'));
-      const totalCards   = allCards.length;
-      let   shownCount   = INITIAL_SHOWN;
+        const loadMoreBtn = document.getElementById("load-more-btn");
+        const showLessBtn = document.getElementById("show-less-btn");
+        const shownEl = document.getElementById("shown-count");
+        const totalEl = document.getElementById("total-count");
+        const progressFill = document.getElementById("load-progress-fill");
 
-      const loadMoreBtn  = document.getElementById('load-more-btn');
-      const showLessBtn  = document.getElementById('show-less-btn');
-      const shownEl      = document.getElementById('shown-count');
-      const totalEl      = document.getElementById('total-count');
-      const progressFill = document.getElementById('load-progress-fill');
+        // Set total
+        totalEl.textContent = totalCards;
 
-      // Set total
-      totalEl.textContent = totalCards;
+        function updateUI() {
+          shownEl.textContent = Math.min(shownCount, totalCards);
+          progressFill.style.width =
+            (Math.min(shownCount, totalCards) / totalCards) * 100 + "%";
 
-      function updateUI() {
-        shownEl.textContent = Math.min(shownCount, totalCards);
-        progressFill.style.width = ((Math.min(shownCount, totalCards) / totalCards) * 100) + '%';
-
-        // Hide/show load more button
-        if (shownCount >= totalCards) {
-          loadMoreBtn.style.display = 'none';
-        } else {
-          loadMoreBtn.style.display = 'inline-flex';
-        }
-
-        // Hide/show show-less button — only visible if more than initial cards shown
-        if (shownCount > INITIAL_SHOWN) {
-          showLessBtn.style.display = 'inline-flex';
-        } else {
-          showLessBtn.style.display = 'none';
-        }
-      }
-
-      function showCards(upTo) {
-        allCards.forEach(function (card, idx) {
-          if (idx < upTo) {
-            card.classList.remove('hidden-card');
-            // trigger fade-in for newly revealed ones
-            if (!card.dataset.revealed) {
-              card.dataset.revealed = '1';
-              card.classList.add('fade-in');
-              // Trigger scroll observer for reveal class
-              setTimeout(function () {
-                card.classList.add('visible');
-              }, 50);
-            }
+          // Hide/show load more button
+          if (shownCount >= totalCards) {
+            loadMoreBtn.style.display = "none";
           } else {
-            card.classList.add('hidden-card');
-            delete card.dataset.revealed;
-            card.classList.remove('visible', 'fade-in');
+            loadMoreBtn.style.display = "inline-flex";
+          }
+
+          // Hide/show show-less button — only visible if more than initial cards shown
+          if (shownCount > INITIAL_SHOWN) {
+            showLessBtn.style.display = "inline-flex";
+          } else {
+            showLessBtn.style.display = "none";
+          }
+        }
+
+        function showCards(upTo) {
+          allCards.forEach(function (card, idx) {
+            if (idx < upTo) {
+              card.classList.remove("hidden-card");
+              // trigger fade-in for newly revealed ones
+              if (!card.dataset.revealed) {
+                card.dataset.revealed = "1";
+                card.classList.add("fade-in");
+                // Trigger scroll observer for reveal class
+                setTimeout(function () {
+                  card.classList.add("visible");
+                }, 50);
+              }
+            } else {
+              card.classList.add("hidden-card");
+              delete card.dataset.revealed;
+              card.classList.remove("visible", "fade-in");
+            }
+          });
+        }
+
+        // Load More
+        loadMoreBtn.addEventListener("click", function () {
+          shownCount = Math.min(shownCount + CARDS_PER_BATCH, totalCards);
+          showCards(shownCount);
+          updateUI();
+
+          // Smooth scroll to first new card
+          const firstNew = allCards[shownCount - CARDS_PER_BATCH];
+          if (firstNew) {
+            setTimeout(function () {
+              firstNew.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            }, 100);
           }
         });
-      }
 
-      // Load More
-      loadMoreBtn.addEventListener('click', function () {
-        shownCount = Math.min(shownCount + CARDS_PER_BATCH, totalCards);
-        showCards(shownCount);
+        // Show Less
+        showLessBtn.addEventListener("click", function () {
+          shownCount = INITIAL_SHOWN;
+          showCards(shownCount);
+          updateUI();
+
+          // Scroll back up to section
+          document
+            .getElementById("dest-cards-container")
+            .scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+
+        // Initial state
+        showCards(INITIAL_SHOWN);
         updateUI();
-
-        // Smooth scroll to first new card
-        const firstNew = allCards[shownCount - CARDS_PER_BATCH];
-        if (firstNew) {
-          setTimeout(function () {
-            firstNew.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          }, 100);
-        }
-      });
-
-      // Show Less
-      showLessBtn.addEventListener('click', function () {
-        shownCount = INITIAL_SHOWN;
-        showCards(shownCount);
-        updateUI();
-
-        // Scroll back up to section
-        document.getElementById('dest-cards-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-
-      // Initial state
-      showCards(INITIAL_SHOWN);
-      updateUI();
-    })();
-  </script>
-
-</body>
+      })();
+    </script>
+    <script src="../js/content-protection.js"></script>
+  </body>
 </html>

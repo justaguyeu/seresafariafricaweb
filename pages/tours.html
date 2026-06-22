@@ -1,577 +1,1522 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <link rel="canonical" href="https://seresafariafrica.com/pages/tours.html" />
-  <meta name="description" content="Tanzania safari tour packages – Classic Safari, Fly-In Serengeti, Zanzibar Beach & Bush, Kilimanjaro climbs and bespoke private safaris from Sere Safari Africa." />
-  <title>Tour Packages – Sere Safari Africa</title>
-  <link rel="stylesheet" href="../css/main.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    /* ═══════════════════════════════════════════════
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link
+      rel="canonical"
+      href="https://seresafariafrica.com/pages/tours.html"
+    />
+    <meta
+      name="description"
+      content="Tanzania safari tour packages – Classic Safari, Fly-In Serengeti, Zanzibar Beach & Bush, Kilimanjaro climbs and bespoke private safaris from Seresafari Africa."
+    />
+    <title>Tour Packages – Seresafari Africa</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      /* ═══════════════════════════════════════════════
        LAYOUT: LEFT SIDEBAR + RIGHT GRID
     ═══════════════════════════════════════════════ */
-    .tours-layout-wrap {
-      background: var(--dark2);
-      padding: 4rem 8%;
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 2.5rem;
-      align-items: start;
-    }
+      .tours-layout-wrap {
+        background: var(--dark2);
+        padding: 4rem 8%;
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 2.5rem;
+        align-items: start;
+      }
 
-    /* ═══════════════════════════════════════════════
+      /* ═══════════════════════════════════════════════
        LEFT SIDEBAR — FILTER PANEL
     ═══════════════════════════════════════════════ */
-    .filter-sidebar {
-      position: sticky;
-      top: calc(var(--nav-h) + 1.5rem);
-      background: var(--dark3);
-      border: 1px solid rgba(87,69,53,.15);
-      padding: 0;
-      overflow: hidden;
-    }
-    .filter-sidebar-header {
-      background: var(--gold);
-      padding: 1.1rem 1.4rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .filter-sidebar-header span {
-      font-family: var(--ff-head);
-      font-size: .78rem;
-      font-weight: 700;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--dark);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .filter-sidebar-header .reset-link {
-      font-family: var(--ff-head);
-      font-size: .65rem;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--dark);
-      opacity: .65;
-      cursor: pointer;
-      transition: opacity .2s;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      border: none;
-      background: none;
-    }
-    .filter-sidebar-header .reset-link:hover { opacity: 1; }
-    .filter-sidebar-body {
-      padding: 1.4rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.6rem;
-    }
-    .filter-group { display: flex; flex-direction: column; gap: .7rem; }
-    .filter-group-label {
-      font-family: var(--ff-head);
-      font-size: .68rem;
-      font-weight: 700;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--gold);
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      padding-bottom: .5rem;
-      border-bottom: 1px solid rgba(87,69,53,.15);
-    }
-    .filter-group-label i { font-size: .65rem; }
-    .filter-check-list { display: flex; flex-direction: column; gap: .3rem; }
-    .filter-check {
-      display: flex;
-      align-items: center;
-      gap: .7rem;
-      cursor: pointer;
-      padding: .4rem .5rem;
-      border-radius: 2px;
-      transition: background .15s;
-    }
-    .filter-check:hover { background: rgba(87,69,53,.07); }
-    .filter-check input[type="checkbox"] { display: none; }
-    .check-box {
-      width: 16px; height: 16px;
-      border: 1.5px solid rgba(87,69,53,.35);
-      background: var(--dark);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; transition: all .2s;
-    }
-    .check-box i { font-size: .6rem; color: var(--dark); opacity: 0; transition: opacity .15s; }
-    .filter-check input:checked + .check-box { background: var(--gold); border-color: var(--gold); }
-    .filter-check input:checked + .check-box i { opacity: 1; }
-    .check-label {
-      font-family: var(--ff-head);
-      font-size: .75rem; font-weight: 500; letter-spacing: 1px;
-      text-transform: uppercase; color: var(--text);
-      transition: color .2s; display: flex; align-items: center; gap: 6px; flex: 1;
-    }
-    .check-label i { font-size: .65rem; color: var(--gold); }
-    .filter-check input:checked ~ .check-label { color: var(--white); }
+      .filter-sidebar {
+        position: sticky;
+        top: calc(var(--nav-h) + 1.5rem);
+        background: var(--dark3);
+        border: 1px solid rgba(87, 69, 53, 0.15);
+        padding: 0;
+        overflow: hidden;
+      }
+      .filter-sidebar-header {
+        background: var(--gold);
+        padding: 1.1rem 1.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .filter-sidebar-header span {
+        font-family: var(--ff-head);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--dark);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .filter-sidebar-header .reset-link {
+        font-family: var(--ff-head);
+        font-size: 0.65rem;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--dark);
+        opacity: 0.65;
+        cursor: pointer;
+        transition: opacity 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        border: none;
+        background: none;
+      }
+      .filter-sidebar-header .reset-link:hover {
+        opacity: 1;
+      }
+      .filter-sidebar-body {
+        padding: 1.4rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+      }
+      .filter-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+      }
+      .filter-group-label {
+        font-family: var(--ff-head);
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--gold);
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid rgba(87, 69, 53, 0.15);
+      }
+      .filter-group-label i {
+        font-size: 0.65rem;
+      }
+      .filter-check-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+      .filter-check {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        cursor: pointer;
+        padding: 0.4rem 0.5rem;
+        border-radius: 2px;
+        transition: background 0.15s;
+      }
+      .filter-check:hover {
+        background: rgba(87, 69, 53, 0.07);
+      }
+      .filter-check input[type="checkbox"] {
+        display: none;
+      }
+      .check-box {
+        width: 16px;
+        height: 16px;
+        border: 1.5px solid rgba(87, 69, 53, 0.35);
+        background: var(--dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: all 0.2s;
+      }
+      .check-box i {
+        font-size: 0.6rem;
+        color: var(--dark);
+        opacity: 0;
+        transition: opacity 0.15s;
+      }
+      .filter-check input:checked + .check-box {
+        background: var(--gold);
+        border-color: var(--gold);
+      }
+      .filter-check input:checked + .check-box i {
+        opacity: 1;
+      }
+      .check-label {
+        font-family: var(--ff-head);
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--text);
+        transition: color 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex: 1;
+      }
+      .check-label i {
+        font-size: 0.65rem;
+        color: var(--gold);
+      }
+      .filter-check input:checked ~ .check-label {
+        color: var(--white);
+      }
 
-    /* Price Range */
-    .price-range-group { display: flex; flex-direction: column; gap: .7rem; }
-    .price-display { display: flex; justify-content: space-between; align-items: baseline; }
-    .price-vals { font-family: var(--ff-head); font-size: .95rem; font-weight: 700; color: var(--gold); }
-    .price-per { font-size: .65rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text); }
-    .range-wrap { position: relative; height: 28px; display: flex; align-items: center; }
-    .range-track {
-      position: absolute; top: 50%; left: 0; right: 0; height: 3px;
-      background: rgba(87,69,53,.18); border-radius: 2px;
-      transform: translateY(-50%); pointer-events: none;
-    }
-    .range-fill {
-      position: absolute; top: 50%; height: 3px;
-      background: var(--gold); border-radius: 2px;
-      transform: translateY(-50%); pointer-events: none;
-      transition: left .04s, width .04s;
-    }
-    .range-input {
-      position: absolute; width: 100%; height: 3px;
-      background: none; -webkit-appearance: none; appearance: none;
-      pointer-events: none; outline: none;
-    }
-    .range-input::-webkit-slider-thumb {
-      -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%;
-      background: var(--gold); border: 3px solid var(--dark3);
-      cursor: pointer; pointer-events: all;
-      box-shadow: 0 2px 8px rgba(87,69,53,.3); transition: transform .15s;
-    }
-    .range-input::-webkit-slider-thumb:hover { transform: scale(1.2); }
-    .range-input::-moz-range-thumb {
-      width: 18px; height: 18px; border-radius: 50%;
-      background: var(--gold); border: 3px solid var(--dark3);
-      cursor: pointer; pointer-events: all;
-    }
-    .filter-divider { height: 1px; background: rgba(87,69,53,.12); margin: 0 -.1rem; }
+      /* Price Range */
+      .price-range-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+      }
+      .price-display {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+      .price-vals {
+        font-family: var(--ff-head);
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--gold);
+      }
+      .price-per {
+        font-size: 0.65rem;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--text);
+      }
+      .range-wrap {
+        position: relative;
+        height: 28px;
+        display: flex;
+        align-items: center;
+      }
+      .range-track {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: rgba(87, 69, 53, 0.18);
+        border-radius: 2px;
+        transform: translateY(-50%);
+        pointer-events: none;
+      }
+      .range-fill {
+        position: absolute;
+        top: 50%;
+        height: 3px;
+        background: var(--gold);
+        border-radius: 2px;
+        transform: translateY(-50%);
+        pointer-events: none;
+        transition:
+          left 0.04s,
+          width 0.04s;
+      }
+      .range-input {
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background: none;
+        -webkit-appearance: none;
+        appearance: none;
+        pointer-events: none;
+        outline: none;
+      }
+      .range-input::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--gold);
+        border: 3px solid var(--dark3);
+        cursor: pointer;
+        pointer-events: all;
+        box-shadow: 0 2px 8px rgba(87, 69, 53, 0.3);
+        transition: transform 0.15s;
+      }
+      .range-input::-webkit-slider-thumb:hover {
+        transform: scale(1.2);
+      }
+      .range-input::-moz-range-thumb {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--gold);
+        border: 3px solid var(--dark3);
+        cursor: pointer;
+        pointer-events: all;
+      }
+      .filter-divider {
+        height: 1px;
+        background: rgba(87, 69, 53, 0.12);
+        margin: 0 -0.1rem;
+      }
 
-    /* ═══════════════════════════════════════════════
+      /* ═══════════════════════════════════════════════
        RIGHT SIDE — RESULTS BAR + GRID
     ═══════════════════════════════════════════════ */
-    .packages-side { display: flex; flex-direction: column; gap: 1.5rem; min-width: 0; }
-    .results-bar {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 1rem; flex-wrap: wrap; padding: .9rem 1.2rem;
-      background: var(--dark3); border: 1px solid rgba(87,69,53,.12);
-    }
-    .results-count {
-      font-family: var(--ff-head); font-size: .75rem; font-weight: 600;
-      letter-spacing: 1.5px; text-transform: uppercase; color: var(--text);
-    }
-    .results-count strong { color: var(--gold); font-size: .9rem; }
-    .active-filters { display: flex; gap: .4rem; flex-wrap: wrap; }
-    .active-tag {
-      display: inline-flex; align-items: center; gap: 5px;
-      padding: .22rem .65rem; background: rgba(87,69,53,.08);
-      border: 1px solid rgba(87,69,53,.18); font-family: var(--ff-head);
-      font-size: .64rem; font-weight: 600; letter-spacing: 1px;
-      text-transform: uppercase; color: var(--gold);
-    }
-    .active-tag i { font-size: .55rem; cursor: pointer; opacity: .7; transition: opacity .2s; }
-    .active-tag i:hover { opacity: 1; }
+      .packages-side {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        min-width: 0;
+      }
+      .results-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+        padding: 0.9rem 1.2rem;
+        background: var(--dark3);
+        border: 1px solid rgba(87, 69, 53, 0.12);
+      }
+      .results-count {
+        font-family: var(--ff-head);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--text);
+      }
+      .results-count strong {
+        color: var(--gold);
+        font-size: 0.9rem;
+      }
+      .active-filters {
+        display: flex;
+        gap: 0.4rem;
+        flex-wrap: wrap;
+      }
+      .active-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 0.22rem 0.65rem;
+        background: rgba(87, 69, 53, 0.08);
+        border: 1px solid rgba(87, 69, 53, 0.18);
+        font-family: var(--ff-head);
+        font-size: 0.64rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+      .active-tag i {
+        font-size: 0.55rem;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+      }
+      .active-tag i:hover {
+        opacity: 1;
+      }
 
-    /* Tours Grid */
-    .tours-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.8rem; }
-    .no-results { display: none; text-align: center; padding: 4rem 2rem; grid-column: 1 / -1; }
-    .no-results i { font-size: 2.5rem; color: var(--gold); opacity: .4; display: block; margin-bottom: 1rem; }
-    .no-results h3 { font-family: var(--ff-head); font-size: 1.3rem; color: var(--white); margin-bottom: .5rem; letter-spacing: 2px; }
-    .no-results p { font-size: .85rem; color: var(--text); }
+      /* Tours Grid */
+      .tours-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.8rem;
+      }
+      .no-results {
+        display: none;
+        text-align: center;
+        padding: 4rem 2rem;
+        grid-column: 1 / -1;
+      }
+      .no-results i {
+        font-size: 2.5rem;
+        color: var(--gold);
+        opacity: 0.4;
+        display: block;
+        margin-bottom: 1rem;
+      }
+      .no-results h3 {
+        font-family: var(--ff-head);
+        font-size: 1.3rem;
+        color: var(--white);
+        margin-bottom: 0.5rem;
+        letter-spacing: 2px;
+      }
+      .no-results p {
+        font-size: 0.85rem;
+        color: var(--text);
+      }
 
-    /* Skeleton loaders */
-    .skeleton-card { background: var(--dark3); border: 1px solid rgba(87,69,53,.1); overflow: hidden; }
-    .skel-img { height: 220px; background: linear-gradient(90deg,rgba(87,69,53,.08) 25%,rgba(87,69,53,.15) 50%,rgba(87,69,53,.08) 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; }
-    .skel-body { padding: 1.6rem; display: flex; flex-direction: column; gap: .7rem; }
-    .skel-line { height: 12px; background: linear-gradient(90deg,rgba(87,69,53,.08) 25%,rgba(87,69,53,.15) 50%,rgba(87,69,53,.08) 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; border-radius: 2px; }
-    .skel-line.w60 { width: 60%; } .skel-line.w40 { width: 40%; }
-    @keyframes shimmer { to { background-position: -200% 0; } }
+      /* Skeleton loaders */
+      .skeleton-card {
+        background: var(--dark3);
+        border: 1px solid rgba(87, 69, 53, 0.1);
+        overflow: hidden;
+      }
+      .skel-img {
+        height: 220px;
+        background: linear-gradient(
+          90deg,
+          rgba(87, 69, 53, 0.08) 25%,
+          rgba(87, 69, 53, 0.15) 50%,
+          rgba(87, 69, 53, 0.08) 75%
+        );
+        background-size: 200% 100%;
+        animation: shimmer 1.4s infinite;
+      }
+      .skel-body {
+        padding: 1.6rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+      }
+      .skel-line {
+        height: 12px;
+        background: linear-gradient(
+          90deg,
+          rgba(87, 69, 53, 0.08) 25%,
+          rgba(87, 69, 53, 0.15) 50%,
+          rgba(87, 69, 53, 0.08) 75%
+        );
+        background-size: 200% 100%;
+        animation: shimmer 1.4s infinite;
+        border-radius: 2px;
+      }
+      .skel-line.w60 {
+        width: 60%;
+      }
+      .skel-line.w40 {
+        width: 40%;
+      }
+      @keyframes shimmer {
+        to {
+          background-position: -200% 0;
+        }
+      }
 
-    /* Card states */
-    .tour-card.hidden-card  { display: none !important; }
-    .tour-card.filtered-out { display: none !important; }
-    .tour-card.card-entering { opacity: 0; transform: translateY(25px); animation: cardIn .4s forwards; }
-    @keyframes cardIn { to { opacity: 1; transform: translateY(0); } }
+      /* Card states */
+      .tour-card.hidden-card {
+        display: none !important;
+      }
+      .tour-card.filtered-out {
+        display: none !important;
+      }
+      .tour-card.card-entering {
+        opacity: 0;
+        transform: translateY(25px);
+        animation: cardIn 0.4s forwards;
+      }
+      @keyframes cardIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-    /* Pagination */
-    .pagination-wrap { display: flex; flex-direction: column; align-items: center; gap: 1.2rem; padding: 1.5rem 0 .5rem; }
-    .progress-bar-wrap { width: 100%; max-width: 380px; display: flex; flex-direction: column; align-items: center; gap: .5rem; }
-    .progress-label { font-family: var(--ff-head); font-size: .7rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--text); }
-    .progress-label strong { color: var(--gold); }
-    .progress-track { width: 100%; height: 3px; background: rgba(87,69,53,.12); border-radius: 2px; overflow: hidden; }
-    .progress-fill { height: 100%; background: var(--gold); border-radius: 2px; transition: width .5s ease; }
-    .show-more-btn {
-      display: inline-flex; align-items: center; gap: 10px; padding: .85rem 2.2rem;
-      background: none; border: 2px solid var(--gold); color: var(--gold);
-      font-family: var(--ff-head); font-size: .78rem; font-weight: 700;
-      letter-spacing: 2.5px; text-transform: uppercase; cursor: pointer;
-      transition: background .25s, color .25s, transform .2s;
-      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-    }
-    .show-more-btn:hover { background: var(--gold); color: var(--dark); transform: translateY(-2px); }
-    .show-more-btn.loading .btn-text { display: none; }
-    .show-more-btn .btn-loader { display: none; width: 16px; height: 16px; border: 2px solid currentColor; border-top-color: transparent; border-radius: 50%; animation: spin .7s linear infinite; }
-    .show-more-btn.loading .btn-loader { display: block; }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .all-shown-msg { display: none; font-family: var(--ff-head); font-size: .75rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--text); opacity: .55; text-align: center; }
+      /* Pagination */
+      .pagination-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+        padding: 1.5rem 0 0.5rem;
+      }
+      .progress-bar-wrap {
+        width: 100%;
+        max-width: 380px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .progress-label {
+        font-family: var(--ff-head);
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--text);
+      }
+      .progress-label strong {
+        color: var(--gold);
+      }
+      .progress-track {
+        width: 100%;
+        height: 3px;
+        background: rgba(87, 69, 53, 0.12);
+        border-radius: 2px;
+        overflow: hidden;
+      }
+      .progress-fill {
+        height: 100%;
+        background: var(--gold);
+        border-radius: 2px;
+        transition: width 0.5s ease;
+      }
+      .show-more-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0.85rem 2.2rem;
+        background: none;
+        border: 2px solid var(--gold);
+        color: var(--gold);
+        font-family: var(--ff-head);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition:
+          background 0.25s,
+          color 0.25s,
+          transform 0.2s;
+        clip-path: polygon(
+          0 0,
+          calc(100% - 10px) 0,
+          100% 10px,
+          100% 100%,
+          10px 100%,
+          0 calc(100% - 10px)
+        );
+      }
+      .show-more-btn:hover {
+        background: var(--gold);
+        color: var(--dark);
+        transform: translateY(-2px);
+      }
+      .show-more-btn.loading .btn-text {
+        display: none;
+      }
+      .show-more-btn .btn-loader {
+        display: none;
+        width: 16px;
+        height: 16px;
+        border: 2px solid currentColor;
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+      }
+      .show-more-btn.loading .btn-loader {
+        display: block;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .all-shown-msg {
+        display: none;
+        font-family: var(--ff-head);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--text);
+        opacity: 0.55;
+        text-align: center;
+      }
 
-    /* Mobile filter toggle */
-    .filter-mobile-toggle {
-      display: none; align-items: center; justify-content: space-between;
-      padding: .9rem 1.2rem; background: var(--dark3);
-      border: 1px solid rgba(87,69,53,.12); cursor: pointer; margin-bottom: -.5rem;
-    }
-    .filter-mobile-toggle span { font-family: var(--ff-head); font-size: .78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--white); display: flex; align-items: center; gap: 8px; }
-    .filter-mobile-toggle span i { color: var(--gold); }
-    .filter-mobile-toggle .toggle-arrow { color: var(--gold); transition: transform .3s; font-size: .78rem; }
-    .filter-mobile-toggle.collapsed .toggle-arrow { transform: rotate(-90deg); }
+      /* Mobile filter toggle */
+      .filter-mobile-toggle {
+        display: none;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.9rem 1.2rem;
+        background: var(--dark3);
+        border: 1px solid rgba(87, 69, 53, 0.12);
+        cursor: pointer;
+        margin-bottom: -0.5rem;
+      }
+      .filter-mobile-toggle span {
+        font-family: var(--ff-head);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .filter-mobile-toggle span i {
+        color: var(--gold);
+      }
+      .filter-mobile-toggle .toggle-arrow {
+        color: var(--gold);
+        transition: transform 0.3s;
+        font-size: 0.78rem;
+      }
+      .filter-mobile-toggle.collapsed .toggle-arrow {
+        transform: rotate(-90deg);
+      }
 
-    /* Error state */
-    .fetch-error { text-align: center; padding: 4rem 2rem; grid-column: 1/-1; }
-    .fetch-error i { font-size: 2.5rem; color: #c0392b; opacity: .5; display: block; margin-bottom: 1rem; }
-    .fetch-error h3 { font-family: var(--ff-head); font-size: 1.2rem; color: var(--white); margin-bottom: .5rem; letter-spacing: 2px; }
-    .fetch-error p { font-size: .83rem; color: var(--text); }
+      /* Error state */
+      .fetch-error {
+        text-align: center;
+        padding: 4rem 2rem;
+        grid-column: 1/-1;
+      }
+      .fetch-error i {
+        font-size: 2.5rem;
+        color: #c0392b;
+        opacity: 0.5;
+        display: block;
+        margin-bottom: 1rem;
+      }
+      .fetch-error h3 {
+        font-family: var(--ff-head);
+        font-size: 1.2rem;
+        color: var(--white);
+        margin-bottom: 0.5rem;
+        letter-spacing: 2px;
+      }
+      .fetch-error p {
+        font-size: 0.83rem;
+        color: var(--text);
+      }
 
-    /* Responsive */
-    @media (max-width: 1100px) {
-      .tours-layout-wrap { grid-template-columns: 250px 1fr; gap: 2rem; padding: 3.5rem 5%; }
-    }
-    @media (max-width: 900px) {
-      .tours-layout-wrap { grid-template-columns: 1fr; padding: 2.5rem 5%; }
-      .filter-sidebar { position: static; }
-      .filter-mobile-toggle { display: flex; }
-      .filter-sidebar-collapsible { overflow: hidden; max-height: 1000px; transition: max-height .4s ease; }
-      .filter-sidebar-collapsible.collapsed { max-height: 0; }
-      .tours-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 600px) {
-      .tours-grid { grid-template-columns: 1fr; }
-      .tours-layout-wrap { padding: 2rem 4%; }
-    }
-  </style>
-</head>
-<body>
-  <div id="cursor"></div>
-  <div id="cursor-ring"></div>
-  <button id="back-top"><i class="fa-solid fa-chevron-up"></i></button>
+      /* Responsive */
+      @media (max-width: 1100px) {
+        .tours-layout-wrap {
+          grid-template-columns: 250px 1fr;
+          gap: 2rem;
+          padding: 3.5rem 5%;
+        }
+      }
+      @media (max-width: 900px) {
+        .tours-layout-wrap {
+          grid-template-columns: 1fr;
+          padding: 2.5rem 5%;
+        }
+        .filter-sidebar {
+          position: static;
+        }
+        .filter-mobile-toggle {
+          display: flex;
+        }
+        .filter-sidebar-collapsible {
+          overflow: hidden;
+          max-height: 1000px;
+          transition: max-height 0.4s ease;
+        }
+        .filter-sidebar-collapsible.collapsed {
+          max-height: 0;
+        }
+        .tours-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 600px) {
+        .tours-grid {
+          grid-template-columns: 1fr;
+        }
+        .tours-layout-wrap {
+          padding: 2rem 4%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
+    <button id="back-top"><i class="fa-solid fa-chevron-up"></i></button>
 
-  <nav id="nav">
-    <a href="../index.html" class="logo"><img src="../logo2.png" alt="Sere Safari Africa" /></a>
-    <ul class="nav-links">
-      <li><a href="../about.html">About</a></li>
-      <li><a href="destinations.html">Destinations</a></li>
-      <li><a href="tours.html" class="active">Tours</a></li>
-      <li><a href="kilimanjaro.html">Kilimanjaro</a></li>
-      <li><a href="zanzibar.html">Zanzibar</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="contact.html" class="nav-book">Enquire Now</a></li>
-    </ul>
-    <button class="ham" id="ham"><span></span><span></span><span></span></button>
-  </nav>
-  <nav class="mob-menu" id="mob-menu">
-    <a href="../index.html">Home</a>
-    <a href="../about.html">About</a>
-    <a href="destinations.html">Destinations</a>
-    <a href="tours.html">Tours</a>
-    <a href="kilimanjaro.html">Kilimanjaro</a>
-    <a href="zanzibar.html">Zanzibar</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html" style="color:var(--gold)">Enquire Now</a>
-  </nav>
+    <nav id="nav">
+      <a href="../index.html" class="logo"
+        ><img src="../logo2.png" alt="Seresafari Africa"
+      /></a>
+      <ul class="nav-links">
+        <li><a href="../about.html">About</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="tours.html" class="active">Tours</a></li>
+        <li><a href="kilimanjaro.html">Kilimanjaro</a></li>
+        <li><a href="zanzibar.html">Zanzibar</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html" class="nav-book">Enquire Now</a></li>
+      </ul>
+      <button class="ham" id="ham">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <nav class="mob-menu" id="mob-menu">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="tours.html">Tours</a>
+      <a href="kilimanjaro.html">Kilimanjaro</a>
+      <a href="zanzibar.html">Zanzibar</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html" style="color: var(--gold)">Enquire Now</a>
+    </nav>
 
-  <!-- PAGE HEADER -->
-  <header class="page-header"
-    style="background-image:url('https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=1600&q=85');">
-    <div class="breadcrumb"><a href="../index.html">Home</a><i class="fa-solid fa-chevron-right"></i>Tours</div>
-    <div class="section-tag">Our Itineraries</div>
-    <h1 class="section-title" style="font-size:clamp(2.5rem,6vw,4.5rem);">Safari <em>Packages</em></h1>
-    <p class="section-sub" style="max-width:620px;margin:.8rem auto 0;">Expertly crafted itineraries — from short 2-day
-      fly-in adventures to grand 7-day odysseys. Every safari is fully customisable to your dates, budget and travel style.</p>
-  </header>
-
-  <!-- ══ MAIN LAYOUT: SIDEBAR + PACKAGES ══ -->
-  <div class="tours-layout-wrap">
-
-    <!-- ═══ LEFT SIDEBAR FILTER ═══ -->
-    <aside>
-      <div class="filter-mobile-toggle collapsed" id="filterMobileToggle">
-        <span><i class="fa-solid fa-sliders"></i> Filter Packages</span>
-        <i class="fa-solid fa-chevron-down toggle-arrow"></i>
+    <!-- PAGE HEADER -->
+    <header
+      class="page-header"
+      style="
+        background-image: url(&quot;https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=1600&q=85&quot;);
+      "
+    >
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a
+        ><i class="fa-solid fa-chevron-right"></i>Tours
       </div>
-      <div class="filter-sidebar-collapsible collapsed" id="filterCollapsible">
-        <div class="filter-sidebar">
-          <div class="filter-sidebar-header">
-            <span><i class="fa-solid fa-sliders"></i> Filters</span>
-            <button class="reset-link" id="resetFilters"><i class="fa-solid fa-rotate-left"></i> Reset</button>
-          </div>
-          <div class="filter-sidebar-body">
+      <div class="section-tag">Our Itineraries</div>
+      <h1 class="section-title" style="font-size: clamp(2.5rem, 6vw, 4.5rem)">
+        Safari <em>Packages</em>
+      </h1>
+      <p class="section-sub" style="max-width: 620px; margin: 0.8rem auto 0">
+        Expertly crafted itineraries — from short 2-day fly-in adventures to
+        grand 7-day odysseys. Every safari is fully customisable to your dates,
+        budget and travel style.
+      </p>
+    </header>
 
-            <!-- Destination -->
-            <div class="filter-group">
-              <div class="filter-group-label"><i class="fa-solid fa-map-pin"></i> Destination</div>
-              <div class="filter-check-list">
-                <label class="filter-check"><input type="checkbox" name="dest" value="serengeti"/><span class="check-box"><i class="fa-solid fa-check"></i></span><span class="check-label"><i class="fa-solid fa-paw"></i> Serengeti</span></label>
-                <label class="filter-check"><input type="checkbox" name="dest" value="ngorongoro"/><span class="check-box"><i class="fa-solid fa-check"></i></span><span class="check-label"><i class="fa-solid fa-circle-dot"></i> Ngorongoro</span></label>
-                <label class="filter-check"><input type="checkbox" name="dest" value="tarangire"/><span class="check-box"><i class="fa-solid fa-check"></i></span><span class="check-label"><i class="fa-solid fa-tree"></i> Tarangire</span></label>
-                <label class="filter-check"><input type="checkbox" name="dest" value="zanzibar"/><span class="check-box"><i class="fa-solid fa-check"></i></span><span class="check-label"><i class="fa-solid fa-umbrella-beach"></i> Zanzibar</span></label>
-                <label class="filter-check"><input type="checkbox" name="dest" value="kilimanjaro"/><span class="check-box"><i class="fa-solid fa-check"></i></span><span class="check-label"><i class="fa-solid fa-mountain"></i> Kilimanjaro</span></label>
-                <label class="filter-check"><input type="checkbox" name="dest" value="manyara"/><span class="check-box"><i class="fa-solid fa-check"></i></span><span class="check-label"><i class="fa-solid fa-water"></i> Lake Manyara</span></label>
+    <!-- ══ MAIN LAYOUT: SIDEBAR + PACKAGES ══ -->
+    <div class="tours-layout-wrap">
+      <!-- ═══ LEFT SIDEBAR FILTER ═══ -->
+      <aside>
+        <div class="filter-mobile-toggle collapsed" id="filterMobileToggle">
+          <span><i class="fa-solid fa-sliders"></i> Filter Packages</span>
+          <i class="fa-solid fa-chevron-down toggle-arrow"></i>
+        </div>
+        <div
+          class="filter-sidebar-collapsible collapsed"
+          id="filterCollapsible"
+        >
+          <div class="filter-sidebar">
+            <div class="filter-sidebar-header">
+              <span><i class="fa-solid fa-sliders"></i> Filters</span>
+              <button class="reset-link" id="resetFilters">
+                <i class="fa-solid fa-rotate-left"></i> Reset
+              </button>
+            </div>
+            <div class="filter-sidebar-body">
+              <!-- Destination -->
+              <div class="filter-group">
+                <div class="filter-group-label">
+                  <i class="fa-solid fa-map-pin"></i> Destination
+                </div>
+                <div class="filter-check-list">
+                  <label class="filter-check"
+                    ><input
+                      type="checkbox"
+                      name="dest"
+                      value="serengeti"
+                    /><span class="check-box"
+                      ><i class="fa-solid fa-check"></i></span
+                    ><span class="check-label"
+                      ><i class="fa-solid fa-paw"></i> Serengeti</span
+                    ></label
+                  >
+                  <label class="filter-check"
+                    ><input
+                      type="checkbox"
+                      name="dest"
+                      value="ngorongoro"
+                    /><span class="check-box"
+                      ><i class="fa-solid fa-check"></i></span
+                    ><span class="check-label"
+                      ><i class="fa-solid fa-circle-dot"></i> Ngorongoro</span
+                    ></label
+                  >
+                  <label class="filter-check"
+                    ><input
+                      type="checkbox"
+                      name="dest"
+                      value="tarangire"
+                    /><span class="check-box"
+                      ><i class="fa-solid fa-check"></i></span
+                    ><span class="check-label"
+                      ><i class="fa-solid fa-tree"></i> Tarangire</span
+                    ></label
+                  >
+                  <label class="filter-check"
+                    ><input type="checkbox" name="dest" value="zanzibar" /><span
+                      class="check-box"
+                      ><i class="fa-solid fa-check"></i></span
+                    ><span class="check-label"
+                      ><i class="fa-solid fa-umbrella-beach"></i> Zanzibar</span
+                    ></label
+                  >
+                  <label class="filter-check"
+                    ><input
+                      type="checkbox"
+                      name="dest"
+                      value="kilimanjaro"
+                    /><span class="check-box"
+                      ><i class="fa-solid fa-check"></i></span
+                    ><span class="check-label"
+                      ><i class="fa-solid fa-mountain"></i> Kilimanjaro</span
+                    ></label
+                  >
+                  <label class="filter-check"
+                    ><input type="checkbox" name="dest" value="manyara" /><span
+                      class="check-box"
+                      ><i class="fa-solid fa-check"></i></span
+                    ><span class="check-label"
+                      ><i class="fa-solid fa-water"></i> Lake Manyara</span
+                    ></label
+                  >
+                </div>
+              </div>
+              <div class="filter-divider"></div>
+
+              <!-- Duration -->
+              <div class="filter-group">
+                <div class="filter-group-label">
+                  <i class="fa-regular fa-calendar"></i> Duration
+                </div>
+                <div class="filter-check-list">
+                  <label class="filter-check"
+                    ><input type="checkbox" name="dur" value="2" /><span
+                      class="check-box"
+                      ><i class="fa-solid fa-check"></i></span
+                    ><span class="check-label">2 Days</span></label
+                  >
+                  <label class="filter-check"
+                    ><input type="checkbox" name="dur" value="3" /><span
+                      class="check-box"
+                      ><i class="fa-solid fa-check"></i></span
+                    ><span class="check-label">3 Days</span></label
+                  >
+                  <label class="filter-check"
+                    ><input type="checkbox" name="dur" value="4" /><span
+                      class="check-box"
+                      ><i class="fa-solid fa-check"></i></span
+                    ><span class="check-label">4 Days</span></label
+                  >
+                  <label class="filter-check"
+                    ><input type="checkbox" name="dur" value="6" /><span
+                      class="check-box"
+                      ><i class="fa-solid fa-check"></i></span
+                    ><span class="check-label">6 Days</span></label
+                  >
+                  <label class="filter-check"
+                    ><input type="checkbox" name="dur" value="7" /><span
+                      class="check-box"
+                      ><i class="fa-solid fa-check"></i></span
+                    ><span class="check-label">7 Days</span></label
+                  >
+                  <label class="filter-check"
+                    ><input type="checkbox" name="dur" value="custom" /><span
+                      class="check-box"
+                      ><i class="fa-solid fa-check"></i></span
+                    ><span class="check-label">Custom</span></label
+                  >
+                </div>
+              </div>
+              <div class="filter-divider"></div>
+
+              <!-- Type -->
+              <div class="filter-group">
+                <div class="filter-group-label">
+                  <i class="fa-solid fa-tag"></i> Type
+                </div>
+                <div class="filter-check-list">
+                  <label class="filter-check"
+                    ><input
+                      type="checkbox"
+                      name="type"
+                      value="game-drive"
+                    /><span class="check-box"
+                      ><i class="fa-solid fa-check"></i></span
+                    ><span class="check-label"
+                      ><i class="fa-solid fa-car-side"></i> Game Drive</span
+                    ></label
+                  >
+                  <label class="filter-check"
+                    ><input type="checkbox" name="type" value="fly-in" /><span
+                      class="check-box"
+                      ><i class="fa-solid fa-check"></i></span
+                    ><span class="check-label"
+                      ><i class="fa-solid fa-plane"></i> Fly-In</span
+                    ></label
+                  >
+                  <label class="filter-check"
+                    ><input
+                      type="checkbox"
+                      name="type"
+                      value="beach-bush"
+                    /><span class="check-box"
+                      ><i class="fa-solid fa-check"></i></span
+                    ><span class="check-label"
+                      ><i class="fa-solid fa-water"></i> Beach+Bush</span
+                    ></label
+                  >
+                  <label class="filter-check"
+                    ><input type="checkbox" name="type" value="trekking" /><span
+                      class="check-box"
+                      ><i class="fa-solid fa-check"></i></span
+                    ><span class="check-label"
+                      ><i class="fa-solid fa-person-hiking"></i> Trekking</span
+                    ></label
+                  >
+                  <label class="filter-check"
+                    ><input
+                      type="checkbox"
+                      name="type"
+                      value="honeymoon"
+                    /><span class="check-box"
+                      ><i class="fa-solid fa-check"></i></span
+                    ><span class="check-label"
+                      ><i class="fa-solid fa-heart"></i> Honeymoon</span
+                    ></label
+                  >
+                  <label class="filter-check"
+                    ><input type="checkbox" name="type" value="bespoke" /><span
+                      class="check-box"
+                      ><i class="fa-solid fa-check"></i></span
+                    ><span class="check-label"
+                      ><i class="fa-solid fa-crown"></i> Bespoke</span
+                    ></label
+                  >
+                </div>
+              </div>
+              <div class="filter-divider"></div>
+
+              <!-- Price Range: fixed 0–5000 -->
+              <div class="filter-group price-range-group">
+                <div class="filter-group-label">
+                  <i class="fa-solid fa-dollar-sign"></i> Price / Person
+                </div>
+                <div class="price-display">
+                  <div class="price-vals">
+                    $<span id="priceMin">0</span> – $<span id="priceMax"
+                      >5,000</span
+                    >
+                  </div>
+                  <span class="price-per">per person</span>
+                </div>
+                <div class="range-wrap">
+                  <div class="range-track"></div>
+                  <div class="range-fill" id="rangeFill"></div>
+                  <input
+                    type="range"
+                    class="range-input"
+                    id="rangeMin"
+                    min="0"
+                    max="5000"
+                    step="50"
+                    value="0"
+                  />
+                  <input
+                    type="range"
+                    class="range-input"
+                    id="rangeMax"
+                    min="0"
+                    max="5000"
+                    step="50"
+                    value="5000"
+                  />
+                </div>
               </div>
             </div>
-            <div class="filter-divider"></div>
+            <!-- /filter-sidebar-body -->
+          </div>
+          <!-- /filter-sidebar -->
+        </div>
+        <!-- /collapsible -->
+      </aside>
 
-            <!-- Duration -->
-            <div class="filter-group">
-              <div class="filter-group-label"><i class="fa-regular fa-calendar"></i> Duration</div>
-              <div class="filter-check-list">
-                <label class="filter-check"><input type="checkbox" name="dur" value="2"/><span class="check-box"><i class="fa-solid fa-check"></i></span><span class="check-label">2 Days</span></label>
-                <label class="filter-check"><input type="checkbox" name="dur" value="3"/><span class="check-box"><i class="fa-solid fa-check"></i></span><span class="check-label">3 Days</span></label>
-                <label class="filter-check"><input type="checkbox" name="dur" value="4"/><span class="check-box"><i class="fa-solid fa-check"></i></span><span class="check-label">4 Days</span></label>
-                <label class="filter-check"><input type="checkbox" name="dur" value="6"/><span class="check-box"><i class="fa-solid fa-check"></i></span><span class="check-label">6 Days</span></label>
-                <label class="filter-check"><input type="checkbox" name="dur" value="7"/><span class="check-box"><i class="fa-solid fa-check"></i></span><span class="check-label">7 Days</span></label>
-                <label class="filter-check"><input type="checkbox" name="dur" value="custom"/><span class="check-box"><i class="fa-solid fa-check"></i></span><span class="check-label">Custom</span></label>
+      <!-- ═══ RIGHT SIDE: RESULTS + GRID ═══ -->
+      <div class="packages-side">
+        <!-- Results bar -->
+        <div class="results-bar" id="resultsBar">
+          <div class="results-count">
+            Showing <strong id="visibleCount">0</strong> of
+            <strong id="totalCount">0</strong> packages
+          </div>
+          <div class="active-filters" id="activeFilters"></div>
+        </div>
+
+        <!-- Intro text -->
+        <div style="max-width: 100%" class="reveal">
+          <div class="section-tag">All Tour Packages</div>
+          <h2 class="section-title">Choose Your <em>Adventure</em></h2>
+          <p class="section-sub">
+            All packages include a professional driver-guide, park fees,
+            accommodation and meals as specified. Prices are per person based on
+            shared occupancy.
+          </p>
+        </div>
+
+        <!-- Tours Grid — populated by JS -->
+        <div class="tours-grid" id="toursGrid">
+          <div class="skeleton-card">
+            <div class="skel-img"></div>
+            <div class="skel-body">
+              <div class="skel-line"></div>
+              <div class="skel-line w60"></div>
+              <div class="skel-line w40"></div>
+            </div>
+          </div>
+          <div class="skeleton-card">
+            <div class="skel-img"></div>
+            <div class="skel-body">
+              <div class="skel-line"></div>
+              <div class="skel-line w60"></div>
+              <div class="skel-line w40"></div>
+            </div>
+          </div>
+          <div class="skeleton-card">
+            <div class="skel-img"></div>
+            <div class="skel-body">
+              <div class="skel-line"></div>
+              <div class="skel-line w60"></div>
+              <div class="skel-line w40"></div>
+            </div>
+          </div>
+          <div class="skeleton-card">
+            <div class="skel-img"></div>
+            <div class="skel-body">
+              <div class="skel-line"></div>
+              <div class="skel-line w60"></div>
+              <div class="skel-line w40"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-wrap" id="paginationWrap" style="display: none">
+          <div class="progress-bar-wrap" id="progressWrap">
+            <div class="progress-label">
+              Showing <strong id="shownLabel">0</strong> of
+              <strong id="totalLabel">0</strong> packages
+            </div>
+            <div class="progress-track">
+              <div
+                class="progress-fill"
+                id="progressFill"
+                style="width: 0%"
+              ></div>
+            </div>
+          </div>
+          <button class="show-more-btn" id="showMoreBtn">
+            <span class="btn-text"
+              ><i class="fa-solid fa-chevron-down"></i> Show More Packages</span
+            >
+            <span class="btn-loader"></span>
+          </button>
+          <p class="all-shown-msg" id="allShownMsg">
+            <i class="fa-solid fa-check"></i> &nbsp; All packages displayed
+          </p>
+        </div>
+      </div>
+      <!-- /packages-side -->
+    </div>
+    <!-- /tours-layout-wrap -->
+
+    <!-- WHAT'S INCLUDED -->
+    <section style="background: var(--dark3); padding: 7rem 8%">
+      <div
+        style="text-align: center; max-width: 600px; margin: 0 auto 3.5rem"
+        class="reveal"
+      >
+        <div class="section-tag">Standard Inclusions</div>
+        <h2 class="section-title">What's Always <em>Included</em></h2>
+        <p class="section-sub">
+          Every Seresafari tour package — regardless of budget level — includes
+          these core standards of service and quality.
+        </p>
+      </div>
+      <div
+        style="
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 1.5rem;
+        "
+        class="reveal"
+      >
+        <div class="team-card">
+          <i class="fa-solid fa-car-side"></i>
+          <div class="team-title">4WD Safari Vehicle</div>
+          <div class="team-desc">
+            Custom-built Land Cruiser with pop-up roof, charging ports, cooler
+            box, and first aid kit.
+          </div>
+        </div>
+        <div class="team-card">
+          <i class="fa-solid fa-user-tie"></i>
+          <div class="team-title">Expert Driver-Guide</div>
+          <div class="team-desc">
+            Licensed, experienced, English-speaking naturalist guide with
+            minimum 7 years' field experience.
+          </div>
+        </div>
+        <div class="team-card">
+          <i class="fa-solid fa-utensils"></i>
+          <div class="team-title">All Meals on Safari</div>
+          <div class="team-desc">
+            Freshly prepared breakfast, lunch boxes and dinner. Special dietary
+            requirements catered for.
+          </div>
+        </div>
+        <div class="team-card">
+          <i class="fa-solid fa-ticket"></i>
+          <div class="team-title">All Park Fees</div>
+          <div class="team-desc">
+            All national park entry fees, conservation area fees and crater
+            descent fees fully covered.
+          </div>
+        </div>
+        <div class="team-card">
+          <i class="fa-solid fa-plane-arrival"></i>
+          <div class="team-title">Airport Transfers</div>
+          <div class="team-desc">
+            Complimentary pick-up and drop-off at Kilimanjaro International
+            Airport or Arusha Airport.
+          </div>
+        </div>
+        <div class="team-card">
+          <i class="fa-solid fa-wifi"></i>
+          <div class="team-title">In-Vehicle WiFi</div>
+          <div class="team-desc">
+            Stay connected during transfers. Share your safari moments in
+            real-time.
+          </div>
+        </div>
+        <div class="team-card">
+          <i class="fa-solid fa-headset"></i>
+          <div class="team-title">24/7 Support</div>
+          <div class="team-desc">
+            Our operations team is available around the clock before and during
+            your safari.
+          </div>
+        </div>
+        <div class="team-card">
+          <i class="fa-solid fa-shield-halved"></i>
+          <div class="team-title">Safety First</div>
+          <div class="team-desc">
+            First aid kits, emergency contacts and comprehensive safety
+            protocols on every tour.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section" style="background: var(--dark2)">
+      <div
+        style="
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 4rem;
+          align-items: start;
+        "
+      >
+        <div class="reveal-l">
+          <div class="section-tag">Common Questions</div>
+          <h2 class="section-title">Tour <em>FAQ</em></h2>
+          <p class="section-sub">
+            Everything you need to know before booking your Tanzania safari with
+            Seresafari Africa.
+          </p>
+          <div
+            style="
+              margin-top: 2.5rem;
+              display: flex;
+              flex-direction: column;
+              gap: 1.5rem;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                align-items: flex-start;
+                gap: 1rem;
+                padding: 1.2rem;
+                background: var(--dark3);
+                border-left: 2px solid var(--gold);
+              "
+            >
+              <i
+                class="fa-solid fa-phone"
+                style="color: var(--gold); margin-top: 3px; flex-shrink: 0"
+              ></i>
+              <div>
+                <div
+                  style="
+                    font-family: var(--ff-head);
+                    font-size: 0.9rem;
+                    font-weight: 600;
+                    color: var(--white);
+                    letter-spacing: 1px;
+                    margin-bottom: 0.3rem;
+                  "
+                >
+                  CALL / WHATSAPP
+                </div>
+                <a
+                  href="tel:+255690318461"
+                  style="color: var(--gold); font-size: 0.9rem"
+                  >+255 690 318 461</a
+                >
               </div>
             </div>
-            <div class="filter-divider"></div>
-
-            <!-- Type -->
-            <div class="filter-group">
-              <div class="filter-group-label"><i class="fa-solid fa-tag"></i> Type</div>
-              <div class="filter-check-list">
-                <label class="filter-check"><input type="checkbox" name="type" value="game-drive"/><span class="check-box"><i class="fa-solid fa-check"></i></span><span class="check-label"><i class="fa-solid fa-car-side"></i> Game Drive</span></label>
-                <label class="filter-check"><input type="checkbox" name="type" value="fly-in"/><span class="check-box"><i class="fa-solid fa-check"></i></span><span class="check-label"><i class="fa-solid fa-plane"></i> Fly-In</span></label>
-                <label class="filter-check"><input type="checkbox" name="type" value="beach-bush"/><span class="check-box"><i class="fa-solid fa-check"></i></span><span class="check-label"><i class="fa-solid fa-water"></i> Beach+Bush</span></label>
-                <label class="filter-check"><input type="checkbox" name="type" value="trekking"/><span class="check-box"><i class="fa-solid fa-check"></i></span><span class="check-label"><i class="fa-solid fa-person-hiking"></i> Trekking</span></label>
-                <label class="filter-check"><input type="checkbox" name="type" value="honeymoon"/><span class="check-box"><i class="fa-solid fa-check"></i></span><span class="check-label"><i class="fa-solid fa-heart"></i> Honeymoon</span></label>
-                <label class="filter-check"><input type="checkbox" name="type" value="bespoke"/><span class="check-box"><i class="fa-solid fa-check"></i></span><span class="check-label"><i class="fa-solid fa-crown"></i> Bespoke</span></label>
+            <div
+              style="
+                display: flex;
+                align-items: flex-start;
+                gap: 1rem;
+                padding: 1.2rem;
+                background: var(--dark3);
+                border-left: 2px solid var(--gold);
+              "
+            >
+              <i
+                class="fa-solid fa-envelope"
+                style="color: var(--gold); margin-top: 3px; flex-shrink: 0"
+              ></i>
+              <div>
+                <div
+                  style="
+                    font-family: var(--ff-head);
+                    font-size: 0.9rem;
+                    font-weight: 600;
+                    color: var(--white);
+                    letter-spacing: 1px;
+                    margin-bottom: 0.3rem;
+                  "
+                >
+                  EMAIL US
+                </div>
+                <a
+                  href="mailto:info@seresafariafrica.com"
+                  style="color: var(--gold); font-size: 0.9rem"
+                  >info@seresafariafrica.com</a
+                >
               </div>
             </div>
-            <div class="filter-divider"></div>
-
-            <!-- Price Range: fixed 0–5000 -->
-            <div class="filter-group price-range-group">
-              <div class="filter-group-label"><i class="fa-solid fa-dollar-sign"></i> Price / Person</div>
-              <div class="price-display">
-                <div class="price-vals">$<span id="priceMin">0</span> – $<span id="priceMax">5,000</span></div>
-                <span class="price-per">per person</span>
-              </div>
-              <div class="range-wrap">
-                <div class="range-track"></div>
-                <div class="range-fill" id="rangeFill"></div>
-                <input type="range" class="range-input" id="rangeMin" min="0" max="5000" step="50" value="0"/>
-                <input type="range" class="range-input" id="rangeMax" min="0" max="5000" step="50" value="5000"/>
+          </div>
+        </div>
+        <div class="faq-list reveal-r">
+          <div class="faq-item">
+            <button class="faq-q">
+              What is the best time to go on safari in Tanzania?
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <div class="faq-a">
+              <div class="faq-a-inner">
+                Tanzania is a year-round destination. The dry season
+                (June–October) offers the best wildlife viewing as animals
+                gather around water sources. January–February is magical for the
+                Great Migration calving season.
               </div>
             </div>
-
-          </div><!-- /filter-sidebar-body -->
-        </div><!-- /filter-sidebar -->
-      </div><!-- /collapsible -->
-    </aside>
-
-    <!-- ═══ RIGHT SIDE: RESULTS + GRID ═══ -->
-    <div class="packages-side">
-
-      <!-- Results bar -->
-      <div class="results-bar" id="resultsBar">
-        <div class="results-count">
-          Showing <strong id="visibleCount">0</strong> of <strong id="totalCount">0</strong> packages
-        </div>
-        <div class="active-filters" id="activeFilters"></div>
-      </div>
-
-      <!-- Intro text -->
-      <div style="max-width:100%;" class="reveal">
-        <div class="section-tag">All Tour Packages</div>
-        <h2 class="section-title">Choose Your <em>Adventure</em></h2>
-        <p class="section-sub">All packages include a professional driver-guide, park fees, accommodation and meals as specified. Prices are per person based on shared occupancy.</p>
-      </div>
-
-      <!-- Tours Grid — populated by JS -->
-      <div class="tours-grid" id="toursGrid">
-        <div class="skeleton-card"><div class="skel-img"></div><div class="skel-body"><div class="skel-line"></div><div class="skel-line w60"></div><div class="skel-line w40"></div></div></div>
-        <div class="skeleton-card"><div class="skel-img"></div><div class="skel-body"><div class="skel-line"></div><div class="skel-line w60"></div><div class="skel-line w40"></div></div></div>
-        <div class="skeleton-card"><div class="skel-img"></div><div class="skel-body"><div class="skel-line"></div><div class="skel-line w60"></div><div class="skel-line w40"></div></div></div>
-        <div class="skeleton-card"><div class="skel-img"></div><div class="skel-body"><div class="skel-line"></div><div class="skel-line w60"></div><div class="skel-line w40"></div></div></div>
-      </div>
-
-      <!-- Pagination -->
-      <div class="pagination-wrap" id="paginationWrap" style="display:none">
-        <div class="progress-bar-wrap" id="progressWrap">
-          <div class="progress-label">Showing <strong id="shownLabel">0</strong> of <strong id="totalLabel">0</strong> packages</div>
-          <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
-        </div>
-        <button class="show-more-btn" id="showMoreBtn">
-          <span class="btn-text"><i class="fa-solid fa-chevron-down"></i> Show More Packages</span>
-          <span class="btn-loader"></span>
-        </button>
-        <p class="all-shown-msg" id="allShownMsg"><i class="fa-solid fa-check"></i> &nbsp; All packages displayed</p>
-      </div>
-
-    </div><!-- /packages-side -->
-  </div><!-- /tours-layout-wrap -->
-
-  <!-- WHAT'S INCLUDED -->
-  <section style="background:var(--dark3);padding:7rem 8%;">
-    <div style="text-align:center;max-width:600px;margin:0 auto 3.5rem;" class="reveal">
-      <div class="section-tag">Standard Inclusions</div>
-      <h2 class="section-title">What's Always <em>Included</em></h2>
-      <p class="section-sub">Every Seresafari tour package — regardless of budget level — includes these core standards of service and quality.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;" class="reveal">
-      <div class="team-card"><i class="fa-solid fa-car-side"></i><div class="team-title">4WD Safari Vehicle</div><div class="team-desc">Custom-built Land Cruiser with pop-up roof, charging ports, cooler box, and first aid kit.</div></div>
-      <div class="team-card"><i class="fa-solid fa-user-tie"></i><div class="team-title">Expert Driver-Guide</div><div class="team-desc">Licensed, experienced, English-speaking naturalist guide with minimum 7 years' field experience.</div></div>
-      <div class="team-card"><i class="fa-solid fa-utensils"></i><div class="team-title">All Meals on Safari</div><div class="team-desc">Freshly prepared breakfast, lunch boxes and dinner. Special dietary requirements catered for.</div></div>
-      <div class="team-card"><i class="fa-solid fa-ticket"></i><div class="team-title">All Park Fees</div><div class="team-desc">All national park entry fees, conservation area fees and crater descent fees fully covered.</div></div>
-      <div class="team-card"><i class="fa-solid fa-plane-arrival"></i><div class="team-title">Airport Transfers</div><div class="team-desc">Complimentary pick-up and drop-off at Kilimanjaro International Airport or Arusha Airport.</div></div>
-      <div class="team-card"><i class="fa-solid fa-wifi"></i><div class="team-title">In-Vehicle WiFi</div><div class="team-desc">Stay connected during transfers. Share your safari moments in real-time.</div></div>
-      <div class="team-card"><i class="fa-solid fa-headset"></i><div class="team-title">24/7 Support</div><div class="team-desc">Our operations team is available around the clock before and during your safari.</div></div>
-      <div class="team-card"><i class="fa-solid fa-shield-halved"></i><div class="team-title">Safety First</div><div class="team-desc">First aid kits, emergency contacts and comprehensive safety protocols on every tour.</div></div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="faq-section" style="background:var(--dark2);">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
-      <div class="reveal-l">
-        <div class="section-tag">Common Questions</div>
-        <h2 class="section-title">Tour <em>FAQ</em></h2>
-        <p class="section-sub">Everything you need to know before booking your Tanzania safari with Seresafari Africa.</p>
-        <div style="margin-top:2.5rem;display:flex;flex-direction:column;gap:1.5rem;">
-          <div style="display:flex;align-items:flex-start;gap:1rem;padding:1.2rem;background:var(--dark3);border-left:2px solid var(--gold);">
-            <i class="fa-solid fa-phone" style="color:var(--gold);margin-top:3px;flex-shrink:0;"></i>
-            <div><div style="font-family:var(--ff-head);font-size:.9rem;font-weight:600;color:var(--white);letter-spacing:1px;margin-bottom:.3rem;">CALL / WHATSAPP</div><a href="tel:+255690318461" style="color:var(--gold);font-size:.9rem;">+255 690 318 461</a></div>
           </div>
-          <div style="display:flex;align-items:flex-start;gap:1rem;padding:1.2rem;background:var(--dark3);border-left:2px solid var(--gold);">
-            <i class="fa-solid fa-envelope" style="color:var(--gold);margin-top:3px;flex-shrink:0;"></i>
-            <div><div style="font-family:var(--ff-head);font-size:.9rem;font-weight:600;color:var(--white);letter-spacing:1px;margin-bottom:.3rem;">EMAIL US</div><a href="mailto:info@seresafariafrica.com" style="color:var(--gold);font-size:.9rem;">info@seresafariafrica.com</a></div>
+          <div class="faq-item">
+            <button class="faq-q">
+              How many people will be in my safari vehicle?
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <div class="faq-a">
+              <div class="faq-a-inner">
+                Our standard safari vehicles accommodate a maximum of 6 guests,
+                ensuring everyone has a window seat with unobstructed wildlife
+                views. Private safaris can be arranged for couples, families or
+                small groups.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              Do I need a visa to visit Tanzania?
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <div class="faq-a">
+              <div class="faq-a-inner">
+                Most nationalities require a visa to enter Tanzania. You can
+                apply for an e-Visa online before travel at immigration.go.tz,
+                or obtain a visa on arrival at Kilimanjaro International
+                Airport. The current fee is approximately $50 USD.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              What vaccinations do I need for Tanzania?
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <div class="faq-a">
+              <div class="faq-a-inner">
+                Yellow Fever vaccination is required if arriving from certain
+                countries. Malaria prophylaxis is strongly advised. Other
+                recommended vaccines include Hepatitis A &amp; B, Typhoid and
+                Tetanus. Consult your doctor at least 6–8 weeks before travel.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              What currency should I bring to Tanzania?
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <div class="faq-a">
+              <div class="faq-a-inner">
+                The Tanzanian Shilling (TZS) is the local currency, but US
+                Dollars are widely accepted. Bring clean, un-torn USD bills
+                dated after 2009 for the best exchange rates. ATMs are available
+                in Arusha and major towns.
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="faq-list reveal-r">
-        <div class="faq-item"><button class="faq-q">What is the best time to go on safari in Tanzania? <i class="fa-solid fa-plus"></i></button><div class="faq-a"><div class="faq-a-inner">Tanzania is a year-round destination. The dry season (June–October) offers the best wildlife viewing as animals gather around water sources. January–February is magical for the Great Migration calving season.</div></div></div>
-        <div class="faq-item"><button class="faq-q">How many people will be in my safari vehicle? <i class="fa-solid fa-plus"></i></button><div class="faq-a"><div class="faq-a-inner">Our standard safari vehicles accommodate a maximum of 6 guests, ensuring everyone has a window seat with unobstructed wildlife views. Private safaris can be arranged for couples, families or small groups.</div></div></div>
-        <div class="faq-item"><button class="faq-q">Do I need a visa to visit Tanzania? <i class="fa-solid fa-plus"></i></button><div class="faq-a"><div class="faq-a-inner">Most nationalities require a visa to enter Tanzania. You can apply for an e-Visa online before travel at immigration.go.tz, or obtain a visa on arrival at Kilimanjaro International Airport. The current fee is approximately $50 USD.</div></div></div>
-        <div class="faq-item"><button class="faq-q">What vaccinations do I need for Tanzania? <i class="fa-solid fa-plus"></i></button><div class="faq-a"><div class="faq-a-inner">Yellow Fever vaccination is required if arriving from certain countries. Malaria prophylaxis is strongly advised. Other recommended vaccines include Hepatitis A &amp; B, Typhoid and Tetanus. Consult your doctor at least 6–8 weeks before travel.</div></div></div>
-        <div class="faq-item"><button class="faq-q">What currency should I bring to Tanzania? <i class="fa-solid fa-plus"></i></button><div class="faq-a"><div class="faq-a-inner">The Tanzanian Shilling (TZS) is the local currency, but US Dollars are widely accepted. Bring clean, un-torn USD bills dated after 2009 for the best exchange rates. ATMs are available in Arusha and major towns.</div></div></div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA -->
-  <section class="book-section">
-    <div class="book-bg"></div>
-    <div class="book-inner reveal">
-      <div class="section-tag" style="justify-content:center;">Start Planning</div>
-      <h2>Book Your <em>Safari</em></h2>
-      <p>Ready to experience Tanzania? Send us your enquiry and our team will design your perfect itinerary within 24 hours — completely free.</p>
-      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-        <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Send Enquiry</a>
-        <a href="kilimanjaro.html" class="btn btn-outline"><i class="fa-solid fa-mountain"></i> Kilimanjaro Packages</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="../index.html" class="logo">SERE<span>SAFARI</span></a>
-        <p class="footer-tagline">Creating unforgettable safari experiences in the heart of Africa. Expert guides. Hand-picked lodges. Hakuna Matata.</p>
-        <div class="footer-social">
-          <a href="https://www.facebook.com/Seresafari/" target="_blank" rel="noopener" class="soc-btn"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#" class="soc-btn"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#" class="soc-btn"><i class="fa-brands fa-x-twitter"></i></a>
-          <a href="#" class="soc-btn"><i class="fa-brands fa-youtube"></i></a>
+    <!-- CTA -->
+    <section class="book-section">
+      <div class="book-bg"></div>
+      <div class="book-inner reveal">
+        <div class="section-tag" style="justify-content: center">
+          Start Planning
+        </div>
+        <h2>Book Your <em>Safari</em></h2>
+        <p>
+          Ready to experience Tanzania? Send us your enquiry and our team will
+          design your perfect itinerary within 24 hours — completely free.
+        </p>
+        <div
+          style="
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+          "
+        >
+          <a href="contact.html" class="btn btn-primary"
+            ><i class="fa-solid fa-paper-plane"></i> Send Enquiry</a
+          >
+          <a href="kilimanjaro.html" class="btn btn-outline"
+            ><i class="fa-solid fa-mountain"></i> Kilimanjaro Packages</a
+          >
         </div>
       </div>
-      <div class="footer-col">
-        <h4>Destinations</h4>
-        <ul class="footer-links">
-          <li><a href="destinations.html"><i class="fa-solid fa-chevron-right"></i>Serengeti</a></li>
-          <li><a href="destinations.html"><i class="fa-solid fa-chevron-right"></i>Ngorongoro Crater</a></li>
-          <li><a href="destinations.html"><i class="fa-solid fa-chevron-right"></i>Tarangire</a></li>
-          <li><a href="destinations.html"><i class="fa-solid fa-chevron-right"></i>Lake Manyara</a></li>
-          <li><a href="kilimanjaro.html"><i class="fa-solid fa-chevron-right"></i>Kilimanjaro</a></li>
-          <li><a href="zanzibar.html"><i class="fa-solid fa-chevron-right"></i>Zanzibar</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Tours</h4>
-        <ul class="footer-links" id="footerTourLinks">
-          <li><a href="tours.html"><i class="fa-solid fa-chevron-right"></i>All Packages</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul class="footer-contact">
-          <li><span class="fc-ico"><i class="fa-solid fa-location-dot"></i></span>Arusha, Tanzania 23100</li>
-          <li><span class="fc-ico"><i class="fa-solid fa-phone"></i></span><a href="tel:+255690318461" style="color:var(--text);">+255 690 318 461</a></li>
-          <li><span class="fc-ico"><i class="fa-solid fa-envelope"></i></span><a href="mailto:info@seresafariafrica.com" style="color:var(--text);">info@seresafariafrica.com</a></li>
-          <li><span class="fc-ico"><i class="fa-solid fa-clock"></i></span>Mon–Sat: 8AM–6PM EAT</li>
-        </ul>
-      </div>
-      <div class="footer-badges">
-        <video class="footer-plane-video" autoplay muted loop playsinline>
-          <source src="../images/jeep.mp4" type="video/mp4">
-        </video>
+    </section>
 
-        <div class="footer-badge-row">
-          <p class="badge-label">We Accept</p>
-          <div class="badge-items">
-            <a href="https://shop.directpay.online/paymybills/SERESAFARIAFRICATOURSCOMPANYLIMITED"
-              target="_blank" rel="noopener noreferrer">
-              <img src="../images/visa.png" alt="Visa accepted" class="payment-badge">
-            </a>
+    <footer>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo">SERE<span>SAFARI</span></a>
+          <p class="footer-tagline">
+            Creating unforgettable safari experiences in the heart of Africa.
+            Expert guides. Hand-picked lodges. Hakuna Matata.
+          </p>
+          <div class="footer-social">
+            <a
+              href="https://www.facebook.com/Seresafari/"
+              target="_blank"
+              rel="noopener"
+              class="soc-btn"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+            <a href="#" class="soc-btn"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a href="#" class="soc-btn"
+              ><i class="fa-brands fa-x-twitter"></i
+            ></a>
+            <a href="#" class="soc-btn"><i class="fa-brands fa-youtube"></i></a>
           </div>
         </div>
+        <div class="footer-col">
+          <h4>Destinations</h4>
+          <ul class="footer-links">
+            <li>
+              <a href="destinations.html"
+                ><i class="fa-solid fa-chevron-right"></i>Serengeti</a
+              >
+            </li>
+            <li>
+              <a href="destinations.html"
+                ><i class="fa-solid fa-chevron-right"></i>Ngorongoro Crater</a
+              >
+            </li>
+            <li>
+              <a href="destinations.html"
+                ><i class="fa-solid fa-chevron-right"></i>Tarangire</a
+              >
+            </li>
+            <li>
+              <a href="destinations.html"
+                ><i class="fa-solid fa-chevron-right"></i>Lake Manyara</a
+              >
+            </li>
+            <li>
+              <a href="kilimanjaro.html"
+                ><i class="fa-solid fa-chevron-right"></i>Kilimanjaro</a
+              >
+            </li>
+            <li>
+              <a href="zanzibar.html"
+                ><i class="fa-solid fa-chevron-right"></i>Zanzibar</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Tours</h4>
+          <ul class="footer-links" id="footerTourLinks">
+            <li>
+              <a href="tours.html"
+                ><i class="fa-solid fa-chevron-right"></i>All Packages</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-contact">
+            <li>
+              <span class="fc-ico"
+                ><i class="fa-solid fa-location-dot"></i></span
+              >Arusha, Tanzania 23100
+            </li>
+            <li>
+              <span class="fc-ico"><i class="fa-solid fa-phone"></i></span
+              ><a href="tel:+255690318461" style="color: var(--text)"
+                >+255 690 318 461</a
+              >
+            </li>
+            <li>
+              <span class="fc-ico"><i class="fa-solid fa-envelope"></i></span
+              ><a
+                href="mailto:info@seresafariafrica.com"
+                style="color: var(--text)"
+                >info@seresafariafrica.com</a
+              >
+            </li>
+            <li>
+              <span class="fc-ico"><i class="fa-solid fa-clock"></i></span
+              >Mon–Sat: 8AM–6PM EAT
+            </li>
+          </ul>
+        </div>
+        <div class="footer-badges">
+          <video class="footer-plane-video" autoplay muted loop playsinline>
+            <source src="../images/jeep.mp4" type="video/mp4" />
+          </video>
 
-        <div class="footer-badge-row">
-          <p class="badge-label">Find Us On</p>
-          <div class="badge-items">
-            <a href="https://www.tripadvisor.com/Attraction_Review-g297913-d28413189-Reviews-Seresafari_Africa_Tours-Arusha_Arusha_Region.html"
-              target="_blank" rel="noopener" class="review-badge">
-              <img src="../images/tripadvisor.svg" alt="TripAdvisor" class="platform-logo">
-            </a>
-            <a href="https://www.getyourguide.com/seresafari-africa-s583425/" target="_blank" rel="noopener" class="review-badge">
-              <img src="../images/getyourguide.svg" alt="GetYourGuide" class="platform-logo">
-            </a>
-            <a href="https://www.safarigo.com/operator/seresafari-africa-tours-3208" target="_blank" rel="noopener" class="review-badge">
-              <img src="../images/safarigo.png" alt="SafariGo" class="platform-logo">
-            </a>
-            <a href="https://tourist.com/p/15564/seresafari_africa" target="_blank" rel="noopener" class="review-badge">
-              <img src="../images/tourist.svg" alt="Tourist.com" class="platform-logo">
-            </a>
-            <a href="https://www.safaribookings.com/p7682" target="_blank" rel="noopener" class="review-badge">
-              <img src="../images/safaribookings.png" alt="SafariBookings" class="platform-logo">
-            </a>
+          <div class="footer-badge-row">
+            <p class="badge-label">We Accept</p>
+            <div class="badge-items">
+              <a
+                href="https://shop.directpay.online/paymybills/SERESAFARIAFRICATOURSCOMPANYLIMITED"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="../images/visa.png"
+                  alt="Visa accepted"
+                  class="payment-badge"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-badge-row">
+            <p class="badge-label">Find Us On</p>
+            <div class="badge-items">
+              <a
+                href="https://www.tripadvisor.com/Attraction_Review-g297913-d28413189-Reviews-Seresafari_Africa_Tours-Arusha_Arusha_Region.html"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="../images/tripadvisor.svg"
+                  alt="TripAdvisor"
+                  class="platform-logo"
+                />
+              </a>
+              <a
+                href="https://www.getyourguide.com/seresafari-africa-s583425/"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="../images/getyourguide.svg"
+                  alt="GetYourGuide"
+                  class="platform-logo"
+                />
+              </a>
+              <a
+                href="https://www.safarigo.com/operator/seresafari-africa-tours-3208"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="../images/safarigo.png"
+                  alt="SafariGo"
+                  class="platform-logo"
+                />
+              </a>
+              <a
+                href="https://tourist.com/p/15564/seresafari_africa"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="../images/tourist.svg"
+                  alt="Tourist.com"
+                  class="platform-logo"
+                />
+              </a>
+              <a
+                href="https://www.safaribookings.com/p7682"
+                target="_blank"
+                rel="noopener"
+                class="review-badge"
+              >
+                <img
+                  src="../images/safaribookings.png"
+                  alt="SafariBookings"
+                  class="platform-logo"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    
-    <div class="footer-bot">
-      <p>© 2026 Seresafari Africa. All Rights Reserved. · Web by Pamtech</p>
-      <div class="hakuna">Hakuna Matata <i class="fa-solid fa-earth-africa"></i></div>
-      <p><a href="privacy-policy.html">Privacy Policy</a> · <a href="terms-of-service.html">Terms of Service</a> · <a href="travel-insights.html">Travel Insights</a></p>
-    </div>
-  </footer>
 
-  <a class="wa-btn" href="https://wa.me/255690318461" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
+      <div class="footer-bot">
+        <p>© 2026 Seresafari Africa. All Rights Reserved. · Web by Pamtech</p>
+        <div class="hakuna">
+          Hakuna Matata <i class="fa-solid fa-earth-africa"></i>
+        </div>
+        <p>
+          <a href="privacy-policy.html">Privacy Policy</a> ·
+          <a href="terms-of-service.html">Terms of Service</a> ·
+          <a href="travel-insights.html">Travel Insights</a>
+        </p>
+      </div>
+    </footer>
 
-  <!-- Supabase -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="../js/supabase-config.js"></script>
-  <script src="../js/main.js"></script>
+    <a
+      class="wa-btn"
+      href="https://wa.me/255690318461"
+      target="_blank"
+      rel="noopener"
+      ><i class="fa-brands fa-whatsapp"></i
+    ></a>
 
-  <script>
-  /* ════════════════════════════════════════════════
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/supabase-config.js"></script>
+    <script src="../js/main.js"></script>
+
+    <script>
+      /* ════════════════════════════════════════════════
      TOURS PAGE — FIXED VERSION
      - Price range fixed at $0–$5,000
      - Sliders update display on 'input', filter on 'change' (mouse release)
@@ -579,76 +1524,83 @@
      - Pagination: CARDS_PER_PAGE = 4
   ════════════════════════════════════════════════ */
 
-  const CARDS_PER_PAGE = 2;
-  const PRICE_MIN = 0;
-  const PRICE_MAX = 5000;
+      const CARDS_PER_PAGE = 2;
+      const PRICE_MIN = 0;
+      const PRICE_MAX = 5000;
 
-  let currentPage = 1;
-  let allPackages = [];
-  let filteredCards = [];
+      let currentPage = 1;
+      let allPackages = [];
+      let filteredCards = [];
 
-  /* ─────────────────────────────────────────────
+      /* ─────────────────────────────────────────────
      FETCH PACKAGES FROM SUPABASE
   ───────────────────────────────────────────── */
-  async function fetchPackages() {
-    try {
-      const { data, error } = await window._sb
-        .from('packages')
-        .select(`
+      async function fetchPackages() {
+        try {
+          const { data, error } = await window._sb
+            .from("packages")
+            .select(
+              `
           id, title, slug, badge_text, badge_icon,
           duration_label, group_size, tour_type_label, tour_type_icon,
           dest_tags, dur_tag, type_tags, base_price,
           price_display, price_suffix, short_desc,
           hero_image, detail_url, cta_text,
           inclusions, exclusions, is_active, is_featured, sort_order
-        `)
-        .eq('is_active', true)
-        .order('sort_order');
+        `,
+            )
+            .eq("is_active", true)
+            .order("sort_order");
 
-      if (error) throw error;
+          if (error) throw error;
 
-      allPackages = data || [];
-      renderCards();
-      buildFooterLinks();
-
-    } catch (e) {
-      console.error('Supabase fetch error:', e);
-      document.getElementById('toursGrid').innerHTML = `
+          allPackages = data || [];
+          renderCards();
+          buildFooterLinks();
+        } catch (e) {
+          console.error("Supabase fetch error:", e);
+          document.getElementById("toursGrid").innerHTML = `
         <div class="fetch-error">
           <i class="fa-solid fa-triangle-exclamation"></i>
           <h3>Could Not Load Packages</h3>
           <p>${esc(e.message)}</p>
         </div>`;
-      document.getElementById('paginationWrap').style.display = 'none';
-    }
-  }
+          document.getElementById("paginationWrap").style.display = "none";
+        }
+      }
 
-  /* ─────────────────────────────────────────────
+      /* ─────────────────────────────────────────────
      BUILD SINGLE CARD HTML
   ───────────────────────────────────────────── */
-  function buildCard(pkg, index) {
-    const inclusions = safeJSON(pkg.inclusions, []);
-    const exclusions = safeJSON(pkg.exclusions, []);
+      function buildCard(pkg, index) {
+        const inclusions = safeJSON(pkg.inclusions, []);
+        const exclusions = safeJSON(pkg.exclusions, []);
 
-    const inclItems = inclusions.slice(0, 5).map(item =>
-      `<li><span class="check"><i class="fa-solid fa-check"></i></span>${esc(item)}</li>`
-    );
-    const exclItems = exclusions.slice(0, 1).map(item =>
-      `<li><span class="cross"><i class="fa-solid fa-xmark"></i></span>${esc(item)}</li>`
-    );
+        const inclItems = inclusions
+          .slice(0, 5)
+          .map(
+            (item) =>
+              `<li><span class="check"><i class="fa-solid fa-check"></i></span>${esc(item)}</li>`,
+          );
+        const exclItems = exclusions
+          .slice(0, 1)
+          .map(
+            (item) =>
+              `<li><span class="cross"><i class="fa-solid fa-xmark"></i></span>${esc(item)}</li>`,
+          );
 
-    const destTags = Array.isArray(pkg.dest_tags)
-      ? pkg.dest_tags.join(' ')
-      : (pkg.dest_tags || '');
-    const typeTags = Array.isArray(pkg.type_tags)
-      ? pkg.type_tags.join(' ')
-      : (pkg.type_tags || '');
+        const destTags = Array.isArray(pkg.dest_tags)
+          ? pkg.dest_tags.join(" ")
+          : pkg.dest_tags || "";
+        const typeTags = Array.isArray(pkg.type_tags)
+          ? pkg.type_tags.join(" ")
+          : pkg.type_tags || "";
 
-    return `
+        return `
       <div class="tour-card"
         data-index="${index}"
         data-dest="${esc(destTags)}"
-        data-dur="${esc(pkg.dur_tag || '')}"
+        data-dur="${esc(pkg.dur_tag || "")}"
         data-type="${esc(typeTags)}"
         data-price="${pkg.base_price || 0}">
 
@@ -656,49 +1608,51 @@
           <img src="${esc(pkg.hero_image)}" alt="${esc(pkg.title)}" loading="lazy"
             onerror="this.src='https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=600&q=80'"/>
           <div class="tour-badge">
-            <i class="fa-solid ${esc(pkg.badge_icon || 'fa-star')}"></i>
-            ${esc(pkg.badge_text || 'Popular')}
+            <i class="fa-solid ${esc(pkg.badge_icon || "fa-star")}"></i>
+            ${esc(pkg.badge_text || "Popular")}
           </div>
         </div>
 
         <div class="tour-body">
           <div class="tour-meta">
             <span><i class="fa-regular fa-calendar"></i> ${esc(pkg.duration_label)}</span>
-            <span><i class="fa-solid fa-users"></i> ${esc(pkg.group_size || '')}</span>
-            <span><i class="fa-solid ${esc(pkg.tour_type_icon || 'fa-car-side')}"></i> ${esc(pkg.tour_type_label || '')}</span>
+            <span><i class="fa-solid fa-users"></i> ${esc(pkg.group_size || "")}</span>
+            <span><i class="fa-solid ${esc(pkg.tour_type_icon || "fa-car-side")}"></i> ${esc(pkg.tour_type_label || "")}</span>
           </div>
           <a href="${esc(pkg.detail_url)}" style="text-decoration:none;">
             <div class="tour-title">${esc(pkg.title)}</div>
           </a>
           <div class="tour-desc">${esc(pkg.short_desc)}</div>
-          <ul class="inc-list">${[...inclItems, ...exclItems].join('')}</ul>
+          <ul class="inc-list">${[...inclItems, ...exclItems].join("")}</ul>
           <div class="tour-footer">
-            <div class="tour-price">${esc(pkg.price_display)}<small>${esc(pkg.price_suffix || '')}</small></div>
+            <div class="tour-price">${esc(pkg.price_display)}<small>${esc(pkg.price_suffix || "")}</small></div>
             <a href="${esc(pkg.detail_url)}" class="tour-link">
-              ${esc(pkg.cta_text || 'View Details')} <i class="fa-solid fa-arrow-right"></i>
+              ${esc(pkg.cta_text || "View Details")} <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>
         </div>
       </div>`;
-  }
+      }
 
-  /* ─────────────────────────────────────────────
+      /* ─────────────────────────────────────────────
      RENDER ALL CARDS INTO GRID
   ───────────────────────────────────────────── */
-  function renderCards() {
-    const grid = document.getElementById('toursGrid');
+      function renderCards() {
+        const grid = document.getElementById("toursGrid");
 
-    if (!allPackages.length) {
-      grid.innerHTML = `
+        if (!allPackages.length) {
+          grid.innerHTML = `
         <div class="no-results" style="display:block;grid-column:1/-1">
           <i class="fa-solid fa-binoculars"></i>
           <h3>No Packages Yet</h3>
           <p>No safari packages found.</p>
         </div>`;
-      return;
-    }
+          return;
+        }
 
-    grid.innerHTML = allPackages.map((pkg, i) => buildCard(pkg, i)).join('') + `
+        grid.innerHTML =
+          allPackages.map((pkg, i) => buildCard(pkg, i)).join("") +
+          `
       <div class="no-results" id="noResults">
         <i class="fa-solid fa-binoculars"></i>
         <h3>No Packages Found</h3>
@@ -710,279 +1664,331 @@
         </p>
       </div>`;
 
-    initFilters();
-  }
+        initFilters();
+      }
 
-  /* ─────────────────────────────────────────────
+      /* ─────────────────────────────────────────────
      FILTER SYSTEM
   ───────────────────────────────────────────── */
-  function initFilters() {
-    const allCards = Array.from(document.querySelectorAll('.tour-card'));
-    filteredCards = [...allCards];
-    currentPage = 1;
+      function initFilters() {
+        const allCards = Array.from(document.querySelectorAll(".tour-card"));
+        filteredCards = [...allCards];
+        currentPage = 1;
 
-    /* ── Price slider elements ── */
-    const rangeMin   = document.getElementById('rangeMin');
-    const rangeMax   = document.getElementById('rangeMax');
-    const priceMinEl = document.getElementById('priceMin');
-    const priceMaxEl = document.getElementById('priceMax');
-    const rangeFill  = document.getElementById('rangeFill');
+        /* ── Price slider elements ── */
+        const rangeMin = document.getElementById("rangeMin");
+        const rangeMax = document.getElementById("rangeMax");
+        const priceMinEl = document.getElementById("priceMin");
+        const priceMaxEl = document.getElementById("priceMax");
+        const rangeFill = document.getElementById("rangeFill");
 
-    /* ── Update the slider fill bar + displayed numbers ── */
-    function updateRangeFill() {
-      const mn = parseInt(rangeMin.value);
-      const mx = parseInt(rangeMax.value);
-      priceMinEl.textContent = mn.toLocaleString();
-      priceMaxEl.textContent = mx.toLocaleString();
-      const total = PRICE_MAX - PRICE_MIN; // 5000
-      rangeFill.style.left  = ((mn - PRICE_MIN) / total * 100) + '%';
-      rangeFill.style.width = ((mx - mn) / total * 100) + '%';
-    }
+        /* ── Update the slider fill bar + displayed numbers ── */
+        function updateRangeFill() {
+          const mn = parseInt(rangeMin.value);
+          const mx = parseInt(rangeMax.value);
+          priceMinEl.textContent = mn.toLocaleString();
+          priceMaxEl.textContent = mx.toLocaleString();
+          const total = PRICE_MAX - PRICE_MIN; // 5000
+          rangeFill.style.left = ((mn - PRICE_MIN) / total) * 100 + "%";
+          rangeFill.style.width = ((mx - mn) / total) * 100 + "%";
+        }
 
-    /* Initialise fill on load */
-    updateRangeFill();
+        /* Initialise fill on load */
+        updateRangeFill();
 
-    /* ── Collect current filter values ── */
-    function getFilters() {
-      return {
-        dests: [...document.querySelectorAll('input[name="dest"]:checked')].map(el => el.value),
-        durs:  [...document.querySelectorAll('input[name="dur"]:checked')].map(el => el.value),
-        types: [...document.querySelectorAll('input[name="type"]:checked')].map(el => el.value),
-        pmin:  parseInt(rangeMin.value),
-        pmax:  parseInt(rangeMax.value)
-      };
-    }
+        /* ── Collect current filter values ── */
+        function getFilters() {
+          return {
+            dests: [
+              ...document.querySelectorAll('input[name="dest"]:checked'),
+            ].map((el) => el.value),
+            durs: [
+              ...document.querySelectorAll('input[name="dur"]:checked'),
+            ].map((el) => el.value),
+            types: [
+              ...document.querySelectorAll('input[name="type"]:checked'),
+            ].map((el) => el.value),
+            pmin: parseInt(rangeMin.value),
+            pmax: parseInt(rangeMax.value),
+          };
+        }
 
-    /* ── Apply all active filters ── */
-    function applyFilters() {
-      const { dests, durs, types, pmin, pmax } = getFilters();
+        /* ── Apply all active filters ── */
+        function applyFilters() {
+          const { dests, durs, types, pmin, pmax } = getFilters();
 
-      filteredCards = allCards.filter(card => {
-        const cardDests = (card.dataset.dest || '').split(' ').filter(Boolean);
-        const cardTypes = (card.dataset.type || '').split(' ').filter(Boolean);
-        const cardDur   = (card.dataset.dur  || '').trim();
-        const cardPrice = parseInt(card.dataset.price || 0);
+          filteredCards = allCards.filter((card) => {
+            const cardDests = (card.dataset.dest || "")
+              .split(" ")
+              .filter(Boolean);
+            const cardTypes = (card.dataset.type || "")
+              .split(" ")
+              .filter(Boolean);
+            const cardDur = (card.dataset.dur || "").trim();
+            const cardPrice = parseInt(card.dataset.price || 0);
 
-        if (dests.length && !dests.some(d => cardDests.includes(d))) return false;
-        if (durs.length  && !durs.includes(cardDur))                  return false;
-        if (types.length && !types.some(t => cardTypes.includes(t)))  return false;
-        if (cardPrice < pmin || cardPrice > pmax)                      return false;
+            if (dests.length && !dests.some((d) => cardDests.includes(d)))
+              return false;
+            if (durs.length && !durs.includes(cardDur)) return false;
+            if (types.length && !types.some((t) => cardTypes.includes(t)))
+              return false;
+            if (cardPrice < pmin || cardPrice > pmax) return false;
 
-        return true;
-      });
+            return true;
+          });
 
-      currentPage = 1;
-      renderPage();
-      updateResultsCount();
-      updateActiveTagsBar();
-      updatePagination();
-    }
+          currentPage = 1;
+          renderPage();
+          updateResultsCount();
+          updateActiveTagsBar();
+          updatePagination();
+        }
 
-    /* ── Show/hide cards based on currentPage ── */
-    function renderPage(animate) {
-      const toShow   = filteredCards.slice(0, currentPage * CARDS_PER_PAGE);
-      const noResults = document.getElementById('noResults');
+        /* ── Show/hide cards based on currentPage ── */
+        function renderPage(animate) {
+          const toShow = filteredCards.slice(0, currentPage * CARDS_PER_PAGE);
+          const noResults = document.getElementById("noResults");
 
-      allCards.forEach(card => {
-        const inFiltered = filteredCards.includes(card);
-        const inPage     = toShow.includes(card);
-        card.style.display = (inFiltered && inPage) ? '' : 'none';
-      });
+          allCards.forEach((card) => {
+            const inFiltered = filteredCards.includes(card);
+            const inPage = toShow.includes(card);
+            card.style.display = inFiltered && inPage ? "" : "none";
+          });
 
-      if (noResults) {
-        noResults.style.display = filteredCards.length === 0 ? 'block' : 'none';
-      }
+          if (noResults) {
+            noResults.style.display =
+              filteredCards.length === 0 ? "block" : "none";
+          }
 
-      if (animate) {
-        const prevCount = (currentPage - 1) * CARDS_PER_PAGE;
-        filteredCards.slice(prevCount, currentPage * CARDS_PER_PAGE).forEach((card, i) => {
-          card.classList.remove('card-entering');
-          void card.offsetWidth;
-          card.style.animationDelay = (i * 0.08) + 's';
-          card.classList.add('card-entering');
-          setTimeout(() => card.classList.remove('card-entering'), 600 + i * 80);
-        });
-      }
-    }
+          if (animate) {
+            const prevCount = (currentPage - 1) * CARDS_PER_PAGE;
+            filteredCards
+              .slice(prevCount, currentPage * CARDS_PER_PAGE)
+              .forEach((card, i) => {
+                card.classList.remove("card-entering");
+                void card.offsetWidth;
+                card.style.animationDelay = i * 0.08 + "s";
+                card.classList.add("card-entering");
+                setTimeout(
+                  () => card.classList.remove("card-entering"),
+                  600 + i * 80,
+                );
+              });
+          }
+        }
 
-    /* ── Pagination UI ── */
-    function updatePagination() {
-      const total = filteredCards.length;
-      const shown = Math.min(currentPage * CARDS_PER_PAGE, total);
-      const pct   = total > 0 ? (shown / total * 100) : 0;
+        /* ── Pagination UI ── */
+        function updatePagination() {
+          const total = filteredCards.length;
+          const shown = Math.min(currentPage * CARDS_PER_PAGE, total);
+          const pct = total > 0 ? (shown / total) * 100 : 0;
 
-      document.getElementById('shownLabel').textContent = shown;
-      document.getElementById('totalLabel').textContent = total;
-      document.getElementById('progressFill').style.width = pct + '%';
+          document.getElementById("shownLabel").textContent = shown;
+          document.getElementById("totalLabel").textContent = total;
+          document.getElementById("progressFill").style.width = pct + "%";
 
-      const btn    = document.getElementById('showMoreBtn');
-      const allMsg = document.getElementById('allShownMsg');
-      const wrap   = document.getElementById('paginationWrap');
-      const progWr = document.getElementById('progressWrap');
+          const btn = document.getElementById("showMoreBtn");
+          const allMsg = document.getElementById("allShownMsg");
+          const wrap = document.getElementById("paginationWrap");
+          const progWr = document.getElementById("progressWrap");
 
-      wrap.style.display  = total > 0 ? 'flex' : 'none';
+          wrap.style.display = total > 0 ? "flex" : "none";
 
-      if (shown >= total) {
-        btn.style.display    = 'none';
-        allMsg.style.display = 'block';
-        progWr.style.display = total > CARDS_PER_PAGE ? 'flex' : 'none';
-      } else {
-        btn.style.display    = 'inline-flex';
-        allMsg.style.display = 'none';
-        progWr.style.display = 'flex';
-      }
-    }
+          if (shown >= total) {
+            btn.style.display = "none";
+            allMsg.style.display = "block";
+            progWr.style.display = total > CARDS_PER_PAGE ? "flex" : "none";
+          } else {
+            btn.style.display = "inline-flex";
+            allMsg.style.display = "none";
+            progWr.style.display = "flex";
+          }
+        }
 
-    /* ── Results count in bar ── */
-    function updateResultsCount() {
-      const shown = Math.min(currentPage * CARDS_PER_PAGE, filteredCards.length);
-      document.getElementById('visibleCount').textContent = shown;
-      document.getElementById('totalCount').textContent   = filteredCards.length;
-    }
+        /* ── Results count in bar ── */
+        function updateResultsCount() {
+          const shown = Math.min(
+            currentPage * CARDS_PER_PAGE,
+            filteredCards.length,
+          );
+          document.getElementById("visibleCount").textContent = shown;
+          document.getElementById("totalCount").textContent =
+            filteredCards.length;
+        }
 
-    /* ── Active filter tags ── */
-    const tagLabels = {
-      serengeti: 'Serengeti', ngorongoro: 'Ngorongoro', tarangire: 'Tarangire',
-      zanzibar: 'Zanzibar', kilimanjaro: 'Kilimanjaro', manyara: 'Lake Manyara',
-      '2': '2 Days', '3': '3 Days', '4': '4 Days', '6': '6 Days', '7': '7 Days', custom: 'Custom',
-      'game-drive': 'Game Drive', 'fly-in': 'Fly-In', 'beach-bush': 'Beach+Bush',
-      trekking: 'Trekking', honeymoon: 'Honeymoon', bespoke: 'Bespoke'
-    };
+        /* ── Active filter tags ── */
+        const tagLabels = {
+          serengeti: "Serengeti",
+          ngorongoro: "Ngorongoro",
+          tarangire: "Tarangire",
+          zanzibar: "Zanzibar",
+          kilimanjaro: "Kilimanjaro",
+          manyara: "Lake Manyara",
+          2: "2 Days",
+          3: "3 Days",
+          4: "4 Days",
+          6: "6 Days",
+          7: "7 Days",
+          custom: "Custom",
+          "game-drive": "Game Drive",
+          "fly-in": "Fly-In",
+          "beach-bush": "Beach+Bush",
+          trekking: "Trekking",
+          honeymoon: "Honeymoon",
+          bespoke: "Bespoke",
+        };
 
-    function updateActiveTagsBar() {
-      const { dests, durs, types, pmin, pmax } = getFilters();
-      const container = document.getElementById('activeFilters');
-      container.innerHTML = '';
+        function updateActiveTagsBar() {
+          const { dests, durs, types, pmin, pmax } = getFilters();
+          const container = document.getElementById("activeFilters");
+          container.innerHTML = "";
 
-      [...dests, ...durs, ...types].forEach(val => {
-        const tag = document.createElement('span');
-        tag.className = 'active-tag';
-        tag.innerHTML = `${tagLabels[val] || val} <i class="fa-solid fa-xmark" data-val="${val}"></i>`;
-        tag.querySelector('i').addEventListener('click', () => {
-          const cb = document.querySelector(`input[value="${val}"]`);
-          if (cb) cb.checked = false;
-          applyFilters();
-        });
-        container.appendChild(tag);
-      });
+          [...dests, ...durs, ...types].forEach((val) => {
+            const tag = document.createElement("span");
+            tag.className = "active-tag";
+            tag.innerHTML = `${tagLabels[val] || val} <i class="fa-solid fa-xmark" data-val="${val}"></i>`;
+            tag.querySelector("i").addEventListener("click", () => {
+              const cb = document.querySelector(`input[value="${val}"]`);
+              if (cb) cb.checked = false;
+              applyFilters();
+            });
+            container.appendChild(tag);
+          });
 
-      if (pmin > PRICE_MIN || pmax < PRICE_MAX) {
-        const tag = document.createElement('span');
-        tag.className = 'active-tag';
-        tag.innerHTML = `$${pmin.toLocaleString()}–$${pmax.toLocaleString()} <i class="fa-solid fa-xmark"></i>`;
-        tag.querySelector('i').addEventListener('click', () => {
+          if (pmin > PRICE_MIN || pmax < PRICE_MAX) {
+            const tag = document.createElement("span");
+            tag.className = "active-tag";
+            tag.innerHTML = `$${pmin.toLocaleString()}–$${pmax.toLocaleString()} <i class="fa-solid fa-xmark"></i>`;
+            tag.querySelector("i").addEventListener("click", () => {
+              rangeMin.value = PRICE_MIN;
+              rangeMax.value = PRICE_MAX;
+              updateRangeFill();
+              applyFilters();
+            });
+            container.appendChild(tag);
+          }
+        }
+
+        /* ── Reset all filters ── */
+        window.resetAllFilters = function () {
+          document
+            .querySelectorAll('.filter-check input[type="checkbox"]')
+            .forEach((cb) => (cb.checked = false));
           rangeMin.value = PRICE_MIN;
           rangeMax.value = PRICE_MAX;
           updateRangeFill();
           applyFilters();
-        });
-        container.appendChild(tag);
-      }
-    }
+        };
 
-    /* ── Reset all filters ── */
-    window.resetAllFilters = function () {
-      document.querySelectorAll('.filter-check input[type="checkbox"]').forEach(cb => cb.checked = false);
-      rangeMin.value = PRICE_MIN;
-      rangeMax.value = PRICE_MAX;
-      updateRangeFill();
-      applyFilters();
-    };
+        /* ── CHECKBOX: filter immediately on change ── */
+        document
+          .querySelectorAll('.filter-check input[type="checkbox"]')
+          .forEach((cb) => {
+            cb.addEventListener("change", applyFilters);
+          });
 
-    /* ── CHECKBOX: filter immediately on change ── */
-    document.querySelectorAll('.filter-check input[type="checkbox"]').forEach(cb => {
-      cb.addEventListener('change', applyFilters);
-    });
-
-    /* ── PRICE SLIDER: update display on 'input' (while dragging),
+        /* ── PRICE SLIDER: update display on 'input' (while dragging),
           but only run applyFilters on 'change' (on mouse release) ── */
-    rangeMin.addEventListener('input', function () {
-      if (parseInt(this.value) > parseInt(rangeMax.value) - 50) {
-        this.value = parseInt(rangeMax.value) - 50;
+        rangeMin.addEventListener("input", function () {
+          if (parseInt(this.value) > parseInt(rangeMax.value) - 50) {
+            this.value = parseInt(rangeMax.value) - 50;
+          }
+          updateRangeFill();
+        });
+        rangeMin.addEventListener("change", applyFilters);
+
+        rangeMax.addEventListener("input", function () {
+          if (parseInt(this.value) < parseInt(rangeMin.value) + 50) {
+            this.value = parseInt(rangeMin.value) + 50;
+          }
+          updateRangeFill();
+        });
+        rangeMax.addEventListener("change", applyFilters);
+
+        /* ── Reset button ── */
+        document
+          .getElementById("resetFilters")
+          .addEventListener("click", resetAllFilters);
+
+        /* ── Show More button ── */
+        document
+          .getElementById("showMoreBtn")
+          .addEventListener("click", function () {
+            this.classList.add("loading");
+            setTimeout(() => {
+              currentPage++;
+              renderPage(true);
+              updateResultsCount();
+              updatePagination();
+              this.classList.remove("loading");
+            }, 600);
+          });
+
+        /* ── Mobile filter toggle ── */
+        const toggle = document.getElementById("filterMobileToggle");
+        const collapsible = document.getElementById("filterCollapsible");
+
+        toggle.addEventListener("click", () => {
+          const collapsed = collapsible.classList.toggle("collapsed");
+          toggle.classList.toggle("collapsed", collapsed);
+        });
+
+        function handleResponsive() {
+          if (window.innerWidth <= 900) {
+            collapsible.classList.add("collapsed");
+            toggle.classList.add("collapsed");
+          } else {
+            collapsible.classList.remove("collapsed");
+          }
+        }
+        handleResponsive();
+        window.addEventListener("resize", handleResponsive);
+
+        /* ── Initial render ── */
+        applyFilters();
       }
-      updateRangeFill();
-    });
-    rangeMin.addEventListener('change', applyFilters);
 
-    rangeMax.addEventListener('input', function () {
-      if (parseInt(this.value) < parseInt(rangeMin.value) + 50) {
-        this.value = parseInt(rangeMin.value) + 50;
-      }
-      updateRangeFill();
-    });
-    rangeMax.addEventListener('change', applyFilters);
-
-    /* ── Reset button ── */
-    document.getElementById('resetFilters').addEventListener('click', resetAllFilters);
-
-    /* ── Show More button ── */
-    document.getElementById('showMoreBtn').addEventListener('click', function () {
-      this.classList.add('loading');
-      setTimeout(() => {
-        currentPage++;
-        renderPage(true);
-        updateResultsCount();
-        updatePagination();
-        this.classList.remove('loading');
-      }, 600);
-    });
-
-    /* ── Mobile filter toggle ── */
-    const toggle      = document.getElementById('filterMobileToggle');
-    const collapsible = document.getElementById('filterCollapsible');
-
-    toggle.addEventListener('click', () => {
-      const collapsed = collapsible.classList.toggle('collapsed');
-      toggle.classList.toggle('collapsed', collapsed);
-    });
-
-    function handleResponsive() {
-      if (window.innerWidth <= 900) {
-        collapsible.classList.add('collapsed');
-        toggle.classList.add('collapsed');
-      } else {
-        collapsible.classList.remove('collapsed');
-      }
-    }
-    handleResponsive();
-    window.addEventListener('resize', handleResponsive);
-
-    /* ── Initial render ── */
-    applyFilters();
-  }
-
-  /* ─────────────────────────────────────────────
+      /* ─────────────────────────────────────────────
      FOOTER LINKS
   ───────────────────────────────────────────── */
-  function buildFooterLinks() {
-    const ul = document.getElementById('footerTourLinks');
-    if (!ul) return;
-    ul.innerHTML = allPackages.slice(0, 6).map(pkg =>
-      `<li><a href="${esc(pkg.detail_url)}"><i class="fa-solid fa-chevron-right"></i>${esc(pkg.title)}</a></li>`
-    ).join('');
-  }
+      function buildFooterLinks() {
+        const ul = document.getElementById("footerTourLinks");
+        if (!ul) return;
+        ul.innerHTML = allPackages
+          .slice(0, 6)
+          .map(
+            (pkg) =>
+              `<li><a href="${esc(pkg.detail_url)}"><i class="fa-solid fa-chevron-right"></i>${esc(pkg.title)}</a></li>`,
+          )
+          .join("");
+      }
 
-  /* ─────────────────────────────────────────────
+      /* ─────────────────────────────────────────────
      HELPERS
   ───────────────────────────────────────────── */
-  function safeJSON(val, fallback = []) {
-    if (!val) return fallback;
-    if (Array.isArray(val)) return val;
-    try { return JSON.parse(val); } catch { return fallback; }
-  }
+      function safeJSON(val, fallback = []) {
+        if (!val) return fallback;
+        if (Array.isArray(val)) return val;
+        try {
+          return JSON.parse(val);
+        } catch {
+          return fallback;
+        }
+      }
 
-  function esc(str) {
-    return String(str || '')
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
-  }
+      function esc(str) {
+        return String(str || "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
 
-  /* ─────────────────────────────────────────────
+      /* ─────────────────────────────────────────────
      BOOT
   ───────────────────────────────────────────── */
-  fetchPackages();
-  </script>
-</body>
+      fetchPackages();
+    </script>
+    <script src="../js/content-protection.js"></script>
+  </body>
 </html>

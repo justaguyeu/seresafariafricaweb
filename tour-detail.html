@@ -1,249 +1,298 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Loading… – Sere Safari Africa</title>
-  <meta name="description" content=""/>
-  <link rel="stylesheet" href="../../css/main.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <style>
-    /* ── SKELETON ── */
-    .skel {
-      background: linear-gradient(90deg,rgba(87,69,53,.08) 25%,rgba(87,69,53,.16) 50%,rgba(87,69,53,.08) 75%);
-      background-size: 200% 100%;
-      animation: shimmer 1.4s infinite;
-      border-radius: 2px;
-    }
-    @keyframes shimmer { to { background-position: -200% 0; } }
-    .skel-hero { height: 70vh; min-height: 480px; }
-    .skel-block { height: 16px; margin-bottom: .7rem; }
-    .skel-block.w80 { width: 80%; }
-    .skel-block.w60 { width: 60%; }
-    .skel-block.w40 { width: 40%; }
-    .skel-layout { display: grid; grid-template-columns: 1fr 340px; gap: 3rem; padding: 4rem 8%; background: var(--dark2); }
-    @media(max-width:900px) { .skel-layout { grid-template-columns: 1fr; padding: 3rem 5%; } }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Loading… – Seresafari Africa</title>
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      /* ── SKELETON ── */
+      .skel {
+        background: linear-gradient(
+          90deg,
+          rgba(87, 69, 53, 0.08) 25%,
+          rgba(87, 69, 53, 0.16) 50%,
+          rgba(87, 69, 53, 0.08) 75%
+        );
+        background-size: 200% 100%;
+        animation: shimmer 1.4s infinite;
+        border-radius: 2px;
+      }
+      @keyframes shimmer {
+        to {
+          background-position: -200% 0;
+        }
+      }
+      .skel-hero {
+        height: 70vh;
+        min-height: 480px;
+      }
+      .skel-block {
+        height: 16px;
+        margin-bottom: 0.7rem;
+      }
+      .skel-block.w80 {
+        width: 80%;
+      }
+      .skel-block.w60 {
+        width: 60%;
+      }
+      .skel-block.w40 {
+        width: 40%;
+      }
+      .skel-layout {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 3rem;
+        padding: 4rem 8%;
+        background: var(--dark2);
+      }
+      @media (max-width: 900px) {
+        .skel-layout {
+          grid-template-columns: 1fr;
+          padding: 3rem 5%;
+        }
+      }
 
-    /* ── NOT FOUND ── */
-    .not-found {
-      display: flex; flex-direction: column; align-items: center;
-      justify-content: center; min-height: 60vh; text-align: center; padding: 4rem 2rem;
-    }
-    .not-found i { font-size: 3rem; color: var(--gold); opacity: .4; margin-bottom: 1.2rem; }
-    .not-found h2 { font-family: var(--ff-head); font-size: 2rem; color: var(--white); letter-spacing: 2px; margin-bottom: .7rem; }
-    .not-found p { color: var(--text); font-size: .9rem; margin-bottom: 1.5rem; }
-  </style>
-</head>
-<body>
-  <div id="cursor"></div>
-  <div id="cursor-ring"></div>
-  <button id="back-top"><i class="fa-solid fa-chevron-up"></i></button>
+      /* ── NOT FOUND ── */
+      .not-found {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 60vh;
+        text-align: center;
+        padding: 4rem 2rem;
+      }
+      .not-found i {
+        font-size: 3rem;
+        color: var(--gold);
+        opacity: 0.4;
+        margin-bottom: 1.2rem;
+      }
+      .not-found h2 {
+        font-family: var(--ff-head);
+        font-size: 2rem;
+        color: var(--white);
+        letter-spacing: 2px;
+        margin-bottom: 0.7rem;
+      }
+      .not-found p {
+        color: var(--text);
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
+    <button id="back-top"><i class="fa-solid fa-chevron-up"></i></button>
 
-  <nav id="nav">
-    <a href="../../index.html" class="logo"><img src="../../logo2.png" alt="Sere Safari Africa"/></a>
-    <ul class="nav-links">
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../destinations.html">Destinations</a></li>
-      <li><a href="../tours.html" class="active">Tours</a></li>
-      <li><a href="../kilimanjaro.html">Kilimanjaro</a></li>
-      <li><a href="../zanzibar.html">Zanzibar</a></li>
-      <li><a href="../gallery.html">Gallery</a></li>
-      <li><a href="../contact.html" class="nav-book">Enquire Now</a></li>
-    </ul>
-    <button class="ham" id="ham"><span></span><span></span><span></span></button>
-  </nav>
-  <nav class="mob-menu" id="mob-menu">
-    <a href="../../index.html">Home</a>
-    <a href="../../about.html">About</a>
-    <a href="../destinations.html">Destinations</a>
-    <a href="../tours.html">Tours</a>
-    <a href="../kilimanjaro.html">Kilimanjaro</a>
-    <a href="../zanzibar.html">Zanzibar</a>
-    <a href="../gallery.html">Gallery</a>
-    <a href="../contact.html" style="color:var(--gold)">Enquire Now</a>
-  </nav>
+    <nav id="nav">
+      <a href="../../index.html" class="logo"
+        ><img src="../../logo2.png" alt="Seresafari Africa"
+      /></a>
+      <ul class="nav-links">
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../destinations.html">Destinations</a></li>
+        <li><a href="../tours.html" class="active">Tours</a></li>
+        <li><a href="../kilimanjaro.html">Kilimanjaro</a></li>
+        <li><a href="../zanzibar.html">Zanzibar</a></li>
+        <li><a href="../gallery.html">Gallery</a></li>
+        <li><a href="../contact.html" class="nav-book">Enquire Now</a></li>
+      </ul>
+      <button class="ham" id="ham">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <nav class="mob-menu" id="mob-menu">
+      <a href="../../index.html">Home</a>
+      <a href="../../about.html">About</a>
+      <a href="../destinations.html">Destinations</a>
+      <a href="../tours.html">Tours</a>
+      <a href="../kilimanjaro.html">Kilimanjaro</a>
+      <a href="../zanzibar.html">Zanzibar</a>
+      <a href="../gallery.html">Gallery</a>
+      <a href="../contact.html" style="color: var(--gold)">Enquire Now</a>
+    </nav>
 
-  <!-- ══ SKELETON WHILE LOADING ══ -->
-  <div id="pageContent">
-    <div id="skeletonHero" class="skel skel-hero" style="margin-top:var(--nav-h)"></div>
-    <div class="skel-layout" id="skeletonBody">
-      <div>
-        <div class="skel skel-block w80"></div>
-        <div class="skel skel-block w60"></div>
-        <div class="skel skel-block w40"></div>
-        <div class="skel skel-block w80" style="margin-top:1.5rem"></div>
-        <div class="skel skel-block w60"></div>
-        <div class="skel skel-block"></div>
-        <div class="skel skel-block w80" style="margin-top:1.5rem"></div>
-        <div class="skel skel-block w60"></div>
-        <div class="skel skel-block w40"></div>
-      </div>
-      <div>
-        <div class="skel skel-block" style="height:320px"></div>
-        <div class="skel skel-block" style="height:160px;margin-top:1rem"></div>
+    <!-- ══ SKELETON WHILE LOADING ══ -->
+    <div id="pageContent">
+      <div
+        id="skeletonHero"
+        class="skel skel-hero"
+        style="margin-top: var(--nav-h)"
+      ></div>
+      <div class="skel-layout" id="skeletonBody">
+        <div>
+          <div class="skel skel-block w80"></div>
+          <div class="skel skel-block w60"></div>
+          <div class="skel skel-block w40"></div>
+          <div class="skel skel-block w80" style="margin-top: 1.5rem"></div>
+          <div class="skel skel-block w60"></div>
+          <div class="skel skel-block"></div>
+          <div class="skel skel-block w80" style="margin-top: 1.5rem"></div>
+          <div class="skel skel-block w60"></div>
+          <div class="skel skel-block w40"></div>
+        </div>
+        <div>
+          <div class="skel skel-block" style="height: 320px"></div>
+          <div
+            class="skel skel-block"
+            style="height: 160px; margin-top: 1rem"
+          ></div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <a class="wa-btn" href="https://wa.me/255690318461" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
+    <a
+      class="wa-btn"
+      href="https://wa.me/255690318461"
+      target="_blank"
+      rel="noopener"
+      ><i class="fa-brands fa-whatsapp"></i
+    ></a>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="../../js/supabase-config.js"></script>
-  <script src="../../js/main.js"></script>
-  <script>
-/* ════════════════════════════════════════════════════════
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../js/supabase-config.js"></script>
+    <script src="../../js/main.js"></script>
+    <script>
+      /* ════════════════════════════════════════════════════════
    DYNAMIC TOUR DETAIL PAGE - FULL FIXED VERSION
 ════════════════════════════════════════════════════════ */
 
-/* ── GET SLUG ─────────────────────────────────────────── */
-function getSlug() {
-  const params = new URLSearchParams(window.location.search);
+      /* ── GET SLUG ─────────────────────────────────────────── */
+      function getSlug() {
+        const params = new URLSearchParams(window.location.search);
 
-  if (params.get('slug')) {
-    return params.get('slug');
-  }
+        if (params.get("slug")) {
+          return params.get("slug");
+        }
 
-  const file = window.location.pathname
-    .split('/')
-    .pop()
-    .replace('.html', '');
+        const file = window.location.pathname
+          .split("/")
+          .pop()
+          .replace(".html", "");
 
-  return file && file !== 'tour-detail'
-    ? file
-    : null;
-}
+        return file && file !== "tour-detail" ? file : null;
+      }
 
-/* ── HELPERS ──────────────────────────────────────────── */
-function esc(str = '') {
-  return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-}
+      /* ── HELPERS ──────────────────────────────────────────── */
+      function esc(str = "") {
+        return String(str)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
 
-function capitalize(str = '') {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
+      function capitalize(str = "") {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+      }
 
-/* FIXED JSON PARSER */
-function safeJSON(value, fallback = []) {
+      /* FIXED JSON PARSER */
+      function safeJSON(value, fallback = []) {
+        if (!value) return fallback;
 
-  if (!value) return fallback;
+        /* Already array/object */
+        if (Array.isArray(value)) return value;
 
-  /* Already array/object */
-  if (Array.isArray(value)) return value;
+        if (typeof value === "object") return value;
 
-  if (typeof value === 'object') return value;
+        /* String */
+        if (typeof value === "string") {
+          try {
+            const parsed = JSON.parse(value);
 
-  /* String */
-  if (typeof value === 'string') {
+            return parsed || fallback;
+          } catch (err) {
+            console.warn("JSON parse failed:", err);
 
-    try {
-      const parsed = JSON.parse(value);
+            return fallback;
+          }
+        }
 
-      return parsed || fallback;
+        return fallback;
+      }
 
-    } catch (err) {
+      /* ── LOAD PAGE ────────────────────────────────────────── */
+      async function boot() {
+        const slug = getSlug();
 
-      console.warn('JSON parse failed:', err);
+        if (!slug) {
+          showNotFound("No package slug found.");
+          return;
+        }
 
-      return fallback;
-    }
-  }
+        try {
+          const { data, error } = await window._sb
+            .from("packages")
+            .select("*")
+            .eq("slug", slug)
+            .eq("is_active", true)
+            .single();
 
-  return fallback;
-}
+          if (error || !data) {
+            console.error(error);
 
-/* ── LOAD PAGE ────────────────────────────────────────── */
-async function boot() {
+            showNotFound("Package not found.");
 
-  const slug = getSlug();
+            return;
+          }
 
-  if (!slug) {
-    showNotFound('No package slug found.');
-    return;
-  }
+          console.log("PACKAGE DATA:", data);
 
-  try {
+          render(data);
+        } catch (err) {
+          console.error(err);
 
-    const { data, error } = await window._sb
-      .from('packages')
-      .select('*')
-      .eq('slug', slug)
-      .eq('is_active', true)
-      .single();
+          showNotFound("Failed to load package.");
+        }
+      }
 
-    if (error || !data) {
+      /* ── RENDER PAGE ─────────────────────────────────────── */
+      function render(p) {
+        document.title = (p.meta_title || p.title) + " – Seresafari Africa";
 
-      console.error(error);
+        const metaDesc = document.querySelector('meta[name="description"]');
 
-      showNotFound('Package not found.');
+        if (metaDesc) {
+          metaDesc.setAttribute("content", p.meta_desc || p.short_desc || "");
+        }
 
-      return;
-    }
+        /* SAFE PARSE */
+        const itinerary = safeJSON(p.itinerary, []);
+        const highlights = safeJSON(p.highlights, []);
+        const inclusions = safeJSON(p.inclusions, []);
+        const exclusions = safeJSON(p.exclusions, []);
+        const accommodation = safeJSON(p.accommodation, []);
+        const important_notes = safeJSON(p.important_notes, []);
+        const add_ons = safeJSON(p.add_ons, []);
+        const price_tiers = safeJSON(p.price_tiers, []);
 
-    console.log('PACKAGE DATA:', data);
+        console.log("ITINERARY:", itinerary);
 
-    render(data);
-
-  } catch (err) {
-
-    console.error(err);
-
-    showNotFound('Failed to load package.');
-  }
-}
-
-/* ── RENDER PAGE ─────────────────────────────────────── */
-function render(p) {
-
-  document.title =
-    (p.meta_title || p.title) +
-    ' – Sere Safari Africa';
-
-  const metaDesc = document.querySelector(
-    'meta[name="description"]'
-  );
-
-  if (metaDesc) {
-    metaDesc.setAttribute(
-      'content',
-      p.meta_desc || p.short_desc || ''
-    );
-  }
-
-  /* SAFE PARSE */
-  const itinerary = safeJSON(p.itinerary, []);
-  const highlights = safeJSON(p.highlights, []);
-  const inclusions = safeJSON(p.inclusions, []);
-  const exclusions = safeJSON(p.exclusions, []);
-  const accommodation = safeJSON(p.accommodation, []);
-  const important_notes = safeJSON(p.important_notes, []);
-  const add_ons = safeJSON(p.add_ons, []);
-  const price_tiers = safeJSON(p.price_tiers, []);
-
-  console.log('ITINERARY:', itinerary);
-
-  const html = `
+        const html = `
 
   <!-- HERO -->
   <div class="detail-hero" style="margin-top:var(--nav-h);">
 
     <div class="detail-hero-bg"
-      style="background-image:url('${esc(
-        p.detail_hero_img || p.hero_image
-      )}')">
+      style="background-image:url('${esc(p.detail_hero_img || p.hero_image)}')">
     </div>
 
     <div class="detail-hero-content">
 
       <div class="detail-badge">
-        <i class="fa-solid ${esc(
-          p.badge_icon || 'fa-star'
-        )}"></i>
+        <i class="fa-solid ${esc(p.badge_icon || "fa-star")}"></i>
 
-        ${esc(p.badge_text || 'Popular')}
+        ${esc(p.badge_text || "Popular")}
       </div>
 
       <h1 class="detail-title">
@@ -254,16 +303,12 @@ function render(p) {
 
         <div class="detail-meta-item">
           <i class="fa-regular fa-calendar"></i>
-          <strong>${esc(
-            p.duration_label || ''
-          )}</strong>
+          <strong>${esc(p.duration_label || "")}</strong>
         </div>
 
         <div class="detail-meta-item">
           <i class="fa-solid fa-users"></i>
-          <strong>${esc(
-            p.group_size || ''
-          )}</strong>
+          <strong>${esc(p.group_size || "")}</strong>
         </div>
 
       </div>
@@ -285,7 +330,7 @@ function render(p) {
         </div>
 
         <p>
-          ${esc(p.short_desc || '')}
+          ${esc(p.short_desc || "")}
         </p>
 
       </div>
@@ -305,20 +350,20 @@ function render(p) {
 
           ${highlights
             .map(
-              h => `
+              (h) => `
             <span class="itin-tag">
               <i class="fa-solid fa-check"></i>
               ${esc(h)}
             </span>
-          `
+          `,
             )
-            .join('')}
+            .join("")}
 
         </div>
 
       </div>
       `
-          : ''
+          : ""
       }
 
       <!-- ITINERARY -->
@@ -334,9 +379,7 @@ function render(p) {
 
         <div class="itinerary">
 
-          ${itinerary
-            .map(day => buildDayHTML(day))
-            .join('')}
+          ${itinerary.map((day) => buildDayHTML(day)).join("")}
 
         </div>
 
@@ -379,11 +422,11 @@ function render(p) {
 
               ${inclusions
                 .map(
-                  item => `
+                  (item) => `
                 <li>${esc(item)}</li>
-              `
+              `,
                 )
-                .join('')}
+                .join("")}
 
             </ul>
 
@@ -397,11 +440,11 @@ function render(p) {
 
               ${exclusions
                 .map(
-                  item => `
+                  (item) => `
                 <li>${esc(item)}</li>
-              `
+              `,
                 )
-                .join('')}
+                .join("")}
 
             </ul>
 
@@ -411,7 +454,7 @@ function render(p) {
 
       </div>
       `
-          : ''
+          : ""
       }
 
     </div>
@@ -432,7 +475,7 @@ function render(p) {
           color:var(--gold);
           margin-bottom:10px;
         ">
-          ${esc(p.price_display || '')}
+          ${esc(p.price_display || "")}
         </div>
 
         <a href="../contact.html"
@@ -448,52 +491,31 @@ function render(p) {
   </div>
   `;
 
-  document.getElementById('pageContent').innerHTML =
-    html;
-}
+        document.getElementById("pageContent").innerHTML = html;
+      }
 
-/* ── BUILD DAY HTML ───────────────────────────────────── */
-function buildDayHTML(day) {
+      /* ── BUILD DAY HTML ───────────────────────────────────── */
+      function buildDayHTML(day) {
+        if (!day || typeof day !== "object") {
+          return "";
+        }
 
-  if (!day || typeof day !== 'object') {
-    return '';
-  }
+        /* FLEXIBLE FIELD SUPPORT */
+        const dayNumber = day.day || day.day_number || "";
 
-  /* FLEXIBLE FIELD SUPPORT */
-  const dayNumber =
-    day.day ||
-    day.day_number ||
-    '';
+        const title = day.title || day.heading || "";
 
-  const title =
-    day.title ||
-    day.heading ||
-    '';
+        const description = day.description || day.desc || "";
 
-  const description =
-    day.description ||
-    day.desc ||
-    '';
+        const route = day.route || "";
 
-  const route =
-    day.route ||
-    '';
+        const accommodation = day.accommodation || day.hotel || "";
 
-  const accommodation =
-    day.accommodation ||
-    day.hotel ||
-    '';
+        const mealPlan = day.meal_plan || "";
 
-  const mealPlan =
-    day.meal_plan ||
-    '';
+        const activities = Array.isArray(day.activities) ? day.activities : [];
 
-  const activities =
-    Array.isArray(day.activities)
-      ? day.activities
-      : [];
-
-  return `
+        return `
 
   <div class="itin-day">
 
@@ -523,7 +545,7 @@ function buildDayHTML(day) {
         ${esc(route)}
       </div>
       `
-          : ''
+          : ""
       }
 
       <p class="itin-desc">
@@ -537,17 +559,17 @@ function buildDayHTML(day) {
 
         ${activities
           .map(
-            act => `
+            (act) => `
           <span class="itin-tag">
             ${esc(act)}
           </span>
-        `
+        `,
           )
-          .join('')}
+          .join("")}
 
       </div>
       `
-          : ''
+          : ""
       }
 
       ${
@@ -564,24 +586,23 @@ function buildDayHTML(day) {
             ? `
         | ${esc(mealPlan)}
         `
-            : ''
+            : ""
         }
 
       </div>
       `
-          : ''
+          : ""
       }
 
     </div>
 
   </div>
   `;
-}
+      }
 
-/* ── NOT FOUND ────────────────────────────────────────── */
-function showNotFound(msg) {
-
-  document.getElementById('pageContent').innerHTML = `
+      /* ── NOT FOUND ────────────────────────────────────────── */
+      function showNotFound(msg) {
+        document.getElementById("pageContent").innerHTML = `
 
     <div class="not-found">
 
@@ -598,11 +619,10 @@ function showNotFound(msg) {
 
     </div>
   `;
-}
+      }
 
-/* ── START ────────────────────────────────────────────── */
-boot();
-
-</script>
-</body>
+      /* ── START ────────────────────────────────────────────── */
+      boot();
+    </script>
+  </body>
 </html>

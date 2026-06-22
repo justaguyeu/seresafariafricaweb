@@ -1,224 +1,453 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <link href="../favicon/favicon.ico">
-<link rel="apple-touch-icon" sizes="57x57" href="../favicon/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="../favicon/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="../favicon/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="../favicon/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="../favicon/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="../favicon/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="../favicon/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="../favicon/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="../favicon/android-chrome-192x192.png">
-<link rel="icon" type="image/png" sizes="512x512"  href="../favicon/android-chrome-512x512.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="../favicon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="../favicon/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
-  <title>Admin Login – Sere Safari Africa</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --gold:#C9922A;--gold-light:#e0aa3e;
-      --brown:#574535;--brown-light:#7A6045;
-      --bg:#F0EAD9;--surface:#FAF6EF;
-      --text:#3D2B1A;--muted:#6B5240;
-      --red:#c0392b;--green:#27ae60;
-    }
-    body{
-      background:var(--bg);font-family:'Poppins',sans-serif;
-      min-height:100vh;display:flex;align-items:center;
-      justify-content:center;padding:2rem;
-    }
-    .login-wrap{
-      width:100%;max-width:440px;
-      background:#fff;border:1px solid rgba(87,69,53,.15);
-      box-shadow:0 24px 80px rgba(87,69,53,.14);overflow:hidden;
-    }
-    .login-top{
-      background:var(--brown);padding:2.2rem 2.4rem;text-align:center;
-    }
-    .login-top img{
-      width: auto;
-      height: 90px;
-      padding: 3px;
-    }
-    .login-top .logo-text{
-      font-family:'Oswald',sans-serif;font-size:1.6rem;font-weight:700;
-      letter-spacing:4px;color:#F5EDD0;text-transform:uppercase;
-    }
-    .login-top .logo-text span{color:var(--gold);}
-    .login-top p{
-      font-size:.72rem;letter-spacing:2.5px;text-transform:uppercase;
-      color:rgba(245,237,208,.55);margin-top:.4rem;
-    }
-    .login-body{padding:2.4rem;}
-    .login-title{
-      font-family:'Oswald',sans-serif;font-size:1.4rem;font-weight:700;
-      letter-spacing:2px;text-transform:uppercase;color:var(--brown);margin-bottom:.4rem;
-    }
-    .login-sub{font-size:.82rem;color:var(--muted);margin-bottom:2rem;}
-    .field{margin-bottom:1.2rem;}
-    .field label{
-      display:block;font-size:.7rem;font-weight:600;letter-spacing:2px;
-      text-transform:uppercase;color:var(--brown);margin-bottom:.5rem;
-    }
-    .field input{
-      width:100%;padding:.85rem 1rem;
-      border:1.5px solid rgba(87,69,53,.22);
-      background:var(--surface);color:var(--text);font-size:.9rem;
-      font-family:'Poppins',sans-serif;transition:border-color .2s,box-shadow .2s;
-    }
-    .field input:focus{
-      outline:none;border-color:var(--brown);
-      box-shadow:0 0 0 3px rgba(87,69,53,.08);
-    }
-    .login-btn{
-      width:100%;padding:.95rem;background:var(--brown);color:#F5EDD0;
-      font-family:'Oswald',sans-serif;font-size:.9rem;font-weight:700;
-      letter-spacing:3px;text-transform:uppercase;border:none;cursor:pointer;
-      transition:background .2s,transform .2s;
-      display:flex;align-items:center;justify-content:center;gap:10px;margin-top:.4rem;
-    }
-    .login-btn:hover{background:var(--brown-light);transform:translateY(-1px);}
-    .login-btn:disabled{opacity:.6;cursor:not-allowed;transform:none;}
-    .login-btn .spinner{
-      display:none;width:16px;height:16px;
-      border:2px solid rgba(245,237,208,.4);border-top-color:#F5EDD0;
-      border-radius:50%;animation:spin .7s linear infinite;
-    }
-    .login-btn.loading .spinner{display:block;}
-    .login-btn.loading .btn-text{display:none;}
-    @keyframes spin{to{transform:rotate(360deg);}}
-    .msg-box{
-      display:none;padding:.8rem 1rem;font-size:.8rem;margin-bottom:1.2rem;
-      display:flex;align-items:center;gap:.6rem;
-    }
-    .msg-box.error{background:#fff0ee;border-left:3px solid var(--red);color:var(--red);}
-    .msg-box.success{background:#efffef;border-left:3px solid var(--green);color:var(--green);}
-    .msg-box.hidden{display:none!important;}
-    .login-footer{
-      text-align:center;margin-top:1.6rem;font-size:.75rem;color:var(--muted);
-      padding-top:1.4rem;border-top:1px solid rgba(87,69,53,.1);
-    }
-    .login-footer a{color:var(--brown);font-weight:600;}
-    .divider{
-      display:flex;align-items:center;gap:.8rem;
-      margin:1.4rem 0;font-size:.68rem;color:var(--muted);
-      letter-spacing:1.5px;text-transform:uppercase;
-    }
-    .divider::before,.divider::after{content:'';flex:1;height:1px;background:rgba(87,69,53,.15);}
-    .forgot-link{
-      font-size:.75rem;color:var(--gold);font-weight:600;text-decoration:none;
-      float:right;margin-top:.3rem;
-    }
-    .forgot-link:hover{text-decoration:underline;}
-  </style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link href="../favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="../favicon/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="../favicon/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="../favicon/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="../favicon/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="../favicon/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="../favicon/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="../favicon/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="../favicon/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../favicon/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="../favicon/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="../favicon/android-chrome-512x512.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="../favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="../favicon/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../favicon/favicon-16x16.png"
+    />
+    <title>Admin Login – Seresafari Africa</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap");
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --gold: #c9922a;
+        --gold-light: #e0aa3e;
+        --brown: #574535;
+        --brown-light: #7a6045;
+        --bg: #f0ead9;
+        --surface: #faf6ef;
+        --text: #3d2b1a;
+        --muted: #6b5240;
+        --red: #c0392b;
+        --green: #27ae60;
+      }
+      body {
+        background: var(--bg);
+        font-family: "Poppins", sans-serif;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+      }
+      .login-wrap {
+        width: 100%;
+        max-width: 440px;
+        background: #fff;
+        border: 1px solid rgba(87, 69, 53, 0.15);
+        box-shadow: 0 24px 80px rgba(87, 69, 53, 0.14);
+        overflow: hidden;
+      }
+      .login-top {
+        background: var(--brown);
+        padding: 2.2rem 2.4rem;
+        text-align: center;
+      }
+      .login-top img {
+        width: auto;
+        height: 90px;
+        padding: 3px;
+      }
+      .login-top .logo-text {
+        font-family: "Oswald", sans-serif;
+        font-size: 1.6rem;
+        font-weight: 700;
+        letter-spacing: 4px;
+        color: #f5edd0;
+        text-transform: uppercase;
+      }
+      .login-top .logo-text span {
+        color: var(--gold);
+      }
+      .login-top p {
+        font-size: 0.72rem;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: rgba(245, 237, 208, 0.55);
+        margin-top: 0.4rem;
+      }
+      .login-body {
+        padding: 2.4rem;
+      }
+      .login-title {
+        font-family: "Oswald", sans-serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--brown);
+        margin-bottom: 0.4rem;
+      }
+      .login-sub {
+        font-size: 0.82rem;
+        color: var(--muted);
+        margin-bottom: 2rem;
+      }
+      .field {
+        margin-bottom: 1.2rem;
+      }
+      .field label {
+        display: block;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--brown);
+        margin-bottom: 0.5rem;
+      }
+      .field input {
+        width: 100%;
+        padding: 0.85rem 1rem;
+        border: 1.5px solid rgba(87, 69, 53, 0.22);
+        background: var(--surface);
+        color: var(--text);
+        font-size: 0.9rem;
+        font-family: "Poppins", sans-serif;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .field input:focus {
+        outline: none;
+        border-color: var(--brown);
+        box-shadow: 0 0 0 3px rgba(87, 69, 53, 0.08);
+      }
+      .login-btn {
+        width: 100%;
+        padding: 0.95rem;
+        background: var(--brown);
+        color: #f5edd0;
+        font-family: "Oswald", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        border: none;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 0.4rem;
+      }
+      .login-btn:hover {
+        background: var(--brown-light);
+        transform: translateY(-1px);
+      }
+      .login-btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+      }
+      .login-btn .spinner {
+        display: none;
+        width: 16px;
+        height: 16px;
+        border: 2px solid rgba(245, 237, 208, 0.4);
+        border-top-color: #f5edd0;
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+      }
+      .login-btn.loading .spinner {
+        display: block;
+      }
+      .login-btn.loading .btn-text {
+        display: none;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .msg-box {
+        display: none;
+        padding: 0.8rem 1rem;
+        font-size: 0.8rem;
+        margin-bottom: 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+      .msg-box.error {
+        background: #fff0ee;
+        border-left: 3px solid var(--red);
+        color: var(--red);
+      }
+      .msg-box.success {
+        background: #efffef;
+        border-left: 3px solid var(--green);
+        color: var(--green);
+      }
+      .msg-box.hidden {
+        display: none !important;
+      }
+      .login-footer {
+        text-align: center;
+        margin-top: 1.6rem;
+        font-size: 0.75rem;
+        color: var(--muted);
+        padding-top: 1.4rem;
+        border-top: 1px solid rgba(87, 69, 53, 0.1);
+      }
+      .login-footer a {
+        color: var(--brown);
+        font-weight: 600;
+      }
+      .divider {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        margin: 1.4rem 0;
+        font-size: 0.68rem;
+        color: var(--muted);
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+      }
+      .divider::before,
+      .divider::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: rgba(87, 69, 53, 0.15);
+      }
+      .forgot-link {
+        font-size: 0.75rem;
+        color: var(--gold);
+        font-weight: 600;
+        text-decoration: none;
+        float: right;
+        margin-top: 0.3rem;
+      }
+      .forgot-link:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-wrap">
+      <div class="login-top">
+        <img src="../logo.png" alt="" />
+        <!-- <div class="logo-text">SERE<span>SAFARI</span></div> -->
+        <p>Admin Portal</p>
+      </div>
+      <div class="login-body">
+        <div class="login-title">Sign In</div>
+        <p class="login-sub">
+          Enter your admin credentials to manage tour packages.
+        </p>
 
-<div class="login-wrap">
-  <div class="login-top">
-    <img src="../logo.png" alt="">
-    <!-- <div class="logo-text">SERE<span>SAFARI</span></div> -->
-    <p>Admin Portal</p>
-  </div>
-  <div class="login-body">
-    <div class="login-title">Sign In</div>
-    <p class="login-sub">Enter your admin credentials to manage tour packages.</p>
+        <div class="msg-box hidden" id="msgBox">
+          <i id="msgIcon" class="fa-solid fa-triangle-exclamation"></i>
+          <span id="msgText">Invalid email or password.</span>
+        </div>
 
-    <div class="msg-box hidden" id="msgBox">
-      <i id="msgIcon" class="fa-solid fa-triangle-exclamation"></i>
-      <span id="msgText">Invalid email or password.</span>
+        <div class="field">
+          <label>Email Address</label>
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="admin@seresafariafrica.com"
+            autocomplete="email"
+          />
+        </div>
+        <div class="field">
+          <label
+            >Password
+            <a href="#" class="forgot-link" onclick="showForgot(event)"
+              >Forgot password?</a
+            ></label
+          >
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Your password"
+            autocomplete="current-password"
+            onkeydown="if (event.key === 'Enter') doLogin();"
+          />
+        </div>
+        <button class="login-btn" id="loginBtn" onclick="doLogin()">
+          <span class="btn-text"
+            ><i class="fa-solid fa-right-to-bracket"></i> Sign In</span
+          >
+          <span class="spinner"></span>
+        </button>
+
+        <div class="login-footer">
+          <a href="../pages/tours.html"
+            ><i class="fa-solid fa-arrow-left"></i> Back to Website</a
+          >
+        </div>
+      </div>
     </div>
 
-    <div class="field">
-      <label>Email Address</label>
-      <input type="email" id="loginEmail" placeholder="admin@seresafariafrica.com" autocomplete="email"/>
-    </div>
-    <div class="field">
-      <label>Password <a href="#" class="forgot-link" onclick="showForgot(event)">Forgot password?</a></label>
-      <input type="password" id="loginPassword" placeholder="Your password" autocomplete="current-password"
-        onkeydown="if(event.key==='Enter')doLogin()"/>
-    </div>
-    <button class="login-btn" id="loginBtn" onclick="doLogin()">
-      <span class="btn-text"><i class="fa-solid fa-right-to-bracket"></i> Sign In</span>
-      <span class="spinner"></span>
-    </button>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/supabase-config.js"></script>
+    <script>
+      function showMsg(text, type = "error") {
+        const box = document.getElementById("msgBox");
+        const icon = document.getElementById("msgIcon");
+        const txt = document.getElementById("msgText");
+        box.className = "msg-box " + type;
+        icon.className =
+          type === "error"
+            ? "fa-solid fa-triangle-exclamation"
+            : "fa-solid fa-circle-check";
+        txt.textContent = text;
+      }
 
-    <div class="login-footer">
-      <a href="../pages/tours.html"><i class="fa-solid fa-arrow-left"></i> Back to Website</a>
-    </div>
-  </div>
-</div>
+      async function doLogin() {
+        const btn = document.getElementById("loginBtn");
+        const email = document.getElementById("loginEmail").value.trim();
+        const pass = document.getElementById("loginPassword").value;
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="../js/supabase-config.js"></script>
-<script>
-function showMsg(text, type='error') {
-  const box  = document.getElementById('msgBox');
-  const icon = document.getElementById('msgIcon');
-  const txt  = document.getElementById('msgText');
-  box.className = 'msg-box ' + type;
-  icon.className = type === 'error'
-    ? 'fa-solid fa-triangle-exclamation'
-    : 'fa-solid fa-circle-check';
-  txt.textContent = text;
-}
+        if (!email || !pass) {
+          showMsg("Please enter your email and password.");
+          return;
+        }
 
-async function doLogin() {
-  const btn   = document.getElementById('loginBtn');
-  const email = document.getElementById('loginEmail').value.trim();
-  const pass  = document.getElementById('loginPassword').value;
+        btn.classList.add("loading");
+        btn.disabled = true;
+        document.getElementById("msgBox").classList.add("hidden");
 
-  if (!email || !pass) { showMsg('Please enter your email and password.'); return; }
+        try {
+          const { data, error } = await window._sb.auth.signInWithPassword({
+            email,
+            password: pass,
+          });
+          if (error) throw error;
+          window.location.href = "admin.html";
+        } catch (err) {
+          showMsg(err.message || "Invalid email or password.");
+          btn.classList.remove("loading");
+          btn.disabled = false;
+        }
+      }
 
-  btn.classList.add('loading'); btn.disabled = true;
-  document.getElementById('msgBox').classList.add('hidden');
+      async function showForgot(e) {
+        e.preventDefault();
+        const email = document.getElementById("loginEmail").value.trim();
+        if (!email) {
+          showMsg(
+            'Enter your email address first, then click "Forgot password?".',
+          );
+          return;
+        }
+        document.getElementById("loginBtn").classList.add("loading");
+        document.getElementById("loginBtn").disabled = true;
+        try {
+          const { error } = await window._sb.auth.resetPasswordForEmail(email, {
+            redirectTo: window.location.origin + "/admin/admin-login.html",
+          });
+          if (error) throw error;
+          showMsg("Password reset email sent! Check your inbox.", "success");
+        } catch (err) {
+          showMsg(err.message || "Failed to send reset email.");
+        } finally {
+          document.getElementById("loginBtn").classList.remove("loading");
+          document.getElementById("loginBtn").disabled = false;
+        }
+      }
 
-  try {
-    const { data, error } = await window._sb.auth.signInWithPassword({ email, password: pass });
-    if (error) throw error;
-    window.location.href = 'admin.html';
-  } catch (err) {
-    showMsg(err.message || 'Invalid email or password.');
-    btn.classList.remove('loading'); btn.disabled = false;
-  }
-}
-
-async function showForgot(e) {
-  e.preventDefault();
-  const email = document.getElementById('loginEmail').value.trim();
-  if (!email) { showMsg('Enter your email address first, then click "Forgot password?".'); return; }
-  document.getElementById('loginBtn').classList.add('loading');
-  document.getElementById('loginBtn').disabled = true;
-  try {
-    const { error } = await window._sb.auth.resetPasswordForEmail(email, {
-      redirectTo: window.location.origin + '/admin/admin-login.html'
-    });
-    if (error) throw error;
-    showMsg('Password reset email sent! Check your inbox.', 'success');
-  } catch(err) {
-    showMsg(err.message || 'Failed to send reset email.');
-  } finally {
-    document.getElementById('loginBtn').classList.remove('loading');
-    document.getElementById('loginBtn').disabled = false;
-  }
-}
-
-// Already logged in → skip to dashboard
-(async () => {
-  try {
-    const { data } = await window._sb.auth.getSession();
-    if (data?.session) window.location.href = 'admin.html';
-  } catch(e) {}
-})();
-</script>
-</body>
+      // Already logged in → skip to dashboard
+      (async () => {
+        try {
+          const { data } = await window._sb.auth.getSession();
+          if (data?.session) window.location.href = "admin.html";
+        } catch (e) {}
+      })();
+    </script>
+  </body>
 </html>
