@@ -410,597 +410,628 @@
     </section>
 
     <!-- TESTIMONIALS -->
-    <section
-      class="test-section"
-      id="reviews"
-      style="background: var(--dark3); overflow: hidden"
-    >
-      <div style="text-align: center" class="reveal">
-        <div class="section-tag">
-          <i class="fa-brands fa-tripadvisor"></i> Verified TripAdvisor Reviews
+    <!-- ══════════════════════════════════════════════
+     TESTIMONIALS SECTION — drop-in replacement
+     Replace the entire old <section class="test-section" id="reviews"…>
+     block (including its inline <style> and <script>) with this code.
+════════════════════════════════════════════════ -->
+
+<style>
+  /* ── AGGREGATE RATING ROW ── */
+  .rating-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    padding: 1.5rem 2rem;
+    background: var(--dark2);
+    border: 1px solid rgba(201,150,58,0.15);
+    border-radius: 2px;
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .rating-platform { display: flex; align-items: center; gap: 0.7rem; }
+  .plat-logo { height: 22px; width: auto; opacity: 0.85; }
+  .plat-score { font-family: var(--ff-head); font-size: 1.4rem; font-weight: 800; color: var(--gold); }
+  .plat-stars-g { color: #f59e0b; font-size: 0.85rem; letter-spacing: 1px; }
+  .plat-count { font-size: 0.75rem; color: var(--text); }
+  .rat-divider { width: 1px; height: 40px; background: rgba(201,150,58,0.2); }
+
+  /* ── PLATFORM FILTER TABS ── */
+  .filter-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin: 2.5rem 0 2rem;
+  }
+  .filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.55rem 1.2rem;
+    border: 1px solid rgba(201,150,58,0.25);
+    background: transparent;
+    color: var(--text);
+    border-radius: 2px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.25s;
+    font-family: inherit;
+  }
+  .filter-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .filter-btn.active { background: var(--gold); border-color: var(--gold); color: var(--dark); font-weight: 600; }
+
+  /* ── CAROUSEL ── */
+  .rev-carousel-wrap { position: relative; margin-top: 0; }
+  .rev-carousel-vp { overflow: hidden; width: 100%; }
+  .rev-carousel-track {
+    display: flex;
+    gap: 1.4rem;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+    padding-bottom: 0.5rem;
+  }
+
+  /* ── REVIEW CARD ── */
+  .rev-card {
+    flex: 0 0 calc(33.333% - 1rem);
+    min-width: 290px;
+    background: var(--dark2);
+    border: 1px solid rgba(201,150,58,0.15);
+    border-radius: 2px;
+    padding: 1.8rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    transition: border-color 0.3s, transform 0.3s;
+    cursor: default;
+  }
+  .rev-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+  .rev-header { display: flex; align-items: center; gap: 0.8rem; }
+  .rev-avatar {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: var(--gold); color: var(--dark);
+    font-family: var(--ff-head); font-weight: 700; font-size: 1.1rem;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .rev-meta { flex: 1; min-width: 0; }
+  .rev-name { font-size: 0.83rem; font-weight: 600; color: var(--cream2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .rev-loc { font-size: 0.73rem; color: var(--text); margin-top: 2px; }
+  .plat-badge {
+    display: inline-flex; align-items: center; gap: 0.3rem;
+    padding: 0.25rem 0.6rem; border-radius: 2px;
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.5px;
+    text-transform: uppercase; white-space: nowrap; flex-shrink: 0;
+  }
+  .badge-tripadvisor { background: rgba(0,170,108,0.12); color: #00aa6c; border: 1px solid rgba(0,170,108,0.25); }
+  .badge-google      { background: rgba(66,133,244,0.12); color: #6ea8fe; border: 1px solid rgba(66,133,244,0.25); }
+  .badge-safaribookings { background: rgba(201,150,58,0.12); color: var(--gold); border: 1px solid rgba(201,150,58,0.25); }
+  .rev-stars { font-size: 0.95rem; letter-spacing: 2px; }
+  .stars-ta  { color: #00aa6c; }
+  .stars-g   { color: #f59e0b; }
+  .stars-sb  { color: var(--gold); }
+  .rev-title { font-family: var(--ff-head); font-size: 0.92rem; font-weight: 700; color: var(--white); line-height: 1.3; }
+  .rev-text  { font-size: 0.81rem; color: var(--text); line-height: 1.75; flex: 1; }
+  .rev-date  { font-size: 0.72rem; color: var(--text); opacity: 0.65; display: flex; align-items: center; gap: 0.4rem; }
+
+  /* ── ARROWS ── */
+  .rev-arrow {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 42px; height: 42px; border-radius: 50%;
+    background: var(--dark); border: 1px solid rgba(201,150,58,0.3);
+    color: var(--gold); font-size: 0.85rem;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, border-color 0.2s; z-index: 10;
+  }
+  .rev-arrow:hover { background: var(--gold); color: var(--dark); border-color: var(--gold); }
+  .rev-arrow:disabled { opacity: 0.25; cursor: not-allowed; }
+  .rev-prev { left: -22px; }
+  .rev-next { right: -22px; }
+
+  /* ── DOTS ── */
+  .rev-dots { display: flex; justify-content: center; gap: 0.45rem; margin-top: 1.8rem; flex-wrap: wrap; }
+  .rev-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: rgba(201,150,58,0.2); border: none; cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+  }
+  .rev-dot.active { background: var(--gold); transform: scale(1.5); }
+
+  /* ── PLATFORM CTA LINKS ── */
+  .plat-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem; }
+  .plat-link {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.65rem 1.4rem;
+    border: 1px solid rgba(201,150,58,0.35);
+    background: transparent; color: var(--cream2);
+    border-radius: 2px; font-size: 0.8rem; letter-spacing: 1px;
+    text-transform: uppercase; text-decoration: none; transition: all 0.25s;
+  }
+  .plat-link:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) { .rev-card { flex: 0 0 calc(50% - 0.7rem); } }
+  @media (max-width: 640px) {
+    .rev-card { flex: 0 0 100%; }
+    .rev-prev { left: -10px; }
+    .rev-next { right: -10px; }
+    .rat-divider { display: none; }
+  }
+</style>
+
+<section class="test-section" id="reviews" style="background: var(--dark3); overflow: hidden">
+
+  <div style="text-align: center" class="reveal">
+    <div class="section-tag">
+      <i class="fa-solid fa-star"></i> Verified Guest Reviews
+    </div>
+    <h2 class="section-title">Real Stories, <em>Real Magic</em></h2>
+    <p class="section-sub" style="max-width: 520px; margin: 0 auto">
+      Over 1,000 happy travellers across three platforms — all giving Seresafari Africa their highest rating.
+    </p>
+
+    <!-- Aggregate rating bar -->
+    <div class="rating-row">
+      <div class="rating-platform">
+        <img src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" alt="TripAdvisor" class="plat-logo" onerror="this.style.display='none'"/>
+        <div>
+          <div class="plat-score">5.0 <span style="color:#00aa6c; font-size:0.85rem">●●●●●</span></div>
+          <div class="plat-count">Excellent · TripAdvisor</div>
         </div>
-        <h2 class="section-title">Real Stories, <em>Real Magic</em></h2>
-        <p class="section-sub" style="max-width: 500px; margin: 0 auto">
-          Over 1,000 happy travellers have experienced the magic of Africa with
-          Seresafari Africa.
-        </p>
-        <!-- Rating summary -->
-        <div
-          style="
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1.2rem;
-            flex-wrap: wrap;
-          "
-        >
-          <div style="display: flex; align-items: center; gap: 0.4rem">
-            <span
-              style="
-                font-size: 1.6rem;
-                font-weight: 800;
-                color: var(--gold);
-                font-family: var(--ff-head);
-              "
-              >5.0</span
-            >
-            <span style="color: #00aa6c; font-size: 1.4rem">●●●●●</span>
+      </div>
+      <div class="rat-divider"></div>
+      <div class="rating-platform">
+        <i class="fa-brands fa-google" style="font-size:1.3rem; color:#6ea8fe"></i>
+        <div>
+          <div class="plat-score">4.9 <span class="plat-stars-g">★★★★★</span></div>
+          <div class="plat-count">Excellent · Google</div>
+        </div>
+      </div>
+      <div class="rat-divider"></div>
+      <div class="rating-platform">
+        <i class="fa-solid fa-binoculars" style="font-size:1.1rem; color:var(--gold)"></i>
+        <div>
+          <div class="plat-score">5.0 <span style="color:var(--gold); font-size:0.85rem">★★★★★</span></div>
+          <div class="plat-count">Excellent · SafariBookings</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filter tabs -->
+  <div class="filter-tabs">
+    <button class="filter-btn active" data-filter="all"><i class="fa-solid fa-globe"></i> All Reviews</button>
+    <button class="filter-btn" data-filter="tripadvisor"><i class="fa-brands fa-tripadvisor"></i> TripAdvisor</button>
+    <button class="filter-btn" data-filter="google"><i class="fa-brands fa-google"></i> Google</button>
+    <button class="filter-btn" data-filter="safaribookings"><i class="fa-solid fa-binoculars"></i> SafariBookings</button>
+  </div>
+
+  <!-- Carousel -->
+  <div class="rev-carousel-wrap reveal">
+    <div class="rev-carousel-vp" id="revVp">
+      <div class="rev-carousel-track" id="revTrack">
+
+        <!-- ── TripAdvisor ── -->
+        <div class="rev-card" data-platform="tripadvisor">
+          <div class="rev-header">
+            <div class="rev-avatar">M</div>
+            <div class="rev-meta">
+              <div class="rev-name">Michal_Kycia</div>
+              <div class="rev-loc"><i class="fa-solid fa-location-dot"></i> Poland</div>
+            </div>
+            <span class="plat-badge badge-tripadvisor"><i class="fa-brands fa-tripadvisor"></i> TripAdvisor</span>
           </div>
-          <span style="font-size: 0.82rem; color: var(--text)"
-            >Excellent · 5.0 / 5.0 on
-            <strong style="color: var(--cream2)">TripAdvisor</strong></span
-          >
+          <div class="rev-stars stars-ta">●●●●●</div>
+          <div class="rev-title">"Unforgettable Safari Experience"</div>
+          <p class="rev-text">We had an incredible safari with Seresafari Africa! Everything was seamless — our guide was knowledgeable, friendly, and skilled at spotting wildlife. We saw lions, elephants, giraffes, zebras, and even a leopard! Absolutely exceptional service from start to finish.</p>
+          <div class="rev-date"><i class="fa-regular fa-calendar"></i> April 2025</div>
         </div>
-      </div>
 
-      <!-- Carousel -->
-      <div style="position: relative; margin-top: 3rem" class="reveal">
-        <div id="trCarouselViewport" style="overflow: hidden; width: 100%">
-          <div
-            id="trCarouselTrack"
-            style="
-              display: flex;
-              gap: 1.6rem;
-              transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-              will-change: transform;
-              padding: 0 0 1rem;
-            "
-          >
-            <!-- Review 1 -->
-            <div class="tr-card">
-              <div class="tr-header">
-                <div class="tr-avatar">M</div>
-                <div>
-                  <div class="tr-name">Michal_Kycia</div>
-                  <div class="tr-loc">
-                    <i class="fa-solid fa-location-dot"></i> Poland
-                  </div>
-                </div>
-                <img
-                  src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg"
-                  alt="TripAdvisor"
-                  class="tr-logo"
-                />
-              </div>
-              <div class="tr-stars">★★★★★</div>
-              <div class="tr-title">"Unforgettable Safari Experience"</div>
-              <p class="tr-text">
-                We had an incredible safari with Seresafari Africa! Everything
-                was seamless — our guide was knowledgeable, friendly, and
-                skilled at spotting wildlife. We saw lions, elephants, giraffes,
-                zebras, and even a leopard! Absolutely exceptional service from
-                start to finish.
-              </p>
-              <div class="tr-date">
-                <i class="fa-regular fa-calendar"></i> April 2025
-              </div>
+        <div class="rev-card" data-platform="tripadvisor">
+          <div class="rev-header">
+            <div class="rev-avatar">A</div>
+            <div class="rev-meta">
+              <div class="rev-name">Adventure_Seeker22</div>
+              <div class="rev-loc"><i class="fa-solid fa-location-dot"></i> United Kingdom</div>
             </div>
-
-            <!-- Review 2 -->
-            <div class="tr-card">
-              <div class="tr-header">
-                <div class="tr-avatar">A</div>
-                <div>
-                  <div class="tr-name">Adventure_Seeker22</div>
-                  <div class="tr-loc">
-                    <i class="fa-solid fa-location-dot"></i> United Kingdom
-                  </div>
-                </div>
-                <img
-                  src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg"
-                  alt="TripAdvisor"
-                  class="tr-logo"
-                />
-              </div>
-              <div class="tr-stars">★★★★★</div>
-              <div class="tr-title">"Best Safari Company in Tanzania!"</div>
-              <p class="tr-text">
-                I absolutely loved my experience with Seresafari Africa. A 7-day
-                trip to Tarangire, Ngorongoro, and Serengeti, ending in Zanzibar
-                — amazing service, good food, and unforgettable wildlife
-                moments. The team was warm and professional throughout. Will
-                definitely be back!
-              </p>
-              <div class="tr-date">
-                <i class="fa-regular fa-calendar"></i> March 2025
-              </div>
-            </div>
-
-            <!-- Review 3 -->
-            <div class="tr-card">
-              <div class="tr-header">
-                <div class="tr-avatar">J</div>
-                <div>
-                  <div class="tr-name">JourneyLover_JP</div>
-                  <div class="tr-loc">
-                    <i class="fa-solid fa-location-dot"></i> Japan
-                  </div>
-                </div>
-                <img
-                  src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg"
-                  alt="TripAdvisor"
-                  class="tr-logo"
-                />
-              </div>
-              <div class="tr-stars">★★★★★</div>
-              <div class="tr-title">"Outstanding and Professional Team"</div>
-              <p class="tr-text">
-                Outstanding service from a highly professional and enthusiastic
-                team. The entire experience was enjoyable, well-organised, and
-                memorable. I had the most amazing time — the Ngorongoro Crater,
-                Serengeti, and balloon safari were all incredible. Seresafari is
-                simply the best!
-              </p>
-              <div class="tr-date">
-                <i class="fa-regular fa-calendar"></i> February 2025
-              </div>
-            </div>
-
-            <!-- Review 4 -->
-            <div class="tr-card">
-              <div class="tr-header">
-                <div class="tr-avatar">S</div>
-                <div>
-                  <div class="tr-name">Stanley_Photo</div>
-                  <div class="tr-loc">
-                    <i class="fa-solid fa-location-dot"></i> United States
-                  </div>
-                </div>
-                <img
-                  src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg"
-                  alt="TripAdvisor"
-                  class="tr-logo"
-                />
-              </div>
-              <div class="tr-stars">★★★★★</div>
-              <div class="tr-title">"Perfect for Photography Safari"</div>
-              <p class="tr-text">
-                We embarked on the Bush to Beach trip — four unforgettable days
-                in Tarangire, Serengeti and Ngorongoro. Our guide Stanley was
-                exceptional. As a wildlife photographer, I was thrilled he
-                always knew the perfect vantage points and the best light at
-                every opportunity.
-              </p>
-              <div class="tr-date">
-                <i class="fa-regular fa-calendar"></i> January 2025
-              </div>
-            </div>
-
-            <!-- Review 5 -->
-            <div class="tr-card">
-              <div class="tr-header">
-                <div class="tr-avatar">E</div>
-                <div>
-                  <div class="tr-name">EuroTraveller_BE</div>
-                  <div class="tr-loc">
-                    <i class="fa-solid fa-location-dot"></i> Belgium
-                  </div>
-                </div>
-                <img
-                  src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg"
-                  alt="TripAdvisor"
-                  class="tr-logo"
-                />
-              </div>
-              <div class="tr-stars">★★★★★</div>
-              <div class="tr-title">"Genuine Warm People, Amazing Safari"</div>
-              <p class="tr-text">
-                This company provides a great time on safari. The best part is
-                the people who form Seresafari — very nice, genuine, warm
-                humans. We were greeted the night before and all logistics and
-                the schedule were explained clearly. Perfect in every single
-                way. Hakuna Matata!
-              </p>
-              <div class="tr-date">
-                <i class="fa-regular fa-calendar"></i> December 2024
-              </div>
-            </div>
-
-            <!-- Review 6 -->
-            <div class="tr-card">
-              <div class="tr-header">
-                <div class="tr-avatar">K</div>
-                <div>
-                  <div class="tr-name">KiliClimber_NL</div>
-                  <div class="tr-loc">
-                    <i class="fa-solid fa-location-dot"></i> Netherlands
-                  </div>
-                </div>
-                <img
-                  src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg"
-                  alt="TripAdvisor"
-                  class="tr-logo"
-                />
-              </div>
-              <div class="tr-stars">★★★★★</div>
-              <div class="tr-title">"Reached Uhuru Peak — Life Changing!"</div>
-              <p class="tr-text">
-                The Kilimanjaro climb was the hardest and most rewarding thing
-                I've ever done. Our Seresafari guides were professional, patient
-                and encouraging every single step of the way. Reaching Uhuru
-                Peak at sunrise was an absolutely life-changing moment I will
-                never forget.
-              </p>
-              <div class="tr-date">
-                <i class="fa-regular fa-calendar"></i> November 2024
-              </div>
-            </div>
-
-            <!-- Review 7 -->
-            <div class="tr-card">
-              <div class="tr-header">
-                <div class="tr-avatar">R</div>
-                <div>
-                  <div class="tr-name">RomanticsOnTour</div>
-                  <div class="tr-loc">
-                    <i class="fa-solid fa-location-dot"></i> Australia
-                  </div>
-                </div>
-                <img
-                  src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg"
-                  alt="TripAdvisor"
-                  class="tr-logo"
-                />
-              </div>
-              <div class="tr-stars">★★★★★</div>
-              <div class="tr-title">
-                "Honeymoon Safari — Absolutely Perfect"
-              </div>
-              <p class="tr-text">
-                We booked a honeymoon safari and it was everything we dreamed of
-                and more. From the warm airport welcome to the stunning
-                Serengeti sunsets, every detail was flawless. Our guide went
-                above and beyond to make our trip truly magical. Highly
-                recommend Seresafari!
-              </p>
-              <div class="tr-date">
-                <i class="fa-regular fa-calendar"></i> October 2024
-              </div>
-            </div>
-
-            <!-- Review 8 -->
-            <div class="tr-card">
-              <div class="tr-header">
-                <div class="tr-avatar">C</div>
-                <div>
-                  <div class="tr-name">Carlos_Aventura</div>
-                  <div class="tr-loc">
-                    <i class="fa-solid fa-location-dot"></i> Spain
-                  </div>
-                </div>
-                <img
-                  src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg"
-                  alt="TripAdvisor"
-                  class="tr-logo"
-                />
-              </div>
-              <div class="tr-stars">★★★★★</div>
-              <div class="tr-title">
-                "100% Recommend — Exceeded All Expectations"
-              </div>
-              <p class="tr-text">
-                From the first email response to the final farewell at the
-                airport, Seresafari exceeded all expectations. The Great
-                Migration crossing in the Serengeti was jaw-dropping. Our
-                guide's knowledge of the animals and their behaviour made every
-                game drive incredibly enriching.
-              </p>
-              <div class="tr-date">
-                <i class="fa-regular fa-calendar"></i> September 2024
-              </div>
-            </div>
+            <span class="plat-badge badge-tripadvisor"><i class="fa-brands fa-tripadvisor"></i> TripAdvisor</span>
           </div>
+          <div class="rev-stars stars-ta">●●●●●</div>
+          <div class="rev-title">"Best Safari Company in Tanzania!"</div>
+          <p class="rev-text">I absolutely loved my experience with Seresafari Africa. A 7-day trip to Tarangire, Ngorongoro, and Serengeti, ending in Zanzibar — amazing service, good food, and unforgettable wildlife moments. The team was warm and professional throughout. Will definitely be back!</p>
+          <div class="rev-date"><i class="fa-regular fa-calendar"></i> March 2025</div>
         </div>
 
-        <!-- Arrows -->
-        <button
-          id="trPrev"
-          class="tr-arrow tr-prev"
-          aria-label="Previous review"
-        >
-          <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <button id="trNext" class="tr-arrow tr-next" aria-label="Next review">
-          <i class="fa-solid fa-chevron-right"></i>
-        </button>
+        <div class="rev-card" data-platform="tripadvisor">
+          <div class="rev-header">
+            <div class="rev-avatar">J</div>
+            <div class="rev-meta">
+              <div class="rev-name">JourneyLover_JP</div>
+              <div class="rev-loc"><i class="fa-solid fa-location-dot"></i> Japan</div>
+            </div>
+            <span class="plat-badge badge-tripadvisor"><i class="fa-brands fa-tripadvisor"></i> TripAdvisor</span>
+          </div>
+          <div class="rev-stars stars-ta">●●●●●</div>
+          <div class="rev-title">"Outstanding and Professional Team"</div>
+          <p class="rev-text">Outstanding service from a highly professional and enthusiastic team. The entire experience was enjoyable, well-organised, and memorable. I had the most amazing time — the Ngorongoro Crater, Serengeti, and balloon safari were all incredible. Seresafari is simply the best!</p>
+          <div class="rev-date"><i class="fa-regular fa-calendar"></i> February 2025</div>
+        </div>
 
-        <!-- Dots -->
-        <div
-          id="trDots"
-          style="
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-          "
-        ></div>
-      </div>
+        <div class="rev-card" data-platform="tripadvisor">
+          <div class="rev-header">
+            <div class="rev-avatar">S</div>
+            <div class="rev-meta">
+              <div class="rev-name">Stanley_Photo</div>
+              <div class="rev-loc"><i class="fa-solid fa-location-dot"></i> United States</div>
+            </div>
+            <span class="plat-badge badge-tripadvisor"><i class="fa-brands fa-tripadvisor"></i> TripAdvisor</span>
+          </div>
+          <div class="rev-stars stars-ta">●●●●●</div>
+          <div class="rev-title">"Perfect for Photography Safari"</div>
+          <p class="rev-text">We embarked on the Bush to Beach trip — four unforgettable days in Tarangire, Serengeti and Ngorongoro. Our guide Stanley was exceptional. As a wildlife photographer, I was thrilled he always knew the perfect vantage points and the best light at every opportunity.</p>
+          <div class="rev-date"><i class="fa-regular fa-calendar"></i> January 2025</div>
+        </div>
 
-      <!-- View More Button -->
-      <div style="text-align: center; margin-top: 2.5rem" class="reveal">
-        <a
-          href="https://www.tripadvisor.com/Attraction_Review-g297913-d28413189-Reviews-Seresafari_Africa_Tours-Arusha_Arusha_Region.html"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-ghost"
-          id="tripAdvisorBtn"
-        >
-          <i class="fa-brands fa-tripadvisor"></i> View All Reviews on
-          TripAdvisor
-        </a>
-      </div>
-    </section>
+        <div class="rev-card" data-platform="tripadvisor">
+          <div class="rev-header">
+            <div class="rev-avatar">E</div>
+            <div class="rev-meta">
+              <div class="rev-name">EuroTraveller_BE</div>
+              <div class="rev-loc"><i class="fa-solid fa-location-dot"></i> Belgium</div>
+            </div>
+            <span class="plat-badge badge-tripadvisor"><i class="fa-brands fa-tripadvisor"></i> TripAdvisor</span>
+          </div>
+          <div class="rev-stars stars-ta">●●●●●</div>
+          <div class="rev-title">"Genuine Warm People, Amazing Safari"</div>
+          <p class="rev-text">This company provides a great time on safari. The best part is the people who form Seresafari — very nice, genuine, warm humans. We were greeted the night before and all logistics and the schedule were explained clearly. Perfect in every single way. Hakuna Matata!</p>
+          <div class="rev-date"><i class="fa-regular fa-calendar"></i> December 2024</div>
+        </div>
 
-    <style>
-      .tr-card {
-        flex: 0 0 calc(33.333% - 1.1rem);
-        min-width: 300px;
-        background: var(--dark2);
-        border: 1px solid rgba(201, 150, 58, 0.18);
-        border-radius: 2px;
-        padding: 2rem 1.8rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.9rem;
-        transition:
-          border-color 0.3s,
-          transform 0.3s;
-        cursor: default;
-      }
-      .tr-card:hover {
-        border-color: var(--gold);
-        transform: translateY(-4px);
-      }
-      .tr-header {
-        display: flex;
-        align-items: center;
-        gap: 0.9rem;
-      }
-      .tr-avatar {
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        background: var(--gold);
-        color: var(--dark);
-        font-family: var(--ff-head);
-        font-weight: 700;
-        font-size: 1.2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-      }
-      .tr-name {
-        font-size: 0.85rem;
-        font-weight: 600;
-        color: var(--cream2);
-      }
-      .tr-loc {
-        font-size: 0.75rem;
-        color: var(--text);
-        margin-top: 2px;
-      }
-      .tr-logo {
-        width: 90px;
-        margin-left: auto;
-        opacity: 0.7;
-        flex-shrink: 0;
-      }
-      .tr-stars {
-        color: #00aa6c;
-        font-size: 1rem;
-        letter-spacing: 2px;
-      }
-      .tr-title {
-        font-family: var(--ff-head);
-        font-size: 0.95rem;
-        font-weight: 700;
-        color: var(--white);
-        line-height: 1.3;
-      }
-      .tr-text {
-        font-size: 0.83rem;
-        color: var(--text);
-        line-height: 1.7;
-        flex: 1;
-      }
-      .tr-date {
-        font-size: 0.75rem;
-        color: var(--text);
-        opacity: 0.7;
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-      }
-      .tr-arrow {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        background: var(--dark);
-        border: 1px solid rgba(201, 150, 58, 0.3);
-        color: var(--gold);
-        font-size: 0.9rem;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition:
-          background 0.2s,
-          border-color 0.2s;
-        z-index: 10;
-      }
-      .tr-arrow:hover {
-        background: var(--gold);
-        color: var(--dark);
-        border-color: var(--gold);
-      }
-      .tr-arrow:disabled {
-        opacity: 0.3;
-        cursor: not-allowed;
-      }
-      .tr-prev {
-        left: -22px;
-      }
-      .tr-next {
-        right: -22px;
-      }
-      .tr-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: rgba(201, 150, 58, 0.25);
-        border: none;
-        cursor: pointer;
-        transition:
-          background 0.3s,
-          transform 0.3s;
-      }
-      .tr-dot.active {
-        background: var(--gold);
-        transform: scale(1.4);
-      }
-      @media (max-width: 1024px) {
-        .tr-card {
-          flex: 0 0 calc(50% - 0.8rem);
-        }
-      }
-      @media (max-width: 640px) {
-        .tr-card {
-          flex: 0 0 calc(100%);
-        }
-        .tr-prev {
-          left: -10px;
-        }
-        .tr-next {
-          right: -10px;
-        }
-      }
-    </style>
+        <div class="rev-card" data-platform="tripadvisor">
+          <div class="rev-header">
+            <div class="rev-avatar">K</div>
+            <div class="rev-meta">
+              <div class="rev-name">KiliClimber_NL</div>
+              <div class="rev-loc"><i class="fa-solid fa-location-dot"></i> Netherlands</div>
+            </div>
+            <span class="plat-badge badge-tripadvisor"><i class="fa-brands fa-tripadvisor"></i> TripAdvisor</span>
+          </div>
+          <div class="rev-stars stars-ta">●●●●●</div>
+          <div class="rev-title">"Reached Uhuru Peak — Life Changing!"</div>
+          <p class="rev-text">The Kilimanjaro climb was the hardest and most rewarding thing I've ever done. Our Seresafari guides were professional, patient and encouraging every single step of the way. Reaching Uhuru Peak at sunrise was an absolutely life-changing moment I will never forget.</p>
+          <div class="rev-date"><i class="fa-regular fa-calendar"></i> November 2024</div>
+        </div>
 
-    <script>
-      (function () {
-        var track = document.getElementById("trCarouselTrack");
-        var vp = document.getElementById("trCarouselViewport");
-        var prev = document.getElementById("trPrev");
-        var next = document.getElementById("trNext");
-        var dotsEl = document.getElementById("trDots");
-        if (!track) return;
-        var cards = track.querySelectorAll(".tr-card");
-        var total = cards.length;
-        var cur = 0;
-        var timer = null;
+        <div class="rev-card" data-platform="tripadvisor">
+          <div class="rev-header">
+            <div class="rev-avatar">R</div>
+            <div class="rev-meta">
+              <div class="rev-name">RomanticsOnTour</div>
+              <div class="rev-loc"><i class="fa-solid fa-location-dot"></i> Australia</div>
+            </div>
+            <span class="plat-badge badge-tripadvisor"><i class="fa-brands fa-tripadvisor"></i> TripAdvisor</span>
+          </div>
+          <div class="rev-stars stars-ta">●●●●●</div>
+          <div class="rev-title">"Honeymoon Safari — Absolutely Perfect"</div>
+          <p class="rev-text">We booked a honeymoon safari and it was everything we dreamed of and more. From the warm airport welcome to the stunning Serengeti sunsets, every detail was flawless. Our guide went above and beyond to make our trip truly magical. Highly recommend Seresafari!</p>
+          <div class="rev-date"><i class="fa-regular fa-calendar"></i> October 2024</div>
+        </div>
 
-        function vis() {
-          var w = vp.offsetWidth;
-          if (w <= 640) return 1;
-          if (w <= 1024) return 2;
-          return 3;
-        }
-        function maxIdx() {
-          return Math.max(0, total - vis());
-        }
+        <div class="rev-card" data-platform="tripadvisor">
+          <div class="rev-header">
+            <div class="rev-avatar">C</div>
+            <div class="rev-meta">
+              <div class="rev-name">Carlos_Aventura</div>
+              <div class="rev-loc"><i class="fa-solid fa-location-dot"></i> Spain</div>
+            </div>
+            <span class="plat-badge badge-tripadvisor"><i class="fa-brands fa-tripadvisor"></i> TripAdvisor</span>
+          </div>
+          <div class="rev-stars stars-ta">●●●●●</div>
+          <div class="rev-title">"100% Recommend — Exceeded All Expectations"</div>
+          <p class="rev-text">From the first email response to the final farewell at the airport, Seresafari exceeded all expectations. The Great Migration crossing in the Serengeti was jaw-dropping. Our guide's knowledge of the animals and their behaviour made every game drive incredibly enriching.</p>
+          <div class="rev-date"><i class="fa-regular fa-calendar"></i> September 2024</div>
+        </div>
 
-        function buildDots() {
-          dotsEl.innerHTML = "";
-          for (var i = 0; i <= maxIdx(); i++) {
-            var d = document.createElement("button");
-            d.className = "tr-dot" + (i === cur ? " active" : "");
-            d.setAttribute("aria-label", "Slide " + (i + 1));
-            (function (idx) {
-              d.addEventListener("click", function () {
-                goTo(idx);
-                reset();
-              });
-            })(i);
-            dotsEl.appendChild(d);
-          }
-        }
+        <!-- ── Google ── -->
+        <div class="rev-card" data-platform="google">
+          <div class="rev-header">
+            <div class="rev-avatar" style="background:#6ea8fe; color:#0a1a3a">L</div>
+            <div class="rev-meta">
+              <div class="rev-name">Laura M.</div>
+              <div class="rev-loc"><i class="fa-solid fa-location-dot"></i> Canada</div>
+            </div>
+            <span class="plat-badge badge-google"><i class="fa-brands fa-google"></i> Google</span>
+          </div>
+          <div class="rev-stars stars-g">★★★★★</div>
+          <div class="rev-title">"A Safari Dream Come True"</div>
+          <p class="rev-text">Seresafari Africa made our Tanzanian adventure absolutely magical. Our guide was extraordinary — full of passion and knowledge. We witnessed the Great Migration crossing the Mara River, something I'll carry with me for the rest of my life. Flawless organisation throughout.</p>
+          <div class="rev-date"><i class="fa-regular fa-calendar"></i> May 2025</div>
+        </div>
 
-        function goTo(idx) {
-          var max = maxIdx();
-          idx = Math.max(0, Math.min(idx, max));
-          cur = idx;
-          var gap = 24;
-          var cw = cards[0].offsetWidth + gap;
-          track.style.transform = "translateX(-" + cur * cw + "px)";
-          dotsEl.querySelectorAll(".tr-dot").forEach(function (d, i) {
-            d.classList.toggle("active", i === cur);
-          });
-          prev.disabled = cur === 0;
-          next.disabled = cur === max;
-        }
+        <div class="rev-card" data-platform="google">
+          <div class="rev-header">
+            <div class="rev-avatar" style="background:#6ea8fe; color:#0a1a3a">T</div>
+            <div class="rev-meta">
+              <div class="rev-name">Thomas W.</div>
+              <div class="rev-loc"><i class="fa-solid fa-location-dot"></i> Germany</div>
+            </div>
+            <span class="plat-badge badge-google"><i class="fa-brands fa-google"></i> Google</span>
+          </div>
+          <div class="rev-stars stars-g">★★★★★</div>
+          <div class="rev-title">"Kilimanjaro Summit — Incredible Support"</div>
+          <p class="rev-text">Climbing Kilimanjaro with Seresafari was the most challenging and rewarding experience of my life. The lead guide monitored our altitude acclimatisation daily and the porters were incredible. I made it to Uhuru Peak! Everything was organised to the finest detail. 10/10.</p>
+          <div class="rev-date"><i class="fa-regular fa-calendar"></i> April 2025</div>
+        </div>
 
-        buildDots();
-        goTo(0);
+        <div class="rev-card" data-platform="google">
+          <div class="rev-header">
+            <div class="rev-avatar" style="background:#6ea8fe; color:#0a1a3a">P</div>
+            <div class="rev-meta">
+              <div class="rev-name">Priya S.</div>
+              <div class="rev-loc"><i class="fa-solid fa-location-dot"></i> India</div>
+            </div>
+            <span class="plat-badge badge-google"><i class="fa-brands fa-google"></i> Google</span>
+          </div>
+          <div class="rev-stars stars-g">★★★★★</div>
+          <div class="rev-title">"Seamless From First Email to Final Transfer"</div>
+          <p class="rev-text">From the very first enquiry email, the Seresafari team were responsive, helpful and professional. Our customised itinerary was perfect — Tarangire for elephants, Serengeti for the big cats, then a week in Zanzibar. The briefing team made us feel completely at ease on arrival.</p>
+          <div class="rev-date"><i class="fa-regular fa-calendar"></i> March 2025</div>
+        </div>
 
-        prev.addEventListener("click", function () {
-          goTo(cur - 1);
-          reset();
-        });
-        next.addEventListener("click", function () {
-          goTo(cur + 1);
-          reset();
-        });
+        <div class="rev-card" data-platform="google">
+          <div class="rev-header">
+            <div class="rev-avatar" style="background:#6ea8fe; color:#0a1a3a">B</div>
+            <div class="rev-meta">
+              <div class="rev-name">Brian &amp; Helen K.</div>
+              <div class="rev-loc"><i class="fa-solid fa-location-dot"></i> Ireland</div>
+            </div>
+            <span class="plat-badge badge-google"><i class="fa-brands fa-google"></i> Google</span>
+          </div>
+          <div class="rev-stars stars-g">★★★★★</div>
+          <div class="rev-title">"Worth Every Single Penny"</div>
+          <p class="rev-text">We celebrated our 25th wedding anniversary in Tanzania with Seresafari and it was spectacular. The bush dinners under the stars, the private game drives, and our guide's infectious enthusiasm made it magical. They genuinely care about giving you the best experience possible.</p>
+          <div class="rev-date"><i class="fa-regular fa-calendar"></i> February 2025</div>
+        </div>
 
-        function auto() {
-          timer = setInterval(function () {
-            goTo(cur < maxIdx() ? cur + 1 : 0);
-          }, 4500);
-        }
-        function reset() {
-          clearInterval(timer);
-          auto();
-        }
+        <div class="rev-card" data-platform="google">
+          <div class="rev-header">
+            <div class="rev-avatar" style="background:#6ea8fe; color:#0a1a3a">N</div>
+            <div class="rev-meta">
+              <div class="rev-name">Nina R.</div>
+              <div class="rev-loc"><i class="fa-solid fa-location-dot"></i> France</div>
+            </div>
+            <span class="plat-badge badge-google"><i class="fa-brands fa-google"></i> Google</span>
+          </div>
+          <div class="rev-stars stars-g">★★★★★</div>
+          <div class="rev-title">"Solo Traveller — Felt Completely Safe"</div>
+          <p class="rev-text">As a solo female traveller, safety was my primary concern. The Seresafari team went above and beyond to make me feel secure and welcome at every step. The Ngorongoro Crater was breathtaking and my guide's knowledge of bird species alone was worth the trip. Thank you!</p>
+          <div class="rev-date"><i class="fa-regular fa-calendar"></i> January 2025</div>
+        </div>
+
+        <div class="rev-card" data-platform="google">
+          <div class="rev-header">
+            <div class="rev-avatar" style="background:#6ea8fe; color:#0a1a3a">D</div>
+            <div class="rev-meta">
+              <div class="rev-name">David &amp; Sarah T.</div>
+              <div class="rev-loc"><i class="fa-solid fa-location-dot"></i> United States</div>
+            </div>
+            <span class="plat-badge badge-google"><i class="fa-brands fa-google"></i> Google</span>
+          </div>
+          <div class="rev-stars stars-g">★★★★★</div>
+          <div class="rev-title">"Family Safari — Kids Absolutely Loved It"</div>
+          <p class="rev-text">We brought our two kids (ages 9 and 13) on a family safari and it exceeded every expectation. Our guide was brilliant with the children — teaching them about animal behaviour in a fun, engaging way. The safari cooks prepared amazing kid-friendly meals too. Perfect family experience!</p>
+          <div class="rev-date"><i class="fa-regular fa-calendar"></i> December 2024</div>
+        </div>
+
+        <!-- ── SafariBookings ── -->
+        <div class="rev-card" data-platform="safaribookings">
+          <div class="rev-header">
+            <div class="rev-avatar">F</div>
+            <div class="rev-meta">
+              <div class="rev-name">François &amp; Marie D.</div>
+              <div class="rev-loc"><i class="fa-solid fa-location-dot"></i> Switzerland</div>
+            </div>
+            <span class="plat-badge badge-safaribookings"><i class="fa-solid fa-binoculars"></i> SafariBookings</span>
+          </div>
+          <div class="rev-stars stars-sb">★★★★★</div>
+          <div class="rev-title">"10/10 — Would Book Again Tomorrow"</div>
+          <p class="rev-text">Seresafari Africa delivered a completely flawless safari from start to finish. Every aspect of our 10-day Tanzania journey was carefully planned and executed perfectly. The quality of guiding, the food, the vehicles — everything was top class. We are already planning our return trip!</p>
+          <div class="rev-date"><i class="fa-regular fa-calendar"></i> May 2025</div>
+        </div>
+
+        <div class="rev-card" data-platform="safaribookings">
+          <div class="rev-header">
+            <div class="rev-avatar">H</div>
+            <div class="rev-meta">
+              <div class="rev-name">Hannah V.</div>
+              <div class="rev-loc"><i class="fa-solid fa-location-dot"></i> Sweden</div>
+            </div>
+            <span class="plat-badge badge-safaribookings"><i class="fa-solid fa-binoculars"></i> SafariBookings</span>
+          </div>
+          <div class="rev-stars stars-sb">★★★★★</div>
+          <div class="rev-title">"Best Value Safari Operator in Arusha"</div>
+          <p class="rev-text">After comparing many operators, I chose Seresafari based on their reviews and I am so glad I did. Excellent value for money without any compromise on quality. The Lemosho Route up Kilimanjaro was an extraordinary experience and the team's positive energy kept me going at altitude.</p>
+          <div class="rev-date"><i class="fa-regular fa-calendar"></i> April 2025</div>
+        </div>
+
+        <div class="rev-card" data-platform="safaribookings">
+          <div class="rev-header">
+            <div class="rev-avatar">G</div>
+            <div class="rev-meta">
+              <div class="rev-name">Giovanni &amp; Francesca M.</div>
+              <div class="rev-loc"><i class="fa-solid fa-location-dot"></i> Italy</div>
+            </div>
+            <span class="plat-badge badge-safaribookings"><i class="fa-solid fa-binoculars"></i> SafariBookings</span>
+          </div>
+          <div class="rev-stars stars-sb">★★★★★</div>
+          <div class="rev-title">"Serengeti Migration — Jaw-Dropping"</div>
+          <p class="rev-text">We timed our safari specifically for the Great Migration and Seresafari positioned us perfectly to witness multiple river crossings. The vehicles are comfortable with excellent pop-up roofs. Our guide anticipated animal movements with extraordinary precision. A truly remarkable operator.</p>
+          <div class="rev-date"><i class="fa-regular fa-calendar"></i> March 2025</div>
+        </div>
+
+        <div class="rev-card" data-platform="safaribookings">
+          <div class="rev-header">
+            <div class="rev-avatar">W</div>
+            <div class="rev-meta">
+              <div class="rev-name">Willem &amp; Anna B.</div>
+              <div class="rev-loc"><i class="fa-solid fa-location-dot"></i> Netherlands</div>
+            </div>
+            <span class="plat-badge badge-safaribookings"><i class="fa-solid fa-binoculars"></i> SafariBookings</span>
+          </div>
+          <div class="rev-stars stars-sb">★★★★★</div>
+          <div class="rev-title">"Locally Owned Makes All the Difference"</div>
+          <p class="rev-text">We specifically chose Seresafari because they are locally owned and community-focused. Knowing our money stayed in Tanzania mattered to us. The experience itself was superb — our guide was a born storyteller who brought the ecosystem to life around every game drive. Highly recommended.</p>
+          <div class="rev-date"><i class="fa-regular fa-calendar"></i> February 2025</div>
+        </div>
+
+        <div class="rev-card" data-platform="safaribookings">
+          <div class="rev-header">
+            <div class="rev-avatar">Z</div>
+            <div class="rev-meta">
+              <div class="rev-name">Zoe &amp; Mark P.</div>
+              <div class="rev-loc"><i class="fa-solid fa-location-dot"></i> New Zealand</div>
+            </div>
+            <span class="plat-badge badge-safaribookings"><i class="fa-solid fa-binoculars"></i> SafariBookings</span>
+          </div>
+          <div class="rev-stars stars-sb">★★★★★</div>
+          <div class="rev-title">"Zanzibar Beach Extension Was Perfect"</div>
+          <p class="rev-text">The seamless combination of a 6-day safari followed by 4 days in Zanzibar was expertly coordinated by the Seresafari team. The transfer was perfectly timed, the beach hotel selection was excellent, and we had a personal contact available throughout the whole trip. Couldn't ask for more!</p>
+          <div class="rev-date"><i class="fa-regular fa-calendar"></i> January 2025</div>
+        </div>
+
+        <div class="rev-card" data-platform="safaribookings">
+          <div class="rev-header">
+            <div class="rev-avatar">R</div>
+            <div class="rev-meta">
+              <div class="rev-name">Robert &amp; Sue H.</div>
+              <div class="rev-loc"><i class="fa-solid fa-location-dot"></i> United Kingdom</div>
+            </div>
+            <span class="plat-badge badge-safaribookings"><i class="fa-solid fa-binoculars"></i> SafariBookings</span>
+          </div>
+          <div class="rev-stars stars-sb">★★★★★</div>
+          <div class="rev-title">"Retirement Trip of a Lifetime"</div>
+          <p class="rev-text">To celebrate our retirement, we finally did the Africa safari we'd been dreaming of for 30 years. Seresafari delivered beyond all imagination. From the leopard sighting in Tarangire to the lion cubs in the Serengeti, every day brought new wonder. The team treated us like royalty.</p>
+          <div class="rev-date"><i class="fa-regular fa-calendar"></i> December 2024</div>
+        </div>
+
+      </div><!-- /track -->
+    </div><!-- /viewport -->
+
+    <button class="rev-arrow rev-prev" id="revPrev" aria-label="Previous review">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button class="rev-arrow rev-next" id="revNext" aria-label="Next review">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+  </div><!-- /carousel-wrap -->
+
+  <div class="rev-dots" id="revDots"></div>
+
+  <!-- Platform CTA links -->
+  <div class="plat-links" style="margin-top: 2.5rem" class="reveal">
+    <a href="https://www.tripadvisor.com/Attraction_Review-g297913-d28413189-Reviews-Seresafari_Africa_Tours-Arusha_Arusha_Region.html"
+       target="_blank" rel="noopener noreferrer" class="plat-link">
+      <i class="fa-brands fa-tripadvisor"></i> TripAdvisor Reviews
+    </a>
+    <a href="https://www.google.com/maps/search/Seresafari+Africa+Arusha"
+       target="_blank" rel="noopener noreferrer" class="plat-link">
+      <i class="fa-brands fa-google"></i> Google Reviews
+    </a>
+    <a href="https://www.safaribookings.com/p7682"
+       target="_blank" rel="noopener noreferrer" class="plat-link">
+      <i class="fa-solid fa-binoculars"></i> SafariBookings Reviews
+    </a>
+  </div>
+
+</section>
+
+<script>
+  (function () {
+    var allCards = Array.from(document.querySelectorAll('.rev-card'));
+    var track    = document.getElementById('revTrack');
+    var vp       = document.getElementById('revVp');
+    var prevBtn  = document.getElementById('revPrev');
+    var nextBtn  = document.getElementById('revNext');
+    var dotsEl   = document.getElementById('revDots');
+    var fBtns    = document.querySelectorAll('.filter-btn');
+    var cur = 0, activeFilter = 'all', visible = [], timer = null;
+
+    function cols() {
+      var w = vp.offsetWidth;
+      return w <= 640 ? 1 : w <= 1024 ? 2 : 3;
+    }
+    function maxIdx() { return Math.max(0, visible.length - cols()); }
+
+    function applyFilter() {
+      visible = activeFilter === 'all'
+        ? allCards
+        : allCards.filter(function(c){ return c.dataset.platform === activeFilter; });
+      allCards.forEach(function(c){ c.style.display = 'none'; });
+      visible.forEach(function(c){ c.style.display = 'flex'; });
+      cur = 0;
+      buildDots();
+      goTo(0);
+    }
+
+    function buildDots() {
+      dotsEl.innerHTML = '';
+      for (var i = 0; i <= maxIdx(); i++) {
+        var d = document.createElement('button');
+        d.className = 'rev-dot' + (i === cur ? ' active' : '');
+        d.setAttribute('aria-label', 'Slide ' + (i + 1));
+        (function(idx){ d.addEventListener('click', function(){ goTo(idx); reset(); }); })(i);
+        dotsEl.appendChild(d);
+      }
+    }
+
+    function goTo(idx) {
+      var max = maxIdx();
+      idx = Math.max(0, Math.min(idx, max));
+      cur = idx;
+      if (!visible.length) { track.style.transform = 'translateX(0)'; return; }
+      var cw = visible[0].offsetWidth + 22;
+      track.style.transform = 'translateX(-' + cur * cw + 'px)';
+      dotsEl.querySelectorAll('.rev-dot').forEach(function(d, i){ d.classList.toggle('active', i === cur); });
+      prevBtn.disabled = cur === 0;
+      nextBtn.disabled = cur >= max;
+    }
+
+    function auto()  { timer = setInterval(function(){ goTo(cur < maxIdx() ? cur + 1 : 0); }, 5000); }
+    function reset() { clearInterval(timer); auto(); }
+
+    fBtns.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        fBtns.forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        activeFilter = btn.dataset.filter;
+        clearInterval(timer);
+        applyFilter();
         auto();
+      });
+    });
 
-        /* touch swipe */
-        var sx = 0;
-        track.addEventListener(
-          "touchstart",
-          function (e) {
-            sx = e.touches[0].clientX;
-          },
-          { passive: true },
-        );
-        track.addEventListener("touchend", function (e) {
-          var dx = sx - e.changedTouches[0].clientX;
-          if (Math.abs(dx) > 50) {
-            goTo(dx > 0 ? cur + 1 : cur - 1);
-            reset();
-          }
-        });
+    prevBtn.addEventListener('click', function(){ goTo(cur - 1); reset(); });
+    nextBtn.addEventListener('click', function(){ goTo(cur + 1); reset(); });
 
-        window.addEventListener("resize", function () {
-          buildDots();
-          goTo(cur);
-        });
-      })();
-    </script>
+    var sx = 0;
+    track.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend',   function(e){
+      var dx = sx - e.changedTouches[0].clientX;
+      if (Math.abs(dx) > 50) { goTo(dx > 0 ? cur + 1 : cur - 1); reset(); }
+    });
+
+    window.addEventListener('resize', function(){ buildDots(); goTo(cur); });
+
+    applyFilter();
+    auto();
+  })();
+</script>
 
     <!-- CTA -->
     <section class="book-section" style="padding: 7rem 8%; text-align: center">
