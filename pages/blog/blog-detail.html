@@ -1,0 +1,1022 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link
+      rel="canonical"
+      href="https://seresafariafrica.com/pages/blog/blog-detail.html"
+    />
+    <link href="../../favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="../../favicon/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="../../favicon/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="../../favicon/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="../../favicon/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="../../favicon/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="../../favicon/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="../../favicon/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="../../favicon/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../favicon/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="../../favicon/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="../../favicon/android-chrome-512x512.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../../favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="../../favicon/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../../favicon/favicon-16x16.png"
+    />
+    <title>Loading… – Seresafari Africa</title>
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <style>
+      .skel {
+        background: linear-gradient(
+          90deg,
+          rgba(87, 69, 53, 0.08) 25%,
+          rgba(87, 69, 53, 0.16) 50%,
+          rgba(87, 69, 53, 0.08) 75%
+        );
+        background-size: 200% 100%;
+        animation: shimmer 1.4s infinite;
+        border-radius: 2px;
+      }
+      @keyframes shimmer {
+        to {
+          background-position: -200% 0;
+        }
+      }
+      .skel-hero {
+        height: 60vh;
+        min-height: 380px;
+      }
+      .skel-block {
+        height: 16px;
+        margin-bottom: 0.7rem;
+      }
+      .skel-block.w80 {
+        width: 80%;
+      }
+      .skel-block.w60 {
+        width: 60%;
+      }
+      .skel-block.w40 {
+        width: 40%;
+      }
+      .skel-layout {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 3rem;
+        padding: 4rem 8%;
+        background: var(--dark2);
+      }
+      @media (max-width: 900px) {
+        .skel-layout {
+          grid-template-columns: 1fr;
+          padding: 3rem 5%;
+        }
+      }
+
+      .not-found {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 60vh;
+        text-align: center;
+        padding: 4rem 2rem;
+      }
+      .not-found i {
+        font-size: 3rem;
+        color: var(--gold);
+        opacity: 0.4;
+        margin-bottom: 1.2rem;
+      }
+      .not-found h2 {
+        font-family: var(--ff-head);
+        font-size: 2rem;
+        color: var(--white);
+        letter-spacing: 2px;
+        margin-bottom: 0.7rem;
+      }
+      .not-found p {
+        color: var(--text);
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+      }
+
+      /* ── ARTICLE BODY TYPOGRAPHY ── */
+      .article-body {
+        font-size: 0.95rem;
+        line-height: 1.95;
+        color: var(--text);
+      }
+      .article-body p {
+        margin-bottom: 1.3rem;
+      }
+      .article-body p:last-child {
+        margin-bottom: 0;
+      }
+      .article-body h2,
+      .article-body h3 {
+        font-family: var(--ff-head);
+        color: var(--white);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin: 1.8rem 0 1rem;
+        line-height: 1.3;
+      }
+      .article-body h2 {
+        font-size: 1.4rem;
+      }
+      .article-body h3 {
+        font-size: 1.1rem;
+      }
+      .article-body ul,
+      .article-body ol {
+        margin: 0 0 1.3rem 1.2rem;
+      }
+      .article-body li {
+        margin-bottom: 0.5rem;
+      }
+      .article-body a {
+        color: var(--gold);
+        text-decoration: underline;
+        text-decoration-color: rgba(87, 69, 53, 0.35);
+      }
+      .article-body img {
+        max-width: 100%;
+        margin: 1.2rem 0;
+        border: 1px solid rgba(87, 69, 53, 0.15);
+      }
+      .article-body blockquote {
+        border-left: 3px solid var(--gold);
+        padding: 0.4rem 0 0.4rem 1.2rem;
+        margin: 1.5rem 0;
+        font-style: italic;
+        color: var(--cream2);
+      }
+
+      /* ── META STRIP ── */
+      .blog-meta-strip {
+        display: flex;
+        align-items: center;
+        gap: 1.4rem;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+      }
+      .blog-meta-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.82rem;
+        color: var(--white);
+      }
+      .blog-meta-item i {
+        color: var(--gold);
+      }
+
+      /* ── TAGS ── */
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1.6rem;
+        padding-top: 1.6rem;
+        border-top: 1px solid rgba(87, 69, 53, 0.15);
+      }
+      .tag-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 0.32rem 0.85rem;
+        background: var(--dark3);
+        border: 1px solid rgba(87, 69, 53, 0.2);
+        font-family: var(--ff-head);
+        font-size: 0.65rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--text);
+        text-decoration: none;
+        transition:
+          border-color 0.2s,
+          color 0.2s;
+      }
+      .tag-pill:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+      .tag-pill i {
+        font-size: 0.6rem;
+        color: var(--gold);
+      }
+
+      /* ── SHARE ROW ── */
+      .share-row {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        margin-top: 1.6rem;
+        padding-top: 1.6rem;
+        border-top: 1px solid rgba(87, 69, 53, 0.15);
+        flex-wrap: wrap;
+      }
+      .share-label {
+        font-family: var(--ff-head);
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-right: 0.4rem;
+      }
+      .share-btn {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(87, 69, 53, 0.25);
+        color: var(--text);
+        text-decoration: none;
+        transition: all 0.2s;
+        cursor: pointer;
+        background: none;
+        font-size: 0.85rem;
+      }
+      .share-btn:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+        transform: translateY(-2px);
+      }
+      .share-btn.copied {
+        border-color: #27ae60;
+        color: #27ae60;
+      }
+
+      /* ── AUTHOR BOX ── */
+      .author-box {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.2rem;
+        background: var(--dark3);
+        border: 1px solid rgba(87, 69, 53, 0.15);
+        margin-top: 2rem;
+      }
+      .author-avatar {
+        width: 52px;
+        height: 52px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background: var(--gold);
+        color: var(--dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--ff-head);
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+      .author-name-line {
+        font-family: var(--ff-head);
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 2px;
+      }
+      .author-name {
+        font-family: var(--ff-head);
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        color: var(--white);
+      }
+
+      /* ── SIDEBAR: RECENT / RELATED POSTS ── */
+      .sidebar-post-item {
+        display: flex;
+        gap: 0.8rem;
+        padding: 0.7rem 0;
+        border-bottom: 1px solid rgba(87, 69, 53, 0.1);
+        text-decoration: none;
+        transition: opacity 0.2s;
+      }
+      .sidebar-post-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .sidebar-post-item:hover {
+        opacity: 0.75;
+      }
+      .sidebar-post-img {
+        width: 64px;
+        height: 50px;
+        object-fit: cover;
+        flex-shrink: 0;
+        border: 1px solid rgba(87, 69, 53, 0.15);
+      }
+      .sidebar-post-title {
+        font-family: var(--ff-head);
+        font-size: 0.8rem;
+        font-weight: 600;
+        line-height: 1.3;
+        color: var(--cream2);
+        margin-bottom: 3px;
+      }
+      .sidebar-post-date {
+        font-size: 0.68rem;
+        color: var(--text);
+      }
+      .sidebar-cat-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.55rem 0.2rem;
+        font-size: 0.8rem;
+        color: var(--text);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(87, 69, 53, 0.1);
+        transition: color 0.2s;
+      }
+      .sidebar-cat-link:last-child {
+        border-bottom: none;
+      }
+      .sidebar-cat-link:hover {
+        color: var(--gold);
+      }
+      .sidebar-cat-link i:first-child {
+        color: var(--gold);
+        margin-right: 8px;
+        width: 16px;
+      }
+      .sidebar-cat-count {
+        font-size: 0.68rem;
+        color: var(--text);
+        opacity: 0.7;
+      }
+
+      /* ── RELATED POSTS GRID (bottom of article) ── */
+      .related-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .related-card {
+        background: var(--dark3);
+        border: 1px solid rgba(87, 69, 53, 0.15);
+        text-decoration: none;
+        display: block;
+        transition:
+          transform 0.3s,
+          border-color 0.3s;
+      }
+      .related-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(87, 69, 53, 0.35);
+      }
+      .related-img {
+        height: 150px;
+        overflow: hidden;
+      }
+      .related-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .related-body {
+        padding: 1.1rem 1.2rem 1.3rem;
+      }
+      .related-cat {
+        font-family: var(--ff-head);
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.4rem;
+      }
+      .related-title {
+        font-family: var(--ff-head);
+        font-size: 0.92rem;
+        font-weight: 600;
+        line-height: 1.3;
+        color: var(--white);
+      }
+
+      @media (max-width: 900px) {
+        .related-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 600px) {
+        .related-grid {
+          grid-template-columns: 1fr;
+        }
+        .author-box {
+          flex-wrap: wrap;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
+    <button id="back-top"><i class="fa-solid fa-chevron-up"></i></button>
+
+    <!-- NAV -->
+    <nav id="nav">
+      <a href="../../index.html" class="logo"
+        ><img src="../../logo2.png" alt="Seresafari Africa"
+      /></a>
+      <ul class="nav-links">
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../destinations.html">Destinations</a></li>
+        <li><a href="../tours.html">Tours</a></li>
+        <li><a href="../kilimanjaro.html">Kilimanjaro</a></li>
+        <li><a href="../zanzibar.html">Zanzibar</a></li>
+        <li><a href="../gallery.html">Gallery</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../blog.html" class="active">Blog</a></li>
+        <li><a href="../contact.html" class="nav-book">Enquire Now</a></li>
+      </ul>
+      <button class="ham" id="ham">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <nav class="mob-menu" id="mob-menu">
+      <a href="../../index.html">Home</a>
+      <a href="../../about.html">About</a>
+      <a href="../destinations.html">Destinations</a>
+      <a href="../tours.html">Tours</a>
+      <a href="../kilimanjaro.html">Kilimanjaro</a>
+      <a href="../zanzibar.html">Zanzibar</a>
+      <a href="../gallery.html">Gallery</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../contact.html" style="color: var(--gold)">Enquire Now</a>
+    </nav>
+
+    <!-- PAGE CONTENT (skeleton while loading) -->
+    <div id="pageContent">
+      <div
+        id="skeletonHero"
+        class="skel skel-hero"
+        style="margin-top: var(--nav-h)"
+      ></div>
+      <div class="skel-layout" id="skeletonBody">
+        <div>
+          <div class="skel skel-block w80"></div>
+          <div class="skel skel-block w60"></div>
+          <div class="skel skel-block w40"></div>
+          <div class="skel skel-block w80" style="margin-top: 1.5rem"></div>
+          <div class="skel skel-block w60"></div>
+          <div class="skel skel-block"></div>
+        </div>
+        <div>
+          <div class="skel skel-block" style="height: 220px"></div>
+          <div
+            class="skel skel-block"
+            style="height: 160px; margin-top: 1rem"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WhatsApp FAB -->
+    <a
+      class="wa-btn"
+      href="https://wa.me/255690318461"
+      target="_blank"
+      rel="noopener"
+    >
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../js/supabase-config.js"></script>
+    <script src="../../js/main.js"></script>
+
+    <script>
+      /* ════════════════════════════════════════════════════════
+     CATEGORY METADATA
+  ════════════════════════════════════════════════════════ */
+      const CAT_META = {
+        general: { icon: "fa-newspaper", label: "General" },
+        wildlife: { icon: "fa-paw", label: "Wildlife" },
+        destinations: { icon: "fa-map-location-dot", label: "Destinations" },
+        "travel-tips": { icon: "fa-lightbulb", label: "Travel Tips" },
+        conservation: { icon: "fa-leaf", label: "Conservation" },
+        itineraries: { icon: "fa-route", label: "Itineraries" },
+        culture: { icon: "fa-people-group", label: "Culture" },
+        gear: { icon: "fa-backpack", label: "Gear & Packing" },
+        news: { icon: "fa-bullhorn", label: "News & Updates" },
+      };
+
+      /* ════════════════════════════════════════════════════════
+     HELPERS
+  ════════════════════════════════════════════════════════ */
+      function getSlug() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get("slug")) return params.get("slug");
+        const file = window.location.pathname
+          .split("/")
+          .pop()
+          .replace(".html", "");
+        return file && file !== "blog-detail" ? file : null;
+      }
+      function esc(s) {
+        return String(s || "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+      function fmtDate(val) {
+        if (!val) return "—";
+        try {
+          return new Date(val).toLocaleDateString("en-GB", {
+            day: "2-digit",
+            month: "long",
+            year: "numeric",
+          });
+        } catch {
+          return "—";
+        }
+      }
+      function estimateReadTime(post) {
+        if (post.read_time_mins) return post.read_time_mins;
+        const text = (post.content_html || post.excerpt || "").replace(
+          /<[^>]+>/g,
+          " ",
+        );
+        const words = text.trim().split(/\s+/).filter(Boolean).length;
+        return Math.max(1, Math.round(words / 200));
+      }
+      function initials(name) {
+        const parts = (name || "Seresafari Africa").trim().split(/\s+/);
+        return ((parts[0]?.[0] || "S") + (parts[1]?.[0] || "")).toUpperCase();
+      }
+
+      /* ════════════════════════════════════════════════════════
+     BOOT
+  ════════════════════════════════════════════════════════ */
+      async function boot() {
+        const slug = getSlug();
+        if (!slug) {
+          showNotFound("No post slug provided in the URL.");
+          return;
+        }
+        try {
+          const { data, error } = await window._sb
+            .from("blogs")
+            .select("*")
+            .eq("slug", slug)
+            .eq("is_active", true)
+            .eq("status", "published")
+            .single();
+          if (error || !data) {
+            showNotFound(
+              'Post "' + slug + '" was not found or is not published yet.',
+            );
+            return;
+          }
+          render(data);
+        } catch (e) {
+          showNotFound("Failed to load this post. Please try again later.");
+          console.error(e);
+        }
+      }
+
+      /* ════════════════════════════════════════════════════════
+     RENDER FULL DETAIL PAGE
+  ════════════════════════════════════════════════════════ */
+      function render(p) {
+        document.title = p.meta_title || p.title + " – Seresafari Africa";
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc)
+          metaDesc.setAttribute("content", p.meta_desc || p.excerpt || "");
+
+        const meta = CAT_META[p.category] || CAT_META.general;
+        const dateStr = fmtDate(p.published_at || p.created_at);
+        const readTime = estimateReadTime(p);
+        const tags = (p.tags || "")
+          .split(/\s+/)
+          .map((t) => t.trim())
+          .filter(Boolean);
+        const pageUrl = window.location.href.split("?")[0] + "?slug=" + p.slug;
+
+        const tagRowHTML = tags.length
+          ? '<div class="tag-row">' +
+            tags
+              .map(
+                (t) =>
+                  `<a class="tag-pill" href="../blog.html?search=${encodeURIComponent(t)}"><i class="fa-solid fa-hashtag"></i>${esc(t)}</a>`,
+              )
+              .join("") +
+            "</div>"
+          : "";
+
+        const html =
+          '<div class="detail-hero" style="margin-top:var(--nav-h);">' +
+          '<div class="detail-hero-bg" style="background-image:url(\'' +
+          esc(
+            p.hero_image ||
+              "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1600&q=85",
+          ) +
+          "')\"></div>" +
+          '<div class="detail-hero-content">' +
+          '<div class="detail-badge"><i class="fa-solid ' +
+          esc(meta.icon) +
+          '"></i> ' +
+          esc(meta.label) +
+          "</div>" +
+          '<h1 class="detail-title">' +
+          esc(p.title) +
+          "</h1>" +
+          '<div class="blog-meta-strip">' +
+          '<span class="blog-meta-item"><i class="fa-solid fa-user"></i>' +
+          esc(p.author_name || "Seresafari Africa") +
+          "</span>" +
+          '<span class="blog-meta-item"><i class="fa-regular fa-calendar"></i>' +
+          dateStr +
+          "</span>" +
+          '<span class="blog-meta-item"><i class="fa-regular fa-clock"></i>' +
+          readTime +
+          " min read</span>" +
+          "</div>" +
+          "</div>" +
+          "</div>" +
+          '<div class="detail-layout">' +
+          '<div class="detail-main">' +
+          '<div class="detail-block">' +
+          '<div class="article-body">' +
+          (p.content_html || "<p>" + esc(p.excerpt || "") + "</p>") +
+          "</div>" +
+          tagRowHTML +
+          '<div class="share-row">' +
+          '<span class="share-label">Share This Post</span>' +
+          '<a class="share-btn" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=' +
+          encodeURIComponent(pageUrl) +
+          '" title="Share on Facebook"><i class="fa-brands fa-facebook-f"></i></a>' +
+          '<a class="share-btn" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?url=' +
+          encodeURIComponent(pageUrl) +
+          "&text=" +
+          encodeURIComponent(p.title) +
+          '" title="Share on X"><i class="fa-brands fa-x-twitter"></i></a>' +
+          '<a class="share-btn" target="_blank" rel="noopener" href="https://wa.me/?text=' +
+          encodeURIComponent(p.title + " — " + pageUrl) +
+          '" title="Share on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>' +
+          '<button type="button" class="share-btn" onclick="copyLink(this,\'' +
+          esc(pageUrl).replace(/'/g, "\\'") +
+          '\')" title="Copy link"><i class="fa-solid fa-link"></i></button>' +
+          "</div>" +
+          '<div class="author-box">' +
+          '<div class="author-avatar">' +
+          initials(p.author_name) +
+          "</div>" +
+          "<div>" +
+          '<div class="author-name-line">Written By</div>' +
+          '<div class="author-name">' +
+          esc(p.author_name || "Seresafari Africa") +
+          "</div>" +
+          "</div>" +
+          "</div>" +
+          "</div>" +
+          '<div class="detail-block" id="relatedBlock" style="display:none">' +
+          '<div class="detail-block-title"><i class="fa-solid fa-layer-group"></i> More Like This</div>' +
+          '<div class="related-grid" id="relatedGrid"></div>' +
+          "</div>" +
+          "</div>" +
+          '<div class="detail-sidebar">' +
+          '<div class="price-box">' +
+          '<div class="price-box-title"><i class="fa-solid fa-paper-plane"></i> Ready For Your Own Safari?</div>' +
+          '<p style="font-size:.82rem;color:var(--text);line-height:1.65;margin-bottom:1.2rem;">Turn this story into your itinerary. Tell us your dates and we\'ll send a free, personalised quote within 24 hours.</p>' +
+          '<a href="../contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">' +
+          '<i class="fa-solid fa-paper-plane"></i> Enquire Now' +
+          "</a>" +
+          '<a href="https://wa.me/255690318461" target="_blank" rel="noopener" class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:.7rem;">' +
+          '<i class="fa-brands fa-whatsapp"></i> WhatsApp Us' +
+          "</a>" +
+          "</div>" +
+          '<div class="price-box">' +
+          '<div class="price-box-title"><i class="fa-solid fa-tags"></i> Categories</div>' +
+          '<div id="sidebarCatList"></div>' +
+          "</div>" +
+          '<div class="price-box" id="recentPostsBox" style="display:none">' +
+          '<div class="price-box-title"><i class="fa-solid fa-clock-rotate-left"></i> Recent Posts</div>' +
+          '<div id="recentPostsList"></div>' +
+          "</div>" +
+          '<div class="price-box">' +
+          '<div class="price-box-title"><i class="fa-solid fa-suitcase"></i> Explore Safaris</div>' +
+          '<div style="display:flex;flex-direction:column;gap:.6rem;">' +
+          '<a href="../tours.html" class="btn btn-outline" style="width:100%;justify-content:center;"><i class="fa-solid fa-suitcase"></i> Tour Packages</a>' +
+          '<a href="../kilimanjaro.html" class="btn btn-outline" style="width:100%;justify-content:center;"><i class="fa-solid fa-mountain"></i> Kilimanjaro Climbs</a>' +
+          '<a href="../zanzibar.html" class="btn btn-outline" style="width:100%;justify-content:center;"><i class="fa-solid fa-umbrella-beach"></i> Zanzibar Add-Ons</a>' +
+          "</div>" +
+          "</div>" +
+          "</div>" +
+          "</div>" +
+          '<section class="book-section" style="padding:6rem 8%;text-align:center;">' +
+          '<div class="book-bg"></div>' +
+          '<div class="book-inner">' +
+          '<div class="section-tag" style="justify-content:center;"><i class="fa-solid fa-paper-plane"></i> Inspired To Travel?</div>' +
+          '<h2 style="font-family:var(--ff-head);font-size:clamp(2rem,5vw,3.5rem);font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--white);margin-bottom:.8rem;">Plan Your <em style="color:var(--gold);font-style:normal;">Safari</em></h2>' +
+          '<p style="color:var(--text);max-width:520px;margin:0 auto 2rem;">Send us your preferred dates and group size and we\'ll confirm availability and a personalised quote within 24 hours — completely free, no obligation.</p>' +
+          '<div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">' +
+          '<a href="../contact.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Enquire Now</a>' +
+          '<a href="../blog.html" class="btn btn-outline"><i class="fa-solid fa-arrow-left"></i> All Articles</a>' +
+          "</div>" +
+          "</div>" +
+          "</section>" +
+          "<footer>" +
+          '<div class="footer-top">' +
+          '<div class="footer-brand">' +
+          '<a href="../../index.html" class="logo">SERE<span>SAFARI</span></a>' +
+          '<p class="footer-tagline">Creating unforgettable safari experiences in the heart of Africa. Expert guides. Hand-picked lodges. 100% locally owned.</p>' +
+          '<div class="footer-social">' +
+          '<a href="https://www.facebook.com/Seresafari/" target="_blank" rel="noopener" class="soc-btn"><i class="fa-brands fa-facebook-f"></i></a>' +
+          '<a href="#" class="soc-btn"><i class="fa-brands fa-instagram"></i></a>' +
+          '<a href="#" class="soc-btn"><i class="fa-brands fa-x-twitter"></i></a>' +
+          '<a href="#" class="soc-btn"><i class="fa-brands fa-youtube"></i></a>' +
+          "</div>" +
+          "</div>" +
+          '<div class="footer-col">' +
+          "<h4>Latest Posts</h4>" +
+          '<ul class="footer-links" id="footerBlogLinks">' +
+          '<li><a href="../blog.html"><i class="fa-solid fa-chevron-right"></i>All Articles</a></li>' +
+          "</ul>" +
+          "</div>" +
+          '<div class="footer-col">' +
+          "<h4>Destinations</h4>" +
+          '<ul class="footer-links">' +
+          '<li><a href="../destinations.html"><i class="fa-solid fa-chevron-right"></i>Serengeti</a></li>' +
+          '<li><a href="../destinations.html"><i class="fa-solid fa-chevron-right"></i>Ngorongoro</a></li>' +
+          '<li><a href="../destinations.html"><i class="fa-solid fa-chevron-right"></i>Tarangire</a></li>' +
+          '<li><a href="../kilimanjaro.html"><i class="fa-solid fa-chevron-right"></i>Kilimanjaro</a></li>' +
+          '<li><a href="../zanzibar.html"><i class="fa-solid fa-chevron-right"></i>Zanzibar</a></li>' +
+          "</ul>" +
+          "</div>" +
+          '<div class="footer-col">' +
+          "<h4>Contact</h4>" +
+          '<ul class="footer-contact">' +
+          '<li><span class="fc-ico"><i class="fa-solid fa-location-dot"></i></span>Arusha, Tanzania 23100</li>' +
+          '<li><span class="fc-ico"><i class="fa-solid fa-phone"></i></span><a href="tel:+255690318461" style="color:var(--text);">+255 690 318 461</a></li>' +
+          '<li><span class="fc-ico"><i class="fa-solid fa-envelope"></i></span><a href="mailto:info@seresafariafrica.com" style="color:var(--text);">info@seresafariafrica.com</a></li>' +
+          '<li><span class="fc-ico"><i class="fa-solid fa-clock"></i></span>Mon–Sat: 8AM–6PM EAT</li>' +
+          "</ul>" +
+          "</div>" +
+          '<div class="footer-badges">' +
+          '<div class="footer-badge-row">' +
+          '<p class="badge-label">We Accept</p>' +
+          '<div class="badge-items">' +
+          '<a href="https://shop.directpay.online/paymybills/SERESAFARIAFRICATOURSCOMPANYLIMITED" target="_blank" rel="noopener noreferrer">' +
+          '<img src="../../images/visa.png" alt="Visa accepted" class="payment-badge">' +
+          "</a>" +
+          "</div>" +
+          "</div>" +
+          '<div class="footer-badge-row">' +
+          '<p class="badge-label">Find Us On</p>' +
+          '<div class="badge-items">' +
+          '<a href="https://www.tripadvisor.com/Attraction_Review-g297913-d28413189-Reviews-Seresafari_Africa_Tours-Arusha_Arusha_Region.html" target="_blank" rel="noopener" class="review-badge"><img src="../../images/tripadvisor.svg" alt="TripAdvisor" class="platform-logo"></a>' +
+          '<a href="https://www.getyourguide.com/seresafari-africa-s583425/" target="_blank" rel="noopener" class="review-badge"><img src="../../images/getyourguide.svg" alt="GetYourGuide" class="platform-logo"></a>' +
+          '<a href="https://www.safarigo.com/operator/seresafari-africa-tours-3208" target="_blank" rel="noopener" class="review-badge"><img src="../../images/safarigo.png" alt="SafariGo" class="platform-logo"></a>' +
+          '<a href="https://tourist.com/p/15564/seresafari_africa" target="_blank" rel="noopener" class="review-badge"><img src="../../images/tourist.svg" alt="Tourist.com" class="platform-logo"></a>' +
+          '<a href="https://www.safaribookings.com/p7682" target="_blank" rel="noopener" class="review-badge"><img src="../../images/safaribookings.png" alt="SafariBookings" class="platform-logo"></a>' +
+          "</div>" +
+          "</div>" +
+          "</div>" +
+          "</div>" +
+          '<div class="footer-bot">' +
+          '<p>© 2026 Seresafari Africa. All Rights Reserved. · Web by <a href="https://pamtech.co.tz/" target="_blank" rel="noopener noreferrer">Pamtech</a></p>' +
+          '<div class="hakuna">Hakuna Matata <i class="fa-solid fa-earth-africa"></i></div>' +
+          '<p><a href="../privacy-policy.html">Privacy Policy</a> · <a href="../terms-of-service.html">Terms of Service</a> · <a href="../blog.html">Travel Insights</a></p>' +
+          "</div>" +
+          "</footer>";
+
+        document.getElementById("pageContent").innerHTML = html;
+
+        renderSidebarCategories(p.category);
+        loadRecentPosts(p.id);
+        loadRelatedPosts(p);
+
+        if (typeof initReveal === "function") initReveal();
+      }
+
+      /* ════════════════════════════════════════════════════════
+     COPY LINK
+  ════════════════════════════════════════════════════════ */
+      function copyLink(btn, url) {
+        navigator.clipboard
+          .writeText(url)
+          .then(() => {
+            btn.classList.add("copied");
+            const icon = btn.querySelector("i");
+            const orig = icon.className;
+            icon.className = "fa-solid fa-check";
+            setTimeout(() => {
+              icon.className = orig;
+              btn.classList.remove("copied");
+            }, 1800);
+          })
+          .catch(() => {});
+      }
+
+      /* ════════════════════════════════════════════════════════
+     SIDEBAR — CATEGORY LIST (from CAT_META, static)
+  ════════════════════════════════════════════════════════ */
+      function renderSidebarCategories(activeCat) {
+        const wrap = document.getElementById("sidebarCatList");
+        if (!wrap) return;
+        wrap.innerHTML = Object.keys(CAT_META)
+          .map((key) => {
+            const m = CAT_META[key];
+            const active = key === activeCat;
+            return `<a class="sidebar-cat-link" style="${active ? "color:var(--gold);font-weight:600" : ""}" href="../blog.html?category=${key}">
+          <span><i class="fa-solid ${m.icon}"></i>${esc(m.label)}</span>
+          <i class="fa-solid fa-chevron-right" style="font-size:.6rem;color:var(--text)"></i>
+        </a>`;
+          })
+          .join("");
+      }
+
+      /* ════════════════════════════════════════════════════════
+     SIDEBAR — RECENT POSTS
+  ════════════════════════════════════════════════════════ */
+      async function loadRecentPosts(currentId) {
+        try {
+          const { data, error } = await window._sb
+            .from("blogs")
+            .select("id,title,slug,hero_image,published_at,created_at")
+            .eq("is_active", true)
+            .eq("status", "published")
+            .neq("id", currentId)
+            .order("published_at", { ascending: false, nullsFirst: false })
+            .limit(4);
+          if (error || !data || !data.length) return;
+
+          const box = document.getElementById("recentPostsBox");
+          const list = document.getElementById("recentPostsList");
+          list.innerHTML = data
+            .map(
+              (post) => `
+        <a class="sidebar-post-item" href="blog-detail.html?slug=${encodeURIComponent(post.slug)}">
+          <img class="sidebar-post-img" src="${esc(post.hero_image || "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=200&q=70")}"
+            alt="" onerror="this.src='https://images.unsplash.com/photo-1516426122078-c23e76319801?w=200&q=70'"/>
+          <div>
+            <div class="sidebar-post-title">${esc(post.title)}</div>
+            <div class="sidebar-post-date">${fmtDate(post.published_at || post.created_at)}</div>
+          </div>
+        </a>`,
+            )
+            .join("");
+          box.style.display = "block";
+
+          const footerUl = document.getElementById("footerBlogLinks");
+          if (footerUl) {
+            footerUl.innerHTML =
+              '<li><a href="../blog.html"><i class="fa-solid fa-chevron-right"></i>All Articles</a></li>' +
+              data
+                .map(
+                  (post) =>
+                    `<li><a href="blog-detail.html?slug=${encodeURIComponent(post.slug)}"><i class="fa-solid fa-chevron-right"></i>${esc(post.title)}</a></li>`,
+                )
+                .join("");
+          }
+        } catch (e) {
+          console.warn("Could not load recent posts", e);
+        }
+      }
+
+      /* ════════════════════════════════════════════════════════
+     RELATED POSTS (same category)
+  ════════════════════════════════════════════════════════ */
+      async function loadRelatedPosts(p) {
+        try {
+          const { data, error } = await window._sb
+            .from("blogs")
+            .select("id,title,slug,hero_image,category,published_at,created_at")
+            .eq("is_active", true)
+            .eq("status", "published")
+            .eq("category", p.category || "general")
+            .neq("id", p.id)
+            .order("published_at", { ascending: false, nullsFirst: false })
+            .limit(3);
+          if (error || !data || !data.length) return;
+
+          const meta = CAT_META[p.category] || CAT_META.general;
+          const grid = document.getElementById("relatedGrid");
+          grid.innerHTML = data
+            .map(
+              (post) => `
+        <a class="related-card" href="blog-detail.html?slug=${encodeURIComponent(post.slug)}">
+          <div class="related-img">
+            <img src="${esc(post.hero_image || "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=400&q=75")}"
+              alt="${esc(post.title)}" loading="lazy"
+              onerror="this.src='https://images.unsplash.com/photo-1516426122078-c23e76319801?w=400&q=75'"/>
+          </div>
+          <div class="related-body">
+            <div class="related-cat"><i class="fa-solid ${meta.icon}"></i> ${esc(meta.label)}</div>
+            <div class="related-title">${esc(post.title)}</div>
+          </div>
+        </a>`,
+            )
+            .join("");
+          document.getElementById("relatedBlock").style.display = "block";
+        } catch (e) {
+          console.warn("Could not load related posts", e);
+        }
+      }
+
+      /* ════════════════════════════════════════════════════════
+     NOT FOUND STATE
+  ════════════════════════════════════════════════════════ */
+      function showNotFound(msg) {
+        document.title = "Post Not Found – Seresafari Africa";
+        document.getElementById("pageContent").innerHTML =
+          '<div style="margin-top:var(--nav-h);background:var(--dark2);min-height:80vh">' +
+          '<div class="not-found">' +
+          '<i class="fa-solid fa-feather-pointed"></i>' +
+          "<h2>Post Not Found</h2>" +
+          "<p>" +
+          esc(msg) +
+          "</p>" +
+          '<a href="../blog.html" class="btn btn-primary"><i class="fa-solid fa-arrow-left"></i> Back to All Articles</a>' +
+          "</div>" +
+          "</div>" +
+          '<footer><div class="footer-bot" style="padding:1.4rem 8%">' +
+          "<p>© 2026 Seresafari Africa. All Rights Reserved.</p>" +
+          '<div class="hakuna">Hakuna Matata <i class="fa-solid fa-earth-africa"></i></div>' +
+          "</div></footer>";
+      }
+
+      boot();
+    </script>
+    <script src="../../js/content-protection.js"></script>
+  </body>
+</html>

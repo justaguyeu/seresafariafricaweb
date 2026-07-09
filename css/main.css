@@ -2136,6 +2136,15 @@ body.cursor-lg #cursor-ring {
   margin: 0 auto 2.5rem;
 }
 
+.book-inner img {
+  font-size: 1rem;
+  color: var(--text);
+  max-width: 520px;
+  margin: 0 auto 2.5rem;
+  width: auto;
+  height: 250px;
+}
+
 .book-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
