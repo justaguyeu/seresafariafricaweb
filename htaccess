@@ -1,0 +1,28 @@
+# .htaccess — Place at the root of your site
+# Use this if hosted on cPanel, Apache, or shared hosting (NOT Netlify/Vercel)
+
+Options -Indexes
+RewriteEngine On
+
+# Force www (optional — remove if not needed)
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# Allow the homepage itself through
+RewriteRule ^$ - [L]
+
+# Redirect /index.html → /
+RewriteRule ^index\.html$ / [R=301,L]
+
+# Redirect /admin/* → homepage
+RewriteRule ^admin/.*$ / [R=301,L]
+
+# Redirect /pages/* → homepage  
+RewriteRule ^pages/.*$ / [R=301,L]
+
+# Redirect any .html file → homepage
+RewriteRule ^.*\.html$ / [R=301,L]
+
+# Redirect any other non-root path → homepage
+RewriteCond %{REQUEST_URI} !^/$
+RewriteRule ^(.+)$ / [R=301,L]
