@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /pages/tour-packages/tour-detail copy*
+Disallow: /pages/gallery copy.html
+Disallow: /pages/tours copy.html
+
+Sitemap: https://www.seresafariafrica.com/sitemap.xml
