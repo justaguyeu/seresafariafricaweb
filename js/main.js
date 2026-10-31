@@ -2,28 +2,6 @@
    Seresafari Africa — MAIN JAVASCRIPT
    ============================================================ */
 
-/* ── CURSOR ─────────────────────────────────────────────── */
-(function initCursor() {
-  const dot = document.getElementById('cursor');
-  const ring = document.getElementById('cursor-ring');
-  if (!dot || !ring) return;
-  let mx = 0, my = 0, rx = 0, ry = 0;
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-  });
-  (function animRing() {
-    rx += (mx - rx) * .12; ry += (my - ry) * .12;
-    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-    requestAnimationFrame(animRing);
-  })();
-  const hoverEls = 'a,button,[data-hover],.tour-card,.dest-card,.dest-full-card,.test-card,.insight-card,.gal-item,.exp-tab,.kili-route,.faq-q,.c-info-item,.team-card,.val-card,.mvv-card';
-  document.querySelectorAll(hoverEls).forEach(el => {
-    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-lg'));
-    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-lg'));
-  });
-})();
-
 /* ── NAV SCROLL + ACTIVE ─────────────────────────────────── */
 (function initNav() {
   const nav = document.getElementById('nav');

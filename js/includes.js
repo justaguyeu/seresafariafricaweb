@@ -171,22 +171,6 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     }
-
-    /* Custom cursor (desktop only) */
-    var cursor     = document.getElementById('cursor');
-    var cursorRing = document.getElementById('cursor-ring');
-    if (cursor && cursorRing && window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
-      document.addEventListener('mousemove', function (e) {
-        cursor.style.left     = e.clientX + 'px';
-        cursor.style.top      = e.clientY + 'px';
-        cursorRing.style.left = e.clientX + 'px';
-        cursorRing.style.top  = e.clientY + 'px';
-      });
-      document.querySelectorAll('a, button, .dest-card, .tour-card, .gal-item').forEach(function (el) {
-        el.addEventListener('mouseenter', function () { document.body.classList.add('cursor-lg'); });
-        el.addEventListener('mouseleave', function () { document.body.classList.remove('cursor-lg'); });
-      });
-    }
   }
 
   /* ── 6. ORCHESTRATE ─────────────────────────────────────────── */
