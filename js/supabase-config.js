@@ -15,8 +15,8 @@
       FROM auth.users WHERE email = 'your@email.com';
    ============================================================ */
 
-const _SUPABASE_URL  = 'https://draawicpjwcxxumetvnj.supabase.co';
-const _SUPABASE_KEY  = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRyYWF3aWNwandjeHh1bWV0dm5qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMyNDE4NDEsImV4cCI6MjA3ODgxNzg0MX0.YfMMDmSah-A1y-AGCofKNDuoh-0TGaV371xdeAgDVAo';
+const _SUPABASE_URL  = 'https://qabochjvuvtdxzlawags.supabase.co';
+const _SUPABASE_KEY  = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFhYm9jaGp2dXZ0ZHh6bGF3YWdzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI0ODc2MDQsImV4cCI6MjA5ODA2MzYwNH0.6pt5uX1iBNy6vQWmqCcaP8EEfSUJtzqV8emvWXERoOM';
 
 (function () {
   if (typeof supabase === 'undefined') {
